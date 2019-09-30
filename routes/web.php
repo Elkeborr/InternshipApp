@@ -16,14 +16,7 @@ Route::get('/', function () {
 });
 
 /*COMPANIES*/
-Route::get('/companies', function () {
-    $data = [
-        'title' => 'All companies',
-        ];
-    $companie = \DB::table('companies')->get();
-
-    return view('companies', $data, $companie);
-});
+Route::get('/companies', 'CompanyController@index');
 
 Route::get('/login', function () {
     return view('login');
