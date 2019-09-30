@@ -20,8 +20,9 @@ Route::get('/companies', function () {
     $data = [
         'title' => 'All companies',
         ];
+    $companie = \DB::table('companies')->get();
 
-    return view('companies', $data);
+    return view('companies', $data, $companie);
 });
 
 Route::get('/login', function () {
