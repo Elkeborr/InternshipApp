@@ -8,21 +8,25 @@ class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('name');
+            $table->string('phoneNumber');
+            $table->string('email');
+            $table->string('employees');
+            $table->string('street');
+            $table->string('streetNumber');
+            $table->string('city');
+            $table->string('postalCode');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
