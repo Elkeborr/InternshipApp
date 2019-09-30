@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*COMPANIES*/
+Route::get('/companies', function () {
+    $data = [
+        'title' => 'All companies',
+        ];
+
+    return view('companies', $data);
+});
