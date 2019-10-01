@@ -18,10 +18,6 @@ Route::get('/', function () {
 /*COMPANIES*/
 Route::get('/companies', 'CompanyController@index');
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
+/* LOGIN & REGISTER */
+Route::get('/login', 'LoginController@index');
+Route::get('/register', 'RegisterController@index');
