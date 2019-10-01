@@ -15,6 +15,7 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
+            $table->text('bio');
             $table->string('phoneNumber');
             $table->string('email');
             $table->string('employees');
