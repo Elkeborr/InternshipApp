@@ -21,3 +21,12 @@ Route::get('/companies', 'CompanyController@index');
 /* LOGIN & REGISTER */
 Route::get('/login', 'LoginController@index');
 Route::get('/register', 'RegisterController@index');
+
+/*Users */
+Route::get('/users', function () {
+    $data = [
+        'users' => ['Angelique', 'Elke', 'Robin', 'Wesley'],
+    ];
+
+    return view('users/users', $data);
+});
