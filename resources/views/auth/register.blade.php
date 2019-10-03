@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="left">
+            <h2>Looking for<br>an <span>intern?</span></h2>
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Signup for companies') }}</div>
@@ -22,7 +25,7 @@
                                 @enderror
                             </div>
                         </div>
-`
+
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">

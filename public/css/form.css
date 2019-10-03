@@ -41,4 +41,37 @@ button {
     padding: 5px 30px;
     color: white;
     border: none;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+button:hover {
+    filter: grayscale(.2);
+}
+
+input#remember {
+    width: 30px;
+}
+
+.col-md-offset-4 a {
+    background: #FD4A29;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+.col-md-offset-4 a:hover {
+    filter: grayscale(.2);
+}
+
+a.btn-link {
+    margin-left: 10px;
 }
