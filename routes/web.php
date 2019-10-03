@@ -24,9 +24,8 @@ Route::get('/register', 'RegisterController@index');
 
 /*Users */
 Route::get('/users', function () {
-    $data = [
-        'users' => ['Angelique', 'Elke', 'Robin', 'Wesley'],
-    ];
+    $user = \DB::table('users')->get();
+    dd($user);
 
     return view('users/users', $data);
 });
