@@ -12,11 +12,14 @@ class StudentController extends Controller
     }
 
     //op basis van id, opzoek gaan naar record
-    public function show(\App\Student $student)
+    public function show($student)
     {
+        $data['student'] = \App\Student::where('id', $student)->first();
         //record doorgeven
-        $student = $student;
+        //$student = $student;
         //$student = \DB::table('students')->where('id', $student)->first();
-        dd($student);
+        //dd($student);
+
+        return view('students/show', $data);
     }
 }
