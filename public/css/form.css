@@ -1,0 +1,44 @@
+.left {
+    height: 100vh;
+    width: 50%;
+    background: #DCF0FB;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 { font-size: 80px; }
+h2 span { color: #FD4A29; }
+
+.col-md-8 {
+    width: 50%;
+    height: 100vh;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-header {
+    color: #4640DE;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input {
+    border: none;
+    background: #EEE;
+    border-radius: 5px;
+    width: 300px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #FD4A29;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    border: none;
+}

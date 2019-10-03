@@ -13,13 +13,13 @@ h1, p {
 }
 
 .logo {
-    margin-left: 100px;
-    margin-top: 50px;
+    margin-left: 40px;
+    margin-top: 40px;
     position: absolute;
 }
 
 .logo img {
-    height: 70px;
+    height: 40px;
     width: auto;
 }
 
