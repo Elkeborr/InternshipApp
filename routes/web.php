@@ -23,9 +23,5 @@ Route::get('/login', 'LoginController@index');
 Route::get('/register', 'RegisterController@index');
 
 /*Users */
-Route::get('/users', function () {
-    $user = \DB::table('users')->get();
-    dd($user);
-
-    return view('users/users', $data);
-});
+Route::get('/users', 'StudentController@index');
+Route::get('/students/{student}', 'StudentController@show');
