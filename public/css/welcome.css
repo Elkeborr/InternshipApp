@@ -1,0 +1,78 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+h1, p {
+    color: #4640DE;
+    margin: 0;
+}
+
+.logo {
+    margin-left: 100px;
+    margin-top: 50px;
+    position: absolute;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.links > a {
+    color: white;
+    padding: 5px 50px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    text-decoration: none;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+.m-b-md {
+    margin-bottom: 100px;
+}
+
+.company { background: #4640DE; margin-right: 50px; }
+.student { background: #FD4A29; }
+
+.company:hover, .student:hover {
+    /* opacity: .8; */
+    filter: grayscale(.2);
+}
