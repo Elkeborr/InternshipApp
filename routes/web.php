@@ -25,3 +25,10 @@ Route::get('/register', 'RegisterController@index');
 /*Users */
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
