@@ -12,15 +12,37 @@ class StudentsSeeder extends Seeder
     {
         //zonder factory
         $student = new \App\Student();
-        //opvullen met tabellen in de databank
         $student->name = 'Angelique';
         $student->lastname = 'Buijzen';
-        $student->bio = 'hallo';
+        $student->bio = 'Hallo ik ben Angelique';
         $student->email = 'angelique@student.be';
         $student->password = bcrypt('ditIsEenWachtwoord');
         //student opslaan, erft over van model Student.php
-
         $student->save();
+
+        $student2 = new \App\Student();
+        $student2->name = 'Elke';
+        $student2->lastname = 'Borreij';
+        $student2->bio = 'Hallo ik ben Elke!';
+        $student2->email = 'elkee@student.be';
+        $student2->password = bcrypt('ditIsEenWachtwoord');
+        $student2->save();
+
+        $student3 = new \App\Student();
+        $student3->name = 'Robin';
+        $student3->lastname = 'Van Buggenhout';
+        $student3->bio = 'Hallo ik ben Robin';
+        $student3->email = 'robin@student.be';
+        $student3->password = bcrypt('ditIsEenWachtwoord');
+        $student3->save();
+
+        $student4 = new \App\Student();
+        $student4->name = 'Wesley';
+        $student4->lastname = 'Wke';
+        $student4->bio = 'Hallo ik ben Wesley';
+        $student4->email = 'wesley@student.be';
+        $student4->password = bcrypt('ditIsEenWachtwoord');
+        $student4->save();
 
         //met factory = automatisch neppe students maken
         //methode wordt 50x herhaald = 50 students gemaakt
