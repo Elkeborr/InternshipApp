@@ -6,7 +6,7 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $data['students'] = \DB::table('students')->get();
+        $data['students'] = \App\Student::get();
 
         return view('students/index', $data);
     }

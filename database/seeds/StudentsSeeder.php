@@ -11,15 +11,19 @@ class StudentsSeeder extends Seeder
     public function run()
     {
         //zonder factory
-        //$student = new \App\Student();
+        $student = new \App\Student();
         //opvullen met tabellen in de databank
-        //$student->name = 'Angelique';
-        //$student->bio = 'hallo';
+        $student->name = 'Angelique';
+        $student->lastname = 'Buijzen';
+        $student->bio = 'hallo';
+        $student->email = 'angelique@student.be';
+        $student->password = bcrypt('ditIsEenWachtwoord');
         //student opslaan, erft over van model Student.php
-        //$student->save();
+
+        $student->save();
 
         //met factory = automatisch neppe students maken
         //methode wordt 50x herhaald = 50 students gemaakt
-        factory(\App\Student::class, 50)->create();
+        //factory(\App\Student::class, 50)->create();
     }
 }
