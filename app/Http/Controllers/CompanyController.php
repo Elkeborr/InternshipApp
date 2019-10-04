@@ -13,7 +13,7 @@ class CompanyController extends Controller
 
     public function show($company)
     {
-        $data['company'] = \App\Company::where('id', $company)->first();
+        $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
 
         return view('companies/show', $data);
     }
