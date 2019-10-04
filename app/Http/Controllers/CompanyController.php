@@ -10,4 +10,11 @@ class CompanyController extends Controller
 
         return view('companies/index', $data);
     }
+
+    public function show($company)
+    {
+        $data['company'] = \App\Company::where('id', $company)->first();
+
+        return view('companies/show', $data);
+    }
 }

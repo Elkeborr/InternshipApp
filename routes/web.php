@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 /*COMPANIES*/
 Route::get('/companies', 'CompanyController@index');
+Route::get('/companies/{company}', 'CompanyController@show');
 
 /* LOGIN & REGISTER */
 Route::get('/login', 'LoginController@index');
