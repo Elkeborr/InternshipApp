@@ -30,6 +30,26 @@ Route::get('/students/{student}', 'StudentController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/internships', function () {
+    $data = [
+        'title' => 'Internships',
+        'internships' => [
+            [
+                'function' => 'Front-End Developer',
+                'name' => 'Cronos',
+                'city' => 'Antwerpen',
+                'discription' => 'lorem ipsum dolor sit amet...',
+            ], [
+                'function' => 'Back-End Developer',
+                'name' => 'Apple',
+                'city' => 'Brussel',
+                'discription' => 'lorem ipsum dolor sit amet...',
+            ],
+        ],
+    ];
+
+    return view('internships', $data);
+});
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
