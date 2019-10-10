@@ -69,6 +69,12 @@
                                 <a href="{{url('/redirect')}}" class="btn btn-primary">Login with Facebook</a>
                             </div>
                         </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="col-md-offset-4">
+                                <a href="{{url('/register')}}" class="btn btn-primary">No account yet? Signup here</a>
+                            </div>
+                        </div>
                         
                     </form>
                 </div>

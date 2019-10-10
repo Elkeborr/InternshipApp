@@ -39,7 +39,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <input id="password" placehdoler="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <input id="password-confirm" placehdoler="Password verification" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" placeholder="Password verification" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
