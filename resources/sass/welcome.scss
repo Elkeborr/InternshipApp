@@ -1,0 +1,89 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+html, body {
+    background-color: $white;
+    color: $dark-grey;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+h1, p {
+    color: $blue;
+    margin: 0;
+}
+
+.logo {
+    margin-left: 40px;
+    margin-top: 40px;
+    position: absolute;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.links > a {
+    color: $white;
+    padding: 5px 50px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    text-decoration: none;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+.m-b-md {
+    margin-bottom: 100px;
+}
+
+.company { background: $blue; margin-right: 50px; }
+.student { background: $orange; }
+
+.company:hover, .student:hover {
+
+    filter: grayscale(.2);
+}

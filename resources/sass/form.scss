@@ -1,0 +1,88 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.left {
+    height: 100vh;
+    width: 50%;
+    background: #DCF0FB;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 { font-size: 80px; }
+h2 span { color: $orange; }
+
+.col-md-8 {
+    width: 50%;
+    height: 100vh;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-header {
+    color: $blue;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input {
+    border: none;
+    background: #EEE;
+    border-radius: 5px;
+    width: 300px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    background: $orange;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    border: none;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+button:hover {
+    filter: grayscale(.2);
+}
+
+input#remember {
+    width: 30px;
+}
+
+.col-md-offset-4 a {
+    background: $orange;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+.col-md-offset-4 a:hover {
+    filter: grayscale(.2);
+}
+
+a.btn-link {
+    margin-left: 10px;
+}
