@@ -43,7 +43,7 @@ class CompanyController extends Controller
         $company->password = \Hash::make($request->input('password'));
         $company->save();
 
-        return redirect('/home');
+        return view('companies/register');
     }
 
     public function login()
