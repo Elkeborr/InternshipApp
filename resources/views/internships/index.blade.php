@@ -52,7 +52,7 @@
         <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
         <p>{{ $internship->internship_discription }}</p>
         <hr class="companies__line">
-        <p>{{ $internship-> company_city}}</p>
+        <p>{{ $internship->company_city}}</p>
         <p>{{ $internship->available_spots }} available</p>
     </div>
     @endforeach
