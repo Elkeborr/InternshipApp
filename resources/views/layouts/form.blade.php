@@ -17,13 +17,9 @@
 </head>
 <body>
     <div id="app">
-        <div class="logo">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo">
-        </div>
-  
-        <main class="py-4">
+      
             @yield('content')
-        </main>
+     
     </div>
 </body>
 </html>

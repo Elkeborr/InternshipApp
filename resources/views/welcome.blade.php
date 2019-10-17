@@ -20,7 +20,7 @@
                     <p>Are you a company or a student?</p>
                 </div>
                 <div class="links">
-                    <a href="{{ url('/login') }}" class="company">Company</a>
+                    <a href="{{ url('/companies/login') }}" class="company">Company</a>
                     <a href="{{ url('/redirect') }}" class="student">Student</a>
                 </div>      
             </div>

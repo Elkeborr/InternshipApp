@@ -10644,14 +10644,21 @@ a.text-dark:focus {
   }
 }
 
+.logo {
+  margin-left: 40px;
+  margin-top: 40px;
+  position: absolute;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
 .left {
   height: 100vh;
-  width: 50%;
   background: #DCF0FB;
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: "Comfortaa", cursive;
 }
 
 h2 {
@@ -10662,31 +10669,30 @@ h2 span {
   color: #FD4A29;
 }
 
-.col-md-8 {
-  width: 50%;
-  height: 100vh;
-  float: right;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.left h2 {
+  padding-top: 35%;
+  padding-left: 10%;
 }
 
-.card-header {
+.form {
+  padding-top: 10%;
+  padding-left: 20%;
+}
+
+.form-title {
+  font-family: "Comfortaa", cursive;
   color: #4640DE;
-  font-size: 18px;
-  margin-bottom: 10px;
+  padding-bottom: 5%;
 }
 
-input {
+.form-body input {
   border: none;
-  background: #EEE;
-  border-radius: 5px;
-  width: 300px;
+  background: #F6F7FB;
   padding: 5px 10px;
   margin-bottom: 15px;
 }
 
-button {
+.form-body button {
   background: #FD4A29;
   border-radius: 5px;
   padding: 5px 30px;
@@ -10698,34 +10704,26 @@ button {
   -webkit-transition: all 0.2s;
 }
 
-button:hover {
+.form-body button:hover {
   -webkit-filter: grayscale(0.2);
           filter: grayscale(0.2);
 }
 
-input#remember {
+.form-body input#remember {
   width: 30px;
-}
-
-.col-md-offset-4 a {
-  background: #FD4A29;
-  border-radius: 5px;
-  padding: 5px 30px;
-  color: white;
-  border: none;
-  text-decoration: none;
-  transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-}
-
-.col-md-offset-4 a:hover {
-  -webkit-filter: grayscale(0.2);
-          filter: grayscale(0.2);
 }
 
 a.btn-link {
   margin-left: 10px;
+}
+
+.form-body label {
+  font-size: 0.9em;
+  font-family: "Open Sans", sans-serif;
+  color: #848484;
+}
+
+.form-group {
+  margin-bottom: 0;
 }
 

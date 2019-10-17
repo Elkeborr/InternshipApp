@@ -1,39 +1,70 @@
 <?php
 
-namespace App;
+namespace App\Http\Controllers\Auth;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
-class User extends Authenticatable
+class RegisterController extends Controller
 {
-    use Notifiable;
+    /*
+    |--------------------------------------------------------------------------
+    | Register Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users as well as their
+    | validation and creation. By default this controller uses a trait to
+    | provide this functionality without requiring any additional code.
+    |
+    */
+    use RegistersUsers;
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/home';
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * Create a new controller instance.
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
     /**
-     * The attributes that should be hidden for arrays.
+     * Get a validator for an incoming registration request.
      *
-     * @var array
+     * @param array $data
+     *
+     * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
 
     /**
-     * The attributes that should be cast to native types.
+     * Create a new user instance after a valid registration.
      *
-     * @var array
+     * @param array $data
+     *
+     * @return \App\User
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+    }
 }
