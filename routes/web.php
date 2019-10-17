@@ -29,6 +29,9 @@ Route::get('/students/{student}', 'StudentController@show');
 
 Auth::routes();
 
+/* Apply */
+Route::get('/internships/{internship}/apply', 'InternshipController@apply');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/internships', 'InternshipController@index');
 Route::get('/internships/{internship}', 'InternshipController@show');

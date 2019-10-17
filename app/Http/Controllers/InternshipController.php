@@ -18,4 +18,10 @@ class InternshipController extends Controller
         // dd($internship);
         return view('internships/show', $data);
     }
+
+    public function apply(\App\Internship $internship)
+    {
+        $data['internship'] = $internship;
+        return view('internships/apply', $data);
+    }
 }
