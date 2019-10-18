@@ -1,0 +1,95 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+//logo
+.logo {
+    margin-left: 40px;
+    margin-top: 40px;
+    position: absolute;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+//left
+.left {
+    height: 100vh;
+    background: $lightblue;
+    font-family: $title-font-family;
+}
+
+h2 { font-size: 80px; }
+h2 span { color: $orange; }
+
+.left h2{
+    padding-top: 35%;
+    padding-left: 10%;
+}
+
+//form
+
+.form{
+    padding-top:10%;
+   padding-left:20%;
+
+}
+
+.form-title{
+    font-family: $title-font-family;
+    color:$blue;
+    padding-bottom: 5%;
+
+}
+
+.form-body input {
+    border: none;
+    background: $light-grey;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+.form-body button {
+    background: $orange;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    border: none;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+.form-body button:hover {
+    filter: grayscale(.2);
+}
+
+.form-body input#remember {
+    width: 30px;
+}
+
+a.btn-link {
+    margin-left: 10px;
+}
+
+.form-body label{
+    font-size: 0.9em;
+    font-family: $text-font-family;
+    color:$dark-grey;
+}
+
+.form-group{
+    margin-bottom:0;
+}
+

@@ -1,3 +1,6 @@
+@extends('layouts/app')
+
+@section('content')
 <h1>{{$company->name}}</h1>
 <p>{{$company->bio}}</p>
 <h3>Info</h3>
@@ -14,3 +17,4 @@
 @foreach($company->reviews as $review)
 <p>{{$review->review}}</p>
 @endforeach
+@endsection

@@ -1,8 +1,62 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body {
+    font-family:$text-font-family;
+    color: $black;
+  }
+
+h1,h2,h3,h4{
+    font-family:$title-font-family;
+}
+
+.top{
+    background-color:$lightblue ;
+}
+.justify-content-center a {
+    color:$dark-grey;
+}
+
+.container {
+    margin-top:30px;
+
+}
+
+/*-----COMPANIES-----*/
+.companies{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10%;
+}
+.companies__detail{
+    padding :10%;
+    background-color:$light-grey;
+}
+.companies__detail a{
+    text-decoration: none;
+    color:$black;
+    font-family:$title-font-family;
+}
+.companies__detail a:hover{
+    text-decoration: underline $orange;
+    color:$blue;
+}
+.companies__detail p{
+    color:$dark-grey;
+    font-size: 0.7em;
+ 
+}
+.companies__line{
+    border-top: 1.2px solid ;
+    color:$blue;
+}
+
+/*-----COMPANIES-DETAIL-----*/
+
