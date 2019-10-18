@@ -10660,10 +10660,8 @@ h4 {
   background-color: #DCF0FB;
 }
 
-.navbar-nav.navbar-center {
-  position: absolute;
-  left: 50%;
-  transform: translatex(-50%);
+.justify-content-center a {
+  color: #848484;
 }
 
 .container {

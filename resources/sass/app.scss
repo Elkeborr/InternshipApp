@@ -20,11 +20,8 @@ h1,h2,h3,h4{
 .top{
     background-color:$lightblue ;
 }
-
-.navbar-nav.navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
+.justify-content-center a {
+    color:$dark-grey;
 }
 
 .container {
