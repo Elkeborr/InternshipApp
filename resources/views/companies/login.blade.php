@@ -12,47 +12,27 @@
             <div class="form">
                 <div class="form-title">{{ __('Login for companies') }}</div>
                 <div class="form-body">
-                    <form method="POST" action="">
-                        @csrf
-
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                            <label for="email">Email</label>
-                                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                            <label for="password">Password</label>
-                                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row ">
+                <form method="post" action="">
+               
+        {{csrf_field()}}
+        @if ($flash = session('message'))
+<div class="alert alert-sucess">{{$flash}}</div>
+@endif
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <input name= "email"type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+            <input name= "password" type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label" for="remember">Remember me</label>
+        </div>
+              <div class="form-group row ">
                             <div class="col-md-5 ">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
@@ -79,6 +59,7 @@
                         </div>
                         
                     </form>
+
                 </div>
             </div>
         </div>

@@ -2,26 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\http\request;
+use Illuminate\Http\Request;
+use Auth;
 
 class CompanyController extends Controller
 {
-    /* public function create()
-     {
-         return view('register/index');
-     }*/
-
-    /*  public function store(Request  $request)
-      {
-          $company = new \app\Company();
-          $company->name = $request->input('name');
-          $company->email = $request->input('email');
-          $company->password = $request->input('password');
-          $company->save();
-
-          return redirect('/companies');
-      }*/
-
     public function register()
     {
         return view('companies/register');
@@ -29,6 +14,11 @@ class CompanyController extends Controller
 
     public function handleRegister(Request $request)
     {
+        $validation = $request->validate([
+              'email' => ['unique:companies,email'],
+              'password' => ['required', 'string', 'min:8', 'confirmed'],
+          ]);
+        $request->flash();
         $company = new \App\Company();
         $company->name = $request->input('name');
         $company->email = $request->input('email');
@@ -43,7 +33,9 @@ class CompanyController extends Controller
         $company->password = \Hash::make($request->input('password'));
         $company->save();
 
-        return view('companies/register');
+        $request->session()->flash('message', 'Company registration successful!');
+
+        return redirect('home');
     }
 
     public function login()
@@ -54,9 +46,15 @@ class CompanyController extends Controller
     public function handleLogin(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
-        if (\Auth::attempt($credentials)) {
-            return view('companies/login');
+        $request->flash();
+        if (Auth::attempt($credentials)) {
+            $request->session()->flash('message', 'Login successful!');
+
+            return redirect('home');
         }
+        $request->session()->flash('message', 'Login Failed, try again');
+
+        return view('companies/login');
     }
 
     public function index()

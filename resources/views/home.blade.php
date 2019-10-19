@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Dashboard
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,7 +16,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @if ($flash = session('message'))
+<div class="alert alert-sucess">{{$flash}}</div>
+@endif
                 </div>
             </div>
         </div>

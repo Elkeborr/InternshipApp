@@ -1,5 +1,9 @@
 @extends('layouts/app')
 
+@section('title')
+{{$company->name}}
+@endsection
+
 @section('content')
 <h1>{{$company->name}}</h1>
 <p>{{$company->bio}}</p>
