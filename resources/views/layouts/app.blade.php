@@ -29,12 +29,13 @@
 </div>
     <div class="collapse navbar-collapse justify-content-center order-2" id="collapsibleNavbar">
         <a class="nav-link active nav-item " href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item  nav-link" href="{{ url('/') }}">Internships</a>
+        <a class="nav-item  nav-link" href="{{ url('/internships') }}">Internships</a>
         <a class="nav-item  nav-link" href="{{ url('/companies') }}">Companies</a> 
     </div>
     <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="">username</a></span>
 </nav>
 </div>
+    @yield('hero-image')
         <main class="container">
             @yield('content')
         </main>

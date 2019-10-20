@@ -17,6 +17,7 @@ class StudentsSeeder extends Seeder
         $student->bio = 'Hallo ik ben Angelique';
         $student->email = 'angelique@student.be';
         $student->password = bcrypt('ditIsEenWachtwoord');
+        $student->type = 'student';
         //student opslaan, erft over van model Student.php
         $student->save();
 
@@ -26,6 +27,7 @@ class StudentsSeeder extends Seeder
         $student2->bio = 'Hallo ik ben Elke!';
         $student2->email = 'elkee@student.be';
         $student2->password = bcrypt('ditIsEenWachtwoord');
+        $student2->type = 'student';
         $student2->save();
 
         $student3 = new \App\Student();
@@ -34,6 +36,7 @@ class StudentsSeeder extends Seeder
         $student3->bio = 'Hallo ik ben Robin';
         $student3->email = 'robin@student.be';
         $student3->password = bcrypt('ditIsEenWachtwoord');
+        $student3->type = 'student';
         $student3->save();
 
         $student4 = new \App\Student();
@@ -42,6 +45,7 @@ class StudentsSeeder extends Seeder
         $student4->bio = 'Hallo ik ben Wesley';
         $student4->email = 'wesley@student.be';
         $student4->password = bcrypt('ditIsEenWachtwoord');
+        $student4->type = 'student';
         $student4->save();
 
         //met factory = automatisch neppe students maken

@@ -1,72 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts/app')
 
-        <title>Internships</title>
+@section('hero-image')
+<div class="hero-image" style="background-image: url(https://freerangestock.com/sample/120923/overhead-background-of-a-vintage-typewriter-and-desk-items.jpg); background-size: cover; background-position: center; width: 100%; height: 400px; filter: brightness(.5);"></div>
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .companies{
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                grid-gap: 10%;
-           
-            }
-            .companies__detail{
-                padding :10%;
-                background-color: #F6F7FB;
-            }
-            .companies__detail a{
-                text-decoration: none;
-                color:black;
-            }
-            .companies__detail a:hover{
-                text-decoration: underline #FD4A29;
-                color:#4640DE;
-            }
-            .companies__detail p{
-                color:#848484;
-                font-size: 0.7em;
-            }
-
-            .companies__line{
-                border-top: 1.2px solid ;
-                color:#4640DE;
-            }
-
-            .btn-apply {
-                background-color: dodgerblue;
-                padding: 10px;
-                border-radius: 5px;
-            }
-        </style>
-    </head>
-
-
-<nav class="nav">
-    <div class="nav__logo"> </div>
-</nav>
+@section('content')
 <h2>Internships</h2>
+@if ($flash = session('message'))
+    <div class="alert alert-success">{{ $flash }}</div>
+@endif
 <div class="companies">
     @foreach($internships as $internship)
-    <div class="companies__detail" >
-        <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
-        <p>{{ $internship->internship_discription }}</p>
-        <hr class="companies__line">
-        <p>{{ $internship->company_city}}</p>
-        <p>{{ $internship->available_spots }} available</p>
-        @if ($internship->available_spots != 0)
-            <a href="/internships/{{ $internship->id }}/apply" class="btn-apply">Apply</a>
-        @endif
-    </div>
+        <div class="companies__detail" >
+            <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+            <p>{{ $internship->internship_discription }}</p>
+            <hr class="companies__line">
+            <p>{{ $internship->available_spots }} available</p>
+            @if ($internship->jobApplications->count() == 0)
+                <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Apply</a>
+            @else
+                @foreach($internship->jobApplications as $jobApplication)
+                    @if ($internship->available_spots != 0)
+                        <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Apply</a>
+                    @endif
+                    @if ($jobApplication->user_id == \Auth::user()->id)
+                        <div class="alert alert-primary" role="alert">
+                            You already applied for this internship.
+                        </div>
+                    @endif
+                @endforeach
+            @endif
+        </div>
     @endforeach
 </div>
+@endsection
