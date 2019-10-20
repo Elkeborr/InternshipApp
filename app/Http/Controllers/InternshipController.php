@@ -12,7 +12,7 @@ class InternshipController extends Controller
 
     public function show($internship)
     {
-        $data['internship'] = \App\Internship::where('id', $internship)->with('company')->first();
+        $data['internship'] = \App\Internship::where('id', $internship)->with('company', 'jobApplications')->first();
         return view('internships/show', $data);
     }
 }

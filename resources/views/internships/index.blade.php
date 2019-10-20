@@ -20,9 +20,10 @@
                 <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Apply</a>
             @else
                 @foreach($internship->jobApplications as $jobApplication)
-                    @if ($internship->available_spots != 0 && $jobApplication->user_id != \Auth::user()->id)
+                    @if ($internship->available_spots != 0)
                         <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Apply</a>
-                    @else
+                    @endif
+                    @if ($jobApplication->user_id == \Auth::user()->id)
                         <div class="alert alert-primary" role="alert">
                             You already applied for this internship.
                         </div>
