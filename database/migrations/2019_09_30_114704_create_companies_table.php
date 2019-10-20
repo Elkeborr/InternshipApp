@@ -13,18 +13,14 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('password');
             $table->text('bio')->nullable();
             $table->string('phoneNumber');
             $table->string('email')->unique();
-            $table->string('employees');
             $table->string('street');
             $table->string('streetNumber');
             $table->string('city');
             $table->string('postalCode');
-            $table->string('type');
-            $table->rememberToken();
+            $table->string('employees');
             $table->timestamps();
         });
     }
