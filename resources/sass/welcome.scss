@@ -9,81 +9,101 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-html, body {
-    background-color: $white;
-    color: $dark-grey;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 200;
-    height: 100vh;
-    margin: 0;
+
+p{
+    font-family: $text-font-family;
+    color:$dark-grey;
 }
 
-h1, p {
+h1,h2{
+    font-family: $title-font-family;
     color: $blue;
-    margin: 0;
+}
+h3{
+    font-family: $title-font-family;
+    color: $orange;
+    font-size: 1em;
 }
 
-.logo {
-    margin-left: 40px;
-    margin-top: 40px;
-    position: absolute;
+h2{
+    padding-bottom: 20px;
+}
+.hero{
+    background-color: $lightblue;
+    padding: 2% 8% 2% 8%;
 }
 
-.logo img {
-    height: 40px;
-    width: auto;
+.hero h1{
+
+    width: 50%;
+    font-size: 4em;
+
+    padding-top: 5%;
+
 }
 
-.full-height {
-    height: 100vh;
+.hero h1 span{
+    color:$orange;
 }
 
-.flex-center {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.hero  p {
+    width: 40%;
+    padding: 2% 0;
 }
 
-.position-ref {
-    position: relative;
+.hero  p span{
+    font-weight: bold;
 }
 
-.top-right {
-    position: absolute;
-    right: 10px;
-    top: 18px;
+.links{
+    margin-bottom: 20px;
+}
+.links a {
+    border: 3px solid;
+    border-radius: 10px;
+    margin: 10px;
+    padding:10px 55px;
+    font-weight: bold;
+    
 }
 
-.content {
+.links .student {
+    color: $orange;
+
+}
+
+.hero .top_question{
+    font-family: $title-font-family;
+    font-size: 1.5em;
+}
+
+/*About*/
+.about{
+    padding: 7% 8% 7% 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+
+/*Services*/
+.services{
+    padding: 7% 8% 7% 8%;
+}
+
+.services h2{
+    display: block;
     text-align: center;
 }
 
-.title {
-    font-size: 30px;
+.services_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
-.links > a {
-    color: $white;
-    padding: 5px 50px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: .05rem;
-    text-decoration: none;
-    transition: all .2s;
-    -moz-transition: all .2s;
-    -o-transition: all .2s;
-    -webkit-transition: all .2s;
+.service_1, .service_2{
+    padding: 10%;
 }
 
-.m-b-md {
-    margin-bottom: 100px;
-}
 
-.company { background: $blue; margin-right: 50px; }
-.student { background: $orange; }
-
-.company:hover, .student:hover {
-
-    filter: grayscale(.2);
-}

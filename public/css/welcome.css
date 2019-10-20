@@ -10644,91 +10644,100 @@ a.text-dark:focus {
   }
 }
 
-html,
-body {
-  background-color: #fff;
-  color: #848484;
-  font-family: "Nunito", sans-serif;
-  font-weight: 200;
-  height: 100vh;
-  margin: 0;
+p {
+  font-family: "Open Sans", sans-serif;
+  color: #666666;
 }
 
 h1,
-p {
+h2 {
+  font-family: "Comfortaa", cursive;
   color: #4640DE;
-  margin: 0;
 }
 
-.logo {
-  margin-left: 40px;
-  margin-top: 40px;
-  position: absolute;
+h3 {
+  font-family: "Comfortaa", cursive;
+  color: #FD4A29;
+  font-size: 1em;
 }
 
-.logo img {
-  height: 40px;
-  width: auto;
+h2 {
+  padding-bottom: 20px;
 }
 
-.full-height {
-  height: 100vh;
+.hero {
+  background-color: #DCF0FB;
+  padding: 2% 8% 2% 8%;
 }
 
-.flex-center {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+.hero h1 {
+  width: 50%;
+  font-size: 4em;
+  padding-top: 5%;
 }
 
-.position-ref {
-  position: relative;
+.hero h1 span {
+  color: #FD4A29;
 }
 
-.top-right {
-  position: absolute;
-  right: 10px;
-  top: 18px;
+.hero p {
+  width: 40%;
+  padding: 2% 0;
 }
 
-.content {
+.hero p span {
+  font-weight: bold;
+}
+
+.links {
+  margin-bottom: 20px;
+}
+
+.links a {
+  border: 3px solid;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px 55px;
+  font-weight: bold;
+}
+
+.links .student {
+  color: #FD4A29;
+}
+
+.hero .top_question {
+  font-family: "Comfortaa", cursive;
+  font-size: 1.5em;
+}
+
+/*About*/
+
+.about {
+  padding: 7% 8% 7% 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+/*Services*/
+
+.services {
+  padding: 7% 8% 7% 8%;
+}
+
+.services h2 {
+  display: block;
   text-align: center;
 }
 
-.title {
-  font-size: 30px;
+.services_content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
-.links > a {
-  color: #fff;
-  padding: 5px 50px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-  text-decoration: none;
-  transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-}
-
-.m-b-md {
-  margin-bottom: 100px;
-}
-
-.company {
-  background: #4640DE;
-  margin-right: 50px;
-}
-
-.student {
-  background: #FD4A29;
-}
-
-.company:hover,
-.student:hover {
-  -webkit-filter: grayscale(0.2);
-          filter: grayscale(0.2);
+.service_1,
+.service_2 {
+  padding: 10%;
 }
 
