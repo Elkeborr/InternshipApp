@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->text('bio'); //->nullable(); //mag nul zijn
             $table->string('password');
             $table->string('email');
+            $table->string('type');
             $table->timestamps();
         });
     }

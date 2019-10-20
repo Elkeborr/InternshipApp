@@ -6,22 +6,13 @@ class InternshipController extends Controller
 {
     public function index()
     {
-        $data['internships'] = \DB::table('internships')->get();
-
+        $data['internships'] = \App\Internship::with('jobApplications')->get();
         return view('internships/index', $data);
     }
 
-    public function show(\App\Internship $internship)
+    public function show($internship)
     {
-        $data['internship'] = $internship;
-        // $internship = \DB::table('internships')->where('id', $internship)->first();
-        // dd($internship);
+        $data['internship'] = \App\Internship::where('id', $internship)->with('company')->first();
         return view('internships/show', $data);
-    }
-
-    public function apply(\App\Internship $internship)
-    {
-        $data['internship'] = $internship;
-        return view('internships/apply', $data);
     }
 }
