@@ -10,8 +10,6 @@ class InternshipSeeder extends Seeder
     public function run()
     {
         $internship = new \App\Internship();
-        $internship->company_name = 'Cronos';
-        $internship->company_city = 'Antwerpen';
         $internship->internship_function = 'Back End Developer';
         $internship->internship_discription = 'Lorem ipsum';
         $internship->available_spots = '2';
