@@ -4,6 +4,10 @@
     Companies
 @endsection
 
+@section('h2')
+Companies
+@endsection
+
 @section('content')
 <h2>Companies</h2>
 <div class="companies">

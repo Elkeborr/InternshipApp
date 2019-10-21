@@ -29,6 +29,38 @@ h1,h2,h3,h4{
 
 }
 
+.container-nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 10%;
+    height: 250px;
+}
+
+.container-nav_h2{
+
+    align-self: end;
+    padding-bottom: 30px;
+}
+
+.container-nav_h2 h2{
+    font-size: 4em;
+}
+
+.container-nav_form{
+    align-self: end;
+    padding-bottom: 30px;
+    justify-self: end;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.container-nav_form input{
+        border: none;
+        background: $white; 
+}
+
+
 /*-----COMPANIES-----*/
 .companies{
     display: grid;

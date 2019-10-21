@@ -34,23 +34,15 @@
     </div>
     <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="">username</a></span>
 </nav>
-<div class="container-nav container">
-    <div class="container-nav_h2">
-<h2>
-@yield('h2')
-</h2>
-</div>
-<div class="container-nav_form">
-<form >
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-  </form>
-</div>
-</div>
 
 </div>
         <main class="container">
+            <a href="{{ url('/companies') }}">back</a>
             @yield('content')
         </main>
     </div>
 </body>
 </html>
+
+
+

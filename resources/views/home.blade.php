@@ -2,6 +2,13 @@
 @section('title')
     Dashboard
 @endsection
+
+@section('h2')
+Ready for the next step?
+@endsection
+
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
