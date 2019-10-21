@@ -11,6 +11,7 @@ class CompaniesSeeder extends Seeder
     {
         $company = new \App\Company();
 
+        $company->name = 'Antwerp Factory';
         $company->bio = 'Antwerp Factory is the digital design & development duo for the connected world.
         We combine great design with your technological weapon of choice.
         This in order to create the ultimate brand experience digitally and in print.';
@@ -25,10 +26,10 @@ class CompaniesSeeder extends Seeder
 
         $company2 = new \App\Company();
 
+        $company2->name = 'Foreach';
         $company2->bio = 'We bedenken, ontwikkelen en integreren high-end web platformen, applicaties en tools. We ontwerpen sites, bouwen API’s, analyseren performantie bottlenecks, configureren databases, stellen architecturen op, integreren tools, ontwikkelen algoritmes, bouwen en onderhouden applicaties, etc. Als het technisch uitdagend is, heb je direct onze aandacht.';
         $company2->phoneNumber = '+32 (0)15 64 14 30';
         $company2->email = 'info@foreach.be';
-
         $company2->street = 'Frederik de Merodestraat ';
         $company2->streetNumber = '86a';
         $company2->city = 'Mechelen';
@@ -38,6 +39,7 @@ class CompaniesSeeder extends Seeder
 
         $company3 = new \App\Company();
 
+        $company3->name = 'Duval Branding';
         $company3->bio = 'At Duval Branding, we dare companies to (re)discover who they really are. Why are they doing what they are doing? And, then, we help them to communicate their vision, beliefs and personality in a coherent, inspiring way. So they, somehow, become who they truly are.';
         $company3->phoneNumber = '+32 3 288 88 82';
         $company3->email = 'hello@duvalbranding.com';
@@ -50,6 +52,7 @@ class CompaniesSeeder extends Seeder
 
         $company4 = new \App\Company();
 
+        $company4->name = 'Haribo';
         $company4->bio = 'HARIBO is een familiebedrijf, dat nu wordt gerund door de derde generatie en de wereldmarktleider is in fruitgom en drop. Voor HARIBO begon het allemaal met de Goudberen';
         $company4->phoneNumber = '';
         $company4->email = 'info@haribo.com';
@@ -62,6 +65,7 @@ class CompaniesSeeder extends Seeder
 
         $company5 = new \App\Company();
 
+        $company5->name = 'Dive';
         $company5->phoneNumber = '';
         $company5->bio = 'We offer full services from design to deployment, but we can also assist your team with certain parts of the process.';
         $company5->email = 'info@dive.be';
