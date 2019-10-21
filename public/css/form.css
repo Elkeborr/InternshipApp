@@ -10679,6 +10679,27 @@ h2 span {
   padding-left: 20%;
 }
 
+.wrap-form {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.form-container {
+  width: 390px;
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+.form-body {
+  width: 100%;
+}
+
 .form-title {
   font-family: "Comfortaa", cursive;
   color: #4640DE;
@@ -10688,7 +10709,6 @@ h2 span {
 .form-body input {
   border: none;
   background: #F6F7FB;
-  padding: 5px 10px;
   margin-bottom: 15px;
 }
 
@@ -10717,10 +10737,8 @@ a.btn-link {
   margin-left: 10px;
 }
 
-.form-body label {
-  font-size: 0.9em;
-  font-family: "Open Sans", sans-serif;
-  color: #666666;
+.form-body button {
+  margin-top: 20px;
 }
 
 .form-group {

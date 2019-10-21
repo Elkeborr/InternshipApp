@@ -1,5 +1,9 @@
 @extends('layouts/form')
 
+@section('title')
+    Login
+@endsection
+
 @section('content')
 <div class="row align-items-start">
         <div class="col left">
@@ -8,61 +12,45 @@
         </div>
             <h2>Looking for<br>an <span>intern?</span></h2>
         </div>
-        <div class="col">
-            <div class="form">
-                <div class="form-title">{{ __('Login for companies') }}</div>
-                <div class="form-body">
-                <form method="post" action="">
-               
+<!---from--->
+        <div class="col wrap-form">
+
+<div class="form-container">
+        <form method="post" class="form-body">
         {{csrf_field()}}
         @if ($flash = session('message'))
-<div class="alert alert-sucess">{{$flash}}</div>
-@endif
-            <div class="form-row">
-                <div class="form-group col-md-5">
-                    <input name= "email"type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-5">
-            <input name= "password" type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="remember">
-            <label class="form-check-label" for="remember">Remember me</label>
-        </div>
-              <div class="form-group row ">
-                            <div class="col-md-5 ">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                    <div class="alert alert-sucess">{{$flash}}</div>
+                    @endif
+                    <div class="form-title">{{ __('Login for companies') }}</div>
+                    <div class="form-group ">
+    <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" name="email">
+  
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control"  placeholder="Password" name="password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+  </div>
+  <button type="submit" class="btn ">  {{ __('Login') }}</button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <div class="col-md-offset-4">
-                                <a href="{{url('/redirect')}}" class="btn btn-primary">Login with Facebook</a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <div class="col-md-offset-4">
+</form>
+
+@if (Route::has('password.request'))
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                {{ __('Forgot Your Password?') }}
+            </a>
+        @endif
+        <div class="form-group ">
+                            <div class="">
                                 <a href="{{url('/companies/register')}}" class="btn btn-primary">No account yet? Signup here</a>
                             </div>
                         </div>
-                        
-                    </form>
 
+
+
+
+                        </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

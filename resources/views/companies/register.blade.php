@@ -8,20 +8,23 @@
         </div>
             <h2>Looking for<br>an <span>intern?</span></h2>
         </div>
-        <div class="col">
-            <div class="form">
+
+        <!---from--->
+        <div class="col wrap-form">
+        <div class="form-container">
+        <form method="post" class="form-body">
                 <div class="form-title">{{ __('Signup for companies') }}</div>
                 <div class="form-body">
                     <form method="POST" action="">
                     {{csrf_field()}}
                         <div class="form-row">
-                            <div class="form-group col-md-5">
+                            <div class="form-group col-md-7">
                                 <input id="name" placeholder="Name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-5">
+                            <div class="form-group col-md-7">
                     
                                 <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
@@ -33,7 +36,7 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-5">
+                            <div class="form-group col-md-7">
                             
                                 <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
@@ -46,7 +49,7 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-5">
+                            <div class="form-group col-md-7">
                    
                                 <input id="password-confirm" placeholder="Password verification" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
@@ -58,7 +61,7 @@
                                 <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="street" value="{{ old('street') }}">
                             </div>
                             <div class="form-group col-md-3">
-      <input type="text" class="form-control" id="streetNumber" placeholder="street Number"  name="streetNumber" value="{{ old('streetNumber') }}">
+      <input type="text" class="form-control" id="streetNumber" placeholder="Number"  name="streetNumber" value="{{ old('streetNumber') }}">
     </div>
                         </div>
  
@@ -85,5 +88,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

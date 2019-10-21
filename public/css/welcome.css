@@ -10713,17 +10713,12 @@ h2 {
 /*About*/
 
 .about {
-  padding: 7% 8% 7% 8%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
 /*Services*/
-
-.services {
-  padding: 7% 8% 7% 8%;
-}
 
 .services h2 {
   display: block;
@@ -10739,5 +10734,9 @@ h2 {
 .service_1,
 .service_2 {
   padding: 10%;
+}
+
+.container {
+  padding: 5% 8% 5% 8%;
 }
 
