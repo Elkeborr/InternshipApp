@@ -18,10 +18,10 @@
 <div class="form-container">
         <form method="post" class="form-body">
         {{csrf_field()}}
-        @if ($flash = session('message'))
-                    <div class="alert alert-sucess">{{$flash}}</div>
-                    @endif
                     <div class="form-title">{{ __('Login for companies') }}</div>
+                    @if ($flash = session('message'))
+           <div class="alert alert-sucess">{{$flash}}</div>
+        @endif
                     <div class="form-group ">
     <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" name="email">
   

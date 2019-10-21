@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Redirect;
 
 class CompanyController extends Controller
 {
-    public function register()
+    public function register(Request $request)
     {
         return view('companies/register');
     }
@@ -15,27 +16,27 @@ class CompanyController extends Controller
     public function handleRegister(Request $request)
     {
         $validation = $request->validate([
-              'email' => ['unique:companies,email'],
+              'email' => ['unique:users,email'],
               'password' => ['required', 'string', 'min:8', 'confirmed'],
           ]);
+
         $request->flash();
-        $company = new \App\Company();
+        $company = new \App\User();
         $company->name = $request->input('name');
         $company->email = $request->input('email');
-        $company->street = $request->input('street');
-        $company->streetNumber = $request->input('streetNumber');
-        $company->city = $request->input('city');
-        $company->employees = '';
-        $company->bio = '';
-        $company->phoneNumber = '';
-        $company->postalCode = $request->input('postalCode');
-        $company->type = 'company';
         $company->password = \Hash::make($request->input('password'));
+        $company->type = 'company';
         $company->save();
 
-        $request->session()->flash('message', 'Company registration successful!');
+        $credentials = $request->only(['email', 'password']);
+        if (Auth::attempt($credentials)) {
+            $request->session()->flash('username', $company->name);
+            $request->session()->flash('message', 'Company registration successful!');
 
-        return redirect('home');
+            return redirect('home');
+        }
+
+        return view('companies/login');
     }
 
     public function login()

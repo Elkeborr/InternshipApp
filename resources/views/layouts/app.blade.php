@@ -32,7 +32,13 @@
         <a class="nav-item  nav-link" href="{{ url('/internships') }}">Internships</a>
         <a class="nav-item  nav-link" href="{{ url('/companies') }}">Companies</a> 
     </div>
-    <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="">username</a></span>
+    <span class="navbar-text mt-1 w-50 text-right order-md-last">
+    @if ($flash = session('username'))
+<a href="{{ url('/users/detail') }}">{{$flash}}</a>
+@endif
+    username
+
+</span>
 </nav>
 <div class="container-nav container">
     <div class="container-nav_h2">

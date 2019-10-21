@@ -1,6 +1,5 @@
 @extends('layouts/app')
 
-<<<<<<< HEAD
 @section('title')
 Internships
 @endsection
@@ -13,14 +12,7 @@ Internships
 <nav class="nav">
     <div class="nav__logo"> </div>
 </nav>
-=======
-@section('hero-image')
-<div class="hero-image" style="background-image: url(https://freerangestock.com/sample/120923/overhead-background-of-a-vintage-typewriter-and-desk-items.jpg); background-size: cover; background-position: center; width: 100%; height: 400px; filter: brightness(.5);"></div>
-@endsection
 
-@section('content')
->>>>>>> origin/master
-<h2>Internships</h2>
 @if ($flash = session('message'))
     <div class="alert alert-success">{{ $flash }}</div>
 @endif

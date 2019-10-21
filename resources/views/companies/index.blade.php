@@ -9,7 +9,7 @@ Companies
 @endsection
 
 @section('content')
-<h2>Companies</h2>
+
 <div class="companies">
     @foreach($companies ?? '' as $company)
     <div class="companies__detail" >

@@ -1,5 +1,7 @@
 @extends('layouts/form')
-
+@section('title')
+   Register
+@endsection
 @section('content')
     <div class="row align-items-start">
         <div class="col left">
@@ -25,7 +27,7 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-7">
-                    
+                           
                                 <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -37,14 +39,14 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-7">
-                            
+                           
                                 <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                              
                             </div>
                         </div>
 
@@ -54,26 +56,6 @@
                                 <input id="password-confirm" placeholder="Password verification" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-7">
-               
-                                <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="street" value="{{ old('street') }}">
-                            </div>
-                            <div class="form-group col-md-3">
-      <input type="text" class="form-control" id="streetNumber" placeholder="Number"  name="streetNumber" value="{{ old('streetNumber') }}">
-    </div>
-                        </div>
- 
-  <div class="form-row">
-    <div class="form-group col-md-5">
-
-      <input type="text" class="form-control" id="City" placeholder="City" name="city" value="{{ old('city') }}">
-    </div>
-    <div class="form-group col-md-5">
-      <input type="text" class="form-control" id="postalCode" placeholder="Postalcode"  name="postalCode">
-    </div>
-    </div>
 
 
 

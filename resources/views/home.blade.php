@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts/app')
 @section('title')
     Dashboard
 @endsection
 
 @section('h2')
-Ready for the next step?
+Dashboard
 @endsection
 
 
