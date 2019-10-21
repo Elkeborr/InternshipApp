@@ -48,6 +48,7 @@
 </div>
 
 </div>
+    @yield('hero-image')
         <main class="container">
             @yield('content')
         </main>

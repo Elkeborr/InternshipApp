@@ -9,7 +9,12 @@ class Company extends Authenticatable
 {
     public function reviews()
     {
-        return $this->hasmany('\App\Review');
+        return $this->hasMany('\App\Review');
+    }
+
+    public function internships()
+    {
+        return $this->hasMany('\App\Internship');
     }
 
     use Notifiable;
