@@ -51,6 +51,12 @@ class CompanyController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->flash('message', 'Login successful!');
 
+            //Retrieve data and put it in session
+            $user_id = Auth::id();
+            $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
+            //Put user data in session User
+            $request->session()->put('user', $user);
+            // dd($sessionData['name']);
             return redirect('home');
         }
         $request->session()->flash('message', 'Login Failed, try again');
