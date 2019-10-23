@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use function foo\func;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\This;
 
 class jobApplicationController extends Controller
 {
@@ -22,6 +24,9 @@ class jobApplicationController extends Controller
                 $application->user_id = $student->id;
                 $application->status = 'new';
                 $application->save();
+
+                $spots = new \App\Internship();
+                $spots->decrement('available_spots');
             }
         }
 
