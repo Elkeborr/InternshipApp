@@ -25,7 +25,8 @@ class jobApplicationController extends Controller
             }
         }
 
-        $companyName = $internship->company->name;
+        $data = \App\Company::with('internships')->where('id', '=', $internship->company_id)->first();
+        $companyName = $data->name;
         $request->session()->flash('message', "You successfully applied for the job '$internship->internship_function' at $companyName");
 
         return redirect('/internships');
