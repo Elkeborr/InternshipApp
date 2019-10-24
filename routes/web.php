@@ -44,6 +44,7 @@ Route::get('/internships/{internship}', 'InternshipController@show');
 
 // Route::get('/companies/myinternships', 'CompanyController@showMyInternships');
 // Route::get('/companies/myinternships/create', 'CompanyController@create');
+// Route::post('/companies/myinternships', 'CompanyController@store');
 
 /* Apply */
 Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
