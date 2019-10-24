@@ -86,10 +86,10 @@ class CompanyController extends Controller
         return view('companies/myInternships', $data);
     }
 
-    // public function create()
-    // {
-    //     return view('companies/create');
-    // }
+    public function create()
+    {
+        return view('companies/create');
+    }
 
     // public function store(Request $request)
     // {

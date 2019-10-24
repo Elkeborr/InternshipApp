@@ -1,10 +1,12 @@
-@extends('layouts/companies/app')
+@extends('layouts/app')
 
 @section('content')
     <!-- content -->
     <div class="col">
             <div class="form">
-                <div class="form-title">{{ __('Create a new internship.') }}</div>
+                <div class="form-title">
+                    {{ __('Create a new internship.') }}
+                </div>
                 <div class="form-body">
                     <form method="post" action="/companies/myinternships">
                         @csrf
@@ -41,6 +43,5 @@
                 </div>
             </div>
         </div>
-    </div>
 
 @endsection
