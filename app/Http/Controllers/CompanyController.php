@@ -80,8 +80,8 @@ class CompanyController extends Controller
 
     public function showMyInternships()
     {
-        // $user = session('user');
-        $data['myinternships'] = \DB::table('internships')->where('company_id', 1)->get();
+        $user = session('user');
+        $data['myinternships'] = \DB::table('internships')->where('company_id', $user->company_id)->get();
 
         return view('companies/myInternships', $data);
     }
