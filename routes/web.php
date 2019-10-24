@@ -42,6 +42,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/internships', 'InternshipController@index');
 Route::get('/internships/{internship}', 'InternshipController@show');
 
+// Route::get('/companies/myinternships', 'CompanyController@showMyInternships');
+// Route::get('/companies/myinternships/create', 'CompanyController@create');
+
 /* Apply */
 Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
 
