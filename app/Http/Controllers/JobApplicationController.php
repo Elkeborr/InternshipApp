@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use function foo\func;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\This;
 
 class jobApplicationController extends Controller
 {
@@ -22,12 +24,33 @@ class jobApplicationController extends Controller
                 $application->user_id = $student->id;
                 $application->status = 'new';
                 $application->save();
+
+                $spots = new \App\Internship();
+                $spots->decrement('available_spots');
             }
         }
 
-        $companyName = $internship->company->name;
+        $data = \App\Company::with('internships')->where('id', '=', $internship->company_id)->first();
+        $companyName = $data->name;
         $request->session()->flash('message', "You successfully applied for the job '$internship->internship_function' at $companyName");
 
         return redirect('/internships');
+    }
+
+    public function internshipsCompany()
+    {
+        $data['internships'] = \App\Internship::where('company_id', '1')->get();
+        return view('internships/internshipsCompany', $data);
+    }
+
+    public function applies($internship)
+    {
+        $data['internship'] = \App\Internship::where('id', $internship)->first();
+        return view('internships/applies', $data);
+    }
+
+    public function status($jobApplication) {
+
+
     }
 }
