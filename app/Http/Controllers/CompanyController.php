@@ -93,13 +93,13 @@ class CompanyController extends Controller
 
     public function store(Request $request)
     {
-        // $user = session('user');
+        $user = session('user');
         $internship = new \App\Internship();
 
         $internship->internship_function = $request->input('internshipFunction');
         $internship->internship_discription = $request->input('discription');
         $internship->available_spots = $request->input('spots');
-        $internship->company_id = 1;
+        $internship->company_id = $user->company_id;
 
         $internship->save();
 
