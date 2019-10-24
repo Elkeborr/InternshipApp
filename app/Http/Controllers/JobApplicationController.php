@@ -37,9 +37,20 @@ class jobApplicationController extends Controller
         return redirect('/internships');
     }
 
-    public function applies()
+    public function internshipsCompany()
     {
+        $data['internships'] = \App\Internship::where('company_id', '1')->get();
+        return view('internships/internshipsCompany', $data);
+    }
 
-        return view('internships/applies');
+    public function applies($internship)
+    {
+        $data['internship'] = \App\Internship::where('id', $internship)->first();
+        return view('internships/applies', $data);
+    }
+
+    public function status($jobApplication) {
+
+
     }
 }
