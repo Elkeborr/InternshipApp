@@ -36,4 +36,10 @@ class jobApplicationController extends Controller
 
         return redirect('/internships');
     }
+
+    public function applies()
+    {
+
+        return view('internships/applies');
+    }
 }

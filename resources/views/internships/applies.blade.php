@@ -3,3 +3,7 @@
 @section('title')
     Internship applies
 @endsection
+
+@section('content')
+
+@endsection

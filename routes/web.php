@@ -45,6 +45,9 @@ Route::get('/internships/{internship}', 'InternshipController@show');
 /* Apply */
 Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
 
+/* Applies */
+Route::get('/internships/applies', 'JobApplicationController@applies');
+
 /* Facebook login */
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
