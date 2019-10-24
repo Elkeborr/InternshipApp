@@ -77,4 +77,32 @@ class CompanyController extends Controller
 
         return view('companies/show', $data);
     }
+
+    public function showMyInternships()
+    {
+        // $user = session('user');
+        $data['myinternships'] = \DB::table('internships')->where('company_id', 1)->get();
+
+        return view('companies/myInternships', $data);
+    }
+
+    // public function create()
+    // {
+    //     return view('companies/create');
+    // }
+
+    // public function store(Request $request)
+    // {
+    //     $internship = new \App\Internship();
+    //     $internship->company_name = 'Bedrefke';       //moet nog weg wanneer deze uit de db verdwijnt
+    //     $internship->company_city = 'Gent';    //moet nog weg wanneer deze uit de db verdwijnt
+    //     $internship->internship_function = $request->input('internshipFunction');
+    //     $internship->internship_discription = $request->input('discription');
+    //     $internship->available_spots = $request->input('spots');
+    //     $internship->company_id = 7;                //moet nog dynamisch worden
+
+    //     $internship->save();
+
+    //     return redirect('companies/myinternships');
+    // }
 }
