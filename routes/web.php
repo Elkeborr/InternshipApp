@@ -24,7 +24,13 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
 Route::get('/companies/login', 'CompanyController@login');
 Route::post('/companies/login', 'CompanyController@handleLogin');
 
+/* Companies */
 Route::get('/companies', 'CompanyController@index');
+
+Route::get('/companies/myinternships', 'CompanyController@showMyInternships');
+Route::get('/companies/myinternships/create', 'CompanyController@create');
+Route::post('/companies/myinternships', 'CompanyController@store');
+
 Route::get('/companies/{company}', 'CompanyController@show');
 
 /* LOGIN & REGISTER */
@@ -41,10 +47,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/internships', 'InternshipController@index');
 Route::get('/internships/{internship}', 'InternshipController@show');
-
-// Route::get('/companies/myinternships', 'CompanyController@showMyInternships');
-// Route::get('/companies/myinternships/create', 'CompanyController@create');
-// Route::post('/companies/myinternships', 'CompanyController@store');
 
 /* Apply */
 Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
