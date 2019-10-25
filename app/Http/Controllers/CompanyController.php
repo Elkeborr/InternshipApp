@@ -33,6 +33,13 @@ class CompanyController extends Controller
             $request->session()->flash('username', $company->name);
             $request->session()->flash('message', 'Company registration successful!');
 
+            //Retrieve data and put it in session
+            $user_id = Auth::id();
+            $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
+            //Put user data in session User
+            $request->session()->put('user', $user);
+            // dd($sessionData['name']);
+
             return redirect('home');
         }
 
