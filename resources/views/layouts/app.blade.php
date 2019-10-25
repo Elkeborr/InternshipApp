@@ -28,11 +28,11 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
-                    <div class="collapse navbar-collapse justify-content-center order-2" id="collapsibleNavbar">
+                    <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
                     
                         @if($user->type == 'company')
                             <!-- <p>{{$user->name}}</p> -->
-                            <a class="nav-link active nav-item " href="{{ url('/companies/home') }}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
                             <a class="nav-item  nav-link" href="{{ url('/internships') }}">Interns</a>
                             <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">My Internships</a> 
                         @endif
