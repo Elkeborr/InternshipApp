@@ -1,7 +1,14 @@
 @extends('layouts/app')
 
+@section('title')
+    My internships
+@endsection
+
+@section('h2')
+    My internships
+@endsection
+
 @section('content')
-    <h2>My Internships</h2>
     <div>
     <a href="/companies/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">Add new internship</a>
     </div>

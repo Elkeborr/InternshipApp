@@ -5,7 +5,7 @@ Internships
 @endsection
 
 @section('h2')
-Internships
+    Interns
 @endsection
 
 @section('content')
