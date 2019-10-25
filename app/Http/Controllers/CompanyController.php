@@ -66,16 +66,24 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $data['companies'] = \DB::table('companies')->get();
+        if (Auth::check()) {
+            $data['companies'] = \DB::table('companies')->get();
 
-        return view('companies/index', $data);
+            return view('companies/index', $data);
+        }
+
+        return redirect('companies/login');
     }
 
     public function show($company)
     {
-        $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
+        if (Auth::check()) {
+            $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
 
-        return view('companies/show', $data);
+            return view('companies/show', $data);
+        }
+
+        return redirect('companies/login');
     }
 
     public function showMyInternships()
