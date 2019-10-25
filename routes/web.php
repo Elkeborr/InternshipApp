@@ -24,6 +24,11 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
 Route::get('/companies/login', 'CompanyController@login');
 Route::post('/companies/login', 'CompanyController@handleLogin');
 
+/* Create company */
+
+Route::get('/companies/detail', 'CompanyController@login');
+Route::post('/companies/detail', 'CompanyController@handleLogin');
+
 /* Companies */
 Route::get('/companies', 'CompanyController@index');
 
