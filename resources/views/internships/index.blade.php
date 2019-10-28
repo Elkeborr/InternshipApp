@@ -18,7 +18,10 @@ Internships
 @endif
 <div class="container_companies">
     <div class="companies_filters">
-        <h5>Filter internships</h5>
+	<div class="companies_form">
+		<h5>Filters</h5>
+		<hr class="companies__line">
+	</div>
         <div>
         <div class="panel-heading " >
 						<h6 class="panel-title">
