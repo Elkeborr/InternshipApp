@@ -10728,14 +10728,30 @@ h4 {
   padding: 30px;
 }
 
+.companies_form {
+  width: 70%;
+}
+
 .companies_filters h5 {
   color: #4640DE;
   font-size: 1.2em;
-  margin-bottom: 25px;
 }
 
-.companies_filters h6 {
-  font-weight: 600;
+.panel-heading {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.companies_filters h6 a {
+  color: #666666;
+}
+
+.companies_filters h6 a:hover {
+  text-decoration: none;
+}
+
+.companies_filters p {
+  font-size: 0.7em;
 }
 
 .companies_filters form {
@@ -10746,8 +10762,8 @@ h4 {
   margin-left: 30px;
 }
 
-.companies_filters .form-check a {
-  color: #4640DE;
+.companies_filters button {
+  margin-top: 30px;
 }
 
 .companies {

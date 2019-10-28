@@ -20,7 +20,14 @@ Internships
     <div class="companies_filters">
         <h5>Filter internships</h5>
         <div>
-            <h6 class="title">Place </h6>
+        <div class="panel-heading " >
+						<h6 class="panel-title">
+							<a data-toggle="collapse" href="#collapse0">
+							 Place
+							</a>
+						</h6>
+					</div>
+					<div id="collapse0" class="panel-collapse collapse in" >
             <form method="post">
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
@@ -106,10 +113,16 @@ Internships
 				  </span>
                 </label>
 
-
-	
-        
-            <h6 class="title">Dicipline</h6>
+                </div>
+                <div class="panel-heading " >
+						<h6 class="panel-title">
+							<a data-toggle="collapse" href="#collapse1">
+							Discipline
+							</a>
+						</h6>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse in" >
+  
   
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
@@ -145,7 +158,7 @@ Internships
 				  back-end developer
 				  </span>
                 </label>  
-                
+                </div>
                
                 <button type="submit" class="btn btn-primary">Submit</button>
                 
@@ -156,6 +169,7 @@ Internships
            
 			</form>
         </div>
+        
 </div>
 <div class="companies">
     @if (\Auth::user()->type == 'student')

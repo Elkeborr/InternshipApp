@@ -87,30 +87,50 @@ font-weight: 700;
     padding: 30px;
 }
 
+.companies_form{
+    width: 70%;
+}
 .companies_filters h5{
    color:$blue;
    font-size:1.2em;
-   margin-bottom: 25px;
   
 }
 
-.companies_filters h6{
-font-weight: 600;
+.panel-heading{
+    padding: 5px;
+    margin-bottom: 10px;
+
+}
+
+.companies_filters h6 a{
+color: $dark-grey;
+
    
+ }
+
+ .companies_filters h6 a:hover{
+    text-decoration: none;
+
+       
+     }
+
+ .companies_filters p{
+   font-size:0.7em;
+       
  }
 
  .companies_filters form{
     margin-bottom:30px;
     }
 .companies_filters .form-check{
-margin-left:30px;
+    margin-left:30px;
 }
 
-.companies_filters .form-check a{
- color:$blue;
 
-    }
+.companies_filters button{
+       margin-top: 30px;
 
+        }
 .companies{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

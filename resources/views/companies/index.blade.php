@@ -12,9 +12,18 @@ Companies
 
 <div class="container_companies">
     <div class="companies_filters">
-        <h5>Filter companies</h5>
+		<div class="companies_form">
+		<h5>Filters</h5>
+		<hr class="companies__line">
         <div>
-            <h6 class="title">Place </h6>
+		<div class="panel-heading " >
+						<h6 class="panel-title">
+							<a data-toggle="collapse" href="#collapse0">
+							 Place
+							</a>
+						</h6>
+					</div>
+					<div id="collapse0" class="panel-collapse collapse in" >
             <form method="post">
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
@@ -101,9 +110,16 @@ Companies
                 </label>
 
 
-	
+</div>
         
-            <h6 class="title">Specialty </h6>
+<div class="panel-heading " >
+						<h6 class="panel-title">
+							<a data-toggle="collapse" href="#collapse1">
+								Specialty
+							</a>
+						</h6>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse in" >
   
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
@@ -132,17 +148,13 @@ Companies
 				  communication
 				  </span>
                 </label>  
-                
+				</div>
                
-                <button type="submit" class="btn btn-primary">Submit</button>
-                
-                
-                
-                
-                
-           
+                <button type="submit" class="btn btn-primary">Submit</button> 
 			</form>
-        </div>
+
+		</div>
+		</div>
 </div>
 <div class="companies">
     @foreach($companies ?? '' as $company)
