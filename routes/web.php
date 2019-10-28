@@ -36,6 +36,8 @@ Route::get('/companies/myinternships', 'CompanyController@showMyInternships');
 Route::get('/companies/myinternships/create', 'CompanyController@create');
 Route::post('/companies/myinternships', 'CompanyController@store');
 
+
+
 Route::get('/companies/{company}', 'CompanyController@show');
 
 /* LOGIN & REGISTER */
@@ -57,9 +59,8 @@ Route::get('/internships/{internship}', 'InternshipController@show');
 Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
 
 /* Company internships & applies */
-Route::get('/company/internships', 'JobApplicationController@internshipsCompany');
-Route::get('/company/internships/{internship}/applies', 'JobApplicationController@applies');
-Route::get('/company/internships/{jobApplication}/status', 'JobApplicationController@status');
+Route::get('/companies/myinternships/{internship}/applications', 'JobApplicationController@applications');
+Route::post('/{id}/save', 'JobApplicationController@save');
 
 /* Facebook login */
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');

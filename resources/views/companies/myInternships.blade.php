@@ -20,6 +20,7 @@
             <hr class="companies__line">
             <p>company_city comes here</p>
             <p>{{ $myinternship->available_spots }} available</p>
+            <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">View applications</a>
         </div>
         @endforeach
 

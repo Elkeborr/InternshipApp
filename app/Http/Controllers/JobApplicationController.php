@@ -13,9 +13,9 @@ class jobApplicationController extends Controller
         $student = \Auth::user();
 
         $check = \DB::table('job_applications')
-                    ->where('internship_id', $internship->id)
-                    ->where('user_id', $student->id)
-                    ->exists();
+            ->where('internship_id', $internship->id)
+            ->where('user_id', $student->id)
+            ->exists();
 
         if ($check == null) {
             if ($internship->available_spots > 0) {
@@ -37,20 +37,17 @@ class jobApplicationController extends Controller
         return redirect('/internships');
     }
 
-    public function internshipsCompany()
-    {
-        $data['internships'] = \App\Internship::where('company_id', '1')->get();
-        return view('internships/internshipsCompany', $data);
-    }
-
-    public function applies($internship)
+    public function applications($internship)
     {
         $data['internship'] = \App\Internship::where('id', $internship)->first();
-        return view('internships/applies', $data);
+        return view('internships/applications', $data);
     }
 
-    public function status($jobApplication) {
+    public function save(Request $request, $id) {
+        $data = \App\JobApplication::where('id', $id)->first();
+        $data->status = $request->status;
+        $data->save();
 
-
+        return redirect()->back();
     }
 }
