@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Comfortaa);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10660,12 +10660,23 @@ h4 {
   background-color: #DCF0FB;
 }
 
-.justify-content-center a {
+.navbar a {
   color: #666666;
 }
 
-.container {
-  margin-top: 30px;
+.navbar {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navbar a:hover {
+  color: #FD4A29;
+  font-weight: 700;
+}
+
+.navbar .active {
+  color: #FD4A29;
+  font-weight: 700;
 }
 
 .container-nav {
@@ -10673,21 +10684,20 @@ h4 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 10%;
-  height: 250px;
+  height: 100px;
 }
 
 .container-nav_h2 {
   align-self: end;
-  padding-bottom: 30px;
 }
 
 .container-nav_h2 h2 {
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .container-nav_form {
   align-self: end;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   justify-self: end;
   border-radius: 5px;
   width: 60%;
@@ -10696,14 +10706,60 @@ h4 {
 .container-nav_form input {
   border: none;
   background: #fff;
+  border-radius: 1rem;
+}
+
+.username {
+  color: #FD4A29;
+  font-weight: 600;
 }
 
 /*-----COMPANIES-----*/
+
+.container_companies {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100vh;
+}
+
+.companies_filters {
+  background-color: #F6F7FB;
+  margin-left: 0;
+  padding: 30px;
+}
+
+.companies_filters h5 {
+  color: #4640DE;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.companies_filters h6 {
+  font-weight: 600;
+}
+
+.companies_filters form {
+  margin-bottom: 30px;
+}
+
+.companies_filters .form-check {
+  margin-left: 30px;
+}
+
+.companies_filters .form-check a {
+  color: #4640DE;
+}
 
 .companies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10%;
+  margin: 30px;
+  grid-column: 2/span 2;
+}
+
+#more {
+  display: none;
 }
 
 .companies__detail {
@@ -10715,6 +10771,7 @@ h4 {
   text-decoration: none;
   color: #000000;
   font-family: "Comfortaa", cursive;
+  margin-bottom: 10px;
 }
 
 .companies__detail a:hover {
@@ -10726,6 +10783,14 @@ h4 {
 .companies__detail p {
   color: #666666;
   font-size: 0.7em;
+}
+
+.companies__detail img {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border: none;
 }
 
 .companies__line {

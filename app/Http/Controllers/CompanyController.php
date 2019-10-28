@@ -32,7 +32,7 @@ class CompanyController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->flash('username', $company->name);
             $request->session()->flash('message', 'Company registration successful!');
-
+            $request->session()->flash('email', $company->email);
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
@@ -104,6 +104,27 @@ class CompanyController extends Controller
     public function create()
     {
         return view('companies/create');
+    }
+
+    public function handlecreate()
+    {
+        /* $user = session('user');
+
+         $client_id = 'IZ2UJDBHVPX4TUMUUNZ3FJSFTX5WJJEFHFRQCAZDO0K4P3NC';
+         $secret = 'QVJC4RMSRBYL1BJ1HQMLB5DAQ2CTMWLY50NK2NEVGYGAY0Y3';
+         $redirecturi = 'http://sprintern.weareimd.be';
+         $getToken = 'https://foursquare.com/oauth2/authenticate?client_id='.$client_id.'&response_type=token&redirect_uri='.$redirecturi.'';
+         $api = 'https://'.$redirecturi.'/?code='.$getToken.'';
+         //FRNUKITLVBBAFV5IB4DP1TCHT5E4K4%3A%3A1635339172
+
+         $query = $_GET[$user->email];
+
+         $fsSearch = file_get_contents('https://api.foursquare.com/v2/users/search?client_id='.$client_id.'&client_secret='.$secret.'&v=20140623&ll=40.7,-74&query='.$query);
+
+         $response = curl_exec($fsSearch);
+         curl_close($fsSearch);
+
+         var_dump($response);*/
     }
 
     public function store(Request $request)

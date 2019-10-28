@@ -9,7 +9,9 @@
 @endsection
 
 @section('content')
-   
+    <div>
+        <a href="/companies/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">Add new internship</a>
+    </div>
     <div class="companies">
         @foreach($myinternships as $myinternship)
         <div class="companies__detail" >
@@ -23,8 +25,6 @@
 
     </div>
 
-    <div>
-    <a href="/companies/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">Add new internship</a>
-    </div>
+   
     
 @endsection

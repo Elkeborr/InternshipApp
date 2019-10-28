@@ -37,7 +37,7 @@
 
 </div>
         <main class="container">
-            <a href="{{ url('/companies') }}">back</a>
+            <a href= "@yield('link')" >back</a>
             @yield('content')
         </main>
     </div>

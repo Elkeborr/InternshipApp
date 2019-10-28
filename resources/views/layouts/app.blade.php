@@ -10,7 +10,10 @@
     <title>Sprintern - @yield('title')</title>
 
     <!-- Scripts -->
+   
     <script src="{{ asset('js/app.js') }}" defer></script>
+   
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,7 +32,7 @@
                         </button>
                     </div>
                     <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
-                    
+           
                         @if($user->type == 'company')
                             <!-- <p>{{$user->name}}</p> -->
                             <a class="nav-link active nav-item " href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
@@ -42,12 +45,17 @@
                             <a class="nav-item  nav-link" href="{{ url('/internships') }}">Internships</a>
                             <a class="nav-item  nav-link" href="{{ url('/companies') }}">Companies</a>  
                         @endif
+        
                     </div>
+
                     <span class="navbar-text mt-1 w-50 text-right order-md-last">
+                    
                     <!-- @if ($flash = session('username')) -->
                         <a href="{{ url('/users/detail') }}">{{$flash}}</a>
                     <!-- @endif -->
-                    {{$user->name}}
+                   
+                   <p class="username"> {{$user->name}}</p>
+                  
                     </span>
                 @endif
             </nav>
@@ -60,14 +68,19 @@
                 <div class="container-nav_form">
                     <form >
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                       
                     </form>
                 </div>
             </div>
         </div>
         @yield('hero-image')
-        <main class="container">
+        <main>
             @yield('content')
         </main>
     </div>
+
+
 </body>
+
+
 </html>

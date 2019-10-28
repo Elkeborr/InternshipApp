@@ -4,6 +4,10 @@
 {{$company->name}}
 @endsection
 
+@section('link')
+{{ url('/companies') }}
+@endsection
+
 @section('content')
 <h1>{{$company->name}}</h1>
 <p>{{$company->bio}}</p>
