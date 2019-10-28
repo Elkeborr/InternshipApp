@@ -18,7 +18,7 @@ Internships
 @endif
 <div class="container_companies">
     <div class="companies_filters">
-        <h5>Filter companies</h5>
+        <h5>Filter internships</h5>
         <div>
             <h6 class="title">Place </h6>
             <form method="post">
