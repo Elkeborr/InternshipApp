@@ -26,8 +26,8 @@ Route::post('/companies/login', 'CompanyController@handleLogin');
 
 /*Create company*/
 
-Route::get('/companies/create', 'CompanyController@create');
-Route::post('/companies/create', 'CompanyController@handlecreate');
+Route::get('/companies/detail', 'CompanyController@create');
+Route::post('/companies/detail', 'CompanyController@handlecreate');
 
 /* Companies */
 Route::get('/companies', 'CompanyController@index');
@@ -35,8 +35,6 @@ Route::get('/companies', 'CompanyController@index');
 Route::get('/companies/myinternships', 'CompanyController@showMyInternships');
 Route::get('/companies/myinternships/create', 'CompanyController@create');
 Route::post('/companies/myinternships', 'CompanyController@store');
-
-
 
 Route::get('/companies/{company}', 'CompanyController@show');
 

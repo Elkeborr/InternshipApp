@@ -17,6 +17,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -48,15 +49,15 @@
         
                     </div>
 
-                    <span class="navbar-text mt-1 w-50 text-right order-md-last">
+                    <span class="navbar-text mt-1 w-50 text-right order-md-last username">
                     
                     <!-- @if ($flash = session('username')) -->
                         <a href="{{ url('/users/detail') }}">{{$flash}}</a>
                     <!-- @endif -->
                    
-                   <p class="username"> {{$user->name}}</p>
-                  
+                   <p> {{$user->name}}</p>
                     </span>
+
                 @endif
             </nav>
             <div class="container-nav container">
@@ -66,10 +67,8 @@
                     </h2>
                 </div>
                 <div class="container-nav_form">
-                    <form >
-                   
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                       
+                    <form>
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     </form>
                 </div>
             </div>

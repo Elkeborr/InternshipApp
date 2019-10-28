@@ -9,34 +9,35 @@ Internships
 @endsection
 
 @section('content')
-<nav class="nav">
-    <div class="nav__logo"> </div>
-</nav>
 
 @if ($flash = session('message'))
     <div class="alert alert-success">{{ $flash }}</div>
 @endif
+
+
 <div class="container_companies">
     <div class="companies_filters">
-	<div class="companies_form">
-		<h5>Filters</h5>
+		<div class="companies_form">
+			<h5>Filters</h5>
 		<hr class="companies__line">
-	</div>
-        <div>
-        <div class="panel-heading " >
-						<h6 class="panel-title">
-							<a data-toggle="collapse" href="#collapse0">
-							 Place
-							</a>
-						</h6>
-					</div>
-					<div id="collapse0" class="panel-collapse collapse in" >
+
+		<div class="panel-heading">
+			<h6 class="panel-title">
+			<a data-toggle="collapse" href="#collapse0">
+				Place
+				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+			</a>
+			</h6>
+		</div>
+
+		<div id="collapse0" class="panel-collapse collapse in" >
             <form method="post">
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
                   All regions
 				  </span>
+				  <span class="checkmark"></span>
                 </label>
                 
 				<label class="form-check">
@@ -44,6 +45,7 @@ Internships
 				  <span class="form-check-label">
 				   Antwerpen
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
                 
 				<label class="form-check">
@@ -51,6 +53,7 @@ Internships
 				  <span class="form-check-label">
 				  Oost-Vlaanderen
 				  </span>
+				  <span class="checkmark"></span>
                 </label>  
                 
                 <label class="form-check">
@@ -58,6 +61,7 @@ Internships
 				  <span class="form-check-label">
 				  West-Vlaanderen
 				  </span>
+				  <span class="checkmark"></span>
                 </label>  
                 
                 <label class="form-check">
@@ -65,6 +69,7 @@ Internships
 				  <span class="form-check-label">
 				 Limburg
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
 
                 <label class="form-check">
@@ -72,6 +77,7 @@ Internships
 				  <span class="form-check-label">
 				 Vlaams-Brabant
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
       
                 <label class="form-check">
@@ -79,6 +85,7 @@ Internships
 				  <span class="form-check-label">
 				 Brussel
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
                 
                 <label class="form-check">
@@ -86,6 +93,7 @@ Internships
 				  <span class="form-check-label">
 				  Waals-Brabant
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
                 
                 <label class="form-check">
@@ -93,6 +101,7 @@ Internships
 				  <span class="form-check-label">
 				 Luik
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
                 
                 <label class="form-check">
@@ -100,6 +109,7 @@ Internships
 				  <span class="form-check-label">
 				 Henegouwen
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
                 
                 <label class="form-check">
@@ -107,6 +117,7 @@ Internships
 				  <span class="form-check-label">
 				 Namen
 				  </span>
+				  <span class="checkmark"></span>
                 </label>
                 
                 <label class="form-check">
@@ -114,24 +125,26 @@ Internships
 				  <span class="form-check-label">
 				Luxemburg
 				  </span>
+				  <span class="checkmark"></span>
                 </label>
-
-                </div>
-                <div class="panel-heading " >
-						<h6 class="panel-title">
-							<a data-toggle="collapse" href="#collapse1">
-							Discipline
-							</a>
-						</h6>
-					</div>
-					<div id="collapse1" class="panel-collapse collapse in" >
-  
+		</div>
+        
+			<div class="panel-heading">
+				<h6 class="panel-title">
+					<a data-toggle="collapse" href="#collapse1">
+						Discipline
+						<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+					</a>
+				</h6>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse in" >
   
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
 				    All
 				  </span>
+				  <span class="checkmark"></span>
                 </label>
                 
 				<label class="form-check">
@@ -139,41 +152,39 @@ Internships
 				  <span class="form-check-label">
 				   graphic designer
 				  </span>
+				  <span class="checkmark"></span>
                 </label> 
                 
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				  ui/ux designer
-				  </span>
-                </label>  
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
 				  front-end developer
 				  </span>
+				  <span class="checkmark"></span>
                 </label>  
-
+                
                 <label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
 				  back-end developer
 				  </span>
+				  <span class="checkmark"></span>
+				</label>  
+				
+				<label class="form-check">
+				  <input class="form-check-input" type="checkbox" value="">
+				  <span class="form-check-label">
+				  ui/ux designer
+				  </span>
+				  <span class="checkmark"></span>
                 </label>  
-                </div>
+				</div>
                
-                <button type="submit" class="btn btn-primary">Submit</button>
-                
-                
-                
-                
-                
-           
+                <button type="submit" class="btn btn-primary">Submit</button> 
 			</form>
-        </div>
-        
-</div>
+
+		</div>
+	</div>
 <div class="companies">
     @if (\Auth::user()->type == 'student')
         @foreach($internships as $internship)
@@ -183,11 +194,11 @@ Internships
                 <hr class="companies__line">
                 <p>{{ $internship->available_spots }} available</p>
                 @if ($internship->jobApplications->count() == 0)
-                    <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Apply</a>
+				<button href="/internships/{{ $internship->id }}/apply" class="btn">Apply</button>
                 @else
                     @foreach($internship->jobApplications as $jobApplication)
                         @if ($internship->available_spots != 0 && $jobApplication->user_id != \Auth::user()->id)
-                            <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Apply</a>
+                            <button href="/internships/{{ $internship->id }}/apply" class="btn">Apply</button>
                         @endif
                         @if ($jobApplication->user_id == \Auth::user()->id)
                             <div class="alert alert-primary" role="alert">

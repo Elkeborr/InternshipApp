@@ -16,7 +16,7 @@
 @else
     @foreach ($internship->jobApplications as $jobApplication)
         @if ($internship->available_spots != 0)
-            <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Apply</a>
+            <a href="/internships/{{ $internship->id }}/apply" >Apply</a>
         @endif
         @if ($jobApplication->user_id == \Auth::user()->id)
             <div class="alert alert-primary" role="alert">
