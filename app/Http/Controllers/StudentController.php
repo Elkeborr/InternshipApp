@@ -6,15 +6,15 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $data['students'] = \App\Student::get();
+        $data['users'] = \App\Student::get();
 
-        return view('students/index', $data);
+        return view('users/index', $data);
     }
 
     //op basis van id, opzoek gaan naar record
-    public function show($student)
+    public function show($user)
     {
-        $data['student'] = \App\Student::where('id', $student)->first();
+        $data['user'] = \App\User::where('id', $user)->first();
         //record doorgeven
         //$student = $student;
         //$student = \DB::table('students')->where('id', $student)->first();

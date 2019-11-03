@@ -47,7 +47,7 @@
                     <!-- @if ($flash = session('username')) -->
                         <a href="{{ url('/users/detail') }}">{{$flash}}</a>
                     <!-- @endif -->
-                    {{$user->name}}
+                    <a href="/students/{{$user->id }}">{{$user->name}}</a>
                     </span>
                 @endif
             </nav>
