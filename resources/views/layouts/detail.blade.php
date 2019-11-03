@@ -32,7 +32,7 @@
         <a class="nav-item  nav-link" href="{{ url('/internships') }}">Internships</a>
         <a class="nav-item  nav-link" href="{{ url('/companies') }}">Companies</a> 
     </div>
-    <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="">username</a></span>
+    <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="">{{$user->name}}</a></span>
 </nav>
 
 </div>

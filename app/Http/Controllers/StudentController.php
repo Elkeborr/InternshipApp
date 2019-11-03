@@ -22,4 +22,16 @@ class StudentController extends Controller
 
         return view('students/show', $data);
     }
+
+    //op basis van id, opzoek gaan naar record
+    public function edit($user)
+    {
+        $data['user'] = \App\User::where('id', $user)->first();
+        //record doorgeven
+        //$student = $student;
+        //$student = \DB::table('students')->where('id', $student)->first();
+        //dd($student);
+
+        return view('/students/edit', $data);
+    }
 }

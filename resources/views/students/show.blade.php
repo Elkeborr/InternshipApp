@@ -1,24 +1,32 @@
 @extends('layouts/detail')
 
 @section('title')
-            Companies
+            Student
 @endsection
 
 
-
+@section('link')
+{{ url('/home') }}
+@endsection 
 @section('content')
-            <p>Firstname</p>
+
+            
+            <h3>Firstname</h3>
             <p>{{$user->name}}</p>
 
             <br>
-            <p>Connected since:</p>
+            <h3>E-mail:</h3>
             <p>{{$user->email}}</p>
 
             <br>
-            <p>student or company?:</p>
+            <h3>student or company?:</h3>
             <p>{{$user->type}}</p>
 
             <br>
-            <p>Connected since:</p>
-            <p>{{$user->email}}</p>
-@endsection   
+            <h3>Connected since:</h3>
+            <p>{{$user->created_at}}</p>
+            
+            <button type="button" class="btn btn-dark" onclick="window.location.href='/students/{{$user->id }}/edit'">Edit</button>
+            
+            
+@endsection

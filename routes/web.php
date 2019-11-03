@@ -45,6 +45,7 @@ Route::get('/register', 'RegisterController@index');
 /*Users */
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show');
+Route::get('/students/{student}/edit', 'StudentController@edit');
 
 Auth::routes();
 
