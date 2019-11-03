@@ -10,10 +10,14 @@
     <title>Sprintern - @yield('title')</title>
 
     <!-- Scripts -->
+   
     <script src="{{ asset('js/app.js') }}" defer></script>
+   
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -28,12 +32,12 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
-                    <div class="collapse navbar-collapse justify-content-center order-2" id="collapsibleNavbar">
-                    
+                    <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+           
                         @if($user->type == 'company')
                             <!-- <p>{{$user->name}}</p> -->
-                            <a class="nav-link active nav-item " href="{{ url('/companies/home') }}">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item  nav-link" href="{{ url('/') }}">Interns</a>
+                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Interns</a>
                             <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">My Internships</a> 
                         @endif
                         @if($user->type == 'student')
@@ -42,13 +46,22 @@
                             <a class="nav-item  nav-link" href="{{ url('/internships') }}">Internships</a>
                             <a class="nav-item  nav-link" href="{{ url('/companies') }}">Companies</a>  
                         @endif
+        
                     </div>
-                    <span class="navbar-text mt-1 w-50 text-right order-md-last">
+
+                    <span class="navbar-text mt-1 w-50 text-right order-md-last username">
+                    
                     <!-- @if ($flash = session('username')) -->
                         <a href="{{ url('/users/detail') }}">{{$flash}}</a>
                     <!-- @endif -->
+<<<<<<< HEAD
                     <a href="/students/{{$user->id }}">{{$user->name}}</a>
+=======
+                   
+                   <p> {{$user->name}}</p>
+>>>>>>> master
                     </span>
+
                 @endif
             </nav>
             <div class="container-nav container">
@@ -58,16 +71,20 @@
                     </h2>
                 </div>
                 <div class="container-nav_form">
-                    <form >
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <form>
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     </form>
                 </div>
             </div>
         </div>
         @yield('hero-image')
-        <main class="container">
+        <main>
             @yield('content')
         </main>
     </div>
+
+
 </body>
+
+
 </html>

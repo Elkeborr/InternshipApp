@@ -32,6 +32,13 @@ class CompanyController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->flash('username', $company->name);
             $request->session()->flash('message', 'Company registration successful!');
+            $request->session()->flash('email', $company->email);
+            //Retrieve data and put it in session
+            $user_id = Auth::id();
+            $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
+            //Put user data in session User
+            $request->session()->put('user', $user);
+            // dd($sessionData['name']);
 
             return redirect('home');
         }
@@ -66,15 +73,73 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $data['companies'] = \DB::table('companies')->get();
+        if (Auth::check()) {
+            $data['companies'] = \DB::table('companies')->get();
 
-        return view('companies/index', $data);
+            return view('companies/index', $data);
+        }
+
+        return redirect('companies/login');
     }
 
     public function show($company)
     {
-        $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
+        if (Auth::check()) {
+            $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
 
-        return view('companies/show', $data);
+            return view('companies/show', $data);
+        }
+
+        return redirect('companies/login');
+    }
+
+    public function showMyInternships()
+    {
+        $user = session('user');
+        $data['myinternships'] = \DB::table('internships')->where('company_id', $user->company_id)->get();
+
+        return view('companies/myInternships', $data);
+    }
+
+    public function create()
+    {
+        return view('companies/detail');
+    }
+
+    public function handlecreate()
+    {
+        $user = session('user');
+
+        $client_id = 'IZ2UJDBHVPX4TUMUUNZ3FJSFTX5WJJEFHFRQCAZDO0K4P3NC';
+        $secret = 'QVJC4RMSRBYL1BJ1HQMLB5DAQ2CTMWLY50NK2NEVGYGAY0Y3';
+        $redirecturi = 'https://sprintern.weareimd.be';
+
+        $getToken = 'https://foursquare.com/oauth2/authenticate?client_id='.$client_id.'&response_type=token&redirect_uri='.$redirecturi.'';
+        $api = 'https://'.$redirecturi.'/?code='.$getToken.'';
+        $query = $_GET[$user->email];
+
+        $fsSearch = file_get_contents('https://api.foursquare.com/v2/users/search?client_id='.$client_id.'&client_secret='.$secret.'&v=20140623&ll=40.7,-74&query='.$query);
+
+        $response = curl_exec($fsSearch);
+        curl_close($fsSearch);
+
+        dd($response);
+
+        return view('companies/detail');
+    }
+
+    public function store(Request $request)
+    {
+        $user = session('user');
+        $internship = new \App\Internship();
+
+        $internship->internship_function = $request->input('internshipFunction');
+        $internship->internship_discription = $request->input('discription');
+        $internship->available_spots = $request->input('spots');
+        $internship->company_id = $user->company_id;
+
+        $internship->save();
+
+        return redirect('companies/myinternships');
     }
 }

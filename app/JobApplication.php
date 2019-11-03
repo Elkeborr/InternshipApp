@@ -15,4 +15,5 @@ class jobApplication extends Model
     {
         return $this->belongsTo('\App\User');
     }
+
 }

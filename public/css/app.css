@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Comfortaa);@import url(https://fonts.googleapis.com/css?family=Open+Sans);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10660,12 +10660,41 @@ h4 {
   background-color: #DCF0FB;
 }
 
-.justify-content-center a {
+.navbar a {
   color: #666666;
 }
 
-.container {
-  margin-top: 30px;
+h3 {
+  color: #4640DE;
+}
+
+.btn {
+  font-size: 1em;
+  background-color: #4640DE;
+  color: #fff;
+  border: none;
+}
+
+.form-control {
+  font-size: 1em;
+}
+
+.navbar {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.collapse {
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: #FD4A29;
+}
+
+.navbar .active {
+  color: #FD4A29;
+  font-weight: 700;
 }
 
 .container-nav {
@@ -10673,21 +10702,20 @@ h4 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 10%;
-  height: 250px;
+  height: 100px;
 }
 
 .container-nav_h2 {
   align-self: end;
-  padding-bottom: 30px;
 }
 
 .container-nav_h2 h2 {
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .container-nav_form {
   align-self: end;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   justify-self: end;
   border-radius: 5px;
   width: 60%;
@@ -10696,14 +10724,152 @@ h4 {
 .container-nav_form input {
   border: none;
   background: #fff;
+  border-radius: 1rem;
+}
+
+.username p {
+  color: #FD4A29;
+  font-weight: 600;
+}
+
+.username span {
+  padding-left: 2px;
 }
 
 /*-----COMPANIES-----*/
+
+.form-check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+
+.form-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: #4640DE 1px solid;
+}
+
+/* On mouse-over, add a grey background color */
+
+.form-check:hover input ~ .checkmark {
+  background-color: #4640DE;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.form-check input:checked ~ .checkmark {
+  background-color: #4640DE;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.form-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.form-check .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.container_companies {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 100vh;
+}
+
+.companies_filters {
+  background-color: #F6F7FB;
+  margin: 0;
+  padding: 30px;
+}
+
+.companies_form {
+  width: 80%;
+}
+
+.companies_filters h5 {
+  color: #4640DE;
+  font-size: 1.2em;
+}
+
+.panel-heading {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.companies_filters h6 a {
+  color: #666666;
+  font-size: 1.5em;
+}
+
+.companies_filters h6 a:hover {
+  text-decoration: none;
+}
+
+.companies_filters p {
+  font-size: 1em;
+}
+
+.companies_filters .glyphicon {
+  float: right;
+}
+
+.companies_filters form {
+  margin-bottom: 30px;
+}
+
+.companies_filters .form-check {
+  margin-left: 10px;
+}
+
+.companies_filters button {
+  margin-top: 30px;
+}
 
 .companies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10%;
+  margin: 30px;
+  grid-column: 2/span 3;
 }
 
 .companies__detail {
@@ -10715,6 +10881,7 @@ h4 {
   text-decoration: none;
   color: #000000;
   font-family: "Comfortaa", cursive;
+  margin-bottom: 10px;
 }
 
 .companies__detail a:hover {
@@ -10725,7 +10892,15 @@ h4 {
 
 .companies__detail p {
   color: #666666;
-  font-size: 0.7em;
+  font-size: 0.8em;
+}
+
+.companies__detail img {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border: none;
 }
 
 .companies__line {
@@ -10734,4 +10909,10 @@ h4 {
 }
 
 /*-----COMPANIES-DETAIL-----*/
+
+/*-----DASHBOARD-----*/
+
+.container {
+  margin-top: 30px;
+}
 

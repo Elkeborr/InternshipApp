@@ -47,7 +47,8 @@
     <div class="about">
         <div></div>
         <div> <h2>About us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elit sem, molestie id rhoncus sit amet, accumsan facilisis lacus. Nulla vitae lacus interdum, consequat enim eget, euismod sapien. In lectus nisi, accumsan at dolor nec, elementum interdum dolor. Nulla vestibulum odio ipsum, vel vestibulum sem ultricies ut. </p>
+                    <p>Searching for an intern or internship doesn’t have to be hard. With the sprintern app it’s peanuts! Just fill in your personal skills and contact info for a fast result.
+Or you could just wait untill all the cool internships are taken. It’s up to you! </p>
                     </div>   
     </div>
 
