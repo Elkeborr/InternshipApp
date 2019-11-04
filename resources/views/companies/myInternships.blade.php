@@ -21,7 +21,7 @@
             <a href ="/internships/">{{ $myinternship->internship_function }}</a>
             <p>{{ $myinternship->internship_discription }}</p>
             <hr class="companies__line">
-            <p>company_city comes here</p>
+            <p>Company city</p>
             <p>{{ $myinternship->available_spots }} available</p>
             <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">View applications</a>
         </div>

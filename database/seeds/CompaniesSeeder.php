@@ -22,6 +22,7 @@ class CompaniesSeeder extends Seeder
         $company->city = 'Antwerp';
         $company->postalCode = '2000';
         $company->employees = '9';
+        $company->state = 'Antwerpen';
         $company->save();
 
         $company2 = new \App\Company();
@@ -35,6 +36,7 @@ class CompaniesSeeder extends Seeder
         $company2->city = 'Mechelen';
         $company2->postalCode = '2800';
         $company2->employees = '18';
+        $company2->state = 'Antwerpen';
         $company2->save();
 
         $company3 = new \App\Company();
@@ -48,6 +50,7 @@ class CompaniesSeeder extends Seeder
         $company3->city = 'Antwerpen';
         $company3->postalCode = '2018';
         $company3->employees = '10';
+        $company3->state = 'Antwerpen';
         $company3->save();
 
         $company4 = new \App\Company();
@@ -61,6 +64,7 @@ class CompaniesSeeder extends Seeder
         $company4->city = 'Kontich';
         $company4->postalCode = '2550';
         $company4->employees = '18';
+        $company4->state = 'Antwerpen';
         $company4->save();
 
         $company5 = new \App\Company();
@@ -74,6 +78,7 @@ class CompaniesSeeder extends Seeder
         $company5->city = 'Gent';
         $company5->postalCode = '9000';
         $company5->employees = '10';
+        $company5->state = 'West-Vlaanderen';
         $company5->save();
     }
 }
