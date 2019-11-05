@@ -20,8 +20,10 @@ class CreateCompaniesTable extends Migration
             $table->string('street');
             $table->string('streetNumber');
             $table->string('city');
+            $table->string('state');
             $table->string('postalCode');
-            $table->string('employees');
+            $table->bigInteger('employees');
+            $table->bigInteger('userId')->nullable();
             $table->timestamps();
         });
     }

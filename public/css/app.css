@@ -10910,6 +10910,14 @@ h3 {
 
 /*-----COMPANIES-DETAIL-----*/
 
+.form_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10%;
+  margin: 30px;
+  grid-column: 2/span 3;
+}
+
 /*-----DASHBOARD-----*/
 
 .container {

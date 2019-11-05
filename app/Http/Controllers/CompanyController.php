@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
+use GuzzleHttp\Client;
 
 class CompanyController extends Controller
 {
@@ -40,7 +41,7 @@ class CompanyController extends Controller
             $request->session()->put('user', $user);
             // dd($sessionData['name']);
 
-            return redirect('home');
+            return redirect('companies/detail');
         }
 
         return view('companies/login');
@@ -103,27 +104,53 @@ class CompanyController extends Controller
 
     public function create()
     {
-        return view('companies/detail');
-    }
-
-    public function handlecreate()
-    {
         $user = session('user');
-
+        $query = $user->name;
         $client_id = 'IZ2UJDBHVPX4TUMUUNZ3FJSFTX5WJJEFHFRQCAZDO0K4P3NC';
         $secret = 'QVJC4RMSRBYL1BJ1HQMLB5DAQ2CTMWLY50NK2NEVGYGAY0Y3';
-        $redirecturi = 'https://sprintern.weareimd.be';
+        $version = '20180605';
 
-        $getToken = 'https://foursquare.com/oauth2/authenticate?client_id='.$client_id.'&response_type=token&redirect_uri='.$redirecturi.'';
-        $api = 'https://'.$redirecturi.'/?code='.$getToken.'';
-        $query = $_GET[$user->email];
+        $client = new Client([
+            'client_id' => $client_id,
+            'client_secret' => $secret,
+            'version' => $version,
+            'base_uri' => 'https://api.foursquare.com/v2/venues/search',
+        ]);
 
-        $fsSearch = file_get_contents('https://api.foursquare.com/v2/users/search?client_id='.$client_id.'&client_secret='.$secret.'&v=20140623&ll=40.7,-74&query='.$query);
+        $response = $client->get('?query='.$query.'&near=belgium&client_id='.$client_id.'&client_secret='.$secret.'&v='.$version.'');
 
-        $response = curl_exec($fsSearch);
-        curl_close($fsSearch);
+        $res = json_decode($response->getBody(), true);
+        $data['company'] = $res['response']['venues']['0'];
+        $data['user'] = $user;
 
-        dd($response);
+        return view('companies/detail', $data);
+    }
+
+    public function handlecreate(Request $request)
+    {
+        $user = session('user');
+        $company = new \App\Company();
+
+        $company->name = $request->input('name');
+        $company->bio = $request->input('bio');
+        $company->phoneNumber = $request->input('phoneNumber');
+        $company->email = $request->input('email');
+        $company->street = $request->input('street');
+        $company->streetNumber = $request->input('streetNumber');
+        $company->city = $request->input('city');
+        $company->state = $request->input('state');
+        $company->postalCode = $request->input('postalCode');
+        $company->employees = $request->input('employees');
+        $company->userid = $user->id;
+
+        $saved = $company->save();
+
+        if ($saved) {
+            $request->session()->flash('message', 'Welcome to your homepage');
+
+            return redirect('home');
+        }
+        $request->session()->flash('message', 'Oeps, something went wrong');
 
         return view('companies/detail');
     }
