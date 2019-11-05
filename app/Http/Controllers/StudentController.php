@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 class StudentController extends Controller
 {
     public function index()
@@ -35,18 +38,19 @@ class StudentController extends Controller
         return view('/students/edit', $data);
     }
 
-    public function update($user)
+    public function update(Request $request)
     {
+        $user = session('user');
         $data['user'] = \App\User::where('id', $user)->first();
 
-        $user = new \App\User();
+        $user->id = request('id');
         $user->name = request('firstname');
-        $user->type = 'student';
         $user->email = request('email');
-        $user->password = request('password');
+        $user->type = request('type');
+        $user->password = Hash::make(request('password'));
         $user->updated_at = date('Y-m-d h:i:s');
         $user->save();
 
-        return redirect('/students', $data);
+        return redirect('home');
     }
 }
