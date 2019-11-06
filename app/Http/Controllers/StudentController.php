@@ -40,6 +40,12 @@ class StudentController extends Controller
 
     public function update(Request $request)
     {
+        $validation = $request->validate([
+            'firstname' => 'required|max:200',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
         $user = session('user');
         $data['user'] = \App\User::where('id', $user)->first();
 

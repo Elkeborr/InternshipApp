@@ -12,6 +12,18 @@
         <form action="/students/{{$user->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
+
+            @if( $errors->any() )
+                @component('components/alert')
+                    @slot('type','danger')
+                    <ul>
+                        @foreach($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                        @endforeach
+                    </ul>
+                @endcomponent
+            @endif
+
             <br><br>
                 <div class="form-group">
                     <div class="form-row">
@@ -56,5 +68,7 @@
             <br><br>
             <button type="submit" class="btn btn-success">Submit</button>
             </form>
+
+            
             
 @endsection  
