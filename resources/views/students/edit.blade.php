@@ -1,7 +1,7 @@
 @extends('layouts/detail')
 
 @section('title')
-            Student
+            Edit profile
 @endsection
 
 @section('link')

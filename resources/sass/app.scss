@@ -225,7 +225,6 @@ color:$orange;
     grid-gap: 10%;
     margin: 30px;
     grid-column: 2 / span 3;
-
 }
 
 
@@ -246,14 +245,12 @@ color:$orange;
 .companies__detail p{
     color:$dark-grey;
     font-size: 0.8em;
-
- 
 }
 
 .companies__detail img{
    width: 40px;
    height: 40px;
-  background-color:$white;
+   background-color:$white;
    margin-bottom: 20px;
    border:none;
  
@@ -276,3 +273,34 @@ color:$orange;
 .container{
     margin-top: 30px;
 }
+
+
+/*----PROFILE-------*/
+.container-profile{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    position: absolute;
+    left:0px;
+}
+
+.container-profile button{
+    grid-column-end:span 1;
+}
+
+
+.col-md.profile{
+    padding:40px;
+}
+
+.container-profile h5{
+    color:$blue;
+    font-size:1.2em;
+   
+ }
+
+ .card-body.button{
+    position: relative;
+    float: right;
+    padding:0px;
+ }
+

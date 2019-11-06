@@ -10924,3 +10924,31 @@ h3 {
   margin-top: 30px;
 }
 
+/*----PROFILE-------*/
+
+.container-profile {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  position: absolute;
+  left: 0px;
+}
+
+.container-profile button {
+  grid-column-end: span 1;
+}
+
+.col-md.profile {
+  padding: 40px;
+}
+
+.container-profile h5 {
+  color: #4640DE;
+  font-size: 1.2em;
+}
+
+.card-body.button {
+  position: relative;
+  float: right;
+  padding: 0px;
+}
+

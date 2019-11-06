@@ -1,7 +1,7 @@
 @extends('layouts/detail')
 
 @section('title')
-            Student
+            Profile
 @endsection
 
 
@@ -9,24 +9,54 @@
 {{ url('/home') }}
 @endsection 
 @section('content')
+<div class="row container-profile align-items-start">
+    
+        <div class="col-md-12 profile text-center bg-light p-40">
 
-            
-            <h3>Firstname</h3>
-            <p>{{$user->name}}</p>
+                <img src="{{ asset('img/defaultProfile.png') }}" width="300" alt="profile picture">
+           
+                <h4>{{$user->name}}</h4>
 
-            <br>
-            <h3>E-mail:</h3>
-            <p>{{$user->email}}</p>
+                <br>
+                <h5>Contact:</h5>
+                <p>{{$user->email}}</p>
+                
+        </div>
+               
+        <div class="col-md-12 profile">
+                
+        <div class="card-body button">       
+        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Edit</button>
+        </div>    
+        <br>
+        <br>
+        
+                <div class="card-body bg-light">
+                    <h5 class="card-title">Biography:</h5>
+                    <div class="card-text">
+                        <p>Dit is een voorbeeld van een biografie</p>
+                    </div>
+                </div>
 
-            <br>
-            <h3>student or company?:</h3>
-            <p>{{$user->type}}</p>
+                <br>
 
-            <br>
-            <h3>Connected since:</h3>
-            <p>{{$user->created_at}}</p>
-            
-            <button type="button" class="btn btn-dark" onclick="window.location.href='/students/{{$user->id }}/edit'">Edit</button>
-            
-            
+                <div class="card-body bg-light">
+                    <h5 class="card-title">Talents:</h5>
+                    <div class="card-text">
+                        <p>Dit is een voorbeeld van talent</p>
+                    </div>
+                </div>
+                <br>
+
+                <div class="card-body bg-light">
+                    <h5 class="card-title">Experience</h5>
+                    <div class="card-text">
+                        <p>Dit is een voorbeeld voor ervaring</p>
+                    </div>
+                </div>
+                
+                
+        </div>
+                     
+</div>          
 @endsection
