@@ -122,6 +122,7 @@ class CompanyController extends Controller
         $res = json_decode($response->getBody(), true);
         $data['company'] = $res['response']['venues']['0'];
         $data['user'] = $user;
+        $data['tags'] = \DB::table('company_tags')->get();
 
         return view('companies/detail', $data);
     }
@@ -142,10 +143,17 @@ class CompanyController extends Controller
         $company->postalCode = $request->input('postalCode');
         $company->employees = $request->input('employees');
         $company->userid = $user->id;
-
         $saved = $company->save();
 
-        if ($saved) {
+        $tags = $request->input('tag');
+        foreach ($tags as $tag) {
+            $newtag = new \App\AssignCompanytags();
+            $newtag->tag_id = json_decode($tag);
+            $newtag->user_id = $user->id;
+            $savedTags = $newtag->save();
+        }
+
+        if ($saved && $savedTags) {
             $request->session()->flash('message', 'Welcome to your homepage');
 
             return redirect('home');

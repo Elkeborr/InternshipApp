@@ -15,4 +15,9 @@ class Company extends Authenticatable
     {
         return $this->hasMany('\App\Internship');
     }
+
+    public function tags()
+    {
+        return $this->hasMany('\App\AssignCompanyTags');
+    }
 }
