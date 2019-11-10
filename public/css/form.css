@@ -10661,10 +10661,6 @@ a.text-dark:focus {
   font-family: "Comfortaa", cursive;
 }
 
-h2 {
-  font-size: 80px;
-}
-
 h2 span {
   color: #FD4A29;
 }
@@ -10672,6 +10668,7 @@ h2 span {
 .left h2 {
   padding-top: 35%;
   padding-left: 10%;
+  font-size: 80px;
 }
 
 .form {

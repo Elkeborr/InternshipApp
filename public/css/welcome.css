@@ -10663,7 +10663,53 @@ h3 {
 
 h2 {
   padding-bottom: 20px;
+  font-weight: bold;
 }
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+.title_hr {
+  border-top: 7px solid;
+  color: #FD4A29;
+  width: 80px;
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Navigatie */
+
+.navbar {
+  padding: 2% 7% 2% 7%;
+  background-color: #DCF0FB;
+}
+
+#student {
+  background-color: #FD4A29;
+  width: 120px;
+  border-radius: 10px;
+}
+
+#student a {
+  color: #fff;
+  text-align: center;
+}
+
+#company {
+  background-color: #4640DE;
+  width: 120px;
+  border-radius: 10px;
+}
+
+#company a {
+  color: #fff;
+  text-align: center;
+}
+
+/* Hero */
 
 .hero {
   background-color: #DCF0FB;
@@ -10710,15 +10756,124 @@ h2 {
   font-size: 1.5em;
 }
 
+/*Internships*/
+
+.internships form {
+  margin-bottom: 5%;
+}
+
+.internships button {
+  display: block;
+  background-color: #FD4A29;
+  color: #fff;
+  margin: 0 auto;
+  width: 120px;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+}
+
+.internships_count {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10%;
+  margin: 30px;
+  grid-column: 2/span 3;
+}
+
+.internships__detail {
+  background-color: #F6F7FB;
+}
+
+.internships_detail-padding {
+  padding: 10%;
+}
+
+.internships__detail a {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Comfortaa", cursive;
+  margin-bottom: 10px;
+}
+
+.internships__detail a:hover {
+  -webkit-text-decoration: underline #FD4A29;
+          text-decoration: underline #FD4A29;
+  color: #4640DE;
+}
+
+.internships_detail p {
+  color: #666666;
+  font-size: 0.8em;
+}
+
+.internships__detail img {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.internships__line {
+  border-top: 1.2px solid;
+  color: #4640DE;
+}
+
+.internships__detail button {
+  width: 100%;
+  background-color: #4640DE;
+  color: #fff;
+  border: none;
+  height: 40px;
+  border-radius: 0;
+}
+
 /*About*/
 
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+  height: 300px;
+}
+
+.image {
+  background-image: url(/images/about.jpeg?5534d0bad8a179adf2ba50d363c3ffdc);
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+.balk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 200px;
+  background: #DCF0FB;
+  padding: 2% 8% 2% 8%;
+  margin-bottom: -35px;
+  align-items: end;
+}
+
+.balk .title {
+  padding-left: 10%;
+  padding-top: 8%;
+}
+
+.about_text {
+  padding-left: 10%;
+  margin-top: 100px;
+  width: 60%;
 }
 
 /*Services*/
+
+.title_hr-services {
+  border-top: 7px solid;
+  color: #FD4A29;
+  width: 80px;
+  text-align: center;
+}
 
 .services h2 {
   display: block;
@@ -10734,9 +10889,5 @@ h2 {
 .service_1,
 .service_2 {
   padding: 10%;
-}
-
-.container {
-  padding: 5% 8% 5% 8%;
 }
 

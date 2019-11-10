@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* Welcome page */
+Route::get('/', 'InternshipController@welcomeIndex');
+
 /*COMPANIES*/
 /* Register */
 Route::get('/companies/register', 'CompanyController@register');
@@ -38,8 +41,8 @@ Route::post('/companies/myinternships', 'CompanyController@store');
 Route::get('/companies/{company}', 'CompanyController@show');
 
 /* LOGIN & REGISTER */
-Route::get('/login', 'LoginController@index');
-Route::get('/register', 'RegisterController@index');
+//Route::get('/login', 'LoginController@index');
+//Route::get('/register', 'RegisterController@index');
 
 /*Users */
 Route::get('/students', 'StudentController@index');

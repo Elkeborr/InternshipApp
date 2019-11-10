@@ -27,7 +27,52 @@ h3{
 
 h2{
     padding-bottom: 20px;
+    font-weight: bold;
 }
+.container{
+    width: 80%;
+    margin: 0 auto;
+    padding-top:10%;
+}
+
+.title_hr{
+    border-top: 7px solid ;
+    color:$orange;
+    width: 80px;
+    text-align: left;
+    margin-left:0;
+}
+
+/* Navigatie */
+
+.navbar{
+    padding: 2% 7% 2% 7%;
+    background-color: $lightblue;
+}
+
+#student{
+    background-color: $orange;
+    width: 120px;
+    border-radius: 10px;
+
+    a{
+        color:$white;
+        text-align: center;
+    }
+}
+
+#company{
+    background-color: $blue;
+    width: 120px;
+    border-radius: 10px;
+a{
+    color:$white;
+    text-align: center;
+    
+}
+}
+
+/* Hero */
 .hero{
     background-color: $lightblue;
     padding: 2% 8% 2% 8%;
@@ -77,17 +122,121 @@ h2{
     font-size: 1.5em;
 }
 
+/*Internships*/
+.internships form{
+margin-bottom: 5%;
+}
+
+.internships button {
+    display: block;
+    background-color: $orange;
+    color:$white;
+    margin:0 auto;
+    width: 120px;
+    height: 35px;
+border-radius: 10px;
+border:none;
+
+}
+.internships_count{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10%;
+    margin: 30px;
+    grid-column: 2 / span 3;
+
+}
+
+
+.internships__detail{
+    background-color:$light-grey;
+}
+.internships_detail-padding{
+    padding:10%;
+}
+.internships__detail a{
+    text-decoration: none;
+    color:$black;
+    font-family:$title-font-family;
+    margin-bottom: 10px;
+}
+.internships__detail a:hover{
+    text-decoration: underline $orange;
+    color:$blue;
+}
+.internships_detail p{
+    color:$dark-grey;
+    font-size: 0.8em;
+}
+
+.internships__detail img{
+   width: 40px;
+   height: 40px;
+  background-color:$white;
+   margin-bottom: 20px;
+   border:none;
+ 
+}
+.internships__line{
+    border-top: 1.2px solid ;
+    color:$blue;
+}
+
+.internships__detail button{
+width: 100%;
+background-color: $blue;
+color:$white;
+border:none;
+height: 40px;
+border-radius: 0;
+}
+
 /*About*/
 .about{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 
+    height: 300px;
+ 
 }
+.image{
+   background-image: url(../img/about.jpeg);
+   background-position: center;
+   background-repeat: none;
+   background-size: cover;
+}
+
+.balk{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height:200px;
+    background: $lightblue;
+    padding: 2% 8% 2% 8%;
+    margin-bottom:-35px;
+    align-items: end;
+}
+.balk .title{
+    padding-left: 10%;
+    padding-top: 8%;
+}
+.about_text{
+    padding-left: 10%;
+    margin-top: 100px;
+    width: 60%;
+    
+}
+
 
 
 /*Services*/
 
+.title_hr-services{
+    border-top: 7px solid ;
+    color:$orange;
+    width: 80px;
+    text-align: center;
+}
 .services h2{
     display: block;
     text-align: center;
@@ -104,6 +253,3 @@ h2{
 }
 
 
-.container{
-    padding: 5% 8% 5% 8%;
-}

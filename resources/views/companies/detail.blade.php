@@ -21,7 +21,10 @@
             @csrf
 
             @if ($flash = session('message'))
-            <div class="alert alert-sucess">{{$flash}}</div>
+            @component('components/alert')
+            @slot('type','succes')
+              {{$flash}}  
+            @endcomponent
             @endif
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -61,10 +64,6 @@
       <input type="text" class="form-control" id="inputStreetNumber" placeholder="street number"name="streetNumber" required>
     </div>
   </div>
-
-</div>
-
-<div class="col-6"> 
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">City</label>
@@ -75,7 +74,6 @@
      @endif
     </div>
   </div>
-
   <div class="form-row">
   <div class="form-group col-md-3">
       <label for="inputZip">Postal code</label>
@@ -90,8 +88,9 @@
      @endif
     </div>
     </div>
+</div>
 
-
+<div class="col-6"> 
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmployees">Employees</label>
@@ -103,6 +102,15 @@
       <label for="inputBio">Bio</label>
       <textarea rows="4" cols="50" type="text" class="form-control" id="inputBio" placeholder="Tell us about your company"  name="bio" required>
       </textarea>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6 tags" >
+      <label for="inputTags">Tags</label> <br>
+      @foreach($tags?? '' as $tag)
+      <input type="checkbox" name="tag[]" value="{{ $tag-> id}}"> {{ $tag-> name}}<br>
+      @endforeach
     </div>
   </div>
 
