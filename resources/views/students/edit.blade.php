@@ -5,7 +5,7 @@
 @endsection
 
 @section('link')
-{{ url('/home')}}
+    javascript:history.go(-1)
 @endsection 
 
 @section('content')
@@ -57,23 +57,31 @@
                     <label for="type">Skills</label>
                     @foreach ($user->skills as $skill)
                         <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
-                    @endforeach
+                    @endforeach 
+                        <input type="text" class="form-control" name="skill" id="skill" value="">
+                    
 
 
                     <br>
                     <label for="type">Socials</label>
                     <div class="form-row">
-                    @foreach ($user->socials as $social)
+                    
                         <div class="col">
                             <label for="socialname">Sort</label>
-                            <input type="text" class="form-control" name="socialname" id="socialname" value="{{$social->name}}">
+                                @foreach ($user->socials as $social)
+                                    <input type="text" class="form-control" name="socialname" id="socialname" value="{{$social->name}}">
+                                @endforeach
+                            <input type="text" class="form-control" name="socialname" id="socialname" value="">
                         </div>
 
                         <div class="col">
                             <label for="sociallink">Link</label>
-                            <input type="text" class="form-control" name="sociallink" id="sociallink" value="{{$social->link}}">
+                                @foreach ($user->socials as $social)
+                                    <input type="text" class="form-control" name="sociallink" id="sociallink" value="{{$social->link}}">
+                                @endforeach
+                                <input type="text" class="form-control" name="sociallink" id="sociallink" value="">
                         </div>
-                    @endforeach
+                    
                     </div>
                 </div>
 

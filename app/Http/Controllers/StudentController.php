@@ -43,6 +43,7 @@ class StudentController extends Controller
         $validation = $request->validate([
             'firstname' => 'required|max:200',
             'email' => 'required',
+            'password' => 'required',
         ]);
 
         $user = session('user');
@@ -58,7 +59,13 @@ class StudentController extends Controller
         $user->updated_at = date('Y-m-d h:i:s');
         $user->save();
 
-        return redirect('home');
-        /*return redirect()->back();*/
+        if ($user->save()) {
+            $skill = new \App\Skill();
+            $skill->name = request('skill');
+            $skill->user_id = request('id');
+            $skill->save;
+
+            return redirect()->action('StudentController@show', $user);
+        }
     }
 }
