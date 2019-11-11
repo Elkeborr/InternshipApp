@@ -294,7 +294,6 @@ color:$orange;
 
 .container-profile h5{
     color:$blue;
-    font-size:1.2em;
    
  }
 
@@ -302,5 +301,17 @@ color:$orange;
     position: relative;
     float: right;
     padding:0px;
+ }
+
+ .profilepic{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    border-radius:50%;
+    padding:30px;
+ }
+
+ .container-profile h4{
+    color:$orange;
  }
 

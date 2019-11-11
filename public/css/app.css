@@ -10943,12 +10943,24 @@ h3 {
 
 .container-profile h5 {
   color: #4640DE;
-  font-size: 1.2em;
 }
 
 .card-body.button {
   position: relative;
   float: right;
   padding: 0px;
+}
+
+.profilepic {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  padding: 30px;
+}
+
+.container-profile h4 {
+  color: #FD4A29;
 }
 
