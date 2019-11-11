@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -36,5 +36,15 @@ class User extends Authenticatable
     public function jobApplications()
     {
         return $this->hasMany('\App\JobApplication');
+    }
+
+    public function socials()
+    {
+        return $this->hasMany('\App\Social');
+    }
+
+    public function skills()
+    {
+        return $this->hasMany('\App\Skill');
     }
 }

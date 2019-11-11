@@ -15,7 +15,7 @@
 
                 <img src="{{ asset('img/profile-standard.jpg') }}" alt="profile picture" class="profilepic">
            
-                <h4>{{$user->name}}</h4>
+                <h4>{{$user->name}} {{$user->lastname}}</h4>
 
                 <br>
                 <h5>Contact:</h5>
@@ -34,26 +34,34 @@
                 <div class="card-body bg-light">
                     <h5 class="card-title">Biography:</h5>
                     <div class="card-text">
-                        <p>Dit is een voorbeeld van een biografie</p>
+                        <p>{{$user->biography}}</p>
                     </div>
                 </div>
 
                 <br>
 
+
+                
                 <div class="card-body bg-light">
-                    <h5 class="card-title">Talents:</h5>
+                    <h5 class="card-title">Skills:</h5>
                     <div class="card-text">
-                        <p>Dit is een voorbeeld van talent</p>
+                        @foreach ($user->skills as $skill)
+                            <div>{{ $skill->skill}}</div>
+                        @endforeach
                     </div>
                 </div>
                 <br>
 
+                
                 <div class="card-body bg-light">
-                    <h5 class="card-title">Experience</h5>
+                    <h5 class="card-title">Social media</h5>
                     <div class="card-text">
-                        <p>Dit is een voorbeeld voor ervaring</p>
+                        @foreach ($user->socials as $social)
+                            <div><a href="{{$social->link}}">{{$social->name}}</a></div>
+                        @endforeach
                     </div>
                 </div>
+
                 
                 
         </div>

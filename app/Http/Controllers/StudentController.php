@@ -17,7 +17,7 @@ class StudentController extends Controller
     //op basis van id, opzoek gaan naar record
     public function show($user)
     {
-        $data['user'] = \App\User::where('id', $user)->first();
+        $data['user'] = \App\User::where('id', $user)->with('skills', 'socials')->first();
         //record doorgeven
         //$student = $student;
         //$student = \DB::table('students')->where('id', $student)->first();
@@ -43,7 +43,6 @@ class StudentController extends Controller
         $validation = $request->validate([
             'firstname' => 'required|max:200',
             'email' => 'required',
-            'password' => 'required',
         ]);
 
         $user = session('user');
@@ -51,6 +50,8 @@ class StudentController extends Controller
 
         $user->id = request('id');
         $user->name = request('firstname');
+        $user->lastname = request('lastname');
+        $user->biography = request('biography');
         $user->email = request('email');
         $user->type = request('type');
         $user->password = Hash::make(request('password'));
@@ -58,5 +59,6 @@ class StudentController extends Controller
         $user->save();
 
         return redirect('home');
+        /*return redirect()->back();*/
     }
 }
