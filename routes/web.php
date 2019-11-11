@@ -47,7 +47,8 @@ Route::get('/companies/{company}', 'CompanyController@show');
 /*Users */
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show');
-
+Route::get('/students/{student}/edit', 'StudentController@edit');
+Route::put('/students/{student}', 'StudentController@update');
 Auth::routes();
 
 /* Internships */
