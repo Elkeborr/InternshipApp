@@ -10666,10 +10666,16 @@ h2 {
   font-weight: bold;
 }
 
-.container {
+.internships,
+.services,
+footer {
   width: 80%;
   margin: 0 auto;
   padding-top: 10%;
+}
+
+.internships {
+  padding-bottom: 10%;
 }
 
 .title_hr {
@@ -10683,7 +10689,7 @@ h2 {
 /* Navigatie */
 
 .navbar {
-  padding: 2% 7% 2% 7%;
+  padding: 1% 7% 1% 7%;
   background-color: #DCF0FB;
 }
 
@@ -10762,15 +10768,25 @@ h2 {
   margin-bottom: 5%;
 }
 
-.internships button {
+.details-button {
   display: block;
   background-color: #FD4A29;
   color: #fff;
-  margin: 0 auto;
   width: 120px;
   height: 35px;
   border-radius: 10px;
   border: none;
+  margin: 0;
+}
+
+.more-button {
+  margin: 0 auto;
+  display: block;
+  background-color: #FD4A29;
+  color: #fff;
+  width: 120px;
+  height: 35px;
+  border-radius: 10px;
 }
 
 .internships_count {
@@ -10832,17 +10848,15 @@ h2 {
 /*About*/
 
 .about {
+  margin-bottom: 10%;
+}
+
+.about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+  align-items: center;
   height: 300px;
-}
-
-.image {
-  background-image: url(/images/about.jpeg?5534d0bad8a179adf2ba50d363c3ffdc);
-  background-position: center;
-  background-repeat: none;
-  background-size: cover;
 }
 
 .balk {
@@ -10851,7 +10865,7 @@ h2 {
   height: 200px;
   background: #DCF0FB;
   padding: 2% 8% 2% 8%;
-  margin-bottom: -35px;
+  margin-bottom: -40px;
   align-items: end;
 }
 
@@ -10862,7 +10876,6 @@ h2 {
 
 .about_text {
   padding-left: 10%;
-  margin-top: 100px;
   width: 60%;
 }
 
@@ -10889,5 +10902,31 @@ h2 {
 .service_1,
 .service_2 {
   padding: 10%;
+}
+
+.service_1::before {
+  content: "";
+  display: inline-block;
+  background-image: url(/images/one.svg?e2efa624b4b41d4f643b948668386f27);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100px;
+  width: 100px;
+  margin-left: -65px;
+  margin-bottom: -71px;
+}
+
+.service_2::before {
+  content: "";
+  display: inline-block;
+  background-image: url(/images/two.svg?fc538363e0cf73148f26fc658f7cb9f1);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100px;
+  width: 100px;
+  margin-left: -65px;
+  margin-bottom: -71px;
 }
 

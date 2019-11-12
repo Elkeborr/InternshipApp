@@ -29,10 +29,15 @@ h2{
     padding-bottom: 20px;
     font-weight: bold;
 }
-.container{
+.internships, .services , footer{
     width: 80%;
     margin: 0 auto;
     padding-top:10%;
+
+}
+
+.internships{
+    padding-bottom:10%;
 }
 
 .title_hr{
@@ -46,7 +51,7 @@ h2{
 /* Navigatie */
 
 .navbar{
-    padding: 2% 7% 2% 7%;
+    padding: 1% 7% 1% 7%;
     background-color: $lightblue;
 }
 
@@ -125,18 +130,28 @@ a{
 /*Internships*/
 .internships form{
 margin-bottom: 5%;
+
 }
 
-.internships button {
+.details-button{
     display: block;
     background-color: $orange;
     color:$white;
-    margin:0 auto;
     width: 120px;
     height: 35px;
-border-radius: 10px;
-border:none;
+    border-radius: 10px;
+    border:none;
+    margin: 0;
 
+}
+.more-button{
+    margin:0 auto;
+    display: block;
+    background-color: $orange;
+    color:$white;
+    width: 120px;
+    height: 35px;
+    border-radius: 10px;
 }
 .internships_count{
     display: grid;
@@ -144,10 +159,7 @@ border:none;
     grid-gap: 10%;
     margin: 30px;
     grid-column: 2 / span 3;
-
 }
-
-
 .internships__detail{
     background-color:$light-grey;
 }
@@ -193,27 +205,22 @@ border-radius: 0;
 
 /*About*/
 .about{
+    margin-bottom:10%;
+}
+.about-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-
+    align-items: center;
     height: 300px;
- 
 }
-.image{
-   background-image: url(../img/about.jpeg);
-   background-position: center;
-   background-repeat: none;
-   background-size: cover;
-}
-
 .balk{
     display: grid;
     grid-template-columns: 1fr 1fr;
     height:200px;
     background: $lightblue;
     padding: 2% 8% 2% 8%;
-    margin-bottom:-35px;
+    margin-bottom:-40px;
     align-items: end;
 }
 .balk .title{
@@ -222,7 +229,7 @@ border-radius: 0;
 }
 .about_text{
     padding-left: 10%;
-    margin-top: 100px;
+
     width: 60%;
     
 }
@@ -252,4 +259,30 @@ border-radius: 0;
     padding: 10%;
 }
 
+.service_1::before{
+    content: "";
+    display: inline-block;
+    background-image: url("../images/one.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+   
+    height: 100px;
+    width: 100px;
+    margin-left: -65px;
+    margin-bottom: -71px;
+}
 
+.service_2::before{
+    content: "";
+    display: inline-block;
+    background-image: url("../images/two.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+   
+    height: 100px;
+    width: 100px;
+    margin-left: -65px;
+    margin-bottom: -71px;
+}
