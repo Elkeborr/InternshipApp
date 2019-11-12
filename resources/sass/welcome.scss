@@ -114,12 +114,21 @@ a{
     margin: 10px;
     padding:10px 55px;
     font-weight: bold;
-    
 }
+
 
 .links .student {
     color: $orange;
+}
 
+.links .student:hover {
+    color: $white;
+    background-color: $orange;
+}
+
+.links .company:hover {
+    color: $white;
+    background-color: $blue;
 }
 
 .hero .top_question{
