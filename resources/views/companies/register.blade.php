@@ -6,7 +6,7 @@
     <div class="row align-items-start">
         <div class="col left">
         <div class="logo">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo">
+            <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo"></a>
         </div>
             <h2>Looking for<br>an <span>intern?</span></h2>
         </div>
