@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use function foo\func;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\This;
 
 class jobApplicationController extends Controller
 {
@@ -12,8 +10,8 @@ class jobApplicationController extends Controller
     {
         $student = \Auth::user();
 
-        $check = \DB::table('job_applications')
-            ->where('internship_id', $internship->id)
+        $check = \App\JobApplication::
+            where('internship_id', $internship->id)
             ->where('user_id', $student->id)
             ->exists();
 
@@ -40,10 +38,12 @@ class jobApplicationController extends Controller
     public function applications($internship)
     {
         $data['internship'] = \App\Internship::where('id', $internship)->first();
+
         return view('internships/applications', $data);
     }
 
-    public function save(Request $request, $id) {
+    public function save(Request $request, $id)
+    {
         $data = \App\JobApplication::where('id', $id)->first();
         $data->status = $request->status;
         $data->save();

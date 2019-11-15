@@ -75,7 +75,7 @@ class CompanyController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $data['companies'] = \DB::table('companies')->get();
+            $data['companies'] = \App\Company::get();
 
             return view('companies/index', $data);
         }
@@ -97,7 +97,7 @@ class CompanyController extends Controller
     public function showMyInternships()
     {
         $user = session('user');
-        $data['myinternships'] = \DB::table('internships')->where('company_id', $user->company_id)->get();
+        $data['myinternships'] = \App\Internship::where('company_id', $user->company_id)->get();
 
         return view('companies/myInternships', $data);
     }
@@ -122,7 +122,7 @@ class CompanyController extends Controller
         $res = json_decode($response->getBody(), true);
         $data['company'] = $res['response']['venues']['0'];
         $data['user'] = $user;
-        $data['tags'] = \DB::table('company_tags')->get();
+        $data['tags'] = \App\CompanyTags::get();
 
         return view('companies/detail', $data);
     }
