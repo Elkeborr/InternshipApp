@@ -53,8 +53,14 @@ Auth::routes();
 
 /* Internships */
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/internships', 'InternshipController@index');
 Route::get('/internships/{internship}', 'InternshipController@show');
+Route::get('/internships', 'InternshipController@index');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/internships', 'InternshipController@index');
+
+});
 
 /* Apply */
 Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
