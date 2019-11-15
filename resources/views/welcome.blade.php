@@ -41,8 +41,8 @@
                     <h1>Your next
                     <span>intern/intership </span>
                             is here</h1>
-                    <p>Looking for an intern or an internship then signup on sprintern.<span> New opportunities everyday!</span></p>
-                    <p class="top_question">Are you a company or a student?</p>
+                    <p>Opzoek naar een stagair of een stage, meld je dan nu aan.<span> Nieuwe mogelijkheden elke dag!</span></p>
+                    <p class="top_question">Ben je een bedrijf of een student?</p>
                     <div class="links">
                         <a href="{{ url('/companies/login') }}" class="company">Bedrijf</a>
                         <a href="{{ url('/redirect') }}" class="student">Student</a>
