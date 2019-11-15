@@ -106,9 +106,9 @@ class CompanyController extends Controller
     {
         $user = session('user');
         $query = $user->name;
-        $client_id = 'IZ2UJDBHVPX4TUMUUNZ3FJSFTX5WJJEFHFRQCAZDO0K4P3NC';
-        $secret = 'QVJC4RMSRBYL1BJ1HQMLB5DAQ2CTMWLY50NK2NEVGYGAY0Y3';
-        $version = '20180605';
+        $client_id = env('FOURSQUARE_CLIENT_ID');
+        $secret = env('FOURSQUARE_SECRET');
+        $version = env('VERSION');
 
         $client = new Client([
             'client_id' => $client_id,
