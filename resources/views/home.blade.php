@@ -1,10 +1,10 @@
 @extends('layouts/app')
 @section('title')
-    Dashboard
+    Overzicht
 @endsection
 
 @section('h2')
-    Dashboard
+Overzicht
 @endsection
 
 
@@ -20,8 +20,8 @@
 @endcomponent
 @endif
 
-    <h3>Highlights for you</h3>
-    <h3>Recent Activity</h3>
+    <h3>Belangrijke mededelingen</h3>
+    <h3>Recente activiteiten</h3>
 
 
 </div>
@@ -30,7 +30,7 @@
 
 
     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">	
-        {{ __('Logout') }}	
+        {{ __('Afmelden') }}	
     </a>	
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">	

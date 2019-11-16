@@ -1,7 +1,7 @@
 @extends('layouts/form')
 
 @section('title')
-    Login
+    Inloggen
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="logo">
             <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo"></a>
         </div>
-            <h2>Looking for<br>an <span>intern?</span></h2>
+            <h2>Opzoek naar een<br><span>stagiair(e)?</span></h2>
         </div>
 <!---from--->
         <div class="col wrap-form">
@@ -18,20 +18,20 @@
 <div class="form-container">
         <form method="post" class="form-body">
         {{csrf_field()}}
-                    <div class="form-title">{{ __('Login for companies') }}</div>
+                    <div class="form-title">{{ __('Bedrijfslogin') }}</div>
                     @if ($flash = session('message'))
            <div class="alert alert-sucess">{{$flash}}</div>
         @endif
                     <div class="form-group ">
-    <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" name="email">
+    <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="E-mailadres" name="email">
   
   </div>
   <div class="form-group">
-    <input type="password" class="form-control"  placeholder="Password" name="password">
+    <input type="password" class="form-control"  placeholder="Wachtwoord" name="password">
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+    <label class="form-check-label" for="exampleCheck1">Onthoud mij</label>
   </div>
   <button type="submit" class="btn ">  {{ __('Login') }}</button>
 
@@ -39,12 +39,12 @@
 
 @if (Route::has('password.request'))
             <a class="btn btn-link" href="{{ route('password.request') }}">
-                {{ __('Forgot Your Password?') }}
+                {{ __('Wachtwoord vergeten?') }}
             </a>
         @endif
         <div class="form-group ">
                             <div class="">
-                                <a href="{{url('/companies/register')}}" class="btn btn-primary">No account yet? Signup here</a>
+                                <a href="{{url('/companies/register')}}" class="btn btn-primary">Nog geen account? Registreer hier</a>
                             </div>
                         </div>
 

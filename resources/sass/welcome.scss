@@ -10,6 +10,10 @@
 @import '~bootstrap/scss/bootstrap';
 
 
+html{
+    scroll-behavior: smooth;
+}
+
 p{
     font-family: $text-font-family;
     color:$dark-grey;

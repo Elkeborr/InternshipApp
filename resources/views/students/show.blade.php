@@ -1,7 +1,7 @@
 @extends('layouts/detail')
 
 @section('title')
-            Profile
+            Profiel
 @endsection
 
 
@@ -33,10 +33,10 @@
         
                 <div class="card-body bg-light">
             
-                    <h5 class="card-title">Biography:</h5>
+                    <h5 class="card-title">Intro</h5>
                     <div class="card-text">
                         <p>{{$user->biography}}</p>
-                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Edit</button>
+                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Wijzig</button>
         
                     </div>
                 </div>
@@ -46,12 +46,12 @@
 
      
                 <div class="card-body bg-light">
-                    <h5 class="card-title">Skills:</h5>
+                    <h5 class="card-title">Kwaliteiten:</h5>
                     <div class="card-text">
                         @foreach ($user->skills as $skill)
                             <div>{{ $skill->skill}}</div>
                         @endforeach
-                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Edit</button>
+                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Wijzig</button>
         
                     </div>
                 </div>
@@ -59,12 +59,12 @@
 
                 
                 <div class="card-body bg-light">
-                    <h5 class="card-title">Social media</h5>
+                    <h5 class="card-title">Sociale media</h5>
                     <div class="card-text">
                         @foreach ($user->socials as $social)
                             <div><a href="{{$social->link}}">{{$social->name}}</a></div>
                         @endforeach
-                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Edit</button>
+                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Wijzig</button>
         
                     </div>
                 </div>

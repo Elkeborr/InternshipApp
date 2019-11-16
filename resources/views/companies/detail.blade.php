@@ -1,11 +1,11 @@
 @extends('layouts/form')
 
 @section('title')
-  Companies
+  Bedrijven
 @endsection
 
 @section('h2')
-  Company details
+  Bedrijfsgegevens
 @endsection
 
 @section('content')
@@ -13,8 +13,8 @@
   <!-- content -->
 
 
-<h2>Company details</h2>
-<p>Before you start your search for interns you have to complete this form so that your account is complete.</p>
+<h2>Bedrijfsgegevens</h2>
+<p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegeven te vervolledigen</p>
           <form method="post" action="">
           <div class="row no-gutters">
   <div class="col-6"> 
@@ -28,56 +28,56 @@
             @endif
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputName">Name</label>
+                <label for="inputName">Bedrijfsnaam</label>
                 @if (isset($company['name']))
                 <input type="name" class="form-control" id="inputName" value="{{ $company['name']}}" name="name" required>
                 @else
-                <input type="name" class="form-control" id="inputName"placeholder="name" name="name" required>
+                <input type="name" class="form-control" id="inputName"placeholder="Bedrijfsnaam" name="name" required>
                 @endif
               </div>
             </div>
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail">Email</label>
+      <label for="inputEmail">E-mailadres</label>
       <input type="email" class="form-control" id="inputEmail" value="{{$user->email}}" name="email" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputPhonenumber">Phonenumber</label>
-      <input type="phoneNumber" class="form-control" id="inputPhonenumber" placeholder="phonenumber" name="phoneNumber" required>
+      <label for="inputPhonenumber">Telefoonnummer</label>
+      <input type="phoneNumber" class="form-control" id="inputPhonenumber" placeholder="Telefoonnummer" name="phoneNumber" required>
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-3">
-      <label for="inputStreet">Street </label>
+      <label for="inputStreet">Straat </label>
       @if (isset($company['location']['address']))
       <input type="text" class="form-control" id="inputStreet"  value="{{$company['location']['address']}}" name="street" required>
       @else
-      <input type="text" class="form-control" id="inputStreet" placeholder="street" name="street" required>
+      <input type="text" class="form-control" id="inputStreet" placeholder="straat" name="street" required>
      @endif
     </div>
     <div class="form-group col-md-3">
-      <label for="inputStreetNumber">Street number</label>
-      <input type="text" class="form-control" id="inputStreetNumber" placeholder="street number"name="streetNumber" required>
+      <label for="inputStreetNumber">Huisnummer</label>
+      <input type="text" class="form-control" id="inputStreetNumber" placeholder="Huisnummer"name="streetNumber" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
+      <label for="inputCity">Gemeente</label>
       @if (isset($company['location']['city']))
       <input type="text" class="form-control" id="inputStreet"  value="{{$company['location']['city']}}" name="city" required>
       @else
-      <input type="text" class="form-control" id="inputStreet" placeholder="city" name="city" required>
+      <input type="text" class="form-control" id="inputStreet" placeholder="Gemeente" name="city" required>
      @endif
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-3">
-      <label for="inputZip">Postal code</label>
-      <input type="text" class="form-control" id="inputZip" placeholder="postal code" name="postalCode" required>
+      <label for="inputZip">Postcode</label>
+      <input type="text" class="form-control" id="inputZip" placeholder="Postcode" name="postalCode" required>
     </div>
     <div class="form-group col-md-3">
       <label for="inputState">State</label>
@@ -93,14 +93,14 @@
 <div class="col-6"> 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmployees">Employees</label>
-      <input type="number" class="form-control" id="inputEmployees" placeholder="Employees"  name="employees" required>
+      <label for="inputEmployees">Werknemers</label>
+      <input type="number" class="form-control" id="inputEmployees" placeholder="Werknemers"  name="employees" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputBio">Bio</label>
-      <textarea rows="4" cols="50" type="text" class="form-control" id="inputBio" placeholder="Tell us about your company"  name="bio" required>
+      <label for="inputBio">Intro</label>
+      <textarea rows="4" cols="50" type="text" class="form-control" id="inputBio" placeholder="Stel uw bedrijf voor"  name="bio" required>
       </textarea>
     </div>
   </div>
@@ -114,7 +114,7 @@
     </div>
   </div>
 
-  <button type="submit" class="btn">   {{ __('Save') }}</button>
+  <button type="submit" class="btn">   {{ __('Opslaan') }}</button>
   </div>
 </form>
 

@@ -60,7 +60,8 @@ class StudentController extends Controller
         $user->save();
 
         if ($user->save()) {
-            $skill = new \App\Skill();
+            //deleten $skill = \App\Skill::where('id',$skill)->delete();
+            //nieuwe toevoegen $skill = new \App\Skill();
             $skill->name = request('skill');
             $skill->user_id = request('id');
             $skill->save;

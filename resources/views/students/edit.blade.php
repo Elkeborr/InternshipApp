@@ -1,7 +1,7 @@
 @extends('layouts/detail')
 
 @section('title')
-            Edit profile
+            Wijzig profiel
 @endsection
 
 @section('link')
@@ -28,33 +28,29 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col">
-                            <label for="firstname">Firstname</label>
+                            <label for="firstname">Voornaam</label>
                             <input type="text" class="form-control" name="firstname" id="firstname" value="{{$user->name}}">
                         </div>
                         
                         <div class="col">
-                            <label for="lastname">Lastname</label>
+                            <label for="lastname">Achternaam</label>
                             <input type="text" class="form-control" name="lastname" id="lastname" value="{{$user->lastname}}">
                         </div>
 
                         
                     </div>
                     <br>
-                    <label for="email">Email</label>
+                    <label for="email">E-mailadres</label>
                     <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
                 
                     <br>
-                    <label for="type">Type</label>
-                    <input type="text" class="form-control" name="type" id="type" value="{{$user->type}}" readonly>
-                
-                    <br>
-                    <label for="biography">Biography</label>
+                    <label for="biography">Intro</label>
                     <textarea class="form-control" name="biography" id="biography" value="{{$user->Biography}}"></textarea>
                     
                     <br>
 
                
-                    <label for="type">Skills</label>
+                    <label for="skill">Kwaliteiten</label>
                     @foreach ($user->skills as $skill)
                         <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
                     @endforeach 
@@ -63,11 +59,11 @@
 
 
                     <br>
-                    <label for="type">Socials</label>
+                    <label for="type">Sociale Media</label>
                     <div class="form-row">
                     
                         <div class="col">
-                            <label for="socialname">Sort</label>
+                            <label for="socialname">Naam van sociale media</label>
                                 @foreach ($user->socials as $social)
                                     <input type="text" class="form-control" name="socialname" id="socialname" value="{{$social->name}}">
                                 @endforeach
@@ -97,7 +93,7 @@
                 <br><br>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">Wachtwoord</label>
                     <input type="password" class="form-control" name="password" id="password" value="">
                 </div>
 
@@ -105,7 +101,7 @@
                
 
             <br><br>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success">Opslaan</button>
             </form>
 
             

@@ -36,15 +36,15 @@
            
                         @if($user->type == 'company')
                             <!-- <p>{{$user->name}}</p> -->
-                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Interns</a>
-                            <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">My Internships</a> 
+                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
+                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Stagiair(e)s</a>
+                            <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">Mijn stageplaatsen</a> 
                         @endif
                         @if($user->type == 'student')
                             <!-- <p>{{$user->name}}</p> -->
-                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Internships</a>
-                            <a class="nav-item  nav-link" href="{{ url('/companies') }}">Companies</a>  
+                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
+                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Stageplaatsen</a>
+                            <a class="nav-item  nav-link" href="{{ url('/companies') }}">Stagebedrijven</a>  
                         @endif
         
                     </div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="container-nav_form">
                     <form>
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control" type="search" placeholder="Zoeken" aria-label="Search">
                     </form>
                 </div>
             </div>

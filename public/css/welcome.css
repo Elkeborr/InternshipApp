@@ -10644,6 +10644,10 @@ a.text-dark:focus {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 p {
   font-family: "Open Sans", sans-serif;
   color: #666666;
@@ -10755,6 +10759,16 @@ footer {
 
 .links .student {
   color: #FD4A29;
+}
+
+.links .student:hover {
+  color: #fff;
+  background-color: #FD4A29;
+}
+
+.links .company:hover {
+  color: #fff;
+  background-color: #4640DE;
 }
 
 .hero .top_question {
@@ -10907,7 +10921,7 @@ footer {
 .service_1::before {
   content: "";
   display: inline-block;
-  background-image: url(/images/one.svg?e2efa624b4b41d4f643b948668386f27);
+  background-image: url(/images/one.svg?b51bc4af9063f2db302df372fed2b98d);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -10920,7 +10934,7 @@ footer {
 .service_2::before {
   content: "";
   display: inline-block;
-  background-image: url(/images/two.svg?fc538363e0cf73148f26fc658f7cb9f1);
+  background-image: url(/images/two.svg?d11993779b4b461c5210d2ebe8974c1c);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

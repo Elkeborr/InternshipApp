@@ -1,11 +1,11 @@
 @extends('layouts/app')
 
 @section('title')
-    Companies
+    Bedrijven
 @endsection
 
 @section('h2')
-Companies
+Bedrijven
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@ Companies
 		<div class="panel-heading " >
 						<h6 class="panel-title">
 							<a data-toggle="collapse" href="#collapse0">
-							 Place
+							 Regio
 							 <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 							</a>
 						
@@ -29,7 +29,7 @@ Companies
 				<label class="form-check">
 				  <input class="form-check-input styled-checkbox" type="checkbox" value="">
 				  <span class="form-check-label">
-				  All regions</span>
+				  Alle regios</span>
 				  <span class="checkmark"></span></label>
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
@@ -125,7 +125,7 @@ Companies
 <div class="panel-heading " >
 						<h6 class="panel-title">
 							<a data-toggle="collapse" href="#collapse1">
-								Specialty
+								Vakgebied
 								<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 							</a>
 						</h6>
@@ -135,7 +135,7 @@ Companies
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				    All
+				    Alle vakgebieden
 				  </span>
 				  <span class="checkmark"></span>
                 </label>
@@ -143,7 +143,7 @@ Companies
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				   graphic design
+				   Grafisch ontwerp
 				  </span>
 				  <span class="checkmark"></span>
                 </label> 
@@ -151,7 +151,7 @@ Companies
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				  development
+				  Development
 				  </span>
 				  <span class="checkmark"></span>
                 </label>  
@@ -159,13 +159,13 @@ Companies
                 <label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				  communication
+				  Communicatie
 				  </span>  
 				  <span class="checkmark"></span>
                 </label>  
 				</div>
                
-                <button type="submit" class="btn ">Submit</button> 
+                <button type="submit" class="btn ">Bekijken</button> 
 			</form>
 
 		</div>

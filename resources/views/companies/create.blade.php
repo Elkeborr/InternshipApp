@@ -1,11 +1,11 @@
 @extends('layouts/app')
 
 @section('title')
-    Create company
+Nieuwe stageplaats
 @endsection
 
 @section('h2')
-Create internship
+Nieuwe stageplaats
 @endsection
 
 @section('link')
@@ -19,29 +19,29 @@ Create internship
 
                         <div class="form-row">
                             <div class="form-group col-md-5">
-                                <label for="internshipFunction">Internship Function</label>
-                                <input id="internshipFunction" placeholder="Internship Function" type="text" class="form-control @error('internshipFunction') is-invalid @enderror" name="internshipFunction" required>
+                                <label for="internshipFunction">Stageplaats functie</label>
+                                <input id="internshipFunction" placeholder="Stageplaats functie" type="text" class="form-control @error('internshipFunction') is-invalid @enderror" name="internshipFunction" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-5">
-                                <label for="discription">Discription</label>
-                                <textarea class="form-control" id="discription" placeholder="Discription" name='discription' rows="5" required></textarea>
+                                <label for="discription">Beschrijving</label>
+                                <textarea class="form-control" id="discription" placeholder="Beschrijving" name='discription' rows="5" required></textarea>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-5">
-                                <label for="spots">Open spots</label>
-                                <input class="form-control spots" id="spots" placeholder="Open internship spots (example: 1, 2, 3,...)" name="spots" type="number"  required>
+                                <label for="spots">Beschikbare plaatsen</label>
+                                <input class="form-control spots" id="spots" placeholder="Beschikbare plaatsen (bijvoorbeeld: 1, 2, 3,...)" name="spots" type="number"  required>
                             </div>
                         </div>
 
                         <div class="form-group row ">
                             <div class="col-md-5 ">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Save') }}
+                                    {{ __('Opslaan') }}
                                 </button>
                             </div>
                         </div>

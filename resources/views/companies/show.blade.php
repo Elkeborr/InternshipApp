@@ -21,7 +21,7 @@
 <p>{{$company->street}} {{$company->streetNumber}}</p>
 <p>{{$company->postalCode}} {{$company->city}}</p>
 
-<h2>Reviews</h2>
+<h2>Beoordelingen</h2>
 @foreach($company->reviews as $review)
 <p>{{$review->review}}</p>
 @endforeach
