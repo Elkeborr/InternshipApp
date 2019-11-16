@@ -22,11 +22,12 @@
                 <p>{{$user->email}}</p>
                 
         </div>
-               
+          
         <div class="col-md profile">
-                
+       
         <div class="card-body button">       
-        
+        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Wijzig</button>
+          
         </div>    
         <br>
         <br>
@@ -36,8 +37,7 @@
                     <h5 class="card-title">Intro</h5>
                     <div class="card-text">
                         <p>{{$user->biography}}</p>
-                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Wijzig</button>
-        
+                        
                     </div>
                 </div>
 
@@ -51,8 +51,6 @@
                         @foreach ($user->skills as $skill)
                             <div>{{ $skill->skill}}</div>
                         @endforeach
-                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Wijzig</button>
-        
                     </div>
                 </div>
                 <br>
@@ -64,8 +62,6 @@
                         @foreach ($user->socials as $social)
                             <div><a href="{{$social->link}}">{{$social->name}}</a></div>
                         @endforeach
-                        <button type="button" class="btn btn-dark text-right" onclick="window.location.href='/students/{{$user->id }}/edit'">Wijzig</button>
-        
                     </div>
                 </div>
          

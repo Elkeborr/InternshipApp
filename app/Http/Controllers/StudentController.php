@@ -18,10 +18,6 @@ class StudentController extends Controller
     public function show($user)
     {
         $data['user'] = \App\User::where('id', $user)->with('skills', 'socials')->first();
-        //record doorgeven
-        //$student = $student;
-        //$student = \DB::table('students')->where('id', $student)->first();
-        //dd($student);
 
         return view('students/show', $data);
     }
@@ -30,10 +26,6 @@ class StudentController extends Controller
     public function edit($user)
     {
         $data['user'] = \App\User::where('id', $user)->first();
-        //record doorgeven
-        //$student = $student;
-        //$student = \DB::table('students')->where('id', $student)->first();
-        //dd($student);
 
         return view('/students/edit', $data);
     }
@@ -49,24 +41,25 @@ class StudentController extends Controller
         $user = session('user');
         $data['user'] = \App\User::where('id', $user)->first();
 
-        $user->id = request('id');
         $user->name = request('firstname');
         $user->lastname = request('lastname');
         $user->biography = request('biography');
         $user->email = request('email');
-        $user->type = request('type');
         $user->password = Hash::make(request('password'));
         $user->updated_at = date('Y-m-d h:i:s');
         $user->save();
 
+        /*
         if ($user->save()) {
             //deleten $skill = \App\Skill::where('id',$skill)->delete();
             //nieuwe toevoegen $skill = new \App\Skill();
             $skill->name = request('skill');
             $skill->user_id = request('id');
             $skill->save;
-
-            return redirect()->action('StudentController@show', $user);
+        */
+        return redirect()->action('StudentController@show', $user);
+        /*
         }
+        */
     }
 }

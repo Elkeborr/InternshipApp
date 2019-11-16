@@ -25,7 +25,22 @@
             @endif
 
             <br><br>
-                <div class="form-group">
+
+
+            <br>
+            <div class="editpart">
+                    <h2>Login gegevens</h2><br>
+                    <label for="email">E-mailadres</label>
+                    <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
+                    <br>
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" class="form-control" name="password" id="password" value="">
+                    <br>
+                
+
+            </div>
+                <div class="form-group editpart">
+                <br><br><h2>Profiel</h2><br>
                     <div class="form-row">
                         <div class="col">
                             <label for="firstname">Voornaam</label>
@@ -40,15 +55,11 @@
                         
                     </div>
                     <br>
-                    <label for="email">E-mailadres</label>
-                    <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
-                
-                    <br>
                     <label for="biography">Intro</label>
-                    <textarea class="form-control" name="biography" id="biography" value="{{$user->Biography}}"></textarea>
+                    <textarea class="form-control" name="biography" id="biography">{{$user->biography}}</textarea>
                     
                     <br>
-
+                    
                
                     <label for="skill">Kwaliteiten</label>
                     @foreach ($user->skills as $skill)
@@ -60,25 +71,29 @@
 
                     <br>
                     <label for="type">Sociale Media</label>
-                    <div class="form-row">
-                    
-                        <div class="col">
-                            <label for="socialname">Naam van sociale media</label>
+                     <br>
                                 @foreach ($user->socials as $social)
                                     <input type="text" class="form-control" name="socialname" id="socialname" value="{{$social->name}}">
                                 @endforeach
-                            <input type="text" class="form-control" name="socialname" id="socialname" value="">
-                        </div>
-
-                        <div class="col">
-                            <label for="sociallink">Link</label>
+                                <select>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Linkedin">Linkedin</option>
+                                    <option value="Behance">Behance</option>
+                                    <option value="Github">Github</option>
+                                    <option value="Dribbble">Dribbble</option>
+                                    <option value="Pinterest">Pinterest</option>
+                                    <option value="Vimeo">Vimeo</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="Youtube">Youtube</option>
+                                </select>
+                                <br><br>
                                 @foreach ($user->socials as $social)
                                     <input type="text" class="form-control" name="sociallink" id="sociallink" value="{{$social->link}}">
                                 @endforeach
-                                <input type="text" class="form-control" name="sociallink" id="sociallink" value="">
-                        </div>
+                                <input type="text" class="form-control" name="sociallink" id="sociallink" value="Link">
+                      
                     
-                    </div>
                 </div>
 
             
@@ -90,18 +105,11 @@
                 </div>
                 -->
 
-                <br><br>
+         
 
-                <div class="form-group">
-                    <label for="password">Wachtwoord</label>
-                    <input type="password" class="form-control" name="password" id="password" value="">
-                </div>
-
-                <input type="hidden" name="id" id="id" value="{{$user->id}}">
-               
-
-            <br><br>
+            <br>
             <button type="submit" class="btn btn-success">Opslaan</button>
+            <br><br><br><br>
             </form>
 
             
