@@ -84,7 +84,7 @@ class StudentController extends Controller
     {
         $validation = $request->validate([
             'socialname' => 'required',
-            'sociallink' => 'required',
+            'sociallink' => 'required|starts_with:http://',
         ]);
 
         $user = session('user');

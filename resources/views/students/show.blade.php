@@ -66,7 +66,7 @@
 
                         @foreach ($user->socials as $social)
                             <div>
-                                <a href="http://{{$social->link}}">
+                                <a href="{{$social->link}}">
                                     <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
                                 </a>
                             </div>
