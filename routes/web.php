@@ -44,11 +44,30 @@ Route::get('/companies/{company}', 'CompanyController@show');
 //Route::get('/login', 'LoginController@index');
 //Route::get('/register', 'RegisterController@index');
 
-/*Users */
+/*Students */
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show');
+
+/* studentprofile edit-information-form */
 Route::get('/students/{student}/edit', 'StudentController@edit');
-Route::put('/students/{student}', 'StudentController@update');
+Route::get('/students/{student}/edit-intro', 'StudentController@editIntro');
+Route::get('/students/{student}/edit-kwaliteiten', 'StudentController@editKwaliteiten');
+Route::get('/students/{student}/edit-social', 'StudentController@editSocial');
+
+/* studentprofile add-information-form */
+Route::get('/students/{student}/add-kwaliteiten', 'StudentController@addKwaliteiten');
+Route::get('/students/{student}/add-social', 'StudentController@addSocial');
+
+/* studentprofile update info */
+Route::put('/students/update/{student}', 'StudentController@update');
+Route::put('/students/updateIntro/{student}', 'StudentController@updateIntro');
+Route::put('/students/updateKwaliteiten/{student}', 'StudentController@updateKwaliteiten');
+Route::put('/students/updateSocial/{student}', 'StudentController@updateSocial');
+
+/* studentprofile add info */
+Route::put('/students/addKwaliteiten/{student}', 'StudentController@saveKwaliteiten');
+Route::put('/students/addSocial/{student}', 'StudentController@saveSocial');
+
 Auth::routes();
 
 /* Internships */
@@ -57,9 +76,7 @@ Route::get('/internships/{internship}', 'InternshipController@show');
 Route::get('/internships', 'InternshipController@index');
 
 Route::group(['middleware' => 'auth'], function () {
-
     Route::get('/internships', 'InternshipController@index');
-
 });
 
 /* Apply */
