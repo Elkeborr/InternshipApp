@@ -1,7 +1,7 @@
 @extends('layouts/detail')
 
 @section('title')
-            Wijzig profiel!!!!!!!!
+            Wijzig profiel
 @endsection
 
 @section('link')
@@ -9,13 +9,14 @@
 @endsection 
 
 @section('content')
-        <form action="/students/{{$user->id}}" method="post">
+        <form action="/students/updateIntro/{{$user->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
             @if( $errors->any() )
                 @component('components/alert')
                     @slot('type','danger')
+                    Niet alle velden zijn ingevuld
                     <ul>
                         @foreach($errors->all() as $e)
                         <li>{{ $e }}</li>
@@ -25,7 +26,7 @@
             @endif
 
             <div class="editpart">
-            <label for="biography">Intro</label>
+            <label for="biography">Stel jezelf voor in een kleine intro</label>
             <textarea class="form-control" name="biography" id="biography">{{$user->biography}}</textarea>
                     
             <br>

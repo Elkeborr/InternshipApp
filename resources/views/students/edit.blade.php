@@ -9,13 +9,14 @@
 @endsection 
 
 @section('content')
-        <form action="/students/{{$user->id}}" method="post">
+        <form action="/students/update/{{$user->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
             @if( $errors->any() )
                 @component('components/alert')
                     @slot('type','danger')
+                    Niet alle velden zijn ingevuld
                     <ul>
                         @foreach($errors->all() as $e)
                         <li>{{ $e }}</li>

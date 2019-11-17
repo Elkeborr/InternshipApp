@@ -9,7 +9,7 @@
 @endsection 
 
 @section('content')
-        <form action="/students/{{$user->id}}" method="post">
+        <form action="/students/addSocial/{student}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
@@ -18,6 +18,8 @@
                     @slot('type','danger')
                     Niet alle velden zijn ingevuld
                     <ul>
+
+                    
                         @foreach($errors->all() as $e)
                         <li>{{ $e }}</li>
                         @endforeach
@@ -31,10 +33,10 @@
             <br>
             <div class="editpart">
                     
-                    <label for="type">Wijzig uw Social Media links</label>
-                                <br><br>
-                                @foreach ($user->socials as $social)
-                                <select name="sociallink" value="{{$social->name}}">
+                    <label for="type">Voeg een nieuwe link toe naar je social media</label>
+                             <br><br>
+                                <select name="socialname">
+                                    <option selected="true" disabled="disabled" value="Facebook">Kies een social media kanaal</option>
                                     <option value="Facebook">Facebook</option>
                                     <option value="Instagram">Instagram</option>
                                     <option value="Linkedin">Linkedin</option>
@@ -47,12 +49,8 @@
                                     <option value="Youtube">Youtube</option>
                                 </select>
                                 <br><br>
-                                    <input type="text" class="form-control" name="sociallink" id="sociallink" value="{{$social->link}}">
-                                    <br><br><br>
-                                    @endforeach
-                                <br>
-
-                            
+                                <input type="text" class="form-control" name="sociallink" id="sociallink" placeholder="Plak hier de link naar uw social media kanaal" value="">
+                      
                     
                 </div>
             <br>

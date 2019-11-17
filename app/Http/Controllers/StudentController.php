@@ -51,6 +51,52 @@ class StudentController extends Controller
         return view('/students/edit-social', $data);
     }
 
+    public function addKwaliteiten($user)
+    {
+        $data['user'] = \App\User::where('id', $user)->first();
+
+        return view('/students/add-kwaliteiten', $data);
+    }
+
+    public function saveKwaliteiten(Request $request)
+    {
+        $validation = $request->validate([
+            'skill' => 'required',
+        ]);
+
+        $user = session('user');
+        $skill = new \App\Skill();
+        $skill->skill = request('skill');
+        $skill->user_id = $user->id;
+        $skill->save();
+
+        return redirect()->action('StudentController@show', $user);
+    }
+
+    public function addSocial($user)
+    {
+        $data['user'] = \App\User::where('id', $user)->first();
+
+        return view('/students/add-social', $data);
+    }
+
+    public function saveSocial(Request $request)
+    {
+        $validation = $request->validate([
+            'socialname' => 'required',
+            'sociallink' => 'required',
+        ]);
+
+        $user = session('user');
+        $social = new \App\Social();
+        $social->link = request('sociallink');
+        $social->name = request('socialname');
+        $social->user_id = $user->id;
+        $social->save();
+
+        return redirect()->action('StudentController@show', $user);
+    }
+
     public function update(Request $request)
     {
         $validation = $request->validate([
@@ -63,33 +109,38 @@ class StudentController extends Controller
 
         $user->name = request('firstname');
         $user->lastname = request('lastname');
-        $user->biography = request('biography');
         $user->email = request('email');
         $user->password = Hash::make(request('password'));
         $user->updated_at = date('Y-m-d h:i:s');
         $user->save();
+
+        return redirect()->action('StudentController@show', $user);
+    }
+
+    public function updateIntro(Request $request)
+    {
+        $user = session('user');
+        $user->biography = request('biography');
+        $user->save();
+
+        return redirect()->action('StudentController@show', $user);
+    }
+
+    public function updateKwaliteiten(Request $request)
+    {
+        $user = session('user');
+        /*aanpassing werkt enkel op de laats toegevoegde skill*/
         /*
-                //deleten $skill = \App\Skill::where('id',$skill)->delete();
+        $skillEdit = \App\Skill::where('id', request('skillid'))->update();
+        $skillEdit->skill = request('skillEdit');
+        $skillEdit->user_id = $user->id;
+        $skillEdit->save();
+        */
 
-                //nieuwe skill toevoegen WERKT!!!
-                $skill = new \App\Skill();
-                $skill->skill = request('skill');
-                $skill->user_id = $user->id;
-                $skill->save();
-
-                //nieuwe social toevoegen WERKT!!!
-                $social = new \App\Social();
-                $social->link = request('sociallink');
-                $social->name = request('socialname');
-                $social->user_id = $user->id;
-                $social->save();
-
-                //bestaande skills wijzigen
-
-                //$skillEdit['skill'] = \App\Skill::find(request('skillid'))->first();
+        /*$skillEdit['skill'] = \App\Skill::find(request('skillid'))->first();
                 $skillEdit = \App\Skill::where('id', request('skillid'))->first();
-                /*$skill->id = request('skillid');*/
-        /*
+                $skill->id = request('skillid');
+
                 if ($skillEdit == null) {
                     $skillEdit = new \App\Skill();
                     $skillEdit->skill = request('skill');
@@ -102,29 +153,14 @@ class StudentController extends Controller
                     $skillEdit->user_id = $user->id;
                     $skillEdit->save();
                 }
+    }*/
+        return redirect()->action('StudentController@show', $user);
+    }
 
-               */
-        /*aanpassing werkt enkel op de laats toegevoegde skill*/
-        /*
-        $skillEdit = \App\Skill::where('id', request('skillid'))->update();
-        $skillEdit->skill = request('skillEdit');
-        $skillEdit->user_id = $user->id;
-        $skillEdit->save();
-        */
+    public function updateSocial(Request $request)
+    {
+        $user = session('user');
 
-        /*
-                    $editSkill = \App\Skill::firstOrCreate(
-                        [
-                            'id' => request('skillid'),
-                        ],
-
-                        [
-                            'skill' => request('skill'),
-                            'user_id' => $user->id,
-                        ]);
-
-                    $editSkill->save();
-        */
         return redirect()->action('StudentController@show', $user);
     }
 }
