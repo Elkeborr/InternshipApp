@@ -9,7 +9,7 @@
 @endsection 
 
 @section('content')
-        <form action="/students/{{$user->id}}" method="post">
+        <form action="/students/updateSocial/{student}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 

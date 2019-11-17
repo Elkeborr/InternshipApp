@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Skill extends Model
 {
-    protected $fillable = ['id'];
+    protected $fillable = array('skill', 'id', 'user_id');
 
     public function user()
     {

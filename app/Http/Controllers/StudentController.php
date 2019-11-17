@@ -128,32 +128,28 @@ class StudentController extends Controller
 
     public function updateKwaliteiten(Request $request)
     {
+        /*\App\Skill('post')->where('id', request('skillid'))->update(['skill' => request('skillEdit')]);*/
         $user = session('user');
-        /*aanpassing werkt enkel op de laats toegevoegde skill*/
+
+        //\App\Skill::where('id', '=', request('skillid'))->update(['skill' => request('skillEdit')]);
+
+        //$skillEdit['skill'] = \App\Skill::where('id', request('skillid'))->first();
+
+        //DIT WERKT ENKEL DE LAATSTE!!!!!
+        $skill = \App\Skill::where('id', request('skillid'))->first();
+        $skill->skill = request('skill');
+        //$skillEdit->skill = request('skill');
+        $skill->save();
+
+        /*$skillEdit['skill'] = \App\Skill::find(request('skillid'))->first();*/
         /*
-        $skillEdit = \App\Skill::where('id', request('skillid'))->update();
+        $skillEdit = \App\Skill::where('id', request('skillid'))->get();
+        $skill->id = request('skillid');
         $skillEdit->skill = request('skillEdit');
         $skillEdit->user_id = $user->id;
         $skillEdit->save();
         */
 
-        /*$skillEdit['skill'] = \App\Skill::find(request('skillid'))->first();
-                $skillEdit = \App\Skill::where('id', request('skillid'))->first();
-                $skill->id = request('skillid');
-
-                if ($skillEdit == null) {
-                    $skillEdit = new \App\Skill();
-                    $skillEdit->skill = request('skill');
-                    $skillEdit->user_id = $user->id;
-                    $skillEdit->save();
-                }
-
-                if ($skillEdit) {
-                    $skillEdit->skill = request('skill');
-                    $skillEdit->user_id = $user->id;
-                    $skillEdit->save();
-                }
-    }*/
         return redirect()->action('StudentController@show', $user);
     }
 
