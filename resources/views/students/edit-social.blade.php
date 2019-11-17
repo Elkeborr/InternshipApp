@@ -29,68 +29,7 @@
 
             <br>
             <div class="editpart">
-                    <br><h2>Profiel gegevens</h2><br>
-                    <label for="email">E-mailadres</label>
-                    <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
-                    <br>
-                    <label for="password">Wachtwoord *</label>
-                    <input type="password" class="form-control" name="password" id="password" value="">
-                
                     
-                    <p class="required">* verplichte velden</p>
-
-
-                    <div class="form-row">
-                        <div class="col">
-                            <label for="firstname">Voornaam</label>
-                            <input type="text" class="form-control" name="firstname" id="firstname" value="{{$user->name}}">
-                        </div>
-                        
-                        <div class="col">
-                            <label for="lastname">Achternaam</label>
-                            <input type="text" class="form-control" name="lastname" id="lastname" value="{{$user->lastname}}">
-                        </div>
-
-                        
-                    </div>
-                
-
-            </div>
-            <!--
-            <div class="form-group editpart">
-                <br><h2>Profiel</h2><br>
-                    <div class="form-row">
-                        <div class="col">
-                            <label for="firstname">Voornaam</label>
-                            <input type="text" class="form-control" name="firstname" id="firstname" value="{{$user->name}}">
-                        </div>
-                        
-                        <div class="col">
-                            <label for="lastname">Achternaam</label>
-                            <input type="text" class="form-control" name="lastname" id="lastname" value="{{$user->lastname}}">
-                        </div>
-
-                        
-                    </div>
-                    <br>
-                    <label for="biography">Intro</label>
-                    <textarea class="form-control" name="biography" id="biography">{{$user->biography}}</textarea>
-                    
-                    <br>
-                    
-               
-                    <label for="skill">Kwaliteiten</label>
-                    
-                    @foreach ($user->skills as $skill)
-                        <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
-                        <input type="text" class="form-control" name="skill" id="skillEdit" value="{{$skill->skill}}">
-                    @endforeach 
-                    
-                        <input type="text" class="form-control" name="skill" id="skill" placeholder="Vul hier uw skill in bv 'PHP'"value="">
-                    
-
-
-                    <br>
                     <label for="type">Sociale Media</label>
                   
                                 @foreach ($user->socials as $social)
@@ -129,13 +68,6 @@
                       
                     
                 </div>
-
-            
-                
-               
-
-         
--->
             <br>
             <button type="submit" class="btn btn-success">Opslaan</button>
             <br><br><br><br>

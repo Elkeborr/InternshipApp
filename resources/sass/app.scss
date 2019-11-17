@@ -321,8 +321,41 @@ color:$orange;
  }
 
  .editpart{
-     background-color: rgb(226, 158, 158);
-     height: 300px;
-     color: blue;
+     background-color:$light-grey;
+     margin-bottom:30px;
+     padding: 80px;
+ }
+
+
+ .required{
+    margin-top: 10px;
+    font-size: 10px;
+    color:$dark-grey;
+ }
+ .editpart h2{
+     color:$blue;
+ }
+
+ .socialicon{
+     width: 50px;
+ }
+
+
+ .profileCard{
+     position: relative;
+ }
+
+ .editicon{
+    position: absolute;
+    right:15px;
+    top:20px;
+ }
+
+ .editicon:hover{
+     cursor: pointer;
+ }
+
+ .addicon{
+     right: 40px;
  }
 

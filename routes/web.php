@@ -48,6 +48,9 @@ Route::get('/companies/{company}', 'CompanyController@show');
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show');
 Route::get('/students/{student}/edit', 'StudentController@edit');
+Route::get('/students/{student}/edit-intro', 'StudentController@editIntro');
+Route::get('/students/{student}/edit-kwaliteiten', 'StudentController@editKwaliteiten');
+Route::get('/students/{student}/edit-social', 'StudentController@editSocial');
 Route::put('/students/{student}', 'StudentController@update');
 Auth::routes();
 
@@ -57,9 +60,7 @@ Route::get('/internships/{internship}', 'InternshipController@show');
 Route::get('/internships', 'InternshipController@index');
 
 Route::group(['middleware' => 'auth'], function () {
-
     Route::get('/internships', 'InternshipController@index');
-
 });
 
 /* Apply */
