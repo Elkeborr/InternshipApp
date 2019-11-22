@@ -177,7 +177,7 @@ Bedrijven
         <img >
 <br>
         <a href ="/companies/{{$company->id}}">{{ $company-> name}}</a>
-        <p >{{ $company-> bio}}</p>
+        <p>{{Str::limit( $company-> bio, $limit = 200, $end = ' ...')}}</p>
         <hr class="companies__line">
         <p>{{ $company-> city}}</p>
     </div>

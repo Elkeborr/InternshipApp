@@ -12,7 +12,7 @@
 <h1>{{$company->name}}</h1>
 <p>{{$company->bio}}</p>
 <h3>Info</h3>
-<p>Employees: {{$company->employees}}</p>
+<p>Werknemers: {{$company->employees}}</p>
 
 <h2>Contact</h2>
 <p>{{$company->email}}</p>

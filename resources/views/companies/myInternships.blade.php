@@ -21,7 +21,7 @@
             <a href ="/internships/">{{ $myinternship->internship_function }}</a>
             <p>{{ $myinternship->internship_discription }}</p>
             <hr class="companies__line">
-            <p>Company city</p>
+            <p>Stad</p>
             <p>{{ $myinternship->available_spots }} beschikbaar</p>
             <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">Bekijk sollicitaties</a>
         </div>
