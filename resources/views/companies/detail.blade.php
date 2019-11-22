@@ -14,7 +14,9 @@
 
 
 <h2>Bedrijfsgegevens</h2>
-<p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegeven te vervolledigen</p>
+<p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegeven te vervolledigen. 
+  We hebben al enkele gegevens gevonden voor u bedrijf en hebben deze al ingevuld. U bent vrij deze te veranderen.
+</p>
           <form method="post" action="">
           <div class="row no-gutters">
   <div class="col-6"> 
