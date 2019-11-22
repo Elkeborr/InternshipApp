@@ -21,7 +21,6 @@
           <div class="row no-gutters">
   <div class="col-6"> 
             @csrf
-
             @if ($flash = session('message'))
             @component('components/alert')
             @slot('type','succes')
