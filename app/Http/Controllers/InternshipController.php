@@ -21,6 +21,7 @@ class InternshipController extends Controller
     public function welcomeIndex()
     {
         $data['internships'] = \App\Internship::with('jobApplications')->take(6)->get();
+        $data['tags'] = \App\CompanyTag::get();
 
         return view('welcome', $data);
     }

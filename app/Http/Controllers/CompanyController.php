@@ -32,7 +32,7 @@ class CompanyController extends Controller
         $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
             $request->session()->flash('username', $company->name);
-            $request->session()->flash('message', 'Company registration successful!');
+            $request->session()->flash('message', 'Bedrijfs registratie succesvol!');
             $request->session()->flash('email', $company->email);
             //Retrieve data and put it in session
             $user_id = Auth::id();
@@ -57,7 +57,7 @@ class CompanyController extends Controller
         $credentials = $request->only(['email', 'password']);
         $request->flash();
         if (Auth::attempt($credentials)) {
-            $request->session()->flash('message', 'Login successful!');
+            $request->session()->flash('message', 'Login successvol!');
 
             //Retrieve data and put it in session
             $user_id = Auth::id();
@@ -67,7 +67,7 @@ class CompanyController extends Controller
             // dd($sessionData['name']);
             return redirect('home');
         }
-        $request->session()->flash('message', 'Login Failed, try again');
+        $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
 
         return view('companies/login');
     }
@@ -154,11 +154,11 @@ class CompanyController extends Controller
         }
 
         if ($saved && $savedTags) {
-            $request->session()->flash('message', 'Welcome to your homepage');
+            $request->session()->flash('message', 'Welkom op je startpagina');
 
             return redirect('home');
         }
-        $request->session()->flash('message', 'Oeps, something went wrong');
+        $request->session()->flash('message', 'Oeps, er is iets fout gelopen');
 
         return view('companies/detail');
     }

@@ -20,7 +20,7 @@
         {{csrf_field()}}
                     <div class="form-title">{{ __('Bedrijfslogin') }}</div>
                     @if ($flash = session('message'))
-           <div class="alert alert-sucess">{{$flash}}</div>
+           <div class="alert alert-danger">{{$flash}}</div>
         @endif
                     <div class="form-group ">
     <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="E-mailadres" name="email">
@@ -29,10 +29,7 @@
   <div class="form-group">
     <input type="password" class="form-control"  placeholder="Wachtwoord" name="password">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Onthoud mij</label>
-  </div>
+
   <button type="submit" class="btn ">  {{ __('Login') }}</button>
 
 </form>
@@ -47,10 +44,6 @@
                                 <a href="{{url('/companies/register')}}" class="btn btn-primary">Nog geen account? Registreer hier</a>
                             </div>
                         </div>
-
-
-
-
                         </div>
                 </div>
 @endsection

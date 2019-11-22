@@ -52,25 +52,43 @@
 
  
     <!---Internships--->
-    <section class="internships"> 
+    <section class="internships" id="myContainer"> 
     <h2>Nieuwste Stageplaatsen</h2>
     <form action="#" method="post" novalidate="novalidate">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Vakgebied">
+                    <div class="row dropdowns">
+                        <div class="dropdown dcol-lg-3 col-md-3 col-sm-12">
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vakgebied
+                            
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            @foreach($tags as $tag)
+                                <button class="dropdown-item" type="button">{{ $tag->name }}</button>
+                            @endforeach
+                            </div>
+                        </div>
+               
+                        <div class="dropdown col-lg-3 col-md-3 col-sm-12">
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Regio
+                    
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">Steden of provincies :)</button>
+                            </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="Plaats">
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="button" class="btn btn-danger wrn-btn details-button">Zoek</button>
+                            <button type="button" class="btn details-button">Zoek</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <hr class="devider">
         </form>
+
+   
 
     <div class="internships_count">
     @foreach($internships as $internship)
@@ -81,11 +99,24 @@
                 <hr class="internships__line">
                 <p>{{ $internship->available_spots }} available</p>
                 </div>
-                <button>details & solliciteer </button>
+                <button class="myBtn">details & solliciteer</button>
             </div>
         @endforeach
     </div>
-        <button class="more-button">Meer</button>
+       <!-- <button class="more-button" >Meer</button>-->
+
+    <div id="myModal" class="Modal is-hidden is-visuallyHidden">
+  <!-- Modal content -->
+  <div class="Modal-content">
+    <span id="closeModal" class="Close">&times;</span>
+    <p>Je moet ingelogd zijn om verder te kunnen. <span>Signup of login voor meer!</span></p>
+    <div class="links">
+        <a href="{{ url('/companies/login') }}" class="company">Bedrijf</a>
+        <a href="{{ url('/redirect') }}" class="student">Student</a>
+    </div>
+  </div>
+</div>
+
 </section>
     <!---About--->
 <section class="about" id="about">
@@ -124,4 +155,46 @@
         <p>&copy; 2019 Sprintern<p>
     </footer>
         </body>
+        <script>
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the main container and the body
+var body = document.getElementsByTagName('body');
+
+// Get the open button
+var btnOpen = document.querySelector(".myBtn");
+
+// Get the close button
+var btnClose = document.getElementById("closeModal");
+
+// Open the modal
+btnOpen.onclick = function() {
+    modal.className = "Modal is-visuallyHidden";
+    setTimeout(function() {
+      body.className = "MainContainer is-blurred";
+      modal.className = "Modal";
+    }, 100);
+    body.className = "ModalOpen";
+}
+
+// Close the modal
+btnClose.onclick = function() {
+    modal.className = "Modal is-hidden is-visuallyHidden";
+    body.className = "";
+    body.className = "MainContainer";
+
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.className = "Modal is-hidden";
+        body.className = "";
+        body.className = "MainContainer";
+    }
+}
+            </script>
     </html>
+
