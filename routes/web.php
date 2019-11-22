@@ -34,10 +34,6 @@ Route::post('/companies/detail', 'CompanyController@handlecreate');
 /* Companies */
 Route::get('/companies', 'CompanyController@index');
 
-Route::get('/companies/myinternships', 'CompanyController@showMyInternships');
-Route::get('/companies/myinternships/create', 'CompanyController@create');
-Route::post('/companies/myinternships', 'CompanyController@store');
-
 Route::get('/companies/{company}', 'CompanyController@show');
 
 /* LOGIN & REGISTER */
@@ -72,6 +68,11 @@ Auth::routes();
 
 /* Internships */
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/internships/myinternships', 'InternshipController@showMyInternships');
+Route::get('/internships/myinternships/create', 'InternshipController@create');
+Route::post('/internships/myinternships/create', 'InternshipController@handleCreate');
+
 Route::get('/internships/{internship}', 'InternshipController@show');
 Route::get('/internships', 'InternshipController@index');
 

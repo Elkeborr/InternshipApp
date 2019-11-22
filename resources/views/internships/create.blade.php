@@ -15,7 +15,7 @@ Nieuwe stageplaats
 <div class="container">
 <div class="form-body">
                     <form method="post" action="">
-                        @csrf
+                        {{csrf_field()}}
 
                         <div class="form-row">
                             <div class="form-group col-md-5">

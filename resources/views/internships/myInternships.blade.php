@@ -11,7 +11,7 @@
 @section('content')
 <div class="container">
 
-        <a href="/companies/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">
+        <a href="/internships/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         Voeg nieuwe stageplaats toe</a>
     </div>

@@ -94,14 +94,6 @@ class CompanyController extends Controller
         return redirect('companies/login');
     }
 
-    public function showMyInternships()
-    {
-        $user = session('user');
-        $data['myinternships'] = \App\Internship::where('company_id', $user->company_id)->get();
-
-        return view('companies/myInternships', $data);
-    }
-
     public function create()
     {
         $user = session('user');
@@ -161,20 +153,5 @@ class CompanyController extends Controller
         $request->session()->flash('message', 'Oeps, something went wrong');
 
         return view('companies/detail');
-    }
-
-    public function store(Request $request)
-    {
-        $user = session('user');
-        $internship = new \App\Internship();
-
-        $internship->internship_function = $request->input('internshipFunction');
-        $internship->internship_discription = $request->input('discription');
-        $internship->available_spots = $request->input('spots');
-        $internship->company_id = $user->company_id;
-
-        $internship->save();
-
-        return redirect('companies/myinternships');
     }
 }
