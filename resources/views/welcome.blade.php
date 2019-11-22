@@ -4,7 +4,7 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <title>Sprintern - Welcome</title>
+            <title>Sprintern - Welkom</title>
              <!-- Scripts -->
             <script src="{{ asset('js/app.js') }}" defer></script>
           
@@ -17,7 +17,7 @@
             <nav class="navbar navbar-expand-md sticky-top navbar-light">
                 <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand ">
+                    <a href="#" class="navbar-brand ">
                             <img src="{{ asset('img/logo.png') }}" alt="Logo" height="30">
                     </a>
                 </div>
@@ -38,10 +38,10 @@
     <!---Top--->
     <section class="hero">
                 <div class="top">
-                    <h1>Your next
-                    <span>intern/intership </span>
-                            is here</h1>
-                    <p>Opzoek naar een stagair of een stage, meld je dan nu aan.<span> Nieuwe mogelijkheden elke dag!</span></p>
+                    <h1>Jouw nieuwe
+                    <span>stagiair(e)/stage </span>
+                            is hier</h1>
+                    <p>Opzoek naar een stagiair(e) of een stage, meld je dan nu aan.<span> Nieuwe mogelijkheden elke dag!</span></p>
                     <p class="top_question">Ben je een bedrijf of een student?</p>
                     <div class="links">
                         <a href="{{ url('/companies/login') }}" class="company">Bedrijf</a>
@@ -96,19 +96,20 @@
     <div class="about-content">
         <img class="img-fluid" src="../img/about.jpeg"> 
         <div class="about_text"> 
-        <p>Searching for an intern or internship doesn’t have to be hard. With the sprintern app it’s peanuts! Just fill in your personal skills and contact info for a fast result.
-            Or you could just wait untill all the cool internships are taken. It’s up to you! </p>
+        <p>Het vinden van een stagiair(e) of een stageplaats hoeft niet moeilijk te zijn! Met de sprintern app is het peanuts! 
+        Vul je gegevens in voor een direct resulaat. Of wil je liever blijven wachten tot alle coole stageplaatsen bezet zijn? 
+        <br>De keuze is aan jou!</p>
         </div>   
     </div>
 </section>
    
     <!---Services--->
 <section class="services" id="services">
-    <h2>Services<hr class="title_hr-services"></h2>
+    <h2>Diensten<hr class="title_hr-services"></h2>
     <div class="services_content">
         <div class="service_1"> 
             <h3>Voor bedrijven</h3>
-            <p>Companies can search for students who apply for their internships. ...</p>
+            <p>Bedrijven vinden bij ons stagiair(e)s terug om hun stageplaatsen in te vullen.</p>
         </div>
         <div class="service_2">
             <h3>Voor studenten</h3>

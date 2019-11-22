@@ -1,11 +1,11 @@
 @extends('layouts/app')
 
 @section('title')
-Internships
+Stageplaatsen
 @endsection
 
 @section('h2')
-    Internships
+    Stageplaatsen
 @endsection
 
 @section('content')
@@ -24,7 +24,7 @@ Internships
 		<div class="panel-heading">
 			<h6 class="panel-title">
 			<a data-toggle="collapse" href="#collapse0">
-				Place
+				Regio
 				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 			</a>
 			</h6>
@@ -35,7 +35,7 @@ Internships
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-                  All regions
+                  Alle regios
 				  </span>
 				  <span class="checkmark"></span>
                 </label>
@@ -132,7 +132,7 @@ Internships
 			<div class="panel-heading">
 				<h6 class="panel-title">
 					<a data-toggle="collapse" href="#collapse1">
-						Discipline
+						Vakgebied
 						<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 					</a>
 				</h6>
@@ -142,7 +142,7 @@ Internships
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				    All
+				    Alle vakgebieden
 				  </span>
 				  <span class="checkmark"></span>
                 </label>
@@ -150,7 +150,7 @@ Internships
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				   graphic designer
+				   Grafisch ontwerp
 				  </span>
 				  <span class="checkmark"></span>
                 </label> 
@@ -158,7 +158,7 @@ Internships
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				  front-end developer
+				  Front-end developer
 				  </span>
 				  <span class="checkmark"></span>
                 </label>  
@@ -166,7 +166,7 @@ Internships
                 <label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				  back-end developer
+				  Back-end developer
 				  </span>
 				  <span class="checkmark"></span>
 				</label>  
@@ -174,13 +174,13 @@ Internships
 				<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
-				  ui/ux designer
+				  UI/UX designer
 				  </span>
 				  <span class="checkmark"></span>
                 </label>  
 				</div>
                
-                <button type="submit" class="btn btn-primary">Submit</button> 
+                <button type="submit" class="btn btn-primary">Bekijken</button> 
 			</form>
 
 		</div>
@@ -192,17 +192,17 @@ Internships
                 <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
                 <p>{{ $internship->internship_discription }}</p>
                 <hr class="companies__line">
-                <p>{{ $internship->available_spots }} available</p>
+                <p>{{ $internship->available_spots }} beschikbaar</p>
                 @if ($internship->jobApplications->count() == 0)
-				<button href="/internships/{{ $internship->id }}/apply" class="btn">Apply</button>
+				<button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
                 @else
                     @foreach($internship->jobApplications as $jobApplication)
                         @if ($internship->available_spots != 0 && $jobApplication->user_id != \Auth::user()->id)
-                            <button href="/internships/{{ $internship->id }}/apply" class="btn">Apply</button>
+                            <button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
                         @endif
                         @if ($jobApplication->user_id == \Auth::user()->id)
                             <div class="alert alert-primary" role="alert">
-                                You already applied for this internship.
+                                U heeft reeds gesolliciteerd voor deze stageplaats.
                             </div>
                         @endif
                     @endforeach
@@ -218,7 +218,7 @@ Internships
             <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
             <p>{{ $internship->internship_discription }}</p>
             <hr class="companies__line">
-            <p>{{ $internship->available_spots }} available</p>
+            <p>{{ $internship->available_spots }} beschikbaar</p>
         </div>
     @endforeach
 @endif

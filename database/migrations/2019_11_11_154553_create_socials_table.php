@@ -13,9 +13,8 @@ class CreateSocialsTable extends Migration
     {
         Schema::create('socials', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('link')->nullable();
-            $table->string('image')->nullable();
-            $table->string('name')->nullable();
+            $table->string('link');
+            $table->string('name');
             $table->integer('user_id');
             $table->timestamps();
         });

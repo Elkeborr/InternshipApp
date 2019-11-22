@@ -1,11 +1,11 @@
 @extends('layouts/app')
 
 @section('title')
-    My internships
+    Mijn stageplaatsen
 @endsection
 
 @section('h2')
-    My internships
+    Mijn stageplaatsen
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
         <a href="/companies/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        Add new internship</a>
+        Voeg nieuwe stageplaats toe</a>
     </div>
     <div class="companies">
         @foreach($myinternships as $myinternship)
@@ -22,8 +22,8 @@
             <p>{{ $myinternship->internship_discription }}</p>
             <hr class="companies__line">
             <p>Company city</p>
-            <p>{{ $myinternship->available_spots }} available</p>
-            <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">View applications</a>
+            <p>{{ $myinternship->available_spots }} beschikbaar</p>
+            <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">Bekijk sollicitaties</a>
         </div>
         @endforeach
 
