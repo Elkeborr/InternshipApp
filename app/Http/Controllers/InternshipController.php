@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Redirect;
+use Illuminate\Http\Request;
+
 class InternshipController extends Controller
 {
     public function index()
@@ -24,5 +27,33 @@ class InternshipController extends Controller
         $data['tags'] = \App\CompanyTag::get();
 
         return view('welcome', $data);
+    }
+
+    public function showMyInternships()
+    {
+        $user = session('user');
+        $data['myinternships'] = \App\Internship::where('company_id', $user->company_id)->get();
+
+        return view('internships/myInternships', $data);
+    }
+
+    public function create()
+    {
+        return view('internships/create');
+    }
+
+    public function handleCreate(Request $request)
+    {
+        $user = session('user');
+        $internship = new \App\Internship();
+
+        $internship->internship_function = $request->input('internshipFunction');
+        $internship->internship_discription = $request->input('discription');
+        $internship->available_spots = $request->input('spots');
+        $internship->company_id = $user->company_id;
+
+        $internship->save();
+
+        return redirect('internships/myinternships');
     }
 }
