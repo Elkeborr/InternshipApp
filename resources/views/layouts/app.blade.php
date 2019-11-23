@@ -76,6 +76,10 @@
         <main>
             @yield('content')
         </main>
+       <!-- <footer>
+            <p>&copy; 2019 Sprintern<p>
+        </footer>-->
+       
     </div>
 
 

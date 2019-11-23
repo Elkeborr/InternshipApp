@@ -76,6 +76,7 @@ class CompanyController extends Controller
     {
         if (Auth::check()) {
             $data['companies'] = \App\Company::get();
+            $data['tags'] = \App\CompanyTag::get();
 
             return view('companies/index', $data);
         }
@@ -83,10 +84,11 @@ class CompanyController extends Controller
         return redirect('companies/login');
     }
 
-    public function show($company)
+    public function show(Request $request, $company)
     {
         if (Auth::check()) {
             $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
+            $data['internships'] = \App\Internship::where('company_id', $company)->get();
 
             return view('companies/show', $data);
         }

@@ -1,9 +1,8 @@
 @extends('layouts/detail')
 
 @section('title')
-            Profiel
+    Profiel
 @endsection
-
 
 @section('link')
 {{ url('/home') }}

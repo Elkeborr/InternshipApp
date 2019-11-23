@@ -57,10 +57,16 @@
             </nav>
 
 </div>
-        <main class="container">
+        <main>
             <a href= "@yield('link')" >Ga terug</a>
             @yield('content')
+
         </main>
+     
+       <!-- <footer>
+            <p>&copy; 2019 Sprintern<p>
+        </footer>-->
+
     </div>
 </body>
 </html>

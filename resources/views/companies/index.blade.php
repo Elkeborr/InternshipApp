@@ -122,7 +122,7 @@ Bedrijven
 
 </div>
         
-<div class="panel-heading " >
+<div class="panel-heading" >
 						<h6 class="panel-title">
 							<a data-toggle="collapse" href="#collapse1">
 								Vakgebied
@@ -130,48 +130,32 @@ Bedrijven
 							</a>
 						</h6>
 					</div>
-					<div id="collapse1" class="panel-collapse collapse in" >
-  
-				<label class="form-check">
+					<div id="collapse1" class="panel-collapse collapse in">
+					<label class="form-check">
 				  <input class="form-check-input" type="checkbox" value="">
 				  <span class="form-check-label">
 				    Alle vakgebieden
 				  </span>
 				  <span class="checkmark"></span>
+				</label>
+				
+					@foreach($tags as $tag)
+					<label class="form-check">
+				  <input class="form-check-input" type="checkbox" value="">
+				  <span class="form-check-label">
+				    {{$tag->name}}
+				  </span>
+				  <span class="checkmark"></span>
                 </label>
-                
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				   Grafisch ontwerp
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Development
-				  </span>
-				  <span class="checkmark"></span>
-                </label>  
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Communicatie
-				  </span>  
-				  <span class="checkmark"></span>
-                </label>  
+                    @endforeach
 				</div>
-               
                 <button type="submit" class="btn ">Bekijken</button> 
 			</form>
 
 		</div>
 		</div>
 		
-<div class="companies">
+<div class="companies row">
     @foreach($companies ?? '' as $company)
     <div class="companies__detail" >
         <img >
@@ -184,7 +168,6 @@ Bedrijven
     @endforeach
 </div>
 </div>
-
 @endsection
 
 
