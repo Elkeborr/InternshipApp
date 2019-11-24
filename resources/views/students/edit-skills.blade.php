@@ -9,7 +9,7 @@
 @endsection 
 
 @section('content')
-        <form action="/students/addKwaliteiten/{student}" method="post">
+        <form action="/students/updateSkills/{{$user->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
@@ -31,10 +31,13 @@
             <br>
             <div class="editpart">
                    
-                    <label for="skill">Voeg een nieuwe kwaliteit toe</label>
+                    <label for="skill">Kwaliteiten</label>
                     
-                        <input type="text" class="form-control" name="skill" id="skill" placeholder="Vul hier uw skill in bv 'PHP'"value="">
-                    
+                    @foreach ($user->skills as $skill)
+                        <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
+                        <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
+                    @endforeach 
+                
             </div>
           
             <button type="submit" class="btn btn-success">Opslaan</button>
