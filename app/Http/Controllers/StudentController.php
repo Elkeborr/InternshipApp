@@ -70,6 +70,18 @@ class StudentController extends Controller
         $skill->user_id = $user->id;
         $skill->save();
 
+        /* werkt maar zet alle waarden in 1 tabel */
+        /*
+        if ($_POST) {
+            $field_array = array();
+            for ($i = 0; $i < count($_POST['skillid']); ++$i) {
+                $field_array[$i]['skillid'] = $_POST['skillid'][$i];
+                $field_array[$i]['skill'] = $_POST['skill'][$i];
+            }
+        }
+
+        */
+
         return redirect()->action('StudentController@show', $user);
     }
 

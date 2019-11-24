@@ -34,8 +34,8 @@
                     <label for="skill">Kwaliteiten</label>
                     
                     @foreach ($user->skills as $skill)
-                        <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
-                        <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
+                        <input type="hidden" class="form-control" name="skillid[]" id="skillid" value="{{$skill->id}}">
+                        <input type="text" class="form-control" name="skill[]" id="skill" value="{{$skill->skill}}">
                     @endforeach 
                 
             </div>
