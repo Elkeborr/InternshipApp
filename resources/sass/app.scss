@@ -49,6 +49,13 @@ h3 {
     border: none;
 }
 
+.btn:hover {
+    font-size: 1em;
+    color: $white;
+    font-weight: 600;
+    border: none;
+}
+
 .form-control {
     font-size: 1em;
 }
@@ -402,4 +409,8 @@ h3 {
 
 .company-show_reviews h2 {
     margin-bottom: 30px;
+}
+
+.checked {
+    color: $orange;
 }

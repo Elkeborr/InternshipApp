@@ -52,7 +52,7 @@
   </div>
 
   <div class="form-row">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-4">
       <label for="inputStreet">Straat </label>
       @if (isset($company['location']['address']))
       <input type="text" class="form-control" id="inputStreet"  value="{{$company['location']['address']}}" name="street" required>
@@ -60,9 +60,9 @@
       <input type="text" class="form-control" id="inputStreet" placeholder="straat" name="street" required>
      @endif
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
       <label for="inputStreetNumber">Huisnummer</label>
-      <input type="text" class="form-control" id="inputStreetNumber" placeholder="Huisnummer"name="streetNumber" required>
+      <input type="text" class="form-control" id="inputStreetNumber" placeholder="nummer"name="streetNumber" required>
     </div>
   </div>
   <div class="form-row">

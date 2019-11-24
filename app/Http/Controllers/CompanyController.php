@@ -84,7 +84,7 @@ class CompanyController extends Controller
         return redirect('companies/login');
     }
 
-    public function show(Request $request, $company)
+    public function show($company)
     {
         if (Auth::check()) {
             $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
@@ -102,7 +102,7 @@ class CompanyController extends Controller
         $query = $user->name;
         $client_id = env('FOURSQUARE_CLIENT_ID');
         $secret = env('FOURSQUARE_SECRET');
-        $version = env('VERSION');
+        $version = env('FOURSQUARE_VERSION');
 
         $client = new Client([
             'client_id' => $client_id,
@@ -116,7 +116,7 @@ class CompanyController extends Controller
         $res = json_decode($response->getBody(), true);
         $data['company'] = $res['response']['venues']['0'];
         $data['user'] = $user;
-        $data['tags'] = \App\CompanyTags::get();
+        $data['tags'] = \App\CompanyTag::get();
 
         return view('companies/detail', $data);
     }

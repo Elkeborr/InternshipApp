@@ -33,7 +33,6 @@ Route::post('/companies/detail', 'CompanyController@handlecreate');
 
 /* Companies */
 Route::get('/companies', 'CompanyController@index');
-
 Route::get('/companies/{company}', 'CompanyController@show');
 
 /* LOGIN & REGISTER */

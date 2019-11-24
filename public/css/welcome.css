@@ -9835,9 +9835,11 @@ footer {
   color: #fff;
   background-color: #fd4a29;
   text-decoration: none;
+  border: #fd4a29 3px solid;
 }
 
 .links .company:hover {
+  border: #4640de 3px solid;
   color: #fff;
   background-color: #4640de;
   text-decoration: none;
@@ -9884,6 +9886,7 @@ footer {
   color: #fff;
   background-color: #fd4a29;
   text-decoration: none;
+  border: none;
 }
 
 .Modal-content p,
