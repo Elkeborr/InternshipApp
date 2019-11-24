@@ -1,62 +1,72 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-
+@import "~bootstrap/scss/bootstrap";
 
 body {
-    font-family:$text-font-family;
+    font-family: $text-font-family;
     color: $black;
-  }
-
-h1,h2,h3,h4{
-    font-family:$title-font-family;
+    height: 100%;
 }
 
-.top{
-    background-color:$lightblue ;
+h1,
+h2,
+h3,
+h4 {
+    font-family: $title-font-family;
+}
+
+.top {
+    background-color: $light-blue;
 }
 .navbar a {
-    color:$dark-grey;
+    color: $dark-grey;
 }
 
-h3{
-    color:$blue;
+footer {
+    width: 100%;
+    background-color: $dark-grey;
+    text-align: center;
+    padding: 10px;
 }
 
-.btn{
+footer p {
+    color: $light-grey;
+}
+h3 {
+    color: $blue;
+}
+
+.btn {
     font-size: 1em;
-    background-color:$blue;
-    color:$white;
-    border:none;
+    background-color: $blue;
+    color: $white;
+    border: none;
 }
 
-
-.form-control{
-    font-size:1em;
+.form-control {
+    font-size: 1em;
 }
-.navbar{
-    margin-left:20px;
+.navbar {
+    margin-left: 20px;
     margin-right: 20px;
 }
-.collapse{
+.collapse {
     width: 100%;
 }
-.navbar a:hover{
-color:$orange;
+.navbar a:hover {
+    color: $orange;
 }
-.navbar .active{
-    color:$orange;
+.navbar .active {
+    color: $orange;
     font-weight: 700;
 }
-.container-nav{
+.container-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
@@ -64,39 +74,38 @@ color:$orange;
     height: 100px;
 }
 
-.container-nav_h2{
+.container-nav_h2 {
     align-self: end;
- 
 }
 
-.container-nav_h2 h2{
+.container-nav_h2 h2 {
     font-size: 3em;
 }
 
-.container-nav_form{
+.container-nav_form {
     align-self: end;
     padding-bottom: 20px;
     justify-self: end;
-    border-radius: 5px;
+    border-radius: $border-radius;
     width: 60%;
 }
 
-.container-nav_form input{
-        border: none;
-        background: $white; 
-        border-radius: 1rem;
+.container-nav_form input {
+    border: none;
+    background: $white;
+    border-radius: $border-radius;
 }
 
-.username p{
-    color:$orange;
+.username p {
+    color: $orange;
     font-weight: 600;
 }
-.username span{
+.username span {
     padding-left: 2px;
 }
 
 /*-----COMPANIES-----*/
-.form-check{
+.form-check {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -108,7 +117,6 @@ color:$orange;
     user-select: none;
 }
 
-
 /* Hide the browser's default checkbox */
 .form-check input {
     position: absolute;
@@ -116,42 +124,42 @@ color:$orange;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
+}
+
+/* Create a custom checkbox */
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
-    height:15px;
-    width:15px;
+    height: 15px;
+    width: 15px;
     border: $blue 1px solid;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .form-check:hover input ~ .checkmark {
+}
+
+/* On mouse-over, add a grey background color */
+.form-check:hover input ~ .checkmark {
     background-color: $blue;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .form-check input:checked ~ .checkmark {
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-check input:checked ~ .checkmark {
     background-color: $blue;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .form-check input:checked ~ .checkmark:after {
+}
+
+/* Show the checkmark when checked */
+.form-check input:checked ~ .checkmark:after {
     display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .form-check .checkmark:after {
+}
+
+/* Style the checkmark/indicator */
+.form-check .checkmark:after {
     left: 4px;
     top: 1px;
     width: 5px;
@@ -161,65 +169,63 @@ color:$orange;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
-  
+}
 
-.container_companies{
+.container_companies {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 100vh;
+    overflow: hidden;
 }
-.companies_filters{
-    background-color:$light-grey;
-    margin:0;
+.companies_filters {
+    background-color: $light-grey;
+    margin: 0;
     padding: 30px;
+    position: sticky;
 }
 
-.companies_form{
+.companies_form {
     width: 80%;
 }
-.companies_filters h5{
-   color:$blue;
-   font-size:1.2em;
-  
+.companies_filters h5 {
+    color: $blue;
+    font-size: 1.2em;
 }
 
-.panel-heading{
+.panel-heading {
     padding: 5px;
     margin-bottom: 10px;
-
 }
 
-.companies_filters h6 a{
+.companies_filters h6 a {
     color: $dark-grey;
-    font-size:1.5em;
+    font-size: 1.5em;
 }
 
-.companies_filters h6 a:hover{
+.companies_filters h6 a:hover {
     text-decoration: none;
 }
 
- .companies_filters p{
-   font-size:1em;    
- }
+.companies_filters p {
+    font-size: 1em;
+}
 
- .companies_filters .glyphicon{
+.companies_filters .glyphicon {
     float: right;
 }
 
- .companies_filters form{
-    margin-bottom:30px;
+.companies_filters form {
+    margin-bottom: 30px;
 }
-.companies_filters .form-check{
-    margin-left:10px;
-}
-
-
-.companies_filters button{
-       margin-top: 30px;
+.companies_filters .form-check {
+    margin-left: 10px;
 }
 
-.companies{
+.companies_filters button {
+    margin-top: 30px;
+}
+
+.companies {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10%;
@@ -227,42 +233,41 @@ color:$orange;
     grid-column: 2 / span 3;
 }
 
-
-.companies__detail{
-    padding :10%;
-    background-color:$light-grey;
+.companies__detail {
+    padding: 10%;
+    background-color: $light-grey;
+    border-radius: $border-radius;
 }
-.companies__detail a{
+.companies__detail a {
     text-decoration: none;
-    color:$black;
-    font-family:$title-font-family;
+    color: $black;
+    font-family: $title-font-family;
     margin-bottom: 10px;
 }
-.companies__detail a:hover{
+.companies__detail a:hover {
     text-decoration: underline $orange;
-    color:$blue;
+    color: $blue;
 }
-.companies__detail p{
-    color:$dark-grey;
+.companies__detail p {
+    color: $dark-grey;
     font-size: 0.8em;
 }
 
-.companies__detail img{
-   width: 40px;
-   height: 40px;
-   background-color:$white;
-   margin-bottom: 20px;
-   border:none;
- 
+.companies__detail img {
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    margin-bottom: 20px;
+    border: none;
 }
-.companies__line{
-    border-top: 1.2px solid ;
-    color:$blue;
+.companies__line {
+    border-top: 1.2px solid;
+    color: $blue;
 }
 
 /*-----COMPANIES-DETAIL-----*/
 
-.form_container{
+.form_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10%;
@@ -270,92 +275,131 @@ color:$orange;
     grid-column: 2 / span 3;
 }
 
-.tags input{ 
+.tags input {
     position: relative;
-
 }
 /*-----DASHBOARD-----*/
-.container{
+.container {
     margin-top: 30px;
 }
 
-
 /*----PROFILE-------*/
-.container-profile{
+.container-profile {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     position: absolute;
-    left:0px;
+    left: 0px;
 }
 
-.container-profile button{
-    grid-column-end:span 1;
+.container-profile button {
+    grid-column-end: span 1;
 }
 
-
-.col-md.profile{
-    padding:40px;
+.col-md.profile {
+    padding: 40px;
 }
 
-.container-profile h5{
-    color:$blue;
-   
- }
+.container-profile h5 {
+    color: $blue;
+}
 
- .card-body.button{
+.card-body.button {
     position: relative;
     float: right;
-    padding:0px;
- }
+    padding: 0px;
+}
 
- .profilepic{
-    width:250px;
-    height:250px;
-    object-fit:cover;
-    border-radius:50%;
-    padding:30px;
- }
+.profilepic {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 30px;
+}
 
- .container-profile h4{
-    color:$orange;
- }
+.container-profile h4 {
+    color: $orange;
+}
 
- .editpart{
-     background-color:$light-grey;
-     margin-bottom:30px;
-     padding: 80px;
- }
+.editpart {
+    background-color: $light-grey;
+    margin-bottom: 30px;
+    padding: 80px;
+}
 
-
- .required{
+.required {
     margin-top: 10px;
     font-size: 10px;
-    color:$dark-grey;
- }
- .editpart h2{
-     color:$blue;
- }
+    color: $dark-grey;
+}
+.editpart h2 {
+    color: $blue;
+}
 
- .socialicon{
-     width: 25px;
- }
+.socialicon {
+    width: 25px;
+}
 
+.profileCard {
+    position: relative;
+}
 
- .profileCard{
-     position: relative;
- }
-
- .editicon{
+.editicon {
     position: absolute;
-    right:15px;
-    top:20px;
- }
+    right: 15px;
+    top: 20px;
+}
 
- .editicon:hover{
-     cursor: pointer;
- }
+.editicon:hover {
+    cursor: pointer;
+}
 
- .addicon{
-     right: 40px;
- }
+.addicon {
+    right: 40px;
+}
 
+/*---Company show---*/
+
+.company-show_info {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.company-show_info_photo {
+    padding: 5%;
+    background-color: red;
+}
+
+.company-show_info_text {
+    width: 70%;
+}
+.company-show_info_text h1 {
+    margin-bottom: 5%;
+}
+.company-show_contact {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.company-show span {
+    font-weight: 700;
+}
+.company-show_reviews {
+    margin-bottom: 5%;
+}
+.company-show_reviews-one {
+    border-radius: $border-radius;
+    background-color: $light-grey;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.company-show_reviews h2 {
+    margin-bottom: 30px;
+}

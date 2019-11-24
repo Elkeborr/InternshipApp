@@ -38,7 +38,7 @@
                             <!-- <p>{{$user->name}}</p> -->
                             <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
                             <a class="nav-item  nav-link" href="{{ url('/internships') }}">Stagiair(e)s</a>
-                            <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">Mijn stageplaatsen</a> 
+                            <a class="nav-item  nav-link" href="{{ url('/internships/myinternships') }}">Mijn stageplaatsen</a> 
                         @endif
                         @if($user->type == 'student')
                             <!-- <p>{{$user->name}}</p> -->
@@ -76,6 +76,10 @@
         <main>
             @yield('content')
         </main>
+       <!-- <footer>
+            <p>&copy; 2019 Sprintern<p>
+        </footer>-->
+       
     </div>
 
 

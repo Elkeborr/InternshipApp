@@ -14,12 +14,13 @@
 
 
 <h2>Bedrijfsgegevens</h2>
-<p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegeven te vervolledigen</p>
+<p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegeven te vervolledigen. 
+  We hebben al enkele gegevens gevonden voor u bedrijf en hebben deze al ingevuld. U bent vrij deze te veranderen.
+</p>
           <form method="post" action="">
           <div class="row no-gutters">
   <div class="col-6"> 
             @csrf
-
             @if ($flash = session('message'))
             @component('components/alert')
             @slot('type','succes')
@@ -80,11 +81,11 @@
       <input type="text" class="form-control" id="inputZip" placeholder="Postcode" name="postalCode" required>
     </div>
     <div class="form-group col-md-3">
-      <label for="inputState">State</label>
+      <label for="inputState">Provincie</label>
       @if (isset($company['location']['state']))
       <input type="text" class="form-control" id="inputState"  value="{{$company['location']['state']}}" name="state" required>
       @else
-      <input type="text" class="form-control" id="inputState" placeholder="state"  name="state" required>
+      <input type="text" class="form-control" id="inputState" placeholder="provincie"  name="state" required>
      @endif
     </div>
     </div>
@@ -107,7 +108,7 @@
 
   <div class="form-row">
     <div class="form-group col-md-6 tags" >
-      <label for="inputTags">Tags</label> <br>
+      <label for="inputTags">Categorie</label> <br>
       @foreach($tags?? '' as $tag)
       <input type="checkbox" name="tag[]" value="{{ $tag-> id}}"> {{ $tag-> name}}<br>
       @endforeach

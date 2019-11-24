@@ -37,11 +37,11 @@ class StudentController extends Controller
         return view('/students/edit-intro', $data);
     }
 
-    public function editKwaliteiten($user)
+    public function editSkills($user)
     {
         $data['user'] = \App\User::where('id', $user)->first();
 
-        return view('/students/edit-kwaliteiten', $data);
+        return view('/students/edit-skills', $data);
     }
 
     public function editSocial($user)
@@ -51,14 +51,14 @@ class StudentController extends Controller
         return view('/students/edit-social', $data);
     }
 
-    public function addKwaliteiten($user)
+    public function addSkills($user)
     {
         $data['user'] = \App\User::where('id', $user)->first();
 
-        return view('/students/add-kwaliteiten', $data);
+        return view('/students/add-skills', $data);
     }
 
-    public function saveKwaliteiten(Request $request)
+    public function saveSkills(Request $request)
     {
         $validation = $request->validate([
             'skill' => 'required',
@@ -138,7 +138,7 @@ class StudentController extends Controller
         return redirect()->action('StudentController@show', $user);
     }
 
-    public function updateKwaliteiten(Request $request)
+    public function updateSkills(Request $request)
     {
         /*\App\Skill('post')->where('id', request('skillid'))->update(['skill' => request('skillEdit')]);*/
         $user = session('user');

@@ -11,7 +11,7 @@
 @section('content')
 <div class="container">
 
-        <a href="/companies/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">
+        <a href="/internships/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         Voeg nieuwe stageplaats toe</a>
     </div>
@@ -21,7 +21,7 @@
             <a href ="/internships/">{{ $myinternship->internship_function }}</a>
             <p>{{ $myinternship->internship_discription }}</p>
             <hr class="companies__line">
-            <p>Company city</p>
+            <p>Stad</p>
             <p>{{ $myinternship->available_spots }} beschikbaar</p>
             <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">Bekijk sollicitaties</a>
         </div>
