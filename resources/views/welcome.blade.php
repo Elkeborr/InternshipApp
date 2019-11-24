@@ -105,7 +105,7 @@
     </div>
        <!-- <button class="more-button" >Meer</button>-->
 
-    <div id="myModal" class="Modal is-hidden is-visuallyHidden">
+<div id="myModal" class="Modal is-hidden is-visuallyHidden">
   <!-- Modal content -->
   <div class="Modal-content">
     <span id="closeModal" class="Close">&times;</span>

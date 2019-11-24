@@ -21,6 +21,10 @@
             <h1>{{$company->name}}</h1>
             <p>{{$company->bio}}</p>
             <p>Werknemers: {{$company->employees}}</p>
+            <h3> Vakgebied(en) <h3>
+            @foreach($tags as $tag)
+                <p></p>
+            @endforeach
         </div>
     </section>
 
@@ -57,9 +61,20 @@
 
     <section class="company-show_reviews">
         <h2>Beoordelingen</h2>
+        <button class="btn" id="myBtn"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        Schrijf een beoordeling</button>
+    
+        
+        <div id="myModal" class="modal is-hidden is-visuallyHidden">
+            <div class="modal-content">
+            <span id="closeModal" class="Close">&times;</span>
+            <!-- Hier komt de form voor beoordeling-->
+            </div>
+        </div>
 
-        <button href="" class="btn">  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>  Schrijf een beoordeling</button>
-        @foreach($company->reviews as $review)
+        
+        
+        @foreach($company->reviews as $review )
         <div class="company-show_reviews-one">
            <div>
                 <img>
@@ -85,10 +100,50 @@
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-    
-    if( {{$review->score}} )
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the main container and the body
+var body = document.getElementsByTagName('body');
+
+// Get the open button
+var btnOpen =  document.getElementById('myBtn');
+
+// Get the close button
+var btnClose = document.getElementById("closeModal");
+
+// Open the modal
+btnOpen.onclick = function() {
+    modal.className = "modal is-visuallyHidden";
+    setTimeout(function() {
+      body.className = "MainContainer is-blurred";
+      modal.className = "modal";
+    }, 100);
+    body.className = "modalOpen";
+}
+
+// Close the modal
+btnClose.onclick = function() {
+    modal.className = "modal is-hidden is-visuallyHidden";
+    body.className = "";
+    body.className = "MainContainer";
+
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.className = "modal is-hidden";
+        body.className = "";
+        body.className = "MainContainer";
+    }
+}
+            </script>
+<script>
+    @foreach($company->reviews as $review)
         let score= {{$review->score}};
-        $( document ).ready(function() {
+        $(document).ready(function() {
         switch(score) {
         case 0:
         break;
@@ -121,4 +176,6 @@
     })
 
 
+@endforeach
+ 
     </script>
