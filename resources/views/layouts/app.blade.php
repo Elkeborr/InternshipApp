@@ -67,7 +67,13 @@
                 </div>
                 <div class="container-nav_form">
                     <form>
-                    <input class="form-control" type="search" placeholder="Zoeken" aria-label="Search">
+                        <div class="form-group mx-sm-3 mb-2" >
+                            <input type="search" class="form-control mb-2" id="Search" placeholder="Zoeken" aria-label="Search">
+                            <button type="submit" class="btn btn-primary mb-2">Zoeken</button>
+                        </div>
+                        
+                        <!-- <input class="form-control" type="search" placeholder="Zoeken" >
+                        <button type="button" class="btn details-button">Zoek</button> -->
                     </form>
                 </div>
             </div>
