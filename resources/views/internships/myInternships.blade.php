@@ -18,7 +18,7 @@
     <div class="companies">
         @foreach($myinternships as $myinternship)
         <div class="companies__detail" >
-            <a href ="/internships/">{{ $myinternship->internship_function }}</a>
+            <a href ="/internships/{{$myinternship->id}}">{{ $myinternship->internship_function }}</a>
             <p>{{ $myinternship->internship_discription }}</p>
             <hr class="companies__line">
             <p>Stad</p>
@@ -28,7 +28,5 @@
         @endforeach
 
     </div>
-
-   
     
 @endsection
