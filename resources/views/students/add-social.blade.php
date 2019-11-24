@@ -5,7 +5,7 @@
 @endsection
 
 @section('link')
-    javascript:history.go(-1)
+/students/{{$user->id }}
 @endsection 
 
 @section('content')
@@ -36,7 +36,7 @@
                     <label for="type">Voeg een nieuwe link toe naar je social media</label>
                              <br><br>
                                 <select name="socialname">
-                                    <option selected="true" disabled="disabled" value="Facebook">Kies een social media kanaal</option>
+                                    <option selected="true" disabled="disabled">Kies een social media kanaal</option>
                                     <option value="Facebook">Facebook</option>
                                     <option value="Instagram">Instagram</option>
                                     <option value="Linkedin">Linkedin</option>

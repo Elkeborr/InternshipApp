@@ -5,14 +5,17 @@
 @endsection
 
 @section('link')
-    javascript:history.go(-1)
+/students/{{$user->id }}
+    
 @endsection 
 
 @section('content')
 
+<br><br>
 <div class="editpart">
+<h2>Kwaliteiten</h2>
 @foreach ($user->skills as $skill)
-        <form action="/students/updateSkills/{{$user->id}}" method="post">
+        <form method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
@@ -28,27 +31,29 @@
                 @endcomponent
             @endif
 
-            <br><br>
-
-
-            <br>
             
                    
-                    <label for="skill">Kwaliteiten</label>
                     
-                    
-                        <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
-                        <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
                    
+                            <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
+                            <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
+                        </div>
                 
-            
-          
-            <button type="submit" class="btn btn-success">Opslaan</button>
-            
+                        <div class="col">
+                            
+                        <button type="submit" class="btn btn-success" formaction="/students/updateSkills/{{$user->id}}">Opslaan</button>
+                        <button type="submit" class="btn btn-danger" formaction="/students/deleteSkills/{student}">Verwijder</button>
+                        </div>
+                    </div>
             
             </form>
+            <br>
 
-            @endforeach        
-            
-@endsection  
+            @endforeach     
+
+           
+
 </div>
+@endsection  

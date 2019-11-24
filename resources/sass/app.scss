@@ -340,6 +340,7 @@ h3 {
     width: 25px;
 }
 
+
 .profileCard {
     position: relative;
 }
@@ -356,6 +357,22 @@ h3 {
 
 .addicon {
     right: 40px;
+}
+
+.skillsGrid, .socialGrid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.socialGrid{
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 40px;
+}
+
+.pSkills{
+    max-width: 1fr;
+    grid-column: 1fr;
+    padding: 5px;
 }
 
 /*---Company show---*/

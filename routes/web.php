@@ -58,7 +58,9 @@ Route::get('/students/{student}/add-social', 'StudentController@addSocial');
 Route::put('/students/update/{student}', 'StudentController@update');
 Route::put('/students/updateIntro/{student}', 'StudentController@updateIntro');
 Route::put('/students/updateSkills/{student}', 'StudentController@updateSkills');
+Route::put('/students/deleteSkills/{student}', 'StudentController@deleteSkills');
 Route::put('/students/updateSocial/{student}', 'StudentController@updateSocial');
+Route::put('/students/deleteSocial/{student}', 'StudentController@deleteSocial');
 
 /* studentprofile add info */
 Route::put('/students/addSkills/{student}', 'StudentController@saveSkills');

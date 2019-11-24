@@ -74,6 +74,26 @@ class StudentController extends Controller
         return redirect()->action('StudentController@show', $user);
     }
 
+    public function deleteSkills(Request $request)
+    {
+        $user = session('user');
+        $id = request('skillid');
+        $skill = \App\Skill::where('id', $id);
+        $skill->delete();
+
+        return redirect()->action('StudentController@editSkills', $user);
+    }
+
+    public function deleteSocial(Request $request)
+    {
+        $user = session('user');
+        $id = request('socialId');
+        $social = \App\Social::where('id', $id);
+        $social->delete();
+
+        return redirect()->action('StudentController@editSocial', $user);
+    }
+
     public function addSocial($user)
     {
         $data['user'] = \App\User::where('id', $user)->first();
@@ -129,36 +149,30 @@ class StudentController extends Controller
 
     public function updateSkills(Request $request)
     {
+        $validation = $request->validate([
+            'skill' => 'required',
+        ]);
+
         $user = session('user');
-
-        /* werkt maar zet alle waarden in 1 tabel */
-
-        //\App\Skill::where('id', '=', request('skillid'))->update(['skill' => request('skillEdit')]);
-
-        //$skillEdit['skill'] = \App\Skill::where('id', request('skillid'))->first();
-
-        //DIT WERKT ENKEL DE LAATSTE!!!!!
 
         $skill = \App\Skill::where('id', request('skillid'))->first();
         $skill->skill = request('skill');
+        $skill->user_id = $user->id;
         $skill->save();
 
-        /*$skillEdit['skill'] = \App\Skill::find(request('skillid'))->first();*/
-        /*
-        $skillEdit = \App\Skill::where('id', request('skillid'))->get();
-        $skill->id = request('skillid');
-        $skillEdit->skill = request('skillEdit');
-        $skillEdit->user_id = $user->id;
-        $skillEdit->save();
-        */
-
-        return redirect()->action('StudentController@show', $user);
+        return redirect()->action('StudentController@editSkills', $user);
     }
 
     public function updateSocial(Request $request)
     {
         $user = session('user');
 
-        return redirect()->action('StudentController@show', $user);
+        $social = \App\Social::where('id', request('socialId'))->first();
+        $social->name = request('socialName');
+        $social->link = request('socialLink');
+        $social->user_id = $user->id;
+        $social->save();
+
+        return redirect()->action('StudentController@editSocial', $user);
     }
 }
