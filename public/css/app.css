@@ -10134,8 +10134,13 @@ h3 {
   background-color: #f6f7fb;
   padding: 2%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr 1fr;
   grid-template-rows: 1fr;
+  margin-top: 2%;
+}
+
+.company-show_reviews-one p {
+  width: 70%;
 }
 
 .company-show_reviews h2 {

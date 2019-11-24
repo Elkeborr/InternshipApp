@@ -57,8 +57,7 @@
 
     <section class="company-show_reviews">
         <h2>Beoordelingen</h2>
-        
-       
+
         <button href="" class="btn">  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>  Schrijf een beoordeling</button>
         @foreach($company->reviews as $review)
         <div class="company-show_reviews-one">
@@ -86,39 +85,40 @@
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+    
+    if( {{$review->score}} )
+        let score= {{$review->score}};
+        $( document ).ready(function() {
+        switch(score) {
+        case 0:
+        break;
+        case 1:
+            $("#star1").addClass("checked");
+        break;
+        case 2:
+            $("#star1").addClass("checked");
+            $("#star2").addClass("checked");
+        break;
+        case 3:
+            $("#star1").addClass("checked");
+            $("#star2").addClass("checked");
+            $("#star3").addClass("checked");
+        break;
+        case 4:
+            $("#star1").addClass("checked");
+            $("#star2").addClass("checked");
+            $("#star3").addClass("checked");
+            $("#star4").addClass("checked");
+        break;
+        case 5:
+            $("#star1").addClass("checked");
+            $("#star2").addClass("checked");
+            $("#star3").addClass("checked");
+            $("#star4").addClass("checked");
+            $("#star5").addClass("checked");
+        break;
+    }
+    })
 
-    let score= {{$review->score}};
-    $( document ).ready(function() {
-        
-    switch(score) {
-    case 0:
-    break;
-    case 1:
-        $("#star1").addClass("checked");
-    break;
-    case 2:
-        $("#star1").addClass("checked");
-        $("#star2").addClass("checked");
-    break;
-    case 3:
-        $("#star1").addClass("checked");
-        $("#star2").addClass("checked");
-        $("#star3").addClass("checked");
-    break;
-    case 4:
-        $("#star1").addClass("checked");
-        $("#star2").addClass("checked");
-        $("#star3").addClass("checked");
-        $("#star4").addClass("checked");
-    break;
-    case 5:
-        $("#star1").addClass("checked");
-        $("#star2").addClass("checked");
-        $("#star3").addClass("checked");
-        $("#star4").addClass("checked");
-        $("#star5").addClass("checked");
-    break;
-}
-})
 
     </script>

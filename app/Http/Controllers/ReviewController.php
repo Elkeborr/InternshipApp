@@ -16,7 +16,7 @@ class ReviewController extends Controller
 
         $review->review = $request->input('review');
         $review->score = $request->input('score');
-        $review->company_id = ?;
+        //$review->company_id = ?;
         $review->user_id = $user->id;
 
         $review->save();
