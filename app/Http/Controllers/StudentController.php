@@ -165,6 +165,11 @@ class StudentController extends Controller
 
     public function updateSocial(Request $request)
     {
+        $validation = $request->validate([
+            'socialName' => 'required',
+            'socialLink' => 'required|starts_with:http://',
+        ]);
+
         $user = session('user');
 
         $social = \App\Social::where('id', request('socialId'))->first();
