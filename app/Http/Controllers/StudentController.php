@@ -63,24 +63,13 @@ class StudentController extends Controller
         $validation = $request->validate([
             'skill' => 'required',
         ]);
+        /* werkt alleen voor de laatste */
 
         $user = session('user');
         $skill = new \App\Skill();
         $skill->skill = request('skill');
         $skill->user_id = $user->id;
         $skill->save();
-
-        /* werkt maar zet alle waarden in 1 tabel */
-        /*
-        if ($_POST) {
-            $field_array = array();
-            for ($i = 0; $i < count($_POST['skillid']); ++$i) {
-                $field_array[$i]['skillid'] = $_POST['skillid'][$i];
-                $field_array[$i]['skill'] = $_POST['skill'][$i];
-            }
-        }
-
-        */
 
         return redirect()->action('StudentController@show', $user);
     }
@@ -140,17 +129,18 @@ class StudentController extends Controller
 
     public function updateSkills(Request $request)
     {
-        /*\App\Skill('post')->where('id', request('skillid'))->update(['skill' => request('skillEdit')]);*/
         $user = session('user');
+
+        /* werkt maar zet alle waarden in 1 tabel */
 
         //\App\Skill::where('id', '=', request('skillid'))->update(['skill' => request('skillEdit')]);
 
         //$skillEdit['skill'] = \App\Skill::where('id', request('skillid'))->first();
 
         //DIT WERKT ENKEL DE LAATSTE!!!!!
+
         $skill = \App\Skill::where('id', request('skillid'))->first();
         $skill->skill = request('skill');
-        //$skillEdit->skill = request('skill');
         $skill->save();
 
         /*$skillEdit['skill'] = \App\Skill::find(request('skillid'))->first();*/

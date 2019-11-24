@@ -9,6 +9,9 @@
 @endsection 
 
 @section('content')
+
+<div class="editpart">
+@foreach ($user->skills as $skill)
         <form action="/students/updateSkills/{{$user->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
@@ -29,22 +32,23 @@
 
 
             <br>
-            <div class="editpart">
+            
                    
                     <label for="skill">Kwaliteiten</label>
                     
-                    @foreach ($user->skills as $skill)
-                        <input type="hidden" class="form-control" name="skillid[]" id="skillid" value="{{$skill->id}}">
-                        <input type="text" class="form-control" name="skill[]" id="skill" value="{{$skill->skill}}">
-                    @endforeach 
+                    
+                        <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
+                        <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
+                   
                 
-            </div>
+            
           
             <button type="submit" class="btn btn-success">Opslaan</button>
-            <br><br><br><br>
+            
             
             </form>
 
-            
+            @endforeach        
             
 @endsection  
+</div>
