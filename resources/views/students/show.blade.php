@@ -46,8 +46,8 @@
                 <div class="card-body bg-light profileCard">
                     <h5 class="card-title">Kwaliteiten:</h5>
                     <div class="card-text">
-                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-kwaliteiten'">
-                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-kwaliteiten'">
+                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-skills'">
+                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-skills'">
 
                         @foreach ($user->skills as $skill)
                             <div>{{ $skill->skill}}</div>
