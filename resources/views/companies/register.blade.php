@@ -67,6 +67,7 @@
                             </div>
                         </div>
                     </form>
+                    Al een account? Inloggen kan <a href="{{url('/companies/login')}}" class="">hier</a>.
                 </div>
             </div>
         </div>
