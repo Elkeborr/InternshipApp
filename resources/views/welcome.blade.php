@@ -28,8 +28,9 @@
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item cta mr-md-2"><a class="nav-link" href="#about" >Over</a></li>
                     <li class="nav-item mr-md-2"> <a class="nav-link"  href="#services">Diensten</a></li>
-                    <li class="nav-item mr-md-2 "id="student"><a href="{{ url('/students/login') }}" class="nav-link">Student</a></li>
                     <li class="nav-item mr-md-2" id="company"><a href="{{ url('/companies/login') }}" class="nav-link">Bedrijf</a></li>
+                    <li class="nav-item mr-md-2 "id="student"><a href="{{ url('/students/login') }}" class="nav-link">Student</a></li>
+                    
                 </div>
 </div>
                 </div>
