@@ -420,3 +420,21 @@ h3 {
 .company-show_reviews h2 {
     margin-bottom: 30px;
 }
+
+
+/* ------ login & register students ------- */
+
+.grid-buttons{
+    display:grid;
+    grid-template-columns: 1fr 2fr
+}
+
+.grid-button{
+    grid-column: 1fr;
+}
+
+.grid-button:nth-of-type(2){
+    grid-column: 2fr;
+    padding: 18px;
+    padding-left: 0px;
+}

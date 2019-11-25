@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Auth;
+use Redirect;
 
 class StudentController extends Controller
 {
@@ -179,5 +181,71 @@ class StudentController extends Controller
         $social->save();
 
         return redirect()->action('StudentController@editSocial', $user);
+    }
+
+    /* -------------------- LOGIN ----------------------- */
+
+    public function login()
+    {
+        return view('students/login');
+    }
+
+    public function handleLogin(Request $request)
+    {
+        $credentials = $request->only(['email', 'password']);
+        $request->flash();
+        if (Auth::attempt($credentials)) {
+            $request->session()->flash('message', 'Login successvol!');
+
+            //Retrieve data and put it in session
+            $user_id = Auth::id();
+            $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
+            //Put user data in session User
+            $request->session()->put('user', $user);
+            // dd($sessionData['name']);
+            return redirect('home');
+        }
+        $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
+
+        return view('studends/login');
+    }
+
+    public function register(Request $request)
+    {
+        return view('students/register');
+    }
+
+    public function handleRegister(Request $request)
+    {
+        $validation = $request->validate([
+              'firstName' => 'required',
+              'email' => ['unique:users,email'],
+              'password' => ['required', 'string', 'min:8', 'confirmed'],
+          ]);
+
+        $request->flash();
+        $user = new \App\User();
+        $user->name = $request->input('firstName');
+        $user->email = $request->input('email');
+        $user->password = \Hash::make($request->input('password'));
+        $user->type = 'student';
+        $user->save();
+
+        $credentials = $request->only(['email', 'password']);
+        if (Auth::attempt($credentials)) {
+            $request->session()->flash('username', $user->name);
+            $request->session()->flash('message', 'Studentregistratie succesvol!');
+            $request->session()->flash('email', $user->email);
+            //Retrieve data and put it in session
+            $user_id = Auth::id();
+            $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
+            //Put user data in session User
+            $request->session()->put('user', $user);
+            // dd($sessionData['name']);
+
+            return view('/home');
+        }
+
+        return view('students/login');
     }
 }

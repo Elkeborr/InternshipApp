@@ -26,6 +26,8 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
 /* Login */
 Route::get('/companies/login', 'CompanyController@login');
 Route::post('/companies/login', 'CompanyController@handleLogin');
+Route::get('/students/login', 'StudentController@login');
+Route::post('/students/login', 'StudentController@handleLogin');
 
 /*Create company*/
 Route::get('/companies/detail', 'CompanyController@create');
@@ -40,7 +42,13 @@ Route::get('/companies/{company}', 'CompanyController@show');
 //Route::get('/login', 'LoginController@index');
 //Route::get('/register', 'RegisterController@index');
 
-/*Students */
+/*----------------STUDENTS ------------------------- */
+
+/* Login & register */
+Route::get('/students/register', 'StudentController@register');
+Route::post('/students/register', 'StudentController@handleRegister');
+
+/* profielpagina */
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show');
 

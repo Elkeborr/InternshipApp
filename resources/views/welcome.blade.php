@@ -45,7 +45,8 @@
                     <p class="top_question">Ben je een bedrijf of een student?</p>
                     <div class="links">
                         <a href="{{ url('/companies/login') }}" class="company">Bedrijf</a>
-                        <a href="{{ url('/redirect') }}" class="student">Student</a>
+                        <a href="{{ url('/students/login') }}" class="student">Student</a>
+                        <!--<a href="{{ url('/redirect') }}" class="student">Student</a>-->
                     </div>      
                 </div>
     </section>
