@@ -10,9 +10,9 @@
     <title>Sprintern - @yield('title')</title>
 
     <!-- Scripts -->
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-   
+    
 
 
     <!-- Styles -->
@@ -68,8 +68,8 @@
                 <div class="container-nav_form">
                     <form>
                         <div class="form-group mx-sm-3 mb-2" >
-                            <input type="search" class="form-control mb-2" id="Search" placeholder="Zoeken" aria-label="Search">
-                            <button type="submit" class="btn btn-primary mb-2">Zoeken</button>
+                            <input type="search" class="form-control mb-2 search" id="searchBar" placeholder="Zoeken" aria-label="Search">
+                            <!-- <button type="submit" class="btn btn-primary mb-2">Zoeken</button> -->
                         </div>
                         
                         <!-- <input class="form-control" type="search" placeholder="Zoeken" >
@@ -88,8 +88,22 @@
        
     </div>
 
-
+    <script type="text/javascript">
+        $(function(){ // this will be called when the DOM is ready
+            $('#searchBar').keyup(function() {
+                let searchBarVal = $(this).val();
+                console.log(searchBarVal);
+                $.ajax({
+                    type : 'get',
+                    url : '{{URL::to('search')}}',
+                //     data:{'search':$value},
+                //     success:function(data){
+                //         $('tbody').html(data);
+                //     }
+                });
+            });
+        });
+    </script>
 </body>
-
 
 </html>
