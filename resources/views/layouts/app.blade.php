@@ -99,11 +99,23 @@
                     type : 'post',                    
                     url : '{{URL::to('search')}}',
                     data:{'search': $value},
-                    success:function(data){
-                        console.log(data)
+                    dataType: 'json',
+                    success:function(res){
+                        console.log(res)
+                        if (res.status == "success"){
+                            console.log(res.message);
+                        }else{
+                            console.log(res.message);
+                        }
                         // $('tbody').html(data);
                     }
-                });
+                    
+                })
+                // .done(function(res){
+                //     if (res.status == "success"){
+                //         console.log(data);
+                //     }
+                // });
             });
         });
     </script>

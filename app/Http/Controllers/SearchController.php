@@ -13,10 +13,35 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        if ($request->ajax()) {
-            $data['internships'] = \App\Internship::where('internship_function', 'LIKE', '%'.$request->search.'%')->get();
+        if (!empty($_POST)) {
+            if ($request->ajax()) {
+                $result = '';
+                try {
+                    $data['internships'] = \App\Internship::where('internship_function', 'LIKE', '%'.$request->search.'%')->get();
+                    if (count($data['internships']) != 0) {
+                        $result =
+                        [
+                            'status' => 'success',
+                            'message' => 'Zoekresultaten gevonden',
+                            'data' => $data,
+                        ];
+                    } else {
+                        $result =
+                        [
+                            'status' => 'fail',
+                            'message' => 'Geen zoekresultaten gevonden',
+                        ];
+                    }
+                } catch (Trowable $t) {
+                    $result = [
+                        'status' => 'error',
+                        'message' => $t->getMessage(),
+                    ];
+                }
+                // echo json_encode($result);
 
-            return Response($data);
+                return Response($result);
+            }
         }
     }
 }
