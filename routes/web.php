@@ -26,6 +26,8 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
 /* Login */
 Route::get('/companies/login', 'CompanyController@login');
 Route::post('/companies/login', 'CompanyController@handleLogin');
+Route::get('/students/login', 'StudentController@login');
+Route::post('/students/login', 'StudentController@handleLogin');
 
 /*Create company*/
 Route::get('/companies/detail', 'CompanyController@create');
@@ -40,7 +42,13 @@ Route::get('/companies/{company}', 'CompanyController@show');
 //Route::get('/login', 'LoginController@index');
 //Route::get('/register', 'RegisterController@index');
 
-/*Students */
+/*----------------STUDENTS ------------------------- */
+
+/* Login & register */
+Route::get('/students/register', 'StudentController@register');
+Route::post('/students/register', 'StudentController@handleRegister');
+
+/* profielpagina */
 Route::get('/students', 'StudentController@index');
 Route::get('/students/{student}', 'StudentController@show');
 
@@ -58,7 +66,9 @@ Route::get('/students/{student}/add-social', 'StudentController@addSocial');
 Route::put('/students/update/{student}', 'StudentController@update');
 Route::put('/students/updateIntro/{student}', 'StudentController@updateIntro');
 Route::put('/students/updateSkills/{student}', 'StudentController@updateSkills');
+Route::put('/students/deleteSkills/{student}', 'StudentController@deleteSkills');
 Route::put('/students/updateSocial/{student}', 'StudentController@updateSocial');
+Route::put('/students/deleteSocial/{student}', 'StudentController@deleteSocial');
 
 /* studentprofile add info */
 Route::put('/students/addSkills/{student}', 'StudentController@saveSkills');

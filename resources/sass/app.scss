@@ -340,6 +340,7 @@ h3 {
     width: 25px;
 }
 
+
 .profileCard {
     position: relative;
 }
@@ -356,6 +357,22 @@ h3 {
 
 .addicon {
     right: 40px;
+}
+
+.skillsGrid, .socialGrid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.socialGrid{
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 40px;
+}
+
+.pSkills{
+    max-width: 1fr;
+    grid-column: 1fr;
+    padding: 5px;
 }
 
 /*---Company show---*/
@@ -402,4 +419,22 @@ h3 {
 
 .company-show_reviews h2 {
     margin-bottom: 30px;
+}
+
+
+/* ------ login & register students ------- */
+
+.grid-buttons{
+    display:grid;
+    grid-template-columns: 1fr 2fr
+}
+
+.grid-button{
+    grid-column: 1fr;
+}
+
+.grid-button:nth-of-type(2){
+    grid-column: 2fr;
+    padding: 18px;
+    padding-left: 0px;
 }

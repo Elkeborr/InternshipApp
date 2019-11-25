@@ -5,11 +5,17 @@
 @endsection
 
 @section('link')
-    javascript:history.go(-1)
+/students/{{$user->id }}
+    
 @endsection 
 
 @section('content')
-        <form action="/students/updateSkills/{{$user->id}}" method="post">
+
+<br><br>
+<div class="editpart">
+<h2>Kwaliteiten</h2>
+@foreach ($user->skills as $skill)
+        <form method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
@@ -25,26 +31,29 @@
                 @endcomponent
             @endif
 
-            <br><br>
-
-
-            <br>
-            <div class="editpart">
+            
                    
-                    <label for="skill">Kwaliteiten</label>
                     
-                    @foreach ($user->skills as $skill)
-                        <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
-                        <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
-                    @endforeach 
+                   
+                            <input type="hidden" class="form-control" name="skillid" id="skillid" value="{{$skill->id}}">
+                            <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="skill" id="skill" value="{{$skill->skill}}">
+                        </div>
                 
-            </div>
-          
-            <button type="submit" class="btn btn-success">Opslaan</button>
-            <br><br><br><br>
+                        <div class="col">
+                            
+                        <button type="submit" class="btn btn-success" formaction="/students/updateSkills/{{$user->id}}">Opslaan</button>
+                        <button type="submit" class="btn btn-danger" formaction="/students/deleteSkills/{student}">Verwijder</button>
+                        </div>
+                    </div>
             
             </form>
+            <br>
 
-            
-            
+            @endforeach     
+
+           
+
+</div>
 @endsection  
