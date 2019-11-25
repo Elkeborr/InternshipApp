@@ -193,6 +193,7 @@ window.onclick = function(event) {
         modal.className = "Modal is-hidden";
         body.className = "";
         body.className = "MainContainer";
+        
     }
 }
             </script>

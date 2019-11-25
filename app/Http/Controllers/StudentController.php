@@ -200,11 +200,19 @@ class StudentController extends Controller
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
-            //Put user data in session User
-            $request->session()->put('user', $user);
-            // dd($sessionData['name']);
-            return redirect('home');
+
+            if ($user->type == 'student') {
+                //Put user data in session User
+                $request->session()->put('user', $user);
+                // dd($sessionData['name']);
+
+                return redirect('home');
+            }
+            $request->session()->flash('message', 'Hier kunnen enkel studenten inloggen');
+
+            return view('students/login');
         }
+
         $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
 
         return view('studends/login');

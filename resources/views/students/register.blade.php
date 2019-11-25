@@ -66,6 +66,8 @@
                             </div>
                         </div>
                     </form>
+                    Al een account? Inloggen kan <a href="{{url('/students/login')}}" class="">hier</a>.
+
                 </div>
             </div>
         </div>
