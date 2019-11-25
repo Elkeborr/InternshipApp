@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta id="token" name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Sprintern - @yield('title')</title>
 
@@ -66,7 +66,8 @@
                     </h2>
                 </div>
                 <div class="container-nav_form">
-                    <form>
+                    <form method="post">
+                        <!-- {{csrf_field()}}     -->
                         <div class="form-group mx-sm-3 mb-2" >
                             <input type="search" class="form-control mb-2 search" id="searchBar" placeholder="Zoeken" aria-label="Search">
                             <!-- <button type="submit" class="btn btn-primary mb-2">Zoeken</button> -->
@@ -91,16 +92,27 @@
     <script type="text/javascript">
         $(function(){ // this will be called when the DOM is ready
             $('#searchBar').keyup(function() {
-                let searchBarVal = $(this).val();
-                console.log(searchBarVal);
+                $value = $(this).val();
+                console.log($value);
                 $.ajax({
-                    type : 'get',
+                    beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));},
+                    type : 'post',                    
                     url : '{{URL::to('search')}}',
-                //     data:{'search':$value},
-                //     success:function(data){
-                //         $('tbody').html(data);
-                //     }
+                    data:{'search': $value},
+                    success:function(data){
+                        console.log(data)
+                        // $('tbody').html(data);
+                    }
                 });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function(){ // this will be called when the DOM is ready
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
             });
         });
     </script>

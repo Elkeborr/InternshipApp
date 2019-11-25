@@ -90,3 +90,6 @@ Route::post('/{id}/save', 'JobApplicationController@save');
 /* Facebook login */
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+/* Search */
+Route::get('/', 'SearchController@index');
+Route::post('/search', 'SearchController@search');
