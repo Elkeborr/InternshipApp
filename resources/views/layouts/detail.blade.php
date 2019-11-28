@@ -9,10 +9,10 @@
 
     <title>Sprintern - @yield('title')</title>
 
-    <!-- Scripts -->
+    <!-- Scripts --> 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-
+    <script src="{{ asset('js/review.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
@@ -71,7 +71,5 @@
 
     </div>
 </body>
+
 </html>
-
-
-

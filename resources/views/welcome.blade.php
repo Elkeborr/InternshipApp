@@ -194,6 +194,6 @@ window.onclick = function(event) {
         body.className = "MainContainer";
     }
 }
-            </script>
+</script>
     </html>
 

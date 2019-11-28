@@ -12,7 +12,6 @@
 @section('content')
 
 <div class="company-show container">
-
     <section class="company-show_info">
         <div class="company-show_info_photo">
             <img>
@@ -61,19 +60,31 @@
 
     <section class="company-show_reviews">
         <h2>Beoordelingen</h2>
-        <button class="btn" id="myBtn"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        <button class="btn myBtn" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
         Schrijf een beoordeling</button>
     
         
         <div id="myModal" class="modal is-hidden is-visuallyHidden">
             <div class="modal-content">
-            <span id="closeModal" class="Close">&times;</span>
-            <!-- Hier komt de form voor beoordeling-->
+            <span id="closeModal" class="close">&times;</span>
+            <form action="#" method="post">
+                <p>We horen graag jouw mening voor {{$company->name}} </p>
+                <label for="review">Recensie</label>
+                <textarea class="form-control" type="textarea" name="review" id="review" placeholder="Beoordeling" maxlength="600" rows="4" required></textarea>
+                <label for="stars">Beoordeling</label>
+                <div id="stars_review">
+                    <span class="glyphicon glyphicon-star star fa-star-o" data-rating="5" aria-hidden="true" id="star1_review"></span> 
+                    <span class="glyphicon glyphicon-star star fa-star-o" data-rating="4" aria-hidden="true" id="star2_review"></span> 
+                    <span class="glyphicon glyphicon-star star fa-star-o" data-rating="3" aria-hidden="true" id="star3_review"></span> 
+                    <span class="glyphicon glyphicon-star star fa-star-o" data-rating="2" aria-hidden="true" id="star4_review"></span> 
+                    <span class="glyphicon glyphicon-star star fa-star-o" data-rating="1" aria-hidden="true" id="star5_review"></span> 
+                    <input type="hidden" class="rating-value" value="0">
+                </div>
+                <button class="btn">Verstuur</button>
+            </form>
             </div>
         </div>
 
-        
-        
         @foreach($company->reviews as $review )
         <div class="company-show_reviews-one">
            <div>
@@ -98,48 +109,8 @@
     </section>
 </div>
 @endsection
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the main container and the body
-var body = document.getElementsByTagName('body');
-
-// Get the open button
-var btnOpen =  document.getElementById('myBtn');
-
-// Get the close button
-var btnClose = document.getElementById("closeModal");
-
-// Open the modal
-btnOpen.onclick = function() {
-    modal.className = "modal is-visuallyHidden";
-    setTimeout(function() {
-      body.className = "MainContainer is-blurred";
-      modal.className = "modal";
-    }, 100);
-    body.className = "modalOpen";
-}
-
-// Close the modal
-btnClose.onclick = function() {
-    modal.className = "modal is-hidden is-visuallyHidden";
-    body.className = "";
-    body.className = "MainContainer";
-
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.className = "modal is-hidden";
-        body.className = "";
-        body.className = "MainContainer";
-    }
-}
-            </script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <script>
     @foreach($company->reviews as $review)
         let score= {{$review->score}};
@@ -174,8 +145,5 @@ window.onclick = function(event) {
         break;
     }
     })
-
-
 @endforeach
- 
-    </script>
+ </script>

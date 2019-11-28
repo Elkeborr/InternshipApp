@@ -439,7 +439,7 @@ h3 {
     padding: 40px;
     border-radius: 4px;
     max-width: 480px;
-    height: 200px;
+    height: 400px;
 }
 
 .modal-content p,
@@ -468,4 +468,39 @@ h3 {
 
 .is-visuallyHidden {
     opacity: 0;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 16px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fa-star {
+    color: $orange;
+}
+
+.fa-star-o {
+    color: $dark-grey;
+}
+
+#stars_review {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+#stars_review > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+#stars_review > span:hover:before,
+#stars_review > span:hover ~ span:before {
+    color: $orange;
 }
