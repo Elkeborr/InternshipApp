@@ -70,7 +70,7 @@
             <form action="#" method="post">
                 <p>We horen graag jouw mening voor {{$company->name}} </p>
                 <label for="review">Recensie</label>
-                <textarea class="form-control" type="textarea" name="review" id="review" placeholder="Beoordeling" maxlength="600" rows="4" required></textarea>
+                <textarea type="review" class="form-control" type="textarea" name="review" id="review" placeholder="Beoordeling" maxlength="600" rows="4" required></textarea>
                 <label for="stars">Beoordeling</label>
                 <div id="stars_review">
                     <span class="glyphicon glyphicon-star star fa-star-o" data-rating="5" aria-hidden="true" id="star1_review"></span> 
@@ -78,7 +78,7 @@
                     <span class="glyphicon glyphicon-star star fa-star-o" data-rating="3" aria-hidden="true" id="star3_review"></span> 
                     <span class="glyphicon glyphicon-star star fa-star-o" data-rating="2" aria-hidden="true" id="star4_review"></span> 
                     <span class="glyphicon glyphicon-star star fa-star-o" data-rating="1" aria-hidden="true" id="star5_review"></span> 
-                    <input type="hidden" class="rating-value" value="0">
+                    <input type="hidden" type="score" class="rating-value" value="0">
                 </div>
                 <button class="btn">Verstuur</button>
             </form>
