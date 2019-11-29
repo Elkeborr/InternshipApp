@@ -68,8 +68,21 @@
                 <div class="container-nav_form">
                     <form method="post">
                         <!-- {{csrf_field()}}     -->
-                        <div class="form-group mx-sm-3 mb-2" >
-                            <input type="search" class="form-control mb-2 search" id="searchBar" placeholder="Zoeken" aria-label="Search">
+                        <div class="form-group mx-sm-3 mb-2 search" >
+                            <input type="search" name="search" class="form-control mb-2 search-bar" id="searchBar" placeholder="Zoeken" aria-label="Search">
+                            <div class="search-results">
+                                <ul class="search-result_list">
+                                    <a href="#" class="search-result_list-link">
+                                        <li class="search-result_list-item">test</li>
+                                    </a> 
+                                    <a href="#" class="search-result_list-link">
+                                        <li class="search-result_list-item">test</li>
+                                    </a> 
+                                    <a href="#" class="search-result_list-link">
+                                        <li class="search-result_list-item">test</li>
+                                    </a> 
+                                </ul>
+                            </div>
                             <!-- <button type="submit" class="btn btn-primary mb-2">Zoeken</button> -->
                         </div>
                         
