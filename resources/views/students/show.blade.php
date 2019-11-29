@@ -1,8 +1,9 @@
 @extends('layouts/detail')
 
 @section('title')
-    Profiel
+            Profiel
 @endsection
+
 
 @section('link')
 {{ url('/home') }}
@@ -45,24 +46,15 @@
 
 
                 <div class="card-body bg-light profileCard">
-                    <h5 class="card-title">Kwaliteiten</h5>
+                    <h5 class="card-title">Kwaliteiten:</h5>
                     <div class="card-text">
-<<<<<<< HEAD
                     @if (\Auth::user()->id === $user->id)
                         <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-kwaliteiten'">
                         <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-kwaliteiten'">
                     @endif
-=======
-                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-skills'">
-                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-skills'">
-                    <div class="skillsGrid">
->>>>>>> 3bd1eb9c3d401a077024bfb73e82c37a4f54dac6
                         @foreach ($user->skills as $skill)
-                            
-                                <div class="pSkills">{{$skill->skill}}</div>
-                          
+                            <div>{{ $skill->skill}}</div>
                         @endforeach
-                        </div>
                     </div>
                 </div>
                 <br>
@@ -70,28 +62,18 @@
 
                 <div class="card-body bg-light profileCard">
                     <h5 class="card-title">Sociale media</h5>
-                    <br>
                     <div class="card-text">
-<<<<<<< HEAD
                     @if (\Auth::user()->id === $user->id)
                         <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
                         <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
                     @endif
-=======
-                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
-                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
-                    <div class="socialGrid">
->>>>>>> 3bd1eb9c3d401a077024bfb73e82c37a4f54dac6
                         @foreach ($user->socials as $social)
-                            
-                            
+                            <div>
                                 <a href="{{$social->link}}">
                                     <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
                                 </a>
-                                
-                            
+                            </div>
                         @endforeach
-                        </div>
                     </div>
                 </div>
 
