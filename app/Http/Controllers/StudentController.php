@@ -27,7 +27,11 @@ class StudentController extends Controller
     {
         $data['user'] = \App\User::where('id', $user)->first();
 
-        return view('/students/edit', $data);
+        if ($user == \Auth::User()->id) {
+            return view('/students/edit', $data);
+        } else {
+            return view('/students/show', $data);
+        }
     }
 
     public function editIntro($user)
@@ -136,7 +140,7 @@ class StudentController extends Controller
         //$skillEdit['skill'] = \App\Skill::where('id', request('skillid'))->first();
 
         //DIT WERKT ENKEL DE LAATSTE!!!!!
-        $skill = \App\Skill::where('id', request('skillid'))->first();
+        $skill = \App\Skill::where('id', request('skillid'));
         $skill->skill = request('skill');
         //$skillEdit->skill = request('skill');
         $skill->save();
@@ -150,7 +154,9 @@ class StudentController extends Controller
         $skillEdit->save();
         */
 
-        return redirect()->action('StudentController@show', $user);
+        $user = \Auth::User();
+
+        return redirect()->action('StudentController@show', $user->id);
     }
 
     public function updateSocial(Request $request)
