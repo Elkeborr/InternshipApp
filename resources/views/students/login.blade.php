@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="grid-button">
-                        <a href="{{ url('/redirect') }}" class="btn btn-primary facebookLogin">Login met facebook</a>
+                        <a href="{{ url('/redirect') }}" style= "background-color:#4267B2" class="btn btn-primary facebookLogin">Login met Facebook</a>
                     </div>
                 </div>  
 

@@ -113,7 +113,7 @@
     <span id="closeModal" class="Close">&times;</span>
     <p>Je moet ingelogd zijn om verder te kunnen. <span>Signup of login voor meer!</span></p>
     <div class="link">
-        <a href="{{ url('/redirect') }}" class="student">Student</a>
+        <a href="{{ url('/students/login') }}" class="student">Student</a>
     </div>
   </div>
 </div>
