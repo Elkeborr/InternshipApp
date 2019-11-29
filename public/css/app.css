@@ -10166,3 +10166,8 @@ h3 {
   padding: 18px;
   padding-left: 0px;
 }
+
+/* ----- internships -----  */
+.companies__detail > .btn-secondary {
+  color: white !important;
+}
