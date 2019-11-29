@@ -132,28 +132,10 @@ class StudentController extends Controller
 
     public function updateKwaliteiten(Request $request)
     {
-        /*\App\Skill('post')->where('id', request('skillid'))->update(['skill' => request('skillEdit')]);*/
         $user = session('user');
-
-        //\App\Skill::where('id', '=', request('skillid'))->update(['skill' => request('skillEdit')]);
-
-        //$skillEdit['skill'] = \App\Skill::where('id', request('skillid'))->first();
-
-        //DIT WERKT ENKEL DE LAATSTE!!!!!
         $skill = \App\Skill::where('id', request('skillid'));
         $skill->skill = request('skill');
-        //$skillEdit->skill = request('skill');
         $skill->save();
-
-        /*$skillEdit['skill'] = \App\Skill::find(request('skillid'))->first();*/
-        /*
-        $skillEdit = \App\Skill::where('id', request('skillid'))->get();
-        $skill->id = request('skillid');
-        $skillEdit->skill = request('skillEdit');
-        $skillEdit->user_id = $user->id;
-        $skillEdit->save();
-        */
-
         $user = \Auth::User();
 
         return redirect()->action('StudentController@show', $user->id);
