@@ -20,15 +20,7 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/internships', 'InternshipController@index');
-
-    /* Internships */
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/internships/{internship}', 'InternshipController@show');
-    Route::get('/internships', 'InternshipController@index');
-
-    /*COMPANIES*/
+ /*COMPANIES*/
     /* Register */
     Route::get('/companies/register', 'CompanyController@register');
     Route::post('/companies/register', 'CompanyController@handleRegister');
@@ -40,6 +32,14 @@ Route::group(['middleware' => 'auth'], function () {
     /*Create company*/
     Route::get('/companies/detail', 'CompanyController@create');
     Route::post('/companies/detail', 'CompanyController@handlecreate');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/internships', 'InternshipController@index');
+
+    /* Internships */
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/internships/{internship}', 'InternshipController@show');
+    Route::get('/internships', 'InternshipController@index');
 
     /* Companies */
     Route::get('/companies', 'CompanyController@index');
