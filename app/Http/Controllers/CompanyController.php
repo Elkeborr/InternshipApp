@@ -32,7 +32,7 @@ class CompanyController extends Controller
         $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
             $request->session()->flash('username', $company->name);
-            $request->session()->flash('message', 'Company registration successful!');
+            $request->session()->flash('message', 'Bedrijfs registratie succesvol!');
             $request->session()->flash('email', $company->email);
             //Retrieve data and put it in session
             $user_id = Auth::id();
@@ -57,17 +57,23 @@ class CompanyController extends Controller
         $credentials = $request->only(['email', 'password']);
         $request->flash();
         if (Auth::attempt($credentials)) {
-            $request->session()->flash('message', 'Login successful!');
+            $request->session()->flash('message', 'Login successvol!');
 
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
-            //Put user data in session User
-            $request->session()->put('user', $user);
-            // dd($sessionData['name']);
-            return redirect('home');
+
+            if ($user->type == 'company') {
+                //Put user data in session User
+                $request->session()->put('user', $user);
+                // dd($sessionData['name']);
+                return redirect('home');
+            }
+            $request->session()->flash('message', 'Hier kunnen enkel bedrijven inloggen');
+
+            return view('companies/login');
         }
-        $request->session()->flash('message', 'Login Failed, try again');
+        $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
 
         return view('companies/login');
     }
@@ -76,6 +82,7 @@ class CompanyController extends Controller
     {
         if (Auth::check()) {
             $data['companies'] = \App\Company::get();
+            $data['tags'] = \App\CompanyTag::get();
 
             return view('companies/index', $data);
         }
@@ -83,23 +90,16 @@ class CompanyController extends Controller
         return redirect('companies/login');
     }
 
-    public function show($company)
+    public function show(Request $request, $company)
     {
         if (Auth::check()) {
             $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
+            $data['internships'] = \App\Internship::where('company_id', $company)->get();
 
             return view('companies/show', $data);
         }
 
         return redirect('companies/login');
-    }
-
-    public function showMyInternships()
-    {
-        $user = session('user');
-        $data['myinternships'] = \App\Internship::where('company_id', $user->company_id)->get();
-
-        return view('companies/myInternships', $data);
     }
 
     public function create()
@@ -154,27 +154,12 @@ class CompanyController extends Controller
         }
 
         if ($saved && $savedTags) {
-            $request->session()->flash('message', 'Welcome to your homepage');
+            $request->session()->flash('message', 'Welkom op je startpagina');
 
             return redirect('home');
         }
-        $request->session()->flash('message', 'Oeps, something went wrong');
+        $request->session()->flash('message', 'Oeps, er is iets fout gelopen');
 
         return view('companies/detail');
-    }
-
-    public function store(Request $request)
-    {
-        $user = session('user');
-        $internship = new \App\Internship();
-
-        $internship->internship_function = $request->input('internshipFunction');
-        $internship->internship_discription = $request->input('discription');
-        $internship->available_spots = $request->input('spots');
-        $internship->company_id = $user->company_id;
-
-        $internship->save();
-
-        return redirect('companies/myinternships');
     }
 }

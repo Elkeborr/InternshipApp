@@ -5,7 +5,7 @@
 @endsection
 
 @section('link')
-    javascript:history.go(-1)
+/students/{{$user->id }}
 @endsection 
 
 @section('content')

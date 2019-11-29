@@ -47,9 +47,9 @@
 
                     <span class="navbar-text mt-1 w-50 text-right order-md-last username">
                     
-                    <!-- @if ($flash = session('username')) -->
+                    <!-- @if ($flash = session('username'))
                         <a href="{{ url('/users/detail') }}">{{$flash}}</a>
-                    <!-- @endif -->
+                    @endif -->
                     <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="/students/{{$user->id }}">{{$user->name}}</a></span>
                     </span>
 
@@ -57,10 +57,16 @@
             </nav>
 
 </div>
-        <main class="container">
+        <main>
             <a href= "@yield('link')" >Ga terug</a>
             @yield('content')
+
         </main>
+     
+       <!-- <footer>
+            <p>&copy; 2019 Sprintern<p>
+        </footer>-->
+
     </div>
 </body>
 </html>

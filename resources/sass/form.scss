@@ -1,14 +1,12 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
+@import "~bootstrap/scss/bootstrap";
 
 //logo
 
@@ -26,14 +24,15 @@
 //left
 .left {
     height: 100vh;
-    background: $lightblue;
+    background: $light-blue;
     font-family: $title-font-family;
 }
 
+h2 span {
+    color: $orange;
+}
 
-h2 span { color: $orange; }
-
-.left h2{
+.left h2 {
     padding-top: 35%;
     padding-left: 10%;
     font-size: 80px;
@@ -41,13 +40,12 @@ h2 span { color: $orange; }
 
 //form
 
-.form{
-padding-top:10%;
-   padding-left:20%;
-
+.form {
+    padding-top: 10%;
+    padding-left: 20%;
 }
-.wrap-form{
-    width: 100%;  
+.wrap-form {
+    width: 100%;
     min-height: 100vh;
 
     display: flex;
@@ -56,20 +54,19 @@ padding-top:10%;
     align-items: center;
     padding: 15px;
 }
-.form-container{
+.form-container {
     width: 390px;
     background: #fff;
     border-radius: 10px;
     position: relative;
 }
-.form-body{
+.form-body {
     width: 100%;
 }
-.form-title{
+.form-title {
     font-family: $title-font-family;
-    color:$blue;
+    color: $blue;
     padding-bottom: 5%;
-
 }
 
 .form-body input {
@@ -84,16 +81,14 @@ padding-top:10%;
     padding: 5px 30px;
     color: $white;
     border: none;
-    transition: all .2s;
-    -moz-transition: all .2s;
-    -o-transition: all .2s;
-    -webkit-transition: all .2s;
-
+    transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
 }
 
-
 .form-body button:hover {
-    filter: grayscale(.2);
+    filter: grayscale(0.2);
 }
 
 .form-body input#remember {
@@ -104,11 +99,10 @@ a.btn-link {
     margin-left: 10px;
 }
 
-.form-body button{
+.form-body button {
     margin-top: 20px;
 }
 
-.form-group{
-    margin-bottom:0;
+.form-group {
+    margin-bottom: 0;
 }
-
