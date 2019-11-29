@@ -17,7 +17,7 @@ class CompanyController extends Controller
     public function handleRegister(Request $request)
     {
         $validation = $request->validate([
-              'email' => ['unique:users,email'],
+              'email' => ['unique:users', 'email'],
               'password' => ['required', 'string', 'min:8', 'confirmed'],
           ]);
 
