@@ -37,7 +37,7 @@ Route::get('/companies/{company}', 'CompanyController@show');
 
 /*Create review*/
 //Route::get('/companies/{company}', 'ReviewController@create');
-Route::post('/companies/{company}/save', 'ReviewController@handlecreate');
+Route::post('/companies/{company}', 'ReviewController@handlecreate');
 
 /* LOGIN & REGISTER */
 //Route::get('/login', 'LoginController@index');

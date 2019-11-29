@@ -67,8 +67,8 @@
         <div id="myModal" class="modal is-hidden is-visuallyHidden">
             <div class="modal-content">
             <span id="closeModal" class="close">&times;</span>
-            <form action="#" method="post">
-                <p>We horen graag jouw mening voor {{$company->name}} </p>
+            <form action="" method="post">
+                <p>We horen graag jouw mening voor {{$company->name}}</p>
                 <label for="review">Recensie</label>
                 <textarea type="review" class="form-control" type="textarea" name="review" id="review" placeholder="Beoordeling" maxlength="600" rows="4" required></textarea>
                 <label for="stars">Beoordeling</label>
