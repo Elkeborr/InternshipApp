@@ -131,18 +131,35 @@
 
                             }else if (res.status == "success"){
                                 //if message is success, show the dropdown
-                                // console.log(res);
-                                let results = res.data.internships;
+                                console.log(res);
+                                let companyResults = res.data.Companies;
+                                let internshipResults = res.data.Internships;
 
                                 $(".search-result_list-link").remove();
-                                    $(".search-result_list-item").remove();
-                                    $(".search-results").show();
-                                for (let i = 0; i< results.length;i++){
+                                $(".search-result_list-item").remove();
+                                $(".search-results").show();
+
+                                for (let i = 0; i< companyResults.length;i++){
                                     
                                     let listLink = $("<a />", {
                                         class: "search-result_list-link",
-                                        text: results[i].internship_function + " bij " + results[i].company.name ,
-                                        href : "internships/" + results[i].id
+                                        text: companyResults[i].name,
+                                        href : "companies/" + companyResults[i].id
+                                    });
+                                    let listItem = $("<li />", {
+                                        class: "search-result_list-item"
+                                    });
+
+                                    listLink.appendTo(listItem);
+                                    listItem.appendTo(".search-result_list");
+                                }
+
+                                for (let i = 0; i< internshipResults.length;i++){
+                                    
+                                    let listLink = $("<a />", {
+                                        class: "search-result_list-link",
+                                        text: internshipResults[i].internship_function + " bij " + internshipResults[i].company.name,
+                                        href : "internships/" + internshipResults[i].id
                                     });
                                     let listItem = $("<li />", {
                                         class: "search-result_list-item"
