@@ -72,24 +72,10 @@
                             <input type="search" name="search" class="form-control mb-2 search-bar" id="searchBar" placeholder="Zoeken" aria-label="Search">
                             <div class="search-results">
                                 <ul class="search-result_list">
-                                    <!--
-                                    <li class="search-result_list-item">
-                                        <a href="#" class="search-result_list-link">test</a>
-                                    </li>
-                                      
-                                    <li class="search-result_list-item">
-                                            <a href="#" class="search-result_list-link">test</a>
-                                    </li>
-                                    <li class="search-result_list-item">
-                                            <a href="#" class="search-result_list-link">test</a>
-                                    </li>  -->
+                                    
                                 </ul>
                             </div>
-                            <!-- <button type="submit" class="btn btn-primary mb-2">Zoeken</button> -->
                         </div>
-                        
-                        <!-- <input class="form-control" type="search" placeholder="Zoeken" >
-                        <button type="button" class="btn details-button">Zoek</button> -->
                     </form>
                 </div>
             </div>
@@ -107,7 +93,7 @@
     <script type="text/javascript">
         $(function(){ // this will be called when the DOM is ready
             $('#searchBar').keyup(function() {
-                
+
                 $value = $(this).val();
 
                 $.ajax({
