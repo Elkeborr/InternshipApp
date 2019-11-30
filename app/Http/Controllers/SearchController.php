@@ -17,7 +17,7 @@ class SearchController extends Controller
             if ($request->ajax()) {
                 $result = '';
                 try {
-                    $data['internships'] = \App\Internship::where('internship_function', 'LIKE', '%'.$request->search.'%')->get();
+                    $data['internships'] = \App\Internship::where('internship_function', 'LIKE', '%'.$request->search.'%')->with('company')->get();
                     if (count($data['internships']) != 0) {
                         $result =
                         [

@@ -72,7 +72,7 @@
                             <input type="search" name="search" class="form-control mb-2 search-bar" id="searchBar" placeholder="Zoeken" aria-label="Search">
                             <div class="search-results">
                                 <ul class="search-result_list">
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
 
                             }else if (res.status == "success"){
                                 //if message is success, show the dropdown
-
+                                // console.log(res);
                                 let results = res.data.internships;
 
                                 $(".search-result_list-link").remove();
@@ -141,8 +141,8 @@
                                     
                                     let listLink = $("<a />", {
                                         class: "search-result_list-link",
-                                        text: results[i].internship_function,
-                                        href : "#"
+                                        text: results[i].internship_function + " bij " + results[i].company.name ,
+                                        href : "internships/" + results[i].id
                                     });
                                     let listItem = $("<li />", {
                                         class: "search-result_list-item"

@@ -10154,9 +10154,10 @@ h3 {
   margin: 0;
   padding: 0;
   background-color: #fff;
-  border: 1px solid #f6f7fb;
+  border: 1px solid #afadf1;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  display: none;
 }
 
 .search-result_list {
@@ -10167,7 +10168,8 @@ h3 {
 
 .search-result_list-item {
   height: 30px;
-  margin: 10px;
+  margin: 20px;
+  padding: 5px;
 }
 
 .search-result_list-link {
@@ -10175,7 +10177,6 @@ h3 {
   height: 100%;
   font-size: 16px;
   color: #666666;
-  line-height: 30px;
   display: block;
 }
 

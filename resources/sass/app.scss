@@ -421,10 +421,10 @@ h3 {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    border: 1px solid $light-grey;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    // display: none;
+    border: 1px solid $border-dropdown;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    display: none;
 }
 .search-result_list{
     margin: 0;
@@ -433,7 +433,8 @@ h3 {
 }
 .search-result_list-item{
     height: 30px;
-    margin: 10px;
+    margin: 20px;
+    padding: 5px;
     // border: 1px solid black;
 }
 .search-result_list-link{
@@ -441,7 +442,7 @@ h3 {
     height: 100%;
     font-size: 16px;
     color: $dark-grey;
-    line-height: 30px;
+    // line-height: 30px;
     display: block;
     // border: 1px solid black;
 }
