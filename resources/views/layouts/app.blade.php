@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     
+    
 
 
     <!-- Styles -->
@@ -66,17 +67,19 @@
                     </h2>
                 </div>
                 <div class="container-nav_form">
-                    <form method="post">
-                        <!-- {{csrf_field()}}     -->
-                        <div class="form-group mx-sm-3 mb-2 search" >
-                            <input type="search" name="search" class="form-control mb-2 search-bar" id="searchBar" placeholder="Zoeken" aria-label="Search">
-                            <div class="search-results">
-                                <ul class="search-result_list">
+                    @if($user->type == 'student')
+                        <form method="post">
+                            <!-- {{csrf_field()}}     -->
+                            <div class="form-group mx-sm-3 mb-2 search" >
+                                <input type="search" name="search" class="form-control mb-2 search-bar" id="searchBar" placeholder="Zoeken" aria-label="Search">
+                                <div class="search-results">
+                                    <ul class="search-result_list">
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
@@ -90,114 +93,10 @@
        
     </div>
 
-    <script type="text/javascript">
-        $(function(){ // this will be called when the DOM is ready
-            $('#searchBar').keyup(function() {
-
-                $value = $(this).val();
-
-                $.ajax({
-                    beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));},
-                    type : 'post',                    
-                    url : '{{URL::to('search')}}',
-                    data:{'search': $value},
-                    dataType: 'json',
-                    success:function(res){
-
-                        if($value == ""){
-                            //if value is empty then remove all links and list items
-                            $(".search-result_list-link").remove();
-                            $(".search-result_list-item").remove();
-                            $(".search-results").hide();
-                        }else{
-                            //else check the response message
-                            if (res.status == "fail"){
-                                //if message is fail, show dropdown with empty state
-                                
-                                $(".search-result_list-link").remove();
-                                $(".search-result_list-item").remove();
-                                $(".search-results").show();
-
-                                let listLink = $("<a />", {
-                                    class: "search-result_list-link",
-                                    text: res.message
-                                });
-                                let listItem = $("<li />", {
-                                    class: "search-result_list-item"
-                                });
-
-                                listLink.appendTo(listItem);
-                                listItem.appendTo(".search-result_list");
-
-                            }else if (res.status == "success"){
-                                //if message is success, show the dropdown
-                                console.log(res);
-                                let companyResults = res.data.Companies;
-                                let internshipResults = res.data.Internships;
-
-                                $(".search-result_list-link").remove();
-                                $(".search-result_list-item").remove();
-                                $(".search-results").show();
-
-                                for (let i = 0; i< companyResults.length;i++){
-                                    
-                                    let listLink = $("<a />", {
-                                        class: "search-result_list-link",
-                                        text: companyResults[i].name,
-                                        href : "companies/" + companyResults[i].id
-                                    });
-                                    let listItem = $("<li />", {
-                                        class: "search-result_list-item"
-                                    });
-
-                                    listLink.appendTo(listItem);
-                                    listItem.appendTo(".search-result_list");
-                                }
-
-                                for (let i = 0; i< internshipResults.length;i++){
-                                    
-                                    let listLink = $("<a />", {
-                                        class: "search-result_list-link",
-                                        text: internshipResults[i].internship_function + " bij " + internshipResults[i].company.name,
-                                        href : "internships/" + internshipResults[i].id
-                                    });
-                                    let listItem = $("<li />", {
-                                        class: "search-result_list-item"
-                                    });
-
-                                    listLink.appendTo(listItem);
-                                    listItem.appendTo(".search-result_list");
-                                }
-                                
-                            }else{
-                                $(".search-result_list-link").remove();
-                                $(".search-result_list-item").remove();
-                                $(".search-results").hide();
-                                
-                            }
-                        }
-                        
-                        // $('tbody').html(data);
-                    }
-                    
-                })
-                // .done(function(res){
-                //     if (res.status == "success"){
-                //         console.log(data);
-                //     }
-                // });
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(function(){ // this will be called when the DOM is ready
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-        });
-    </script>
+    @if($user->type == 'student')
+        <script src="{{ asset('js/search.js') }}" defer></script>
+        <script src="{{ asset('js/ajax_setup.js') }}" defer></script>
+    @endif
 </body>
 
 </html>
