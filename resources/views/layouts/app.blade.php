@@ -107,8 +107,9 @@
     <script type="text/javascript">
         $(function(){ // this will be called when the DOM is ready
             $('#searchBar').keyup(function() {
+                
                 $value = $(this).val();
-                console.log($value);
+
                 $.ajax({
                     beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));},
                     type : 'post',                    
@@ -116,22 +117,20 @@
                     data:{'search': $value},
                     dataType: 'json',
                     success:function(res){
-                        console.log(res)
+
                         if($value == ""){
                             //if value is empty then remove all links and list items
-                            console.log("leeg");
                             $(".search-result_list-link").remove();
                             $(".search-result_list-item").remove();
                             $(".search-results").hide();
-                            
                         }else{
                             //else check the response message
                             if (res.status == "fail"){
                                 //if message is fail, show dropdown with empty state
-                                console.log(res.message);
-                                // $(".search-results").hide();
+                                
                                 $(".search-result_list-link").remove();
                                 $(".search-result_list-item").remove();
+                                $(".search-results").show();
 
                                 let listLink = $("<a />", {
                                     class: "search-result_list-link",
@@ -146,9 +145,9 @@
 
                             }else if (res.status == "success"){
                                 //if message is success, show the dropdown
-                                console.log(res.message);
+
                                 let results = res.data.internships;
-                                console.log(results);
+
                                 $(".search-result_list-link").remove();
                                     $(".search-result_list-item").remove();
                                     $(".search-results").show();
