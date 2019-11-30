@@ -33,7 +33,7 @@
                         @if($user->type == 'company')
                             <!-- <p>{{$user->name}}</p> -->
                             <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
-                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Stagiair(e)s</a>
+                           
                             <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">Mijn stageplaatsen</a> 
                         @endif
                         @if($user->type == 'student')
