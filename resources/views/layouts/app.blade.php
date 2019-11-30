@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta id="token" name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Sprintern - @yield('title')</title>
 
     <!-- Scripts -->
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-   
+    
+    
 
 
     <!-- Styles -->
@@ -66,9 +67,19 @@
                     </h2>
                 </div>
                 <div class="container-nav_form">
-                    <form>
-                    <input class="form-control" type="search" placeholder="Zoeken" aria-label="Search">
-                    </form>
+                    @if($user->type == 'student')
+                        <form method="post">
+                            <!-- {{csrf_field()}}     -->
+                            <div class="form-group mx-sm-3 mb-2 search" >
+                                <input type="search" name="search" class="form-control mb-2 search-bar" id="searchBar" placeholder="Zoeken" aria-label="Search">
+                                <div class="search-results">
+                                    <ul class="search-result_list">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
@@ -82,8 +93,10 @@
        
     </div>
 
-
+    @if($user->type == 'student')
+        <script src="{{ asset('js/search.js') }}" defer></script>
+        <script src="{{ asset('js/ajax_setup.js') }}" defer></script>
+    @endif
 </body>
-
 
 </html>

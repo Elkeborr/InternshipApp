@@ -10170,4 +10170,60 @@ h3 {
 /* ----- internships -----  */
 .companies__detail > .btn-secondary {
   color: white !important;
+/*---Search Dropdown---*/
+.search {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.search-bar {
+  width: 95%;
+}
+
+.search-results {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 95%;
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #afadf1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: none;
+}
+
+.search-result_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-result_list-item {
+  height: 30px;
+  margin: 20px;
+  padding: 5px;
+}
+
+.search-result_list-link {
+  min-width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: #666666;
+  display: block;
+}
+
+.search-result_list-link:hover {
+  color: #fd4a29;
+  text-decoration: none;
+}
+
+.search-result_list-link:active {
+  color: #666666;
+  text-decoration: none;
 }

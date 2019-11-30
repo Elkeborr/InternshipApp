@@ -49541,10 +49541,17 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
 module.exports = __webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/sass/form.scss */"./resources/sass/form.scss");
+=======
+__webpack_require__(/*! C:\Users\Dem_R\Desktop\InternshipApp\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\Dem_R\Desktop\InternshipApp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Dem_R\Desktop\InternshipApp\resources\sass\welcome.scss */"./resources/sass/welcome.scss");
+module.exports = __webpack_require__(/*! C:\Users\Dem_R\Desktop\InternshipApp\resources\sass\form.scss */"./resources/sass/form.scss");
+>>>>>>> feature/search
 
 
 /***/ })

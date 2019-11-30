@@ -100,4 +100,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         /* Facebook login */
         Route::get('/redirect', 'SocialAuthFacebookController@redirect');
         Route::get('/callback', 'SocialAuthFacebookController@callback');
-    });
+        
+        /* Search */
+        // Route::get('/', 'SearchController@index');
+        Route::post('/search', 'SearchController@search');
