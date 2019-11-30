@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class ReviewController extends Controller
 {
-    public function create()
-    {
-    }
-
     public function handleCreate(Request $request)
     {
         $user = session('user');
         $review = new \App\Review();
-
         $review->review = $request->input('review');
         $review->score = $request->input('score');
-        $review->company_id = $request->route('id');
+        $review->company_id = $request->route('company');
         $review->user_id = $user->id;
         $saved = $review->save();
 

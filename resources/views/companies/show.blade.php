@@ -68,6 +68,7 @@
             <div class="modal-content">
             <span id="closeModal" class="close">&times;</span>
             <form action="" method="post">
+            {{csrf_field()}}
                 <p>We horen graag jouw mening voor {{$company->name}}</p>
                 <label for="review">Recensie</label>
                 <textarea type="review" class="form-control" type="textarea" name="review" id="review" placeholder="Beoordeling" maxlength="600" rows="4" required></textarea>
@@ -78,7 +79,7 @@
                     <span class="glyphicon glyphicon-star star fa-star-o" data-rating="3" aria-hidden="true" id="star3_review"></span> 
                     <span class="glyphicon glyphicon-star star fa-star-o" data-rating="2" aria-hidden="true" id="star4_review"></span> 
                     <span class="glyphicon glyphicon-star star fa-star-o" data-rating="1" aria-hidden="true" id="star5_review"></span> 
-                    <input type="hidden" type="score" class="rating-value" value="0">
+                    <input type="hidden" type="score" name="score"class="rating-value" value="0">
                 </div>
                 <button class="btn">Verstuur</button>
             </form>
@@ -89,7 +90,7 @@
         <div class="company-show_reviews-one">
            <div>
                 <img>
-                <p>naam van de user</p>
+                <p>{{$review->user}}</p>
            </div>
            <div>
                 <p>{{$review->review}}</p>
@@ -97,11 +98,12 @@
             <div>
                 <p> <span>Beoordeling:</span><br></p>
                 <div id="stars">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" id="star1"></span> 
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" id="star2"></span> 
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" id="star3"></span> 
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" id="star4"></span> 
-                    <span class="glyphicon glyphicon-star" aria-hidden="true" id="star5"></span> 
+                    <span class="glyphicon glyphicon-star star" aria-hidden="true" id="star1"></span> 
+                    <span class="glyphicon glyphicon-star star" aria-hidden="true" id="star2"></span> 
+                    <span class="glyphicon glyphicon-star star" aria-hidden="true" id="star3"></span> 
+                    <span class="glyphicon glyphicon-star star" aria-hidden="true" id="star4"></span> 
+                    <span class="glyphicon glyphicon-star star" aria-hidden="true" id="star5"></span> 
+                    <input type="hidden" type="score" name="score" class="star-value" value="{{$review->score}}">
                 </div>
             </div>
         </div>
@@ -111,11 +113,59 @@
 @endsection
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
 <script>
-    @foreach($company->reviews as $review)
-        let score= {{$review->score}};
-        $(document).ready(function() {
-        switch(score) {
+/*
+$( document ).ready(function() {
+    $( ".company-show_reviews .company-show_reviews-one" ).each(function( index ) {
+
+        var rating = $("#stars .star-value");
+    console.log(rating)
+    switch(rating) {
+    case 0:
+    break;
+    case 1:
+        $("#star1").addClass("checked");
+    break;
+    case 2:
+        $("#star1").addClass("checked");
+        $("#star2").addClass("checked");
+    break;
+    case 3:
+        $("#star1").addClass("checked");
+        $("#star2").addClass("checked");
+        $("#star3").addClass("checked");
+    break;
+    case 4:
+        $("#star1").addClass("checked");
+        $("#star2").addClass("checked");
+        $("#star3").addClass("checked");
+        $("#star4").addClass("checked");
+    break;
+    case 5:
+        $("#star1").addClass("checked");
+        $("#star2").addClass("checked");
+        $("#star3").addClass("checked");
+        $("#star4").addClass("checked");
+        $("#star5").addClass("checked");
+    break;
+}
+
+
+});
+});
+
+
+/*
+var $star_rating = $("#stars .star");
+var $review = $(".company-show_reviews .company-show_reviews-one");
+
+var rating = function() {
+    $review.each(function() {
+   $star_rating.each(function() {
+        var rating = $("#stars .star-value");
+    
+        switch(rating) {
         case 0:
         break;
         case 1:
@@ -144,6 +194,12 @@
             $("#star5").addClass("checked");
         break;
     }
-    })
-@endforeach
- </script>
+    });
+
+})};
+
+
+*/
+</script>
+
+

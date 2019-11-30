@@ -36,7 +36,6 @@ Route::get('/companies', 'CompanyController@index');
 Route::get('/companies/{company}', 'CompanyController@show');
 
 /*Create review*/
-//Route::get('/companies/{company}', 'ReviewController@create');
 Route::post('/companies/{company}', 'ReviewController@handlecreate');
 
 /* LOGIN & REGISTER */
