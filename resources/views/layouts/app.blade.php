@@ -72,15 +72,17 @@
                             <input type="search" name="search" class="form-control mb-2 search-bar" id="searchBar" placeholder="Zoeken" aria-label="Search">
                             <div class="search-results">
                                 <ul class="search-result_list">
-                                    <a href="#" class="search-result_list-link">
-                                        <li class="search-result_list-item">test</li>
-                                    </a> 
-                                    <a href="#" class="search-result_list-link">
-                                        <li class="search-result_list-item">test</li>
-                                    </a> 
-                                    <a href="#" class="search-result_list-link">
-                                        <li class="search-result_list-item">test</li>
-                                    </a> 
+                                    <!--
+                                    <li class="search-result_list-item">
+                                        <a href="#" class="search-result_list-link">test</a>
+                                    </li>
+                                      
+                                    <li class="search-result_list-item">
+                                            <a href="#" class="search-result_list-link">test</a>
+                                    </li>
+                                    <li class="search-result_list-item">
+                                            <a href="#" class="search-result_list-link">test</a>
+                                    </li>  -->
                                 </ul>
                             </div>
                             <!-- <button type="submit" class="btn btn-primary mb-2">Zoeken</button> -->
@@ -115,11 +117,64 @@
                     dataType: 'json',
                     success:function(res){
                         console.log(res)
-                        if (res.status == "success"){
-                            console.log(res.message);
+                        if($value == ""){
+                            //if value is empty then remove all links and list items
+                            console.log("leeg");
+                            $(".search-result_list-link").remove();
+                            $(".search-result_list-item").remove();
+                            $(".search-results").hide();
+                            
                         }else{
-                            console.log(res.message);
+                            //else check the response message
+                            if (res.status == "fail"){
+                                //if message is fail, show dropdown with empty state
+                                console.log(res.message);
+                                // $(".search-results").hide();
+                                $(".search-result_list-link").remove();
+                                $(".search-result_list-item").remove();
+
+                                let listLink = $("<a />", {
+                                    class: "search-result_list-link",
+                                    text: res.message
+                                });
+                                let listItem = $("<li />", {
+                                    class: "search-result_list-item"
+                                });
+
+                                listLink.appendTo(listItem);
+                                listItem.appendTo(".search-result_list");
+
+                            }else if (res.status == "success"){
+                                //if message is success, show the dropdown
+                                console.log(res.message);
+                                let results = res.data.internships;
+                                console.log(results);
+                                $(".search-result_list-link").remove();
+                                    $(".search-result_list-item").remove();
+                                    $(".search-results").show();
+                                for (let i = 0; i< results.length;i++){
+                                    
+                                    let listLink = $("<a />", {
+                                        class: "search-result_list-link",
+                                        text: results[i].internship_function,
+                                        href : "#"
+                                    });
+                                    let listItem = $("<li />", {
+                                        class: "search-result_list-item"
+                                    });
+
+                                    listLink.appendTo(listItem);
+                                    listItem.appendTo(".search-result_list");
+                                }
+                                
+                            }else{
+                                $(".search-result_list-link").remove();
+                                $(".search-result_list-item").remove();
+                                $(".search-results").hide();
+                                
+                            }
                         }
+                        
                         // $('tbody').html(data);
                     }
                     

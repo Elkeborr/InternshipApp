@@ -10154,7 +10154,7 @@ h3 {
   margin: 0;
   padding: 0;
   background-color: #fff;
-  border: 1px solid #D7D7D7;
+  border: 1px solid #f6f7fb;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -10171,14 +10171,20 @@ h3 {
 }
 
 .search-result_list-link {
-  width: 100%;
-  height: 30px;
+  min-width: 100%;
+  height: 100%;
   font-size: 16px;
   color: #666666;
   line-height: 30px;
+  display: block;
 }
 
 .search-result_list-link:hover {
   color: #fd4a29;
+  text-decoration: none;
+}
+
+.search-result_list-link:active {
+  color: #666666;
   text-decoration: none;
 }

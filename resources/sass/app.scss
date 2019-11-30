@@ -421,9 +421,10 @@ h3 {
     margin: 0;
     padding: 0;
     background-color: #fff;
-    border: 1px solid #D7D7D7;
+    border: 1px solid $light-grey;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    // display: none;
 }
 .search-result_list{
     margin: 0;
@@ -436,13 +437,19 @@ h3 {
     // border: 1px solid black;
 }
 .search-result_list-link{
-    width: 100%;
-    height: 30px;
+    min-width: 100%;
+    height: 100%;
     font-size: 16px;
     color: $dark-grey;
     line-height: 30px;
+    display: block;
+    // border: 1px solid black;
 }
 .search-result_list-link:hover{
     color: $orange;
+    text-decoration: none;
+}
+.search-result_list-link:active{
+    color: $dark-grey;
     text-decoration: none;
 }
