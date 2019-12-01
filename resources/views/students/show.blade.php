@@ -12,9 +12,9 @@
     
     
         <div class="col-md profile text-center bg-light p-40">
-       
-            <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit'">
-            
+            @if($user->id == \Auth::user()->id)
+                <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit'">
+            @endif
                 <img src="{{ asset('img/profile-standard.jpg') }}" alt="profile picture" class="profilepic">
            
                 <h4>{{$user->name}} {{$user->lastname}}</h4>
@@ -32,8 +32,9 @@
                     <h5 class="card-title">Intro</h5>
                 
                     <div class="card-text">
-                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-intro'">
-
+                    @if($user->id == \Auth::user()->id)
+                        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-intro'">
+                    @endif
                         <p>{{$user->biography}}</p>
                         
                     </div>
@@ -46,8 +47,10 @@
                 <div class="card-body bg-light profileCard">
                     <h5 class="card-title">Kwaliteiten</h5>
                     <div class="card-text">
-                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-skills'">
-                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-skills'">
+                    @if($user->id == \Auth::user()->id)
+                        <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-skills'">
+                        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-skills'">
+                    @endif
                     <div class="skillsGrid">
                         @foreach ($user->skills as $skill)
                             
@@ -64,8 +67,10 @@
                     <h5 class="card-title">Sociale media</h5>
                     <br>
                     <div class="card-text">
-                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
-                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
+                    @if($user->id == \Auth::user()->id)
+                        <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
+                        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
+                    @endif
                     <div class="socialGrid">
                         @foreach ($user->socials as $social)
                             
