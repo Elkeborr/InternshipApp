@@ -28,54 +28,77 @@
 
         <div class="col-md profile">
 
-                <div class="card-body bg-light profileCard">
+            <div class="card-body bg-light profileCard">
 
-                    <h5 class="card-title">Intro</h5>
+                <h5 class="card-title">Intro</h5>
 
-                    <div class="card-text">
-                    @if (\Auth::user()->id === $user->id)
-                        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-intro'">
-                    @endif
-                        <p>{{$user->biography}}</p>
+                <div class="card-text">
+                @if (\Auth::user()->id === $user->id)
+                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-intro'">
+                @endif
+                    <p>{{$user->biography}}</p>
 
-                    </div>
                 </div>
+            </div>
 
-                <br>
+            <br>
 
 
 
-                <div class="card-body bg-light profileCard">
-                    <h5 class="card-title">Kwaliteiten:</h5>
-                    <div class="card-text">
-                    @if (\Auth::user()->id === $user->id)
-                        <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-kwaliteiten'">
-                        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-kwaliteiten'">
-                    @endif
-                        @foreach ($user->skills as $skill)
-                            <div>{{ $skill->skill}}</div>
-                        @endforeach
-                    </div>
+            <div class="card-body bg-light profileCard">
+                <h5 class="card-title">Kwaliteiten:</h5>
+                <div class="card-text">
+                @if (\Auth::user()->id === $user->id)
+                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-kwaliteiten'">
+                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-kwaliteiten'">
+                @endif
+                    @foreach ($user->skills as $skill)
+                        <div>{{ $skill->skill}}</div>
+                    @endforeach
                 </div>
-                <br>
+            </div>
+            <br>
 
 
-                <div class="card-body bg-light profileCard">
-                    <h5 class="card-title">Sociale media</h5>
-                    <div class="card-text">
-                    @if (\Auth::user()->id === $user->id)
-                        <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
-                        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
-                    @endif
-                        @foreach ($user->socials as $social)
-                            <div>
-                                <a href="{{$social->link}}">
-                                    <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
-                                </a>
+            <div class="card-body bg-light profileCard">
+                <h5 class="card-title">Sociale media</h5>
+                <div class="card-text">
+                @if (\Auth::user()->id === $user->id)
+                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
+                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
+                @endif
+                    @foreach ($user->socials as $social)
+                        <div>
+                            <a href="{{$social->link}}">
+                                <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <br>
+
+            @if (\Auth::user()->id === $user->id)
+                <div class="card-body bg-light job-applications">
+                    <h5>Stage aanvragen</h5>
+                    <div class="job-applications-list">
+                        @foreach ($jobApplications as $jobApplication)
+                            <div class="job-application">
+                                @if ( $jobApplication->status == 'new' )
+                                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-primary" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                                @elseif ( $jobApplication->status == 'starred' )
+                                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-warning" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                                @elseif ( $jobApplication->status == 'approved' )
+                                    <h6 style="font-weight: bold;"><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-success" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                                @elseif ( $jobApplication->status == 'declined' )
+                                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-danger" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                                @endif
                             </div>
                         @endforeach
                     </div>
                 </div>
+            @endif
 
         </div>
 

@@ -20,9 +20,10 @@ class StudentController extends Controller
     public function show($user)
     {
         $data['user'] = \App\User::where('id', $user)->with('skills', 'socials')->first();
+        $data['jobApplications'] = \App\JobApplication::where('user_id', $user)->get();
 
         return view('students/show', $data);
-    }
+    }//
 
     //op basis van id, opzoek gaan naar record
     public function edit($user)
