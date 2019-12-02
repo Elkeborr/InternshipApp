@@ -50,7 +50,7 @@ $(function(){ // this will be called when the DOM is ready
                         
                         let companyResults = res.data.Companies;
                         let internshipResults = res.data.Internships;
-
+                        console.log(internshipResults);
                         //remove all previous made search results
                         $(".search-result_list-link").remove();
                         $(".search-result_list-item").remove();
