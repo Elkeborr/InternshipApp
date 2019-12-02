@@ -29,6 +29,9 @@ Overzicht
 
         <h2 style="margin-bottom: 50px;">Sollicitanten voor uw stageplaatsen</h2>
 
+
+
+      
         @foreach ($internships as $internship)
             <div class="internship" style="margin-bottom: 30px;">
                 <h3 style="margin-bottom: 10px;"><a href="/internships/{{$internship['id']}}">{{$internship['internship_function']}} bij {{$company->name}} - {{$internship['available_spots']}} available spots</a></h3>
@@ -40,7 +43,12 @@ Overzicht
                         </div>
                     @endforeach
                 @else
-                    <p>Er zijn nog geen sollicitanten</p>
+
+                @component('components/alert')
+                    @slot('type','info')
+                    Er zijn nog sollicitanten
+                @endcomponent
+                
                 @endif
 
             </div>

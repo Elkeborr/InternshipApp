@@ -23,7 +23,7 @@
             @csrf
             @if ($flash = session('message'))
             @component('components/alert')
-            @slot('type','succes')
+            @slot('type','success')
               {{$flash}}  
             @endcomponent
             @endif
