@@ -34066,7 +34066,7 @@ return jQuery;
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.0
+ * @version 1.15.0
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -34088,17 +34088,16 @@ __webpack_require__.r(__webpack_exports__);
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && typeof navigator !== 'undefined';
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
 
-var timeoutDuration = function () {
-  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
-  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
-    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
-      return 1;
-    }
+var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+var timeoutDuration = 0;
+for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+  if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+    timeoutDuration = 1;
+    break;
   }
-  return 0;
-}();
+}
 
 function microtaskDebounce(fn) {
   var called = false;
@@ -34216,17 +34215,6 @@ function getScrollParent(element) {
   }
 
   return getScrollParent(getParentNode(element));
-}
-
-/**
- * Returns the reference node of the reference object, or the reference object itself.
- * @method
- * @memberof Popper.Utils
- * @param {Element|Object} reference - the reference element (the popper will be relative to this)
- * @returns {Element} parent
- */
-function getReferenceNode(reference) {
-  return reference && reference.referenceNode ? reference.referenceNode : reference;
 }
 
 var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
@@ -34537,8 +34525,8 @@ function getBoundingClientRect(element) {
 
   // subtract scrollbar size from sizes
   var sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
-  var width = sizes.width || element.clientWidth || result.width;
-  var height = sizes.height || element.clientHeight || result.height;
+  var width = sizes.width || element.clientWidth || result.right - result.left;
+  var height = sizes.height || element.clientHeight || result.bottom - result.top;
 
   var horizScrollbar = element.offsetWidth - width;
   var vertScrollbar = element.offsetHeight - height;
@@ -34690,7 +34678,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
   // NOTE: 1 DOM access here
 
   var boundaries = { top: 0, left: 0 };
-  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
 
   // Handle viewport case
   if (boundariesElement === 'viewport') {
@@ -34818,7 +34806,7 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
 function getReferenceOffsets(state, popper, reference) {
   var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
   return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
 }
 
@@ -35080,7 +35068,7 @@ function destroy() {
 
   this.disableEventListeners();
 
-  // remove the popper if user explicitly asked for the deletion on destroy
+  // remove the popper if user explicity asked for the deletion on destroy
   // do not use `remove` because IE11 doesn't support it
   if (this.options.removeOnDestroy) {
     this.popper.parentNode.removeChild(this.popper);
@@ -49508,7 +49496,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\n\n}\n^\n      Expected \"}\".\n    ╷\n551 │ }\n    │  ^\n    ╵\n  stdin 551:2  root stylesheet\n      in /Users/ElkeBorreij/Documents/GitHub/InternshipApp/resources/sass/app.scss (line 551, column 2)\n    at runLoaders (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/webpack/lib/NormalModule.js:316:20)\n    at /Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at render (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass-loader/dist/index.js:89:7)\n    at Function.call$2 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:54337:16)\n    at _render_closure1.call$2 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:33509:12)\n    at _RootZone.runBinary$3$3 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:19817:18)\n    at _RootZone.runBinary$3 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:19821:19)\n    at _FutureListener.handleError$1 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:18286:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:18574:40)\n    at Object._Future__propagateToListeners (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:3484:88)\n    at _Future._completeError$2 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:18410:9)\n    at _AsyncAwaitCompleter.completeError$2 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:17809:12)\n    at Object._asyncRethrow (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:3240:17)\n    at /Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:10537:20\n    at _wrapJsFunctionForAsync_closure.$protected (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:3263:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:17830:12)\n    at _awaitOnObject_closure0.call$2 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:17822:25)\n    at _RootZone.runBinary$3$3 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:19817:18)\n    at _RootZone.runBinary$3 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:19821:19)\n    at _FutureListener.handleError$1 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:18286:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:18574:40)\n    at Object._Future__propagateToListeners (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:3484:88)\n    at _Future._completeError$2 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:18410:9)\n    at _Future__asyncCompleteError_closure.call$0 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:18500:18)\n    at Object._microtaskLoop (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:3534:21)\n    at StaticClosure._startMicrotaskLoop (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:3540:11)\n    at _AsyncRun__scheduleImmediateJsOverride_internalCallback.call$0 (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:17731:21)\n    at invokeClosure (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:1358:26)\n    at Immediate.<anonymous> (/Users/ElkeBorreij/Documents/GitHub/InternshipApp/node_modules/sass/sass.dart.js:1379:18)\n    at runCallback (timers.js:705:18)\n    at tryOnImmediate (timers.js:676:5)\n    at processImmediate (timers.js:658:5)");
 
 /***/ }),
 
@@ -49541,10 +49529,10 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
-module.exports = __webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/sass/form.scss */"./resources/sass/form.scss");
+__webpack_require__(/*! /Users/ElkeBorreij/Documents/GitHub/InternshipApp/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/ElkeBorreij/Documents/GitHub/InternshipApp/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ElkeBorreij/Documents/GitHub/InternshipApp/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
+module.exports = __webpack_require__(/*! /Users/ElkeBorreij/Documents/GitHub/InternshipApp/resources/sass/form.scss */"./resources/sass/form.scss");
 
 
 /***/ })
