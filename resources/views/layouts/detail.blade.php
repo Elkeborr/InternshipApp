@@ -9,11 +9,13 @@
 
     <title>Sprintern - @yield('title')</title>
 
-    <!-- Scripts -->
+    <!-- Scripts --> 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="{{ asset('js/review.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -34,13 +36,13 @@
                             <!-- <p>{{$user->name}}</p> -->
                             <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
                            
-                            <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">Mijn stageplaatsen</a> 
+                            <a class="nav-item  nav-link" href="{{ url('/internships/myinternships') }}">Mijn stageplaatsen</a> 
                         @endif
                         @if($user->type == 'student')
                             <!-- <p>{{$user->name}}</p> -->
                             <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
                             <a class="nav-item  nav-link" href="{{ url('/internships') }}">Stageplaatsen</a>
-                            <a class="nav-item  nav-link" href="{{ url('/companies') }}">Bedrijven</a>  
+                            <a class="nav-item  nav-link" href="{{ url('/companies') }}">Stagebedrijven</a>  
                         @endif
         
                     </div>
@@ -69,7 +71,5 @@
 
     </div>
 </body>
+
 </html>
-
-
-

@@ -9746,6 +9746,10 @@ footer {
   padding: 10px;
 }
 
+.alert {
+  margin: 10px;
+}
+
 footer p {
   color: #f6f7fb;
 }
@@ -9758,6 +9762,13 @@ h3 {
   font-size: 1em;
   background-color: #4640de;
   color: #fff;
+  border: none;
+}
+
+.btn:hover {
+  font-size: 1em;
+  color: #fff;
+  font-weight: 600;
   border: none;
 }
 
@@ -9890,8 +9901,8 @@ h3 {
 .container_companies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .companies_filters {
@@ -9900,6 +9911,7 @@ h3 {
   padding: 30px;
   position: -webkit-sticky;
   position: sticky;
+  height: 100vh;
 }
 
 .companies_form {
@@ -10111,7 +10123,7 @@ h3 {
 
 .company-show_info_photo {
   padding: 5%;
-  background-color: red;
+  background-color: #dcf0fb;
 }
 
 .company-show_info_text {
@@ -10143,14 +10155,111 @@ h3 {
   background-color: #f6f7fb;
   padding: 2%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr 1fr;
   grid-template-rows: 1fr;
+  margin-top: 2%;
+}
+
+.company-show_reviews-one p {
+  width: 70%;
 }
 
 .company-show_reviews h2 {
   margin-bottom: 30px;
 }
 
+.checked {
+  color: #fd4a29;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 40px;
+  border-radius: 4px;
+  max-width: 480px;
+  height: 400px;
+}
+
+.modal-content p,
+.link {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.modal-content p {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-content p span {
+  font-weight: 900;
+}
+
+.ModalOpen {
+  overflow: hidden;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-visuallyHidden {
+  opacity: 0;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 16px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fa-star {
+  color: #fd4a29;
+}
+
+.fa-star-o {
+  color: #666666;
+}
+
+#stars_review {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+#stars_review > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+#stars_review > span:hover:before,
+#stars_review > span:hover ~ span:before {
+  color: #fd4a29;
 /* ------ login & register students ------- */
 .grid-buttons {
   display: grid;

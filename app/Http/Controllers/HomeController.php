@@ -19,6 +19,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data['internships'] = \App\Internship::where('company_id', \Auth::user()->company_id)->get();
+        $data['company'] = \App\Company::where('id', \Auth::user()->company_id)->first();
+
+        return view('home', $data);
     }
 }

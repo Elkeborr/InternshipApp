@@ -28,14 +28,19 @@ Route::get('/companies/register', 'CompanyController@register');
 Route::post('/companies/register', 'CompanyController@handleRegister');
 // --------   enkel als je ingelogd bent kunnen deze routes ingeladen worden --------//
     Route::group(['middleware' => 'auth'], function () {
-        /*COMPANIES*/
-        /*Create company*/
+        /*----------------COMPANIES------------------------- */
+
+        /*create company*/
         Route::get('/companies/detail', 'CompanyController@create');
         Route::post('/companies/detail', 'CompanyController@handlecreate');
-        /* Companies */
+
+        /*companies index and detail page*/
         Route::get('/companies', 'CompanyController@index');
         Route::get('/companies/{company}', 'CompanyController@show');
-        /*----------------STUDENTS ------------------------- */
+        /*----------------REVIEWS------------------------- */
+        Route::post('/companies/{company}', 'ReviewController@handleCreate');
+
+        /*----------------STUDENTS------------------------- */
         /* profielpagina */
         Route::get('/students', 'StudentController@index');
         Route::get('/students/{student}', 'StudentController@show');
@@ -65,9 +70,9 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::post('/internships/myinternships/create', 'InternshipController@handleCreate');
         Route::get('/internships/{internship}', 'InternshipController@show');
         Route::get('/internships', 'InternshipController@index');
-        Route::group(['middleware' => 'auth'], function () {
-            Route::get('/internships', 'InternshipController@index');
-        });
+
+        Route::get('/internships', 'InternshipController@index');
+
         /* Apply */
         Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
         /* Company internships & applies */
