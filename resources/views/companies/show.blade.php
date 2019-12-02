@@ -45,8 +45,9 @@
 
     <section class="company-show_internships">
         <h2>Stageplaatsen</h2>
-        @if(empty($internships))
+       
 
+        @if($internships->isEmpty())
         @component('components/alert')
             @slot('type','info')
             Er zijn nog geen stageplaatsen bij dit bedrijf
@@ -54,6 +55,7 @@
         @else 
         <div class="companies">
         @foreach($internships as $internship)
+        
             <div class="companies__detail" >
                 <div class="internships_detail-padding">
                 <a>{{ $internship->internship_function }}</a>
@@ -63,9 +65,11 @@
                 </div>
                 <button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
             </div>
+           
         @endforeach
         </div>
        @endif
+
     </section>
 
     <section class="company-show_reviews">
@@ -95,22 +99,22 @@
             </form>
             </div>
         </div>
-        @if(empty($company->reviews))
-       
+        @if($company->reviews->isEmpty())
+    
         @component('components/alert')
             @slot('type','info')
             Er zijn nog geen beoordelingen bij dit bedrijf
         @endcomponent
         @else 
-        @foreach($company->reviews as $review )
+        @foreach($company->reviews as $reviews )
         <div class="company-show_reviews-one">
            <div>
                 <img>
-                    <p>{{$review->users->name}}</p>
+                    <p>{{$reviews->users->name}}</p>
   
            </div>
            <div>
-                <p>{{$review->review}}</p>
+                <p>{{$reviews->review}}</p>
             </div>
             <div>
                 <p> <span>Beoordeling:</span><br></p>
@@ -120,7 +124,7 @@
                     <span class="glyphicon glyphicon-star star star3" aria-hidden="true"></span> 
                     <span class="glyphicon glyphicon-star star star4" aria-hidden="true"></span> 
                     <span class="glyphicon glyphicon-star star star5" aria-hidden="true"></span> 
-                    <input type="hidden" type="score" name="score" class="star-value" value="{{$review->score}}">
+                    <input type="hidden" type="score" name="score" class="star-value" value="{{$reviews->score}}">
                 </div>
 
             </div>
@@ -133,9 +137,10 @@
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 
-@foreach($company->reviews as $review )
+
 <script>
-    var rating = {{$review->score}};
+/*
+    var rating = {{$reviews->score}};
     switch(rating) {
     case 0:
     break;
@@ -164,6 +169,5 @@
         $(".star4").addClass("checked");
         $(".star5").addClass("checked");
     break;
-}
+}*/
 </script>
-@endforeach

@@ -9746,6 +9746,10 @@ footer {
   padding: 10px;
 }
 
+.alert {
+  margin: 10px;
+}
+
 footer p {
   color: #f6f7fb;
 }
