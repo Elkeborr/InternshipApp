@@ -14,8 +14,10 @@ class FilterController extends Controller
 
         if ($request->has('state')) {
             $state = $request->input('state');
-            $query = \App\Company::where('state', '=', $state)->get();
+            $query = \App\Company::where('state', '=', $state)
+                ->get();
         }
+
         if ($request->has('tag')) {
             $tag = $request->input('tag');
             $query = \App\AssignCompanyTags::where('company_tag_id', '=', $tag)

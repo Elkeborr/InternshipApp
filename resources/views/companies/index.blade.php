@@ -31,7 +31,7 @@ Bedrijven
 			<div id="collapse0" class="panel-collapse collapse in" >
 			@foreach($states as $state)
 				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state">
+				  <input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
 				  <span class="form-check-label">
 				    {{$state->state}}
 				  </span>
@@ -51,7 +51,7 @@ Bedrijven
 					<div id="collapse1" class="panel-collapse collapse in">
 					@foreach($tags as $tag)
 					<label class="form-check">
-				  		<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag">
+				  		<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
 				  		<span class="form-check-label">
 				    	{{$tag->name}}
 				  		</span>
