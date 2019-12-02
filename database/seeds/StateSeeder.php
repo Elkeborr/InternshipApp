@@ -26,7 +26,7 @@ class StateSeeder extends Seeder
         $state4->save();
 
         $state5 = new \App\State();
-        $state5->state = 'Oost-Brabant';
+        $state5->state = 'Oost-Vlaanderen';
         $state5->save();
 
         $state6 = new \App\State();

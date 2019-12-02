@@ -18,12 +18,20 @@ class FilterController extends Controller
         }
         if ($request->has('tag')) {
             $tag = $request->input('tag');
-            $query = \App\Company::where('company_tags', 'company_id', '=', 'company', 'id')
-
-            ->join('company_tags', 'name', '=', $tag)
-
+            $query = \App\AssignCompanyTags::where('company_tag_id', '=', $tag)
+            ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
             ->get();
         }
+
+        if ($request->has('tag') && $request->has('state')) {
+            $tag = $request->input('tag');
+            $state = $request->input('state');
+
+            $query = \App\AssignCompanyTags::where('company_tag_id', '=', $tag)
+            ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
+           ->where('state', '=', $state)->get();
+        }
+
         $data['companies'] = $query;
         //dd($data['companies']);
 

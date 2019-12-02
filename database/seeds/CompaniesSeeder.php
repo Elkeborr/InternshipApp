@@ -82,7 +82,7 @@ class CompaniesSeeder extends Seeder
         $company5->city = 'Gent';
         $company5->postalCode = '9000';
         $company5->employees = '10';
-        $company5->state = 'West-Vlaanderen';
+        $company5->state = 'Oost-Vlaanderen';
         $company5->user_id = 9;
         $company5->save();
     }

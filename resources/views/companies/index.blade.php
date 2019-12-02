@@ -51,7 +51,7 @@ Bedrijven
 					<div id="collapse1" class="panel-collapse collapse in">
 					@foreach($tags as $tag)
 					<label class="form-check">
-				  		<input class="form-check-input" type="checkbox" value="{{$tag->name}}" name="tag">
+				  		<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag">
 				  		<span class="form-check-label">
 				    	{{$tag->name}}
 				  		</span>
