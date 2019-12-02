@@ -23,7 +23,7 @@ class StudentController extends Controller
         $data['jobApplications'] = \App\JobApplication::where('user_id', $user)->get();
 
         return view('students/show', $data);
-    }//
+    }
 
     //op basis van id, opzoek gaan naar record
     public function edit($user)
