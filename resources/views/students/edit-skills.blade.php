@@ -13,7 +13,14 @@
 
 <br><br>
 <div class="editpart">
+@if($user->type == 'student')
 <h2>Kwaliteiten</h2>
+@endif
+
+@if($user->type == 'company')
+<h2>Diensten</h2>
+@endif
+
 @foreach ($user->skills as $skill)
         <form method="post">
             {{method_field('put')}}
