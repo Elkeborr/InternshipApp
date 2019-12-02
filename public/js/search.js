@@ -108,14 +108,19 @@ $(function(){ // this will be called when the DOM is ready
                         
                     }
                 }
-                $(".search-bar").focusout(function(){
-                    $(".search-result_list-link").remove();
-                    $(".search-result_list-item").remove();
-                    $(".search-result_list-info").remove();
-                    $(".search-results").hide();
-                });
-
             }
         })
-    });
+    }); 
+    // on focusout, remove the dropdown
+    $('.search').focusout(function(){
+        //setTimeout for clicking on dropdown link
+        //otherwise it removes the dropdown on clicking the link
+        setTimeout(function(){ 
+            $("#searchBar").val("");
+            $(".search-result_list-link").remove();
+            $(".search-result_list-item").remove();
+            $(".search-result_list-info").remove();
+            $(".search-results").hide(); 
+        }, 100);
+    })
 });
