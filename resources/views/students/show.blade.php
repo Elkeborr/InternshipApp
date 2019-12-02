@@ -53,7 +53,6 @@
                         <h5 class="card-title">Diensten</h5>
                     @endif
                     <div class="card-text">
-                    
                     @if($user->id == \Auth::user()->id)
                         <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-skills'">
                         <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-skills'">
