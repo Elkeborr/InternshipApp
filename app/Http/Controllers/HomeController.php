@@ -21,6 +21,7 @@ class HomeController extends Controller
     {
         $data['internships'] = \App\Internship::where('company_id', \Auth::user()->company_id)->get();
         $data['company'] = \App\Company::where('id', \Auth::user()->company_id)->first();
+        $data['jobApplications'] = \App\JobApplication::where('user_id', \Auth::user()->id)->get();
 
         return view('home', $data);
     }
