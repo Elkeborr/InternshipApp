@@ -28,8 +28,9 @@
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item cta mr-md-2"><a class="nav-link" href="#about" >Over</a></li>
                     <li class="nav-item mr-md-2"> <a class="nav-link"  href="#services">Diensten</a></li>
-                    <li class="nav-item mr-md-2 "id="student"><a href="{{ url('/redirect') }}" class="nav-link">Student</a></li>
                     <li class="nav-item mr-md-2" id="company"><a href="{{ url('/companies/login') }}" class="nav-link">Bedrijf</a></li>
+                    <li class="nav-item mr-md-2 "id="student"><a href="{{ url('/students/login') }}" class="nav-link">Student</a></li>
+                    
                 </div>
 </div>
                 </div>
@@ -45,7 +46,8 @@
                     <p class="top_question">Ben je een bedrijf of een student?</p>
                     <div class="links">
                         <a href="{{ url('/companies/login') }}" class="company">Bedrijf</a>
-                        <a href="{{ url('/redirect') }}" class="student">Student</a>
+                        <a href="{{ url('/students/login') }}" class="student">Student</a>
+                        <!--<a href="{{ url('/redirect') }}" class="student">Student</a>-->
                     </div>      
                 </div>
     </section>
@@ -111,7 +113,7 @@
     <span id="closeModal" class="Close">&times;</span>
     <p>Je moet ingelogd zijn om verder te kunnen. <span>Signup of login voor meer!</span></p>
     <div class="link">
-        <a href="{{ url('/redirect') }}" class="student">Student</a>
+        <a href="{{ url('/students/login') }}" class="student">Student</a>
     </div>
   </div>
 </div>

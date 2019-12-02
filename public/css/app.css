@@ -10097,6 +10097,22 @@ h3 {
   right: 40px;
 }
 
+.skillsGrid, .socialGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.socialGrid {
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 40px;
+}
+
+.pSkills {
+  max-width: 1fr;
+  grid-column: 1fr;
+  padding: 5px;
+}
+
 /*---Company show---*/
 .company-show_info {
   margin-top: 5%;
@@ -10244,4 +10260,23 @@ h3 {
 #stars_review > span:hover:before,
 #stars_review > span:hover ~ span:before {
   color: #fd4a29;
+/* ------ login & register students ------- */
+.grid-buttons {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.grid-button {
+  grid-column: 1fr;
+}
+
+.grid-button:nth-of-type(2) {
+  grid-column: 2fr;
+  padding: 18px;
+  padding-left: 0px;
+}
+
+/* ----- internships -----  */
+.companies__detail > .btn-secondary {
+  color: white !important;
 }

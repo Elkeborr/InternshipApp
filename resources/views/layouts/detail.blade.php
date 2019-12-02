@@ -35,7 +35,7 @@
                         @if($user->type == 'company')
                             <!-- <p>{{$user->name}}</p> -->
                             <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
-                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Stagiair(e)s</a>
+                           
                             <a class="nav-item  nav-link" href="{{ url('/companies/myinternships') }}">Mijn stageplaatsen</a> 
                         @endif
                         @if($user->type == 'student')
@@ -49,9 +49,9 @@
 
                     <span class="navbar-text mt-1 w-50 text-right order-md-last username">
                     
-                    <!-- @if ($flash = session('username')) -->
+                    <!-- @if ($flash = session('username'))
                         <a href="{{ url('/users/detail') }}">{{$flash}}</a>
-                    <!-- @endif -->
+                    @endif -->
                     <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="/students/{{$user->id }}">{{$user->name}}</a></span>
                     </span>
 
