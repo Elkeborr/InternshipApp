@@ -23,6 +23,7 @@ class CompaniesSeeder extends Seeder
         $company->postalCode = '2000';
         $company->employees = '9';
         $company->state = 'Antwerpen';
+        $company->user_id = 5;
         $company->save();
 
         $company2 = new \App\Company();
@@ -37,6 +38,7 @@ class CompaniesSeeder extends Seeder
         $company2->postalCode = '2800';
         $company2->employees = '18';
         $company2->state = 'Antwerpen';
+        $company2->user_id = 6;
         $company2->save();
 
         $company3 = new \App\Company();
@@ -51,20 +53,22 @@ class CompaniesSeeder extends Seeder
         $company3->postalCode = '2018';
         $company3->employees = '10';
         $company3->state = 'Antwerpen';
+        $company3->user_id = 7;
         $company3->save();
 
         $company4 = new \App\Company();
 
-        $company4->name = 'Haribo';
-        $company4->bio = 'HARIBO is een familiebedrijf, dat nu wordt gerund door de derde generatie en de wereldmarktleider is in fruitgom en drop. Voor HARIBO begon het allemaal met de Goudberen';
-        $company4->phoneNumber = '';
-        $company4->email = 'info@haribo.com';
-        $company4->street = 'Duffelsesteenweg';
-        $company4->streetNumber = '233';
-        $company4->city = 'Kontich';
-        $company4->postalCode = '2550';
-        $company4->employees = '18';
+        $company4->name = 'Marbles';
+        $company4->bio = 'En wij zijn een Antwerps 360° communicatiebureau propvol goesting. Goesting om te evolueren. Om resultaten te boeken. Om projecten te creëren voor klanten die grote — en grootse — stappen willen ondernemen.';
+        $company4->phoneNumber = '+32 3 620 26 79 ';
+        $company4->email = 'hallo@marbles.be';
+        $company4->street = 'Borsbeeksebrug';
+        $company4->streetNumber = '1';
+        $company4->city = 'Antwerpen';
+        $company4->postalCode = '2600';
+        $company4->employees = '16';
         $company4->state = 'Antwerpen';
+        $company4->user_id = 8;
         $company4->save();
 
         $company5 = new \App\Company();
@@ -79,6 +83,7 @@ class CompaniesSeeder extends Seeder
         $company5->postalCode = '9000';
         $company5->employees = '10';
         $company5->state = 'West-Vlaanderen';
+        $company5->user_id = 9;
         $company5->save();
     }
 }

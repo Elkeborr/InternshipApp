@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class CompanyTag extends Model
 {
-    public function companyTag()
+    public function assigncompanyTag()
     {
+        return $this->hasMany('\App\AssignCompanytags', 'company_tag_id');
     }
 }

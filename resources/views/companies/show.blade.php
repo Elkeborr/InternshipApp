@@ -20,10 +20,12 @@
             <h1>{{$company->name}}</h1>
             <p>{{$company->bio}}</p>
             <p>Werknemers: {{$company->employees}}</p>
-            <h3> Vakgebied(en) <h3>
-            @foreach($tags as $tag)
-                <p></p>
-            @endforeach
+            <h3>Vakgebied(en)</h3>
+                <ul>
+                    @foreach($company->tags as $tag)
+                    <li>{{$tag->tags->name}}</li>
+                    @endforeach
+                </ul>
         </div>
     </section>
 
@@ -43,6 +45,13 @@
 
     <section class="company-show_internships">
         <h2>Stageplaatsen</h2>
+        @if(empty($internships))
+
+        @component('components/alert')
+            @slot('type','info')
+            Er zijn nog geen stageplaatsen bij dit bedrijf
+        @endcomponent
+        @else 
         <div class="companies">
         @foreach($internships as $internship)
             <div class="companies__detail" >
@@ -56,6 +65,7 @@
             </div>
         @endforeach
         </div>
+       @endif
     </section>
 
     <section class="company-show_reviews">
@@ -85,12 +95,19 @@
             </form>
             </div>
         </div>
-
+        @if(empty($company->reviews))
+       
+        @component('components/alert')
+            @slot('type','info')
+            Er zijn nog geen beoordelingen bij dit bedrijf
+        @endcomponent
+        @else 
         @foreach($company->reviews as $review )
         <div class="company-show_reviews-one">
            <div>
                 <img>
-                <p>{{$review->user}}</p>
+                    <p>{{$review->users->name}}</p>
+  
            </div>
            <div>
                 <p>{{$review->review}}</p>
@@ -108,6 +125,7 @@
             </div>
         </div>
         @endforeach
+       @endif
     </section>
 </div>
 @endsection

@@ -23,7 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->string('state');
             $table->string('postalCode');
             $table->bigInteger('employees');
-            $table->bigInteger('userId')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

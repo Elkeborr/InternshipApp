@@ -88,9 +88,20 @@ class CompanyController extends Controller
     {
         if (Auth::check()) {
             $data['internships'] = \App\Internship::where('company_id', $company)->get();
-            $data['tags'] = \App\Company::where('id', $company)->with('tags')->first();
+
             $data['company'] = \App\Company::where('id', $company)
-                ->with('reviews', 'users')->first();
+                ->with('reviews')
+                ->with('tags')
+                ->first();
+
+            $data['tags'] = \App\AssignCompanyTags::where('id', $company)
+                ->with('tags')->first();
+
+            $data['reviews'] = \App\Review::where('id', $company)
+                ->with('users')
+                ->first();
+
+            //dd($data['tags']);
 
             return view('companies/show', $data);
         }
