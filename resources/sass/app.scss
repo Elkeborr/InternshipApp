@@ -181,14 +181,15 @@ h3 {
 .container_companies {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100vw;
     height: 100vh;
-    overflow: hidden;
 }
 .companies_filters {
     background-color: $light-grey;
     margin: 0;
     padding: 30px;
     position: sticky;
+    height: 100vh;
 }
 
 .companies_form {
@@ -376,7 +377,7 @@ h3 {
 
 .company-show_info_photo {
     padding: 5%;
-    background-color: red;
+    background-color: $light-blue;
 }
 
 .company-show_info_text {
