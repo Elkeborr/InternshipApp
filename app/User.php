@@ -7,6 +7,14 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use Uuids;
+    /**
+     * Set auto-increment to false.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
     use Notifiable;
     /**
      * The attributes that are mass assignable.
