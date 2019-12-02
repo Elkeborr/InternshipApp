@@ -9824,13 +9824,9 @@ h3 {
   border-radius: 5px;
 }
 
-.username p {
-  color: #fd4a29;
+.username a {
+  color: #fd4a29 !important;
   font-weight: 600;
-}
-
-.username span {
-  padding-left: 2px;
 }
 
 /*-----COMPANIES-----*/
@@ -10097,7 +10093,8 @@ h3 {
   right: 40px;
 }
 
-.skillsGrid, .socialGrid {
+.skillsGrid,
+.socialGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -10260,6 +10257,8 @@ h3 {
 #stars_review > span:hover:before,
 #stars_review > span:hover ~ span:before {
   color: #fd4a29;
+}
+
 /* ------ login & register students ------- */
 .grid-buttons {
   display: grid;
@@ -10280,6 +10279,7 @@ h3 {
 .companies__detail > .btn-secondary {
   color: white !important;
 }
+
 /*---Search Dropdown---*/
 .search {
   width: 100%;

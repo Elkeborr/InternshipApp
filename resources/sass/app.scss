@@ -107,12 +107,9 @@ h3 {
     border-radius: $border-radius;
 }
 
-.username p {
-    color: $orange;
+.username a {
+    color: $orange !important;
     font-weight: 600;
-}
-.username span {
-    padding-left: 2px;
 }
 
 /*-----COMPANIES-----*/
@@ -352,7 +349,6 @@ h3 {
     width: 25px;
 }
 
-
 .profileCard {
     position: relative;
 }
@@ -371,17 +367,18 @@ h3 {
     right: 40px;
 }
 
-.skillsGrid, .socialGrid{
-    display:grid;
+.skillsGrid,
+.socialGrid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
-.socialGrid{
+.socialGrid {
     grid-template-columns: repeat(4, 1fr);
     row-gap: 40px;
 }
 
-.pSkills{
+.pSkills {
     max-width: 1fr;
     grid-column: 1fr;
     padding: 5px;
@@ -525,40 +522,39 @@ h3 {
 #stars_review > span:hover:before,
 #stars_review > span:hover ~ span:before {
     color: $orange;
-
+}
 /* ------ login & register students ------- */
 
-.grid-buttons{
-    display:grid;
-    grid-template-columns: 1fr 2fr
+.grid-buttons {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
-.grid-button{
+.grid-button {
     grid-column: 1fr;
 }
 
-.grid-button:nth-of-type(2){
+.grid-button:nth-of-type(2) {
     grid-column: 2fr;
     padding: 18px;
     padding-left: 0px;
 }
 
-
 /* ----- internships -----  */
 
-.companies__detail>.btn-secondary{
- color:white !important;
+.companies__detail > .btn-secondary {
+    color: white !important;
 }
 /*---Search Dropdown---*/
-.search{
+.search {
     width: 100%;
     height: auto;
     position: relative;
 }
-.search-bar{
+.search-bar {
     width: 95%;
 }
-.search-results{
+.search-results {
     width: 100%;
     max-height: 300px;
     overflow-y: scroll;
@@ -574,28 +570,28 @@ h3 {
     border-bottom-right-radius: $border-radius;
     display: none;
 }
-.search-result_list{
+.search-result_list {
     margin: 0;
     padding: 0;
     list-style: none;
 }
-.search-result_list-item{
+.search-result_list-item {
     height: 30px;
     margin: 20px;
     padding: 5px;
 }
-.search-result_list-link{
+.search-result_list-link {
     min-width: 100%;
     height: 100%;
     font-size: 16px;
     color: $dark-grey;
     display: block;
 }
-.search-result_list-link:hover{
+.search-result_list-link:hover {
     color: $orange;
     text-decoration: none;
 }
-.search-result_list-link:active{
+.search-result_list-link:active {
     color: $dark-grey;
     text-decoration: none;
 }

@@ -137,37 +137,3 @@
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 
-
-<script>
-/*
-    var rating = {{$reviews->score}};
-    switch(rating) {
-    case 0:
-    break;
-    case 1:
-        $(".star1").addClass("checked");
-    break;
-    case 2:
-        $(".star1").addClass("checked");
-        $(".star2").addClass("checked");
-    break;
-    case 3:
-        $(".star1").addClass("checked");
-        $(".star2").addClass("checked");
-        $(".star3").addClass("checked");
-    break;
-    case 4:
-        $(".star1").addClass("checked");
-        $(".star2").addClass("checked");
-        $(".star3").addClass("checked");
-        $(".star4").addClass("checked");
-    break;
-    case 5:
-        $(".star1").addClass("checked");
-        $(".star2").addClass("checked");
-        $(".star3").addClass("checked");
-        $(".star4").addClass("checked");
-        $(".star5").addClass("checked");
-    break;
-}*/
-</script>
