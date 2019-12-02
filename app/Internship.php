@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Internship extends Model
 {
-    public function company() 
+    public function company()
     {
-        return $this->belongsTo('\App\Company');
+        return $this->belongsTo('\App\Company', 'company_id');
     }
 
     protected $with = ['jobApplications'];
-    
+
     public function jobApplications()
     {
         return $this->hasMany('\App\JobApplication');

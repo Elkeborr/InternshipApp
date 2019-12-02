@@ -20,9 +20,10 @@ class StudentController extends Controller
     public function show($user)
     {
         $data['user'] = \App\User::where('id', $user)->with('skills', 'socials')->first();
+        $data['jobApplications'] = \App\JobApplication::where('user_id', $user)->get();
 
         return view('students/show', $data);
-    }
+    }//
 
     //op basis van id, opzoek gaan naar record
     public function edit($user)
@@ -66,7 +67,6 @@ class StudentController extends Controller
             'skill' => 'required',
         ]);
         /* werkt alleen voor de laatste */
-
         $user = session('user');
         $skill = new \App\Skill();
         $skill->skill = request('skill');
@@ -109,7 +109,6 @@ class StudentController extends Controller
             'socialname' => 'required',
             'sociallink' => 'required|starts_with:http://',
         ]);
-
         $user = session('user');
         $social = new \App\Social();
         $social->link = request('sociallink');
@@ -127,9 +126,7 @@ class StudentController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
         $user = session('user');
-
         $user->name = request('firstname');
         $user->lastname = request('lastname');
         $user->email = request('email');
@@ -154,9 +151,7 @@ class StudentController extends Controller
         $validation = $request->validate([
             'skill' => 'required',
         ]);
-
         $user = session('user');
-
         $skill = \App\Skill::where('id', request('skillid'))->first();
         $skill->skill = request('skill');
         $skill->user_id = $user->id;
@@ -171,9 +166,7 @@ class StudentController extends Controller
             'socialName' => 'required',
             'socialLink' => 'required|starts_with:http://',
         ]);
-
         $user = session('user');
-
         $social = \App\Social::where('id', request('socialId'))->first();
         $social->name = request('socialName');
         $social->link = request('socialLink');
@@ -184,7 +177,6 @@ class StudentController extends Controller
     }
 
     /* -------------------- LOGIN ----------------------- */
-
     public function login()
     {
         return view('students/login');
@@ -196,23 +188,19 @@ class StudentController extends Controller
         $request->flash();
         if (Auth::attempt($credentials)) {
             $request->session()->flash('message', 'Login successvol!');
-
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
-
             if ($user->type == 'student') {
                 //Put user data in session User
                 $request->session()->put('user', $user);
                 // dd($sessionData['name']);
-
                 return redirect('home');
             }
             $request->session()->flash('message', 'Hier kunnen enkel studenten inloggen');
 
             return view('students/login');
         }
-
         $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
 
         return view('studends/login');
@@ -230,7 +218,6 @@ class StudentController extends Controller
               'email' => ['unique:users,email'],
               'password' => ['required', 'string', 'min:8', 'confirmed'],
           ]);
-
         $request->flash();
         $user = new \App\User();
         $user->name = $request->input('firstName');
@@ -238,7 +225,6 @@ class StudentController extends Controller
         $user->password = \Hash::make($request->input('password'));
         $user->type = 'student';
         $user->save();
-
         $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
             $request->session()->flash('username', $user->name);
@@ -250,7 +236,6 @@ class StudentController extends Controller
             //Put user data in session User
             $request->session()->put('user', $user);
             // dd($sessionData['name']);
-
             return view('/home');
         }
 

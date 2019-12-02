@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('\App\Skill');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany('\App\Review', 'user_id');
+    }
 }

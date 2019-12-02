@@ -124,9 +124,11 @@ footer {
     color: $white;
     background-color: $orange;
     text-decoration: none;
+    border: $orange 3px solid;
 }
 
 .links .company:hover {
+    border: $blue 3px solid;
     color: $white;
     background-color: $blue;
     text-decoration: none;
@@ -173,6 +175,7 @@ footer {
     color: $white;
     background-color: $orange;
     text-decoration: none;
+    border: none;
 }
 
 .Modal-content p,

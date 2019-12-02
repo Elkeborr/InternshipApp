@@ -31,8 +31,7 @@ class InternshipController extends Controller
 
     public function showMyInternships()
     {
-        $user = session('user');
-        $data['myinternships'] = \App\Internship::where('company_id', $user->company_id)->get();
+        $data['myinternships'] = \App\Internship::where('company_id', \Auth::user()->company_id)->get();
 
         return view('internships/myInternships', $data);
     }

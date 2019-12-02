@@ -16,6 +16,7 @@ class CreateReviewsTable extends Migration
             $table->bigInteger('company_id')->nullable();
             $table->bigInteger('internship_id')->nullable();
             $table->bigInteger('user_id');
+            $table->bigInteger('score');
             $table->string('review');
             $table->timestamps();
         });
