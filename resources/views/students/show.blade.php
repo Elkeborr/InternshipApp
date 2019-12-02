@@ -63,7 +63,7 @@
                                 <div class="pSkills">{{$skill->skill}}</div>         
                         @endforeach
                         </div>
-                    </div>
+                
                 </div>
             </div>
             <br>
@@ -76,15 +76,18 @@
                     <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
                     <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
                 @endif
+
+                <div class="socialGrid">
                     @foreach ($user->socials as $social)
-                        <div>
-                            <a href="{{$social->link}}">
+                        
+                            <a href="{{$social->link}}" class="pSkills">
                                 <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
                             </a>
-                        </div>
+                        
                     @endforeach
                 </div>
             </div>
+        </div>
 
             <br>
 

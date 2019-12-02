@@ -15,7 +15,7 @@ class CreateSocialsTable extends Migration
             $table->bigIncrements('id');
             $table->string('link');
             $table->string('name');
-            $table->integer('user_id');
+            $table->uuid('user_id');
             $table->timestamps();
         });
     }

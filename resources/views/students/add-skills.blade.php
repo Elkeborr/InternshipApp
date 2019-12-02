@@ -30,10 +30,17 @@
 
             <br>
             <div class="editpart">
-                   
-                    <label for="skill">Voeg een nieuwe kwaliteit toe</label>
-                    
+                    @if($user->type == 'student')
+                        <label for="skill">Voeg een nieuwe kwaliteit toe</label>
                         <input type="text" class="form-control" name="skill" id="skill" placeholder="Vul hier uw skill in bv 'PHP'"value="">
+                    @endif
+                    
+                    @if($user->type == 'company')
+                        <label for="skill">Voeg een nieuwe dienst toe</label>
+                        <input type="text" class="form-control" name="skill" id="skill" placeholder="Vul hier uw dienst in bv 'Webdesign'"value="">
+                    @endif
+                    
+                    
                     
             </div>
           
