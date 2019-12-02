@@ -155,18 +155,21 @@ class CompanyController extends Controller
         $company->state = $request->input('state');
         $company->postalCode = $request->input('postalCode');
         $company->employees = $request->input('employees');
-        $company->userid = $user->id;
+        $company->user_id = $user->id;
         $saved = $company->save();
 
         $tags = $request->input('tag');
         foreach ($tags as $tag) {
             $newtag = new \App\AssignCompanytags();
-            $newtag->tag_id = json_decode($tag);
-            $newtag->user_id = $user->id;
+            $newtag->company_id = $company->id;
+            $newtag->company_tag_id = json_decode($tag);
             $savedTags = $newtag->save();
         }
 
-        if ($saved && $savedTags) {
+        $company = \App\User::where('id', '=', $user->id)
+            ->update(['company_id' => $company->id]);
+
+        if ($saved && $savedTags && $company) {
             $request->session()->flash('message', 'Welkom op je startpagina');
 
             return redirect('home');

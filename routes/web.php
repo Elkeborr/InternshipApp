@@ -36,18 +36,19 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
 
 // --------   enkel als je ingelogd bent kunnen deze routes ingeladen worden --------//
     Route::group(['middleware' => 'auth'], function () {
-        /*COMPANIES*/
+        /*----------------COMPANIES------------------------- */
 
-        /*Create company*/
+        /*create company*/
         Route::get('/companies/detail', 'CompanyController@create');
         Route::post('/companies/detail', 'CompanyController@handlecreate');
 
-        /* Companies */
+        /*companies index and detail page*/
         Route::get('/companies', 'CompanyController@index');
         Route::get('/companies/{company}', 'CompanyController@show');
+        /*----------------REVIEWS------------------------- */
+        Route::post('/companies/{company}', 'ReviewController@handleCreate');
 
-        /*----------------STUDENTS ------------------------- */
-
+        /*----------------STUDENTS------------------------- */
         /* profielpagina */
         Route::get('/students', 'StudentController@index');
         Route::get('/students/{student}', 'StudentController@show');
