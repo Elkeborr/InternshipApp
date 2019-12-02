@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(InternshipSeeder::class);
         $this->call(CompanyTagsSeeder::class);
         $this->call(AssignCompanySeeder::class);
+        $this->call(StateSeeder::class);
     }
 }

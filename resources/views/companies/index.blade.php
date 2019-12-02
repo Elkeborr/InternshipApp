@@ -24,102 +24,20 @@ Bedrijven
 						
 						</h6>
 					</div>
-					<div id="collapse0" class="panel-collapse collapse in" >
-            <form method="post">
+					
+				
+            <form action=""method="post">
+			{{csrf_field()}}
+			<div id="collapse0" class="panel-collapse collapse in" >
+			@foreach($states as $state)
 				<label class="form-check">
-				  <input class="form-check-input styled-checkbox" type="checkbox" value="">
+				  <input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state">
 				  <span class="form-check-label">
-				  Alle regios</span>
-				  <span class="checkmark"></span></label>
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				   Antwerpen
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Oost-Vlaanderen
-				  </span>
-				  <span class="checkmark"></span>
-                </label>  
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  West-Vlaanderen
-				  </span>
-				  <span class="checkmark"></span>
-                </label>  
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Limburg
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Vlaams-Brabant
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-      
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Brussel
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Waals-Brabant
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Luik
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Henegouwen
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Namen
+				    {{$state->state}}
 				  </span>
 				  <span class="checkmark"></span>
                 </label>
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				Luxemburg
-				  </span>
-				  <span class="checkmark"></span>
-                </label>
-
-
+                    @endforeach
 </div>
         
 <div class="panel-heading" >
@@ -131,20 +49,12 @@ Bedrijven
 						</h6>
 					</div>
 					<div id="collapse1" class="panel-collapse collapse in">
-					<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				    Alle vakgebieden
-				  </span>
-				  <span class="checkmark"></span>
-				</label>
-				
 					@foreach($tags as $tag)
 					<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				    {{$tag->name}}
-				  </span>
+				  		<input class="form-check-input" type="checkbox" value="{{$tag->name}}" name="tag">
+				  		<span class="form-check-label">
+				    	{{$tag->name}}
+				  		</span>
 				  <span class="checkmark"></span>
                 </label>
                     @endforeach
@@ -155,8 +65,8 @@ Bedrijven
 		</div>
 		</div>
 		
-<div class="companies row">
-    @foreach($companies ?? '' as $company)
+		<div class="companies row">
+    @foreach($companies as $company)
     <div class="companies__detail" >
         <img >
 <br>
@@ -167,6 +77,8 @@ Bedrijven
     </div>
     @endforeach
 </div>
+
+
 </div>
 @endsection
 

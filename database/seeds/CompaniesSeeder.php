@@ -19,7 +19,7 @@ class CompaniesSeeder extends Seeder
         $company->email = 'info@antwerpfactory.com';
         $company->street = 'Pourbusstraat';
         $company->streetNumber = '25';
-        $company->city = 'Antwerp';
+        $company->city = 'Antwerpen';
         $company->postalCode = '2000';
         $company->employees = '9';
         $company->state = 'Antwerpen';

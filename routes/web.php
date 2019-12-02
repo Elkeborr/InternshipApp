@@ -36,6 +36,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
 
         /*companies index and detail page*/
         Route::get('/companies', 'CompanyController@index');
+        Route::post('/companies', 'FilterController@filter');
         Route::get('/companies/{company}', 'CompanyController@show');
         /*----------------REVIEWS------------------------- */
         Route::post('/companies/{company}', 'ReviewController@handleCreate');

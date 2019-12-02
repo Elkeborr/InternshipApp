@@ -80,14 +80,11 @@ class CompanyController extends Controller
 
     public function index()
     {
-        if (Auth::check()) {
-            $data['companies'] = \App\Company::get();
-            $data['tags'] = \App\CompanyTag::get();
+        $data['companies'] = \App\Company::get();
+        $data['tags'] = \App\CompanyTag::get();
+        $data['states'] = \App\State::get();
 
-            return view('companies/index', $data);
-        }
-
-        return redirect('companies/login');
+        return view('companies/index', $data);
     }
 
     public function show($company)
@@ -106,8 +103,6 @@ class CompanyController extends Controller
             $data['reviews'] = \App\Review::where('id', $company)
                 ->with('users')
                 ->first();
-
-            //dd($data['tags']);
 
             return view('companies/show', $data);
         }
