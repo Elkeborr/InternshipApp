@@ -10,6 +10,8 @@ class InternshipController extends Controller
     public function index()
     {
         $data['internships'] = \App\Internship::with('jobApplications')->get();
+        $data['tags'] = \App\CompanyTag::get();
+        $data['states'] = \App\State::get();
 
         return view('internships/index', $data);
     }
@@ -25,6 +27,7 @@ class InternshipController extends Controller
     {
         $data['internships'] = \App\Internship::with('jobApplications')->take(6)->get();
         $data['tags'] = \App\CompanyTag::get();
+        $data['states'] = \App\State::get();
 
         return view('welcome', $data);
     }

@@ -9,7 +9,12 @@ Bedrijven
 @endsection
 
 @section('content')
-
+@if ($flash = session('message'))
+@component('components/alert')
+@slot('type','info')
+	{{$flash}}
+@endcomponent
+@endif
 <div class="container_companies">
     <div class="companies_filters">
 		<div class="companies_form">
@@ -64,7 +69,6 @@ Bedrijven
 
 		</div>
 		</div>
-		
 		<div class="companies row">
     @foreach($companies as $company)
     <div class="companies__detail" >

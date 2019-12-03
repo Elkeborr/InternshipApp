@@ -14,6 +14,7 @@ Route::get('/', function () {
 });
 /* Welcome page */
 Route::get('/', 'InternshipController@welcomeIndex');
+Route::post('/', 'FilterController@filterWelcome');
 /* Login en registratie van studenten & bedrijven */
 /* Login */
 Route::get('/companies/login', 'CompanyController@login');
@@ -36,7 +37,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
 
         /*companies index and detail page*/
         Route::get('/companies', 'CompanyController@index');
-        Route::post('/companies', 'FilterController@filter');
+        Route::post('/companies', 'FilterController@filterCompany');
         Route::get('/companies/{company}', 'CompanyController@show');
         /*----------------REVIEWS------------------------- */
         Route::post('/companies/{company}', 'ReviewController@handleCreate');
@@ -71,6 +72,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::post('/internships/myinternships/create', 'InternshipController@handleCreate');
         Route::get('/internships/{internship}', 'InternshipController@show');
         Route::get('/internships', 'InternshipController@index');
+        Route::post('/internships', 'FilterController@filterInternships');
 
         Route::get('/internships', 'InternshipController@index');
 

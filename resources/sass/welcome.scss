@@ -223,9 +223,10 @@ footer {
 .internships form {
     margin-bottom: 5%;
 }
-.dropdowns button {
+.browser-default {
     text-align: left;
     background-color: $light-grey;
+    border: none;
 }
 
 .dropdowns .details-button {
@@ -240,9 +241,6 @@ footer {
     text-align: center;
 }
 
-.dropdowns .dropdown-item {
-    background-color: $white;
-}
 .more-button {
     margin: 0 auto;
     display: block;
@@ -261,7 +259,9 @@ footer {
 }
 .internships__detail {
     background-color: $light-grey;
+    border-radius: $border-radius;
 }
+
 .internships_detail-padding {
     padding: 10%;
 }
@@ -269,7 +269,7 @@ footer {
     text-decoration: none;
     color: $black;
     font-family: $title-font-family;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 .internships__detail a:hover {
     text-decoration: underline $orange;

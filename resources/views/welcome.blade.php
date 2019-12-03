@@ -56,33 +56,30 @@
     <!---Internships--->
     <section class="internships" id="myContainer"> 
     <h2>Nieuwste Stageplaatsen</h2>
-    <form action="#" method="post" novalidate="novalidate">
+    <form action=""method="post">
+    {{csrf_field()}}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row dropdowns">
                         <div class="dropdown dcol-lg-3 col-md-3 col-sm-12">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Vakgebied
-                            
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <select class="browser-default custom-select" name="tag[]">
+                            <option class="dropdown-item" type="button">Vakgebied</option>
                             @foreach($tags as $tag)
-                                <button class="dropdown-item" type="button">{{ $tag->name }}</button>
+                                <option class="dropdown-item" type="button"  value="{{$tag->id}}">{{ $tag->name }}</option>
                             @endforeach
-                            </div>
+                            </select>
                         </div>
                
                         <div class="dropdown col-lg-3 col-md-3 col-sm-12">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Regio
-                    
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item" type="button">Steden of provincies :)</button>
-                            </div>
+                            <select class="browser-default custom-select" name="state[]">
+                            <option class="dropdown-item" type="button">Regio</option>
+                            @foreach($states as $state)
+                                <option class="dropdown-item" type="button" value="{{$state->state}}" >{{ $state->state }}</option>
+                            @endforeach
+                            </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="button" class="btn details-button">Zoek</button>
+                            <button type="submit" class="btn details-button">Zoek</button> 
                         </div>
                     </div>
                 </div>
@@ -91,13 +88,19 @@
         </form>
 
    
+    @if ($flash = session('message'))
+    @component('components/alert')
+    @slot('type','info')
+        {{$flash}}
+    @endcomponent
+    @endif
 
     <div class="internships_count">
     @foreach($internships as $internship)
             <div class="internships__detail" >
                 <div class="internships_detail-padding">
                 <a>{{ $internship->internship_function }}</a>
-                <p>{{ $internship->internship_discription }}</p>
+                <p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
                 <hr class="internships__line">
                 <p>{{ $internship->available_spots }} available</p>
                 </div>
