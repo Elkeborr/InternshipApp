@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class jobApplication extends Model
 {
-    public function internship() 
+    use Uuids;
+    /**
+     * Set auto-increment to false.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    public function internship()
     {
         return $this->belongsTo('\App\Internship');
     }
@@ -15,5 +23,4 @@ class jobApplication extends Model
     {
         return $this->belongsTo('\App\User');
     }
-
 }

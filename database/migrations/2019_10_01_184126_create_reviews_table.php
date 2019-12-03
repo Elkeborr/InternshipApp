@@ -12,9 +12,10 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->uuid('company_id')->nullable();
-            $table->bigInteger('internship_id')->nullable();
+            $table->uuid('id');
+            $table->primary('id');
+            $table->uuid('company_id');
+            $table->uuid('internship_id');
             $table->uuid('user_id');
             $table->bigInteger('score');
             $table->string('review');

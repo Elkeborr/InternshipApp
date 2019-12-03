@@ -23,7 +23,7 @@ class CompaniesSeeder extends Seeder
         $company->postalCode = '2000';
         $company->employees = '9';
         $company->state = 'Antwerpen';
-        $company->user_id = 5;
+        $company->user_id = '0ab68800-15f2-11ea-98c0-4fd35106b02b';
         $company->save();
 
         $company2 = new \App\Company();
@@ -38,7 +38,7 @@ class CompaniesSeeder extends Seeder
         $company2->postalCode = '2800';
         $company2->employees = '18';
         $company2->state = 'Antwerpen';
-        $company2->user_id = 6;
+        $company2->user_id = '0abeee00-15f2-11ea-8992-23b3df6e8863';
         $company2->save();
 
         $company3 = new \App\Company();
@@ -53,7 +53,7 @@ class CompaniesSeeder extends Seeder
         $company3->postalCode = '2018';
         $company3->employees = '10';
         $company3->state = 'Antwerpen';
-        $company3->user_id = 7;
+        $company3->user_id = '0ac74550-15f2-11ea-9c0a-413a39fd16d4';
         $company3->save();
 
         $company4 = new \App\Company();
@@ -68,7 +68,7 @@ class CompaniesSeeder extends Seeder
         $company4->postalCode = '2600';
         $company4->employees = '16';
         $company4->state = 'Antwerpen';
-        $company4->user_id = 8;
+        $company4->user_id = '0acf6360-15f2-11ea-92c6-6f64f3ed71b6';
         $company4->save();
 
         $company5 = new \App\Company();
@@ -83,7 +83,7 @@ class CompaniesSeeder extends Seeder
         $company5->postalCode = '9000';
         $company5->employees = '10';
         $company5->state = 'West-Vlaanderen';
-        $company5->user_id = 9;
+        $company5->user_id = '0ad77c00-15f2-11ea-aa79-c5759d071497';
         $company5->save();
     }
 }
