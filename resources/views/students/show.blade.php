@@ -44,17 +44,26 @@
             <br>
 
 
+     
+                <div class="card-body bg-light profileCard">
+                    @if($user->type == 'student')
+                        <h5 class="card-title">Kwaliteiten</h5>
+                    @endif
 
-            <div class="card-body bg-light profileCard">
-                <h5 class="card-title">Kwaliteiten:</h5>
-                <div class="card-text">
-                @if (\Auth::user()->id === $user->id)
-                    <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-kwaliteiten'">
-                    <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-kwaliteiten'">
-                @endif
-                    @foreach ($user->skills as $skill)
-                        <div>{{ $skill->skill}}</div>
-                    @endforeach
+                    @if($user->type == 'company')
+                        <h5 class="card-title">Diensten</h5>
+                    @endif
+                    <div class="card-text">
+                    @if($user->id == \Auth::user()->id)
+                        <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-skills'">
+                        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-skills'">
+                    @endif
+                    <div class="skillsGrid">
+                        @foreach ($user->skills as $skill)
+                                <div class="pSkills">{{$skill->skill}}</div>         
+                        @endforeach
+                        </div>
+                
                 </div>
             </div>
             <br>
@@ -67,15 +76,18 @@
                     <img src="../img/add-grey.png" class="editicon addicon" width="15" alt="add" onclick="window.location.href='/students/{{$user->id }}/add-social'">
                     <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit-social'">
                 @endif
+
+                <div class="socialGrid">
                     @foreach ($user->socials as $social)
-                        <div>
-                            <a href="{{$social->link}}">
+                        
+                            <a href="{{$social->link}}" class="pSkills">
                                 <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
                             </a>
-                        </div>
+                        
                     @endforeach
                 </div>
             </div>
+        </div>
 
             <br>
 
