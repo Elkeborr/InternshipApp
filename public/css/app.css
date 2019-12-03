@@ -9905,13 +9905,15 @@ h3 {
   background-color: #f6f7fb;
   margin: 0;
   padding: 30px;
-  position: -webkit-sticky;
-  position: sticky;
+  grid-row-end: span 2;
   height: 100vh;
 }
 
-.companies_form {
-  width: 80%;
+.companies__line {
+  border-top: 1.2px solid;
+  color: #4640de;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .companies_filters h5 {
@@ -9991,11 +9993,6 @@ h3 {
   background-color: #fff;
   margin-bottom: 20px;
   border: none;
-}
-
-.companies__line {
-  border-top: 1.2px solid;
-  color: #4640de;
 }
 
 /*-----COMPANIES-DETAIL-----*/

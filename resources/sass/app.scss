@@ -189,12 +189,15 @@ h3 {
     background-color: $light-grey;
     margin: 0;
     padding: 30px;
-    position: sticky;
+    grid-row-end: span 2;
     height: 100vh;
 }
 
-.companies_form {
-    width: 80%;
+.companies__line {
+    border-top: 1.2px solid;
+    color: $blue;
+    margin: 0;
+    margin-bottom: 10px;
 }
 .companies_filters h5 {
     color: $blue;
@@ -268,10 +271,6 @@ h3 {
     background-color: $white;
     margin-bottom: 20px;
     border: none;
-}
-.companies__line {
-    border-top: 1.2px solid;
-    color: $blue;
 }
 
 /*-----COMPANIES-DETAIL-----*/
