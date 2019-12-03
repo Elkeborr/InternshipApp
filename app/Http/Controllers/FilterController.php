@@ -20,12 +20,12 @@ class FilterController extends Controller
 
         if ($request->has('tag')) {
             $tag = $request->input('tag');
+
             $collection = \App\AssignCompanyTags::whereIn('company_tag_id', $tag)
             ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
             ->get();
             $query = $collection->unique('id');
         }
-
         if ($request->has('tag') && $request->has('state')) {
             $tag = $request->input('tag');
             $state = $request->input('state');
@@ -33,19 +33,16 @@ class FilterController extends Controller
             $collection = \App\AssignCompanyTags::whereIn('company_tag_id', $tag)
             ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
             ->whereIn('state', $state)->get();
-
             $query = $collection->unique('id');
         }
 
         if ($query->isEmpty()) {
-            $request->session()->flash('message', 'Geen specifieke bedrijven gevonden gevonden');
+            $request->session()->flash('message', 'Geen specifieke bedrijven gevonden. Misschien vind je deze interresant.');
             $data['companies'] = \App\Company::get();
 
-            return view('welcome', $data);
+            return view('companies/index', $data);
         }
         $data['companies'] = $query;
-
-        return view('welcome', $data);
 
         // $filters_tags = $request->input('tag');
         // $filters_state = $request->input('state');
