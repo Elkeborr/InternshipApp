@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('type')->default('student');
             $table->string('biography')->nullable();
             // Stays NULL with type('student'), becomes company with type('company') upon registration of company
-            $table->bigInteger('company_id')->nullable();
+            $table->uuid('company_id')->nullable();
             $table->timestamps();
         });
     }
