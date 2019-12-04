@@ -12,8 +12,8 @@ class CreateAssignCompanyTags extends Migration
     public function up()
     {
         Schema::create('assign_company_tags', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
+            $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->uuid('company_id');
             $table->uuid('company_tag_id');
             $table->timestamps();

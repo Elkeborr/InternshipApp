@@ -12,8 +12,8 @@ class CreateInternshipsTable extends Migration
     public function up()
     {
         Schema::create('internships', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
+            $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->string('internship_function')->nullable();
             $table->text('internship_discription')->nullable();
             $table->integer('available_spots');

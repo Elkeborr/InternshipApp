@@ -12,8 +12,8 @@ class CreateJobApplicationsTable extends Migration
     public function up()
     {
         Schema::create('job_applications', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
+            $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->uuid('user_id');
             $table->uuid('internship_id');
             $table->string('status');
