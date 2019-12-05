@@ -12,7 +12,7 @@
             <img>
         </div>
         <div class="company-show_info_text">
-            <h1>{{ $internship->internship_function }} at {{$internship->company->name}}</h1>
+            <h1>{{ $internship->internship_function }} bij {{$internship->company->name}}</h1>
             <h3>Info</h3>
             <p>{{ $internship->internship_discription }}</p>
             <p>Stad: {{ $internship->company->city }}</p>
