@@ -184,32 +184,23 @@ Stageplaatsen
 			</form>
 
 		</div>
+
 	</div>
+
 <div class="companies">
-    @if (\Auth::user()->type == 'student')
+
+@if (\Auth::user()->type == 'student')
         @foreach($internships as $internship)
             <div class="companies__detail" >
-                <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+                <h3>{{ $internship->internship_function }}</h3>
                 <p>{{ $internship->internship_discription }}</p>
                 <hr class="companies__line">
                 <p>{{ $internship->available_spots }} beschikbaar</p>
-                @if ($internship->jobApplications->count() == 0)
-				<button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
-                @else
-                    @foreach($internship->jobApplications as $jobApplication)
-                        @if ($internship->available_spots != 0 && $jobApplication->user_id != \Auth::user()->id)
-                            <button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
-                        @endif
-                        @if ($jobApplication->user_id == \Auth::user()->id)
-                            <div class="alert alert-primary" role="alert">
-                                U heeft reeds gesolliciteerd voor deze stageplaats.
-                            </div>
-                        @endif
-                    @endforeach
-                @endif
+				<a href="/internships/{{ $internship->id }}" class="btn btn-secondary">Bekijk vacature</a>
+                
             </div>
         @endforeach
-    </div>
+    
 @else
     @foreach ($internships as $internship)
         {{--@foreach($internship->jobApplications as $jobApplication)
@@ -222,5 +213,7 @@ Stageplaatsen
         </div>
     @endforeach
 @endif
+</div>
+    
 
 @endsection
