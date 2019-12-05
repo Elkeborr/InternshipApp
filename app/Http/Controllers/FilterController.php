@@ -96,7 +96,7 @@ class FilterController extends Controller
 
         if ($query->isEmpty()) {
             $request->session()->flash('message', 'Geen specifieke stages gevonden, hopelijk vind je deze ook interresant.');
-            $data['internships'] = \App\Internship::get();
+            $data['internships'] = \App\Internship::get()->take(6);
 
             return view('welcome', $data);
         }

@@ -100,7 +100,7 @@
             <div class="internships__detail" >
                 <div class="internships_detail-padding">
                 <a>{{ $internship->internship_function }}</a>
-                <p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
+                <p>{{Str::limit( $internship->internship_discription, $limit = 100, $end = ' ...')}}</p>
                 <hr class="internships__line">
                 <p>{{ $internship->available_spots }} available</p>
                 </div>
