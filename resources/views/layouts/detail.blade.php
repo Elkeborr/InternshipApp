@@ -47,13 +47,18 @@
         
                     </div>
 
-                    <span class="navbar-text mt-1 w-50 text-right order-md-last username">
-                    
-                    <!-- @if ($flash = session('username'))
-                        <a href="{{ url('/users/detail') }}">{{$flash}}</a>
-                    @endif -->
-                    <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="/students/{{$user->id }}">{{$user->name}}</a></span>
-                    </span>
+                    <span class="navbar-text  text-right order-md-last username dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <span class=" username"> {{$user->name}} </span>
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/students/{{$user->id }}">Profiel bekijken</a>
+                            <div class="dropdown-divider"></div>
+                           
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        {{ __('Afmelden') }}</a>
+                        </div>
+                        </span>
 
                 @endif
             </nav>

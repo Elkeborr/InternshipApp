@@ -20,11 +20,6 @@ Overzicht
     @endcomponent
     @endif
 
-    <!--
-    <h3>Belangrijke mededelingen</h3>
-    <h3>Recente activiteiten</h3>
-    -->
-
     @if (\Auth::user()->type == 'company')
 
         <h2 style="margin-bottom: 50px;">Sollicitanten voor uw stageplaatsen</h2>
@@ -83,10 +78,7 @@ Overzicht
 </div>
 
 
-    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        {{ __('Afmelden') }}
-    </a>
-
+   
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
       @csrf
     </form>

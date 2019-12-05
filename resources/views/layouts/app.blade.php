@@ -13,10 +13,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
-    
-
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
@@ -26,7 +22,7 @@
         <div class="top">
             <nav class="navbar navbar-expand-md navbar-light">
                 @if($user = session('user'))
-                    <div class="d-flex w-50 order-">
+                    <div class="d-flex  order-">
                         <a class="navbar-brand navbar-brand mr-1" href="{{ url('/home') }}">
                             <img src="{{ asset('img/logo.png') }}" alt="Logo" height="30">
                         </a>
@@ -49,17 +45,24 @@
                             <a class="nav-item  nav-link" href="{{ url('/companies') }}">Stagebedrijven</a>  
                         @endif
         
-                    </div>
-
-                    <span class="navbar-text mt-1 w-50 text-right order-md-last username">
-                    
-                    <!-- @if ($flash = session('username'))
-                        <a href="{{ url('/users/detail') }}">{{$flash}}</a>
-                     @endif -->
-                    <span class="navbar-text mt-1 w-50 text-right order-md-last"><a href="/students/{{$user->id }}">{{$user->name}}</a></span>
-                    </span>
+                        </div>
+                        <span class="navbar-text  text-right order-md-last username dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <span class=" username"> {{$user->name}} </span>
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/students/{{$user->id }}">Profiel bekijken</a>
+                            <div class="dropdown-divider"></div>
+                           
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        {{ __('Afmelden') }}</a>
+                        </div>
+                        </span>
+              
+                  
 
                 @endif
+             
             </nav>
             <div class="container-nav container">
                 <div class="container-nav_h2">

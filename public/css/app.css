@@ -9781,6 +9781,32 @@ h3 {
   margin-right: 20px;
 }
 
+.username {
+  color: #fd4a29;
+  font-weight: 600;
+}
+
+.dropdown-menu a {
+  color: #000000;
+  font-size: 1.3em;
+}
+
+#navbarDropdown {
+  color: #fd4a29;
+}
+
+.dropdown-item a:hover {
+  color: #4640de;
+}
+
+.dropdown-item {
+  font-weight: 400;
+}
+
+.dropdown-item:hover {
+  background-color: transparent;
+}
+
 .collapse {
   width: 100%;
 }
@@ -9822,11 +9848,6 @@ h3 {
   border: none;
   background: #fff;
   border-radius: 5px;
-}
-
-.username a {
-  color: #fd4a29 !important;
-  font-weight: 600;
 }
 
 /*-----COMPANIES-----*/

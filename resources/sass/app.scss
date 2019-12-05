@@ -67,6 +67,30 @@ h3 {
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.username {
+    color: $orange;
+    font-weight: 600;
+}
+
+.dropdown-menu a {
+    color: $black;
+    font-size: 1.3em;
+}
+#navbarDropdown {
+    color: $orange;
+}
+.dropdown-item a:hover {
+    color: $blue;
+}
+
+.dropdown-item {
+    font-weight: 400;
+}
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
 .collapse {
     width: 100%;
 }
@@ -105,11 +129,6 @@ h3 {
     border: none;
     background: $white;
     border-radius: $border-radius;
-}
-
-.username a {
-    color: $orange !important;
-    font-weight: 600;
 }
 
 /*-----COMPANIES-----*/
