@@ -7,13 +7,13 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Uuids;
-    /**
+    //use Uuids;
+    /*
      * Set auto-increment to false.
      *
      * @var bool
      */
-    public $incrementing = false;
+    //public $incrementing = false;
 
     use Notifiable;
     /**

@@ -13,9 +13,10 @@ class CreateSocialsTable extends Migration
     {
         Schema::create('socials', function (Blueprint $table) {
             $table->bigIncrements('id');
+            //$table->uuid('uuid');
             $table->string('link');
             $table->string('name');
-            $table->uuid('user_id');
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class InternshipSeeder extends Seeder
         We werken klant gericht. Als stagiair moet je kennis hebben van php en laravel.';
         $internship->company_id = '2';
         $internship->available_spots = '2';
-        $internship->company_id = 1;
+        $internship->company_id = '1';
         $internship->save();
 
         $internship2 = new \App\Internship();

@@ -12,8 +12,8 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
+            $table->bigIncrements('id');
+            //$table->uuid('uuid');
             $table->string('name');
             $table->text('bio')->nullable();
             $table->string('phoneNumber');
@@ -24,7 +24,7 @@ class CreateCompaniesTable extends Migration
             $table->string('state');
             $table->string('postalCode');
             $table->bigInteger('employees');
-            $table->uuid('user_id')->nullable();
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

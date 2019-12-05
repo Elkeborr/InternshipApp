@@ -17,7 +17,6 @@ class UsersSeeder extends Seeder
         $user->type = 'company';
         $user->company_id = '1';
         $user->save();
-
         $user2 = new \App\User();
         $user2->name = 'Elke';
         $user2->lastname = 'Borreij';
@@ -25,7 +24,6 @@ class UsersSeeder extends Seeder
         $user2->password = bcrypt('password');
         $user2->type = 'student';
         $user2->save();
-
         $user3 = new \App\User();
         $user3->name = 'Robin';
         $user3->lastname = 'Van Buggenhout';
@@ -34,7 +32,6 @@ class UsersSeeder extends Seeder
         $user3->type = 'company';
         $user3->company_id = '2';
         $user3->save();
-
         $user4 = new \App\User();
         $user4->name = 'Angelique';
         $user4->lastname = 'Buijzen';
@@ -42,7 +39,6 @@ class UsersSeeder extends Seeder
         $user4->password = bcrypt('password');
         $user4->type = 'student';
         $user4->save();
-
         $user5 = new \App\User();
         $user5->name = 'Antwerp Factory';
         $user5->email = 'info@antwerpfactory.com';
@@ -50,7 +46,6 @@ class UsersSeeder extends Seeder
         $user5->type = 'company';
         $user5->company_id = 1;
         $user5->save();
-
         $user6 = new \App\User();
         $user6->name = 'Foreach';
         $user6->email = 'info@foreach.be';
@@ -58,7 +53,6 @@ class UsersSeeder extends Seeder
         $user6->type = 'company';
         $user6->company_id = 2;
         $user6->save();
-
         $user7 = new \App\User();
         $user7->name = 'Duval Branding';
         $user7->email = 'hello@duvalbranding.com';
@@ -66,7 +60,6 @@ class UsersSeeder extends Seeder
         $user7->type = 'company';
         $user7->company_id = 3;
         $user7->save();
-
         $user8 = new \App\User();
         $user8->name = 'Marbles';
         $user8->email = 'hello@marbles.com';
@@ -74,7 +67,6 @@ class UsersSeeder extends Seeder
         $user8->type = 'company';
         $user8->company_id = 4;
         $user8->save();
-
         $user9 = new \App\User();
         $user9->name = 'Dive';
         $user9->email = 'info@dive.be';

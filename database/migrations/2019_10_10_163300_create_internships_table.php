@@ -12,11 +12,11 @@ class CreateInternshipsTable extends Migration
     public function up()
     {
         Schema::create('internships', function (Blueprint $table) {
-            $table->integer('id')->nullable();
+            $table->bigIncrements('id');
             $table->string('internship_function')->nullable();
             $table->text('internship_discription')->nullable();
             $table->integer('available_spots');
-            $table->uuid('company_id');
+            $table->bigInteger('company_id');
             $table->timestamps();
         });
     }
