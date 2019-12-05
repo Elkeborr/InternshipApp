@@ -71,7 +71,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::get('/internships/{internship}', 'InternshipController@show');
         Route::get('/internships', 'InternshipController@index');
 
-        Route::get('/internships', 'InternshipController@index');
+        // Route::get('/internships', 'InternshipController@index');
 
         /* Apply */
         Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
