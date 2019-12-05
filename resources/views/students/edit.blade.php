@@ -19,8 +19,16 @@
         
 
            <div class="profielfoto">
+
+           @if($user->profile_picture!=null)
                 <img src="{{asset('../profileImages').'/'.$user->profile_picture}}" alt="profile picture" class="profilepic">
-            </div> 
+           @endif
+
+            @if($user->profile_picture==null)
+            <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
+           
+            @endif
+                 </div> 
             <br>
             Wijzig je profielfoto
                 @if ($message = Session::get('success'))

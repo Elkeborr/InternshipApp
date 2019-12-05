@@ -16,8 +16,14 @@
             @if (\Auth::user()->id === $user->id)
                 <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit'">
             @endif
-                <img src="../profileImages/{{$user->profile_picture}}" alt="profile picture" class="profilepic">
 
+            @if($user->profile_picture!=null)
+                <img src="../profileImages/{{$user->profile_picture}}" alt="profile picture" class="profilepic">
+            @endif
+
+            @if($user->profile_picture==null)
+                <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic">
+            @endif
                 <h4>{{$user->name}} {{$user->lastname}}</h4>
 
                 <br>
