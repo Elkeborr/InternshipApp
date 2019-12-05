@@ -16,7 +16,7 @@ class CreateInternshipsTable extends Migration
             $table->string('internship_function')->nullable();
             $table->text('internship_discription')->nullable();
             $table->integer('available_spots');
-            $table->bigInteger('company_id')->nullable();
+            $table->bigInteger('company_id');
             $table->timestamps();
         });
     }
