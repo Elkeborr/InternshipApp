@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssignCompanyTags extends Model
 {
-    use Uuids;
+    //use Uuids;
     /**
      * Set auto-increment to false.
      *
-     * @var bool
+     * //@var bool
      */
-    public $incrementing = false;
+    //public $incrementing = false;
 
     public function company()
     {

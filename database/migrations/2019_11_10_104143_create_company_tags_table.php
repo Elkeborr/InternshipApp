@@ -13,7 +13,8 @@ class CreateCompanyTagsTable extends Migration
     {
         Schema::create('company_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('uuid');
+            //$table->uuid('uuid');
+            //$table->primary('uuid');
             $table->string('name');
             $table->timestamps();
         });

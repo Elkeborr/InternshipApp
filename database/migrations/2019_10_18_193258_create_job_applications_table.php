@@ -13,9 +13,9 @@ class CreateJobApplicationsTable extends Migration
     {
         Schema::create('job_applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('uuid');
-            $table->uuid('user_id');
-            $table->uuid('internship_id');
+            //$table->uuid('uuid');
+            $table->bigInteger('user_id');
+            $table->bigInteger('internship_id');
             $table->string('status');
             $table->timestamps();
         });

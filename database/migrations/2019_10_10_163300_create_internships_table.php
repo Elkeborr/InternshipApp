@@ -13,11 +13,10 @@ class CreateInternshipsTable extends Migration
     {
         Schema::create('internships', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('uuid');
             $table->string('internship_function')->nullable();
             $table->text('internship_discription')->nullable();
             $table->integer('available_spots');
-            $table->uuid('company_id');
+            $table->bigInteger('company_id')->nullable();
             $table->timestamps();
         });
     }

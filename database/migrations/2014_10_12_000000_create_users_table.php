@@ -12,7 +12,6 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('uuid');
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('lastname')->nullable();
@@ -23,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('type')->default('student');
             $table->string('biography')->nullable();
             // Stays NULL with type('student'), becomes company with type('company') upon registration of company
-            $table->uuid('company_id')->nullable();
+            $table->bigInteger('company_id')->nullable();
             $table->timestamps();
         });
     }

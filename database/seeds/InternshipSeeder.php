@@ -13,9 +13,7 @@ class InternshipSeeder extends Seeder
         $internship->internship_function = 'Back End Developer';
         $internship->internship_discription = 'Lorem ipsum';
         $internship->available_spots = '2';
-        $internship->company_id = '0ad8a5c0-15f2-11ea-8b45-f5b83395526f';
         $internship->save();
-
         // factory(\App\Internship::class, 50)->create();
     }
 }

@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Internship extends Model
 {
-    use Uuids;
+    //use Uuids;
     /**
      * Set auto-increment to false.
      *
      * @var bool
      */
-    public $incrementing = false;
+    //public $incrementing = false;
 
     public function company()
     {
