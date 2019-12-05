@@ -80,7 +80,7 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $data['companies'] = \App\Company::get();
+        $data['companies'] = \App\Company::inRandomOrder()->get();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 

@@ -9,12 +9,15 @@ Bedrijven
 @endsection
 
 @section('content')
+
 @if ($flash = session('message'))
 @component('components/alert')
 @slot('type','info')
 	{{$flash}}
 @endcomponent
 @endif
+
+
 <div class="container_companies">
     <div class="companies_filters">
 		<div class="companies_form">

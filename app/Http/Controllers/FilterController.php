@@ -15,7 +15,7 @@ class FilterController extends Controller
         if ($request->has('state')) {
             $state = $request->input('state');
             $query = \App\Company::whereIn('state', $state)
-                ->get();
+            ->inRandomOrder()->get();
         }
 
         if ($request->has('tag')) {
@@ -23,7 +23,7 @@ class FilterController extends Controller
 
             $collection = \App\AssignCompanyTags::whereIn('company_tag_id', $tag)
             ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
-            ->get();
+            ->inRandomOrder()->get();
             $query = $collection->unique('id');
         }
         if ($request->has('tag') && $request->has('state')) {
@@ -32,21 +32,26 @@ class FilterController extends Controller
 
             $collection = \App\AssignCompanyTags::whereIn('company_tag_id', $tag)
             ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
-            ->whereIn('state', $state)->get();
+            ->whereIn('state', $state)->inRandomOrder()->get();
+
             $query = $collection->unique('id');
         }
 
         if ($query->isEmpty()) {
             $request->session()->flash('message', 'Geen specifieke bedrijven gevonden. Misschien vind je deze interresant.');
-            $data['companies'] = \App\Company::get();
+            $data['companies'] = \App\Company::inRandomOrder()->get();
 
             return view('companies/index', $data);
         }
-        $data['companies'] = $query;
+        $filters_tags = $request->input('tag');
+        $filters_states = $request->input('state');
+        //$request->session()->flash('filters', $filters_tags, $filters_state);
 
-        // $filters_tags = $request->input('tag');
-        // $filters_state = $request->input('state');
-        // $request->session()->flash('message', $filters_tags, $filters_state);
+        $data['companies'] = $query;
+        //$data['filters_tags'] = $filters_tags;
+        //$data['filters_states'] = $filters_states;
+        // $request->session()->flash('filters_tags', array($filters_tags));
+        // $request->session()->flash('filters_states', array($filters_states));
 
         return view('companies/index', $data);
     }
@@ -78,20 +83,20 @@ class FilterController extends Controller
             if ($state === 'regio') {
                 $collection = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
             ->join('assign_company_tags', 'assign_company_tags.company_id', '=', 'companies.id')
-            ->whereIn('company_tag_id', $tag)->take(6)->get();
+            ->whereIn('company_tag_id', $tag)->take(6)->inRandomOrder()->get();
             }
             if ($tag === 'Vakgebied') {
                 $state = $request->input('state');
                 $query = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
                 ->whereIn('companies.state', $state)
-                ->take(6)->get();
+                ->take(6)->inRandomOrder()->get();
             }
 
             $collection = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
             ->join('assign_company_tags', 'assign_company_tags.company_id', '=', 'companies.id')
             ->whereIn('company_tag_id', $tag)
             ->whereIn('state', $state)
-            ->take(6)->get();
+            ->take(6)->inRandomOrder()->get();
         }
 
         if ($query->isEmpty()) {
@@ -119,14 +124,14 @@ class FilterController extends Controller
             $state = $request->input('state');
             $query = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
             ->whereIn('companies.state', $state)
-           ->get();
+            ->inRandomOrder()->get();
         }
 
         if ($request->has('tag')) {
             $tag = $request->input('tag');
             $collection = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
             ->join('assign_company_tags', 'assign_company_tags.company_id', '=', 'companies.id')
-            ->whereIn('company_tag_id', $tag)->get();
+            ->whereIn('company_tag_id', $tag)->inRandomOrder()->get();
 
             $query = $collection->unique('id');
         }
@@ -137,25 +142,25 @@ class FilterController extends Controller
             if ($state === 'regio') {
                 $collection = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
              ->join('assign_company_tags', 'assign_company_tags.company_id', '=', 'companies.id')
-             ->whereIn('company_tag_id', $tag)->take(6)->get();
+             ->whereIn('company_tag_id', $tag)->take(6)->inRandomOrder()->get();
             }
             if ($tag === 'Vakgebied') {
                 $state = $request->input('state');
                 $query = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
                  ->whereIn('companies.state', $state)
-                 ->take(6)->get();
+                 ->take(6)->inRandomOrder()->get();
             }
 
             $collection = \App\Internship::join('companies', 'internships.company_id', '=', 'companies.id')
              ->join('assign_company_tags', 'assign_company_tags.company_id', '=', 'companies.id')
              ->whereIn('company_tag_id', $tag)
              ->whereIn('state', $state)
-             ->take(6)->get();
+             ->take(6)->inRandomOrder()->get();
         }
 
         if ($query->isEmpty()) {
             $request->session()->flash('message', 'Geen specifieke stages gevonden, hopelijk vind je deze ook interresant.');
-            $data['internships'] = \App\Internship::get();
+            $data['internships'] = \App\Internship::inRandomOrder()->get();
 
             return view('internships/index', $data);
         }
