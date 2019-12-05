@@ -61,4 +61,17 @@ class User extends Authenticatable
     {
         return $this->hasMany('\App\Review', 'user_id');
     }
+
+    public function imageUpload()
+    {
+        return view('imageUpload');
+    }
+
+    /*
+     * Display a listing of the resource.
+
+     *
+
+     * @return \Illuminate\Http\Response
+     */
 }

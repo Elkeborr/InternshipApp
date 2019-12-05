@@ -16,7 +16,7 @@
             @if (\Auth::user()->id === $user->id)
                 <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit'">
             @endif
-                <img src="{{ asset('img/profile-standard.jpg') }}" alt="profile picture" class="profilepic">
+                <img src="../profileImages/{{$user->profile_picture}}" alt="profile picture" class="profilepic">
 
                 <h4>{{$user->name}} {{$user->lastname}}</h4>
 
