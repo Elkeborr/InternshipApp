@@ -14,6 +14,7 @@
 
     <script src="{{ asset('js/review.js') }}" defer></script>
     <!-- Styles -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>

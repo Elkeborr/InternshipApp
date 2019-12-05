@@ -10,6 +10,7 @@
           
             <!-- Styles -->
             <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+            <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
         </head>
         <body>
