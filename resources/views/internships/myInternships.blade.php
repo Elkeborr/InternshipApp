@@ -22,7 +22,7 @@
         @endcomponent
         @else 
 
-    <div class="companies">
+    <div class="companies ">
         @foreach($myinternships as $myinternship)
         <div class="companies__detail" >
             <a href ="/internships/{{$myinternship->id}}">{{ $myinternship->internship_function }}</a>
