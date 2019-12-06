@@ -126,6 +126,7 @@ class StudentController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+
         $user = session('user');
         $user->name = request('firstname');
         $user->lastname = request('lastname');
@@ -135,6 +136,24 @@ class StudentController extends Controller
         $user->save();
 
         return redirect()->action('StudentController@show', $user);
+    }
+
+    public function imageUploadPost()
+    {
+        request()->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('profileImages'), $imageName);
+
+        $user = session('user');
+        $user->profile_picture = $imageName;
+        $user->save();
+
+        return back()
+            ->with('success', 'You have successfully upload image.')
+            ->with('image', $imageName);
     }
 
     public function updateIntro(Request $request)

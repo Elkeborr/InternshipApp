@@ -61,4 +61,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('\App\Review', 'user_id');
     }
+
+    /*
+     * Display a listing of the resource.
+
+     *
+
+     * @return \Illuminate\Http\Response
+     */
 }

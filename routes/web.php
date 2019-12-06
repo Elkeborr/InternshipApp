@@ -56,6 +56,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::get('/students/{student}/add-social', 'StudentController@addSocial');
         /* studentprofile update info */
         Route::put('/students/update/{student}', 'StudentController@update');
+        Route::put('/students/imageUpload/{student}', 'StudentController@imageUploadPost');
         Route::put('/students/updateIntro/{student}', 'StudentController@updateIntro');
         Route::put('/students/updateSkills/{student}', 'StudentController@updateSkills');
         Route::put('/students/deleteSkills/{student}', 'StudentController@deleteSkills');
@@ -74,7 +75,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::get('/internships', 'InternshipController@index');
         Route::post('/internships', 'FilterController@filterInternships');
 
-        Route::get('/internships', 'InternshipController@index');
+        // Route::get('/internships', 'InternshipController@index');
 
         /* Apply */
         Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
