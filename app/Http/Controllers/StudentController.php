@@ -245,8 +245,8 @@ class StudentController extends Controller
         $user->type = 'student';
         $user->save();
         $credentials = $request->only(['email', 'password']);
-        $data['jobApplications'] = \App\JobApplication::where('user_id', \Auth::user()->id)->get();
         if (Auth::attempt($credentials)) {
+            $data['jobApplications'] = \App\JobApplication::where('user_id', \Auth::user()->id)->get();
             $request->session()->flash('username', $user->name);
             $request->session()->flash('message', 'Studentregistratie succesvol!');
             $request->session()->flash('email', $user->email);
