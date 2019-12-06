@@ -24,28 +24,32 @@ Overzicht
 
         <h2 style="margin-bottom: 50px;">Sollicitanten voor uw stageplaatsen</h2>
 
-        @foreach ($internships as $internship)
-            <div class="internship" style="margin-bottom: 30px;">
-                <h3 style="margin-bottom: 10px;"><a href="/internships/{{$internship['id']}}">{{$internship['internship_function']}} bij {{$company->name}} - {{$internship['available_spots']}} available spots</a></h3>
+        @if (!$internships->isEmpty())
+            @foreach ($internships as $internship)
+                <div class="internship" style="margin-bottom: 30px;">
+                    <h3 style="margin-bottom: 10px;"><a href="/internships/{{$internship['id']}}">{{$internship['internship_function']}} bij {{$company->name}} - {{$internship['available_spots']}} available spots</a></h3>
 
-                @if (!$internship['jobApplications']->isEmpty())
-                    @foreach ($internship['jobApplications'] as $jobApplication)
-                        <div class="intern" style="background: #EFEFEF; padding: 10px; box-sizing: border-box; border-radius: 10px; margin-bottom: 10px; display: inline-block;">
-                            <a style="display: inline-block;" class="job-applicant-name-link" href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}"><img src="https://icons-for-free.com/iconfiles/png/512/profile+user+icon-1320166082804563970.png" alt="profile icon" style="width: 20px; margin-right: 10px;">{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->name}}</a>
-                        </div>
-                    @endforeach
-                @else
+                    @if (!$internship['jobApplications']->isEmpty())
+                        @foreach ($internship['jobApplications'] as $jobApplication)
+                            <div class="intern" style="background: #EFEFEF; padding: 10px; box-sizing: border-box; border-radius: 10px; margin-bottom: 10px; display: inline-block;">
+                                <a style="display: inline-block;" class="job-applicant-name-link" href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}"><img src="https://icons-for-free.com/iconfiles/png/512/profile+user+icon-1320166082804563970.png" alt="profile icon" style="width: 20px; margin-right: 10px;">{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->name}}</a>
+                            </div>
+                        @endforeach
+                    @else
 
-                @component('components/alert')
-                    @slot('type','info')
-                    Er zijn nog geen sollicitanten
-                @endcomponent
+                        @component('components/alert')
+                            @slot('type','info')
+                            Er zijn nog geen sollicitanten
+                        @endcomponent
 
-                @endif
+                    @endif
 
-            </div>
+                </div>
 
-        @endforeach
+            @endforeach
+        @else
+            <p>Er zijn nog geen sollicitanten</p>
+        @endif
 
     @endif
 
@@ -73,7 +77,7 @@ Overzicht
 
             @endforeach
         @else
-            <p>Nog geen Sollicitaties</p>
+            <p>Er zijn nog geen Sollicitaties</p>
         @endif
 
     @endif

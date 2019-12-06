@@ -19,7 +19,7 @@ class InternshipController extends Controller
     public function show($internship)
     {
         $data['internship'] = \App\Internship::where('id', $internship)->with('company')->first();
-        $data['jobApplications'] = \App\JobApplication::where('internship_id', $internship)->where('user_id', session('user')->id)->get();
+        $data['jobApplications'] = \App\JobApplication::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
 
         return view('internships/show', $data);
     }
@@ -47,7 +47,7 @@ class InternshipController extends Controller
 
     public function handleCreate(Request $request)
     {
-        $user = session('user');
+        $user = \Auth::user();
         $internship = new \App\Internship();
 
         $internship->internship_function = $request->input('internshipFunction');

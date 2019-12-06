@@ -245,6 +245,7 @@ class StudentController extends Controller
         $user->type = 'student';
         $user->save();
         $credentials = $request->only(['email', 'password']);
+        $data['jobApplications'] = \App\JobApplication::where('user_id', \Auth::user()->id)->get();
         if (Auth::attempt($credentials)) {
             $request->session()->flash('username', $user->name);
             $request->session()->flash('message', 'Studentregistratie succesvol!');
@@ -255,7 +256,7 @@ class StudentController extends Controller
             //Put user data in session User
             $request->session()->put('user', $user);
             // dd($sessionData['name']);
-            return view('/home');
+            return view('/home', $data);
         }
 
         return view('students/login');
