@@ -24,13 +24,36 @@
                     @csrf
                     <div class="form-group">
                         <select class="form-control" name="status" id="status">
-                            <option value="new">Nieuw</option>
-                            <option value="starred">In behandeling</option>
-                            <option value="approved">Aangenomen</option>
-                            <option value="declined">Geweigerd</option>
+                            @if($jobApplication->status == 'new')
+                                <option value="new" selected>Nieuw</option>
+                            @else
+                                <option value="new">Nieuw</option>
+                            @endif
+
+                            @if($jobApplication->status == 'starred')
+                                <option value="starred" selected>In behandeling</option>
+                            @else
+                                <option value="starred">In behandeling</option>
+                            @endif
+
+                            @if($jobApplication->status == 'approved')
+                                <option value="approved" selected>Aangenomen</option>
+                            @else
+                                <option value="approved">Aangenomen</option>
+                            @endif
+
+                            @if($jobApplication->status == 'declined')
+                                <option value="declined" selected>Geweigerd</option>
+                            @else
+                                <option value="declined">Geweigerd</option>
+                            @endif    
                         </select>
                     </div>
-                    <button class="btn btn-secondary" type="submit">Opslaan</button>
+                    @if($jobApplication->status == 'approved' || $jobApplication->status == 'declined')
+                        <button class="btn btn-secondary" type="submit" disabled>Opslaan</button>
+                    @else
+                        <button class="btn btn-secondary" type="submit">Opslaan</button>
+                    @endif
                 </form>
             </div>
         </div>
