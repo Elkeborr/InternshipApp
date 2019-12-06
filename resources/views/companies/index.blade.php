@@ -32,8 +32,7 @@ Bedrijven
 						
 						</h6>
 					</div>
-					
-				
+
             <form action=""method="post">
 			{{csrf_field()}}
 			<div id="collapse0" class="panel-collapse collapse in" >

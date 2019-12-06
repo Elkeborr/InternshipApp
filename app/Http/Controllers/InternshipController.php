@@ -25,7 +25,7 @@ class InternshipController extends Controller
 
     public function welcomeIndex()
     {
-        $data['internships'] = \App\Internship::with('jobApplications')->take(6)->get();
+        $data['internships'] = \App\Internship::with('jobApplications')->take(6)->latest()->get();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 

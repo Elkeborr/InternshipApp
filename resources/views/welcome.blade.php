@@ -25,15 +25,14 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav ml-auto">
+                    <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item cta mr-md-2"><a class="nav-link" href="#about" >Over</a></li>
                     <li class="nav-item mr-md-2"> <a class="nav-link"  href="#services">Diensten</a></li>
                     <li class="nav-item mr-md-2" id="company"><a href="{{ url('/companies/login') }}" class="nav-link">Bedrijf</a></li>
                     <li class="nav-item mr-md-2 "id="student"><a href="{{ url('/students/login') }}" class="nav-link">Student</a></li>
-                    
+                    </div>
                 </div>
-</div>
                 </div>
     </nav>
 
@@ -88,7 +87,6 @@
             <hr class="devider">
         </form>
 
-   
     @if ($flash = session('message'))
     @component('components/alert')
     @slot('type','info')
@@ -103,7 +101,7 @@
                 <a>{{ $internship->internship_function }}</a>
                 <p>{{Str::limit( $internship->internship_discription, $limit = 100, $end = ' ...')}}</p>
                 <hr class="internships__line">
-                <p>{{ $internship->available_spots }} available</p>
+                <p>{{ $internship->available_spots }} beschikbaar</p>
                 </div>
                 <button class="myBtn">details & solliciteer</button>
             </div>
@@ -169,20 +167,23 @@ var modal = document.getElementById('myModal');
 var body = document.getElementsByTagName('body');
 
 // Get the open button
-var btnOpen = document.querySelector(".myBtn");
-
+var btnOpen = document.querySelectorAll(".myBtn");
+console.log(btnOpen);
 // Get the close button
 var btnClose = document.getElementById("closeModal");
 
 // Open the modal
-btnOpen.onclick = function() {
+
+    btnOpen.onclick = function() {
     modal.className = "Modal is-visuallyHidden";
     setTimeout(function() {
       body.className = "MainContainer is-blurred";
       modal.className = "Modal";
     }, 100);
     body.className = "ModalOpen";
+
 }
+
 
 // Close the modal
 btnClose.onclick = function() {
