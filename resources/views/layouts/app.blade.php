@@ -35,15 +35,15 @@
            
                         @if($user->type == 'company')
                             <!-- <p>{{$user->name}}</p> -->
-                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
+                            <a class="nav-link nav-item {{ Request::is('home*') ? 'active' : '' }}" href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
                             
-                            <a class="nav-item  nav-link" href="{{ url('/internships/myinternships') }}">Mijn stageplaatsen</a> 
+                            <a class="nav-item nav-link {{ Request::is('internships/myinternships*') ? 'active' : '' }}" href="{{ url('/internships/myinternships') }}">Mijn stageplaatsen</a> 
                         @endif
                         @if($user->type == 'student')
                             <!-- <p>{{$user->name}}</p> -->
-                            <a class="nav-link active nav-item " href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
-                            <a class="nav-item  nav-link" href="{{ url('/internships') }}">Stageplaatsen</a>
-                            <a class="nav-item  nav-link" href="{{ url('/companies') }}">Stagebedrijven</a>  
+                            <a class="nav-link nav-item {{ Request::is('home*') ? 'active' : '' }}" href="{{ url('/home') }}">Overzicht <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link {{ Request::is('internships*') ? 'active' : '' }}" href="{{ url('/internships') }}">Stageplaatsen</a>
+                            <a class="nav-item nav-link {{ Request::is('companies*') ? 'active' : '' }}" href="{{ url('/companies') }}">Stagebedrijven</a>  
                         @endif
         
                         </div>
@@ -102,6 +102,10 @@
         <script src="{{ asset('js/search.js') }}" defer></script>
         <script src="{{ asset('js/ajax_setup.js') }}" defer></script>
     @endif
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+    </form>
 </body>
 
 </html>
