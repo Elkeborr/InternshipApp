@@ -137,6 +137,19 @@ class CompanyController extends Controller
 
     public function handlecreate(Request $request)
     {
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'bio' => 'required',
+        //     'phoneNumber' => 'required',
+        //     'email' => 'required',
+        //     'street' => 'required',
+        //     'streetNumber' => 'required',
+        //     'city' => 'required',
+        //     'state' => 'required',
+        //     'postalCode' => 'required',
+        //     'employees' => 'required|gt:0',
+        // ]);
+
         $user = session('user');
         $company = new \App\Company();
 
