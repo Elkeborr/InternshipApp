@@ -47,6 +47,12 @@ class InternshipController extends Controller
 
     public function handleCreate(Request $request)
     {
+        $this->validate($request, [
+            'internshipFunction' => 'required',
+            'discription' => 'required',
+            'spots' => 'required|gt:0',
+        ]);
+
         $user = \Auth::user();
         $internship = new \App\Internship();
 
