@@ -72,7 +72,9 @@ h3 {
     color: $orange;
     font-weight: 600;
 }
-
+.dropdown{
+    cursor: pointer;
+}
 .dropdown-menu a {
     color: $black;
     font-size: 1.3em;
