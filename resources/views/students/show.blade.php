@@ -30,6 +30,11 @@ Profiel
         <h5>Contact:</h5>
         <p>{{$user->email}}</p>
 
+        @if($user->type == 'company')
+            <h5>Bedrijfsgegevens</h5>
+            <p>{{$user->$company->phoneNumber}}</p>
+        @endif
+
     </div>
 
     <div class="col-md profile">
