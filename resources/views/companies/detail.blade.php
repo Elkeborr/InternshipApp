@@ -11,10 +11,8 @@ Bedrijfsgegevens
 @section('content')
 <div class="container">
   <!-- content -->
-
-
   <h2>Bedrijfsgegevens</h2>
-  <p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegeven te vervolledigen.
+  <p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegevens te vervolledigen.
     We hebben al enkele gegevens gevonden voor u bedrijf en hebben deze al ingevuld. U bent vrij deze te veranderen.
   </p>
   <form method="post" action="">
@@ -94,7 +92,7 @@ Bedrijfsgegevens
       <div class="col-6">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputEmployees">Werknemers</label>
+            <label for="inputEmployees">Hoeveel werknemers werken in u bedrijf</label>
             <input type="number" class="form-control" id="inputEmployees" placeholder="Werknemers" name="employees" required>
           </div>
         </div>
