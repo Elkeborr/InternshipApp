@@ -106,7 +106,7 @@ Bedrijfsgegevens
 
         <div class="form-row">
           <div class="form-group col-md-6 tags">
-            <label for="inputTags">Categorie</label> <br>
+            <label for="inputTags">Categorieën</label> <br>
             @foreach($tags?? '' as $tag)
             <input type="checkbox" name="tag[]" value="{{ $tag-> id}}"> {{ $tag-> name}}<br>
             @endforeach
