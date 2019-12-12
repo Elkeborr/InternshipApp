@@ -8,7 +8,9 @@
         <title>Sprintern - Welkom</title>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
         <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
@@ -105,23 +107,31 @@
                         <hr class="internships__line">
                         <p>{{ $internship->available_spots }} beschikbaar</p>
                     </div>
-                    <button class="myBtn">details & solliciteer</button>
+                    <!-- <button class="myBtn" type="button" class="btn btn-default btn-lg" id="myBtn" >details & solliciteer</button>-->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Details & Soliciteer
+                    </button>
                 </div>
                 @endforeach
             </div>
-            <!-- <button class="more-button" >Meer</button>-->
-
-            <div id="myModal" class="Modal is-hidden is-visuallyHidden">
-                <!-- Modal content -->
-                <div class="Modal-content">
-                    <span id="closeModal" class="Close">&times;</span>
-                    <p>Je moet ingelogd zijn om verder te kunnen. <span>Signup of login voor meer!</span></p>
-                    <div class="link">
-                        <a href="{{ url('/students/login') }}" class="student">Student</a>
+            <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Oeps...</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p> Voor meer details en soliciteren moet je een account hebben </p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ url('/students/login') }}" class="student">Login als Student</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </section>
         <!---About--->
         <section class="about" id="about">
@@ -166,48 +176,4 @@
             <p>&copy; 2019 Sprintern<p>
         </footer>
     </body>
-    <script>
-        // Get the modal
-        var modal = document.getElementById('myModal');
-
-        // Get the main container and the body
-        var body = document.getElementsByTagName('body');
-
-        // Get the open button
-        var btnOpen = document.querySelectorAll(".myBtn");
-        console.log(btnOpen);
-        // Get the close button
-        var btnClose = document.getElementById("closeModal");
-
-        // Open the modal
-
-        btnOpen.onclick = function() {
-            modal.className = "Modal is-visuallyHidden";
-            setTimeout(function() {
-                body.className = "MainContainer is-blurred";
-                modal.className = "Modal";
-            }, 100);
-            body.className = "ModalOpen";
-
-        }
-
-
-        // Close the modal
-        btnClose.onclick = function() {
-            modal.className = "Modal is-hidden is-visuallyHidden";
-            body.className = "";
-            body.className = "MainContainer";
-
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.className = "Modal is-hidden";
-                body.className = "";
-                body.className = "MainContainer";
-            }
-        }
-    </script>
-
     </html>

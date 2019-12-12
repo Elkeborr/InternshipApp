@@ -155,7 +155,7 @@ $(document).ready(function () {});
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Dem_R\Desktop\InternshipApp\resources\js\review.js */"./resources/js/review.js");
+module.exports = __webpack_require__(/*! /Users/ElkeBorreij/Documents/GitHub/InternshipApp/resources/js/review.js */"./resources/js/review.js");
 
 
 /***/ })

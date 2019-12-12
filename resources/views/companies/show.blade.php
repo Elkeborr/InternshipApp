@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="company-show container">
-    <section class="company-show_info">
+<section class="company-show_info">
         <div class="company-show_info_photo">
             <img>
         </div>
@@ -69,16 +69,13 @@
             @endforeach
         </div>
         @endif
-
     </section>
-
     <section class="company-show_reviews">
         <h2>Beoordelingen</h2>
         <button class="btn myBtn"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             Schrijf een beoordeling</button>
-
-
-        <div id="myModal" class="modal is-hidden is-visuallyHidden">
+       
+            <div id="myModal" class="modal is-hidden is-visuallyHidden">
             <div class="modal-content">
                 <span id="closeModal" class="close">&times;</span>
                 <form action="" method="post">
@@ -99,6 +96,7 @@
                 </form>
             </div>
         </div>
+
         @if($company->reviews->isEmpty())
 
         @component('components/alert')
@@ -119,11 +117,12 @@
             <div>
                 <p> <span>Beoordeling:</span><br></p>
                 <div id="stars">
-                    <span class="glyphicon glyphicon-star star star1" aria-hidden="true"></span>
+                   <!-- <span class="glyphicon glyphicon-star star star1" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-star star star2" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-star star star3" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-star star star4" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star5" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star star star5" aria-hidden="true"></span>-->
+                    <p>{{$reviews->score}}/5</p>
                     <input type="hidden" type="score" name="score" class="star-value" value="{{$reviews->score}}">
                 </div>
 
@@ -132,7 +131,77 @@
         @endforeach
         @endif
     </section>
+    
 </div>
 @endsection
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script>
+    /*  $(document).ready( function() {
+$('#stars').each(function() {
+    console.log($('#stars'));
+    var rating = $( "#stars .star-value" ).val();
+    switch(rating) {
+    case 0:
+    break;
+    case 1:
+        $(".star1").addClass("checked");
+    break;
+    case 2:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+    break;
+    case 3:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+        $(".star3").addClass("checked");
+    break;
+    case 4:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+        $(".star3").addClass("checked");
+        $(".star4").addClass("checked");
+    break;
+    case 5:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+        $(".star3").addClass("checked");
+        $(".star4").addClass("checked");
+        $(".star5").addClass("checked");
+    break;
+}
+      });
+    });
+
+
+   // var rating = {{$reviews->score}};
+  /*  switch(rating) {
+    case 0:
+    break;
+    case 1:
+        $(".star1").addClass("checked");
+    break;
+    case 2:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+    break;
+    case 3:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+        $(".star3").addClass("checked");
+    break;
+    case 4:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+        $(".star3").addClass("checked");
+        $(".star4").addClass("checked");
+    break;
+    case 5:
+        $(".star1").addClass("checked");
+        $(".star2").addClass("checked");
+        $(".star3").addClass("checked");
+        $(".star4").addClass("checked");
+        $(".star5").addClass("checked");
+    break;*/
+
+</script>
