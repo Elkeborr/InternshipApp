@@ -9781,6 +9781,27 @@ h3 {
   margin-right: 20px;
 }
 
+.back {
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.back span {
+  color: #fd4a29;
+}
+
+.back a {
+  color: #fd4a29;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back a:hover {
+  color: #4640de;
+  text-decoration: none;
+  font-weight: 800;
+}
+
 .username {
   color: #fd4a29;
   font-weight: 600;
@@ -9995,6 +10016,22 @@ h3 {
   color: #000000;
   font-family: "Comfortaa", cursive;
   margin-bottom: 10px;
+  font-weight: 700;
+  color: #4640de;
+}
+
+.companies__detail h3 {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Comfortaa", cursive;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4640de;
+}
+
+.companies__detail p {
+  margin-top: 5px;
 }
 
 .companies__detail a:hover {

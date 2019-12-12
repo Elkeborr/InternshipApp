@@ -1,7 +1,7 @@
 @extends('layouts/detail')
 
 @section('title')
-    {{$internship->company->name}}
+{{$internship->company->name}}
 @endsection
 
 @section('content')
@@ -22,21 +22,21 @@
 
     <section class="company-show_contact">
         @if($internship->available_spots > 0)
-            @if(!$jobApplications->isEmpty())
-                <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled" >Solliciteer</a>
-                <div class="alert alert-primary" role="alert">
-                    U heeft al gesolliciteerd voor deze stageplaats.
-                </div>
-            @else
-                <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary" >Solliciteer</a>
-            @endif
+        @if(!$jobApplications->isEmpty())
+        <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled">Solliciteer</a>
+        <div class="alert alert-primary" role="alert">
+            U heeft al gesolliciteerd voor deze stageplaats.
+        </div>
         @else
-            <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled" >Solliciteer</a>
-            <div class="alert alert-primary" role="alert">
-                Er zijn geen vrije plekken meer.
-            </div>
+        <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary">Solliciteer</a>
+        @endif
+        @else
+        <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled">Solliciteer</a>
+        <div class="alert alert-primary" role="alert">
+            Er zijn geen vrije plekken meer.
+        </div>
         @endif
 
     </section>
 
-@endsection
+    @endsection
