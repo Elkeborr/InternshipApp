@@ -9731,6 +9731,18 @@ h4 {
   font-family: "Comfortaa", cursive;
 }
 
+h5 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.job-application {
+  padding: 10px;
+}
+.job-application h6 {
+  font-size: 1.3em;
+}
+
 .top {
   background-color: #dcf0fb;
 }
@@ -9744,6 +9756,10 @@ footer {
   background-color: #666666;
   text-align: center;
   padding: 10px;
+}
+
+.alert {
+  margin: 10px;
 }
 
 footer p {
@@ -9761,6 +9777,13 @@ h3 {
   border: none;
 }
 
+.btn:hover {
+  font-size: 1em;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+}
+
 .form-control {
   font-size: 1em;
 }
@@ -9768,6 +9791,57 @@ h3 {
 .navbar {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.back {
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.back span {
+  color: #fd4a29;
+}
+
+.back a {
+  color: #fd4a29;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back a:hover {
+  color: #4640de;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.username {
+  color: #fd4a29;
+  font-weight: 600;
+}
+
+.dropdown {
+  cursor: pointer;
+}
+
+.dropdown-menu a {
+  color: #000000;
+  font-size: 1.3em;
+}
+
+#navbarDropdown {
+  color: #fd4a29;
+}
+
+.dropdown-item a:hover {
+  color: #4640de;
+}
+
+.dropdown-item {
+  font-weight: 400;
+}
+
+.dropdown-item:hover {
+  background-color: transparent;
 }
 
 .collapse {
@@ -9811,15 +9885,6 @@ h3 {
   border: none;
   background: #fff;
   border-radius: 5px;
-}
-
-.username p {
-  color: #fd4a29;
-  font-weight: 600;
-}
-
-.username span {
-  padding-left: 2px;
 }
 
 /*-----COMPANIES-----*/
@@ -9890,20 +9955,23 @@ h3 {
 .container_companies {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .companies_filters {
   background-color: #f6f7fb;
   margin: 0;
   padding: 30px;
-  position: -webkit-sticky;
-  position: sticky;
+  grid-row-end: span 2;
+  height: 100vh;
 }
 
-.companies_form {
-  width: 80%;
+.companies__line {
+  border-top: 1.2px solid;
+  color: #4640de;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .companies_filters h5 {
@@ -9964,6 +10032,22 @@ h3 {
   color: #000000;
   font-family: "Comfortaa", cursive;
   margin-bottom: 10px;
+  font-weight: 700;
+  color: #4640de;
+}
+
+.companies__detail h3 {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Comfortaa", cursive;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4640de;
+}
+
+.companies__detail p {
+  margin-top: 5px;
 }
 
 .companies__detail a:hover {
@@ -9983,11 +10067,6 @@ h3 {
   background-color: #fff;
   margin-bottom: 20px;
   border: none;
-}
-
-.companies__line {
-  border-top: 1.2px solid;
-  color: #4640de;
 }
 
 /*-----COMPANIES-DETAIL-----*/
@@ -10026,6 +10105,10 @@ h3 {
 
 .container-profile h5 {
   color: #4640de;
+}
+
+.card-title {
+  font-size: 1.5em;
 }
 
 .card-body.button {
@@ -10085,7 +10168,8 @@ h3 {
   right: 40px;
 }
 
-.skillsGrid, .socialGrid {
+.skillsGrid,
+.socialGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -10111,7 +10195,7 @@ h3 {
 
 .company-show_info_photo {
   padding: 5%;
-  background-color: red;
+  background-color: #dcf0fb;
 }
 
 .company-show_info_text {
@@ -10143,12 +10227,152 @@ h3 {
   background-color: #f6f7fb;
   padding: 2%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr 1fr;
   grid-template-rows: 1fr;
+  margin-top: 2%;
+}
+
+.company-show_reviews-one p {
+  width: 70%;
 }
 
 .company-show_reviews h2 {
   margin-bottom: 30px;
+}
+
+.checked {
+  color: #fd4a29;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 40px;
+  border-radius: 4px;
+  max-width: 480px;
+  height: 400px;
+}
+
+.modal-content p,
+.link {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.modal-content p {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-content p span {
+  font-weight: 900;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 40px;
+  border-radius: 4px;
+  max-width: 480px;
+  height: 400px;
+}
+
+.modal-content p,
+.link {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.modal-content p {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-content p span {
+  font-weight: 900;
+}
+
+.ModalOpen {
+  overflow: hidden;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-visuallyHidden {
+  opacity: 0;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 16px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fa-star {
+  color: #fd4a29;
+}
+
+.fa-star-o {
+  color: #666666;
+}
+
+#stars_review {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+#stars_review > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+#stars_review > span:hover:before,
+#stars_review > span:hover ~ span:before {
+  color: #fd4a29;
 }
 
 /* ------ login & register students ------- */
@@ -10170,4 +10394,62 @@ h3 {
 /* ----- internships -----  */
 .companies__detail > .btn-secondary {
   color: white !important;
+}
+
+/*---Search Dropdown---*/
+.search {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.search-bar {
+  width: 95%;
+}
+
+.search-results {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 95%;
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #afadf1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: none;
+}
+
+.search-result_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-result_list-item {
+  height: 30px;
+  margin: 20px;
+  padding: 5px;
+}
+
+.search-result_list-link {
+  min-width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: #666666;
+  display: block;
+}
+
+.search-result_list-link:hover {
+  color: #fd4a29;
+  text-decoration: none;
+}
+
+.search-result_list-link:active {
+  color: #666666;
+  text-decoration: none;
 }

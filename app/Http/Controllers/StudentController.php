@@ -23,7 +23,7 @@ class StudentController extends Controller
         $data['jobApplications'] = \App\JobApplication::where('user_id', $user)->get();
 
         return view('students/show', $data);
-    }//
+    }
 
     //op basis van id, opzoek gaan naar record
     public function edit($user)
@@ -126,6 +126,7 @@ class StudentController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+
         $user = session('user');
         $user->name = request('firstname');
         $user->lastname = request('lastname');
@@ -135,6 +136,24 @@ class StudentController extends Controller
         $user->save();
 
         return redirect()->action('StudentController@show', $user);
+    }
+
+    public function imageUploadPost()
+    {
+        request()->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('profileImages'), $imageName);
+
+        $user = session('user');
+        $user->profile_picture = $imageName;
+        $user->save();
+
+        return back()
+            ->with('success', 'You have successfully upload image.')
+            ->with('image', $imageName);
     }
 
     public function updateIntro(Request $request)
@@ -203,7 +222,7 @@ class StudentController extends Controller
         }
         $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
 
-        return view('studends/login');
+        return view('students/login');
     }
 
     public function register(Request $request)
@@ -227,6 +246,7 @@ class StudentController extends Controller
         $user->save();
         $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
+            $data['jobApplications'] = \App\JobApplication::where('user_id', \Auth::user()->id)->get();
             $request->session()->flash('username', $user->name);
             $request->session()->flash('message', 'Studentregistratie succesvol!');
             $request->session()->flash('email', $user->email);
@@ -236,7 +256,7 @@ class StudentController extends Controller
             //Put user data in session User
             $request->session()->put('user', $user);
             // dd($sessionData['name']);
-            return view('/home');
+            return view('/home', $data);
         }
 
         return view('students/login');

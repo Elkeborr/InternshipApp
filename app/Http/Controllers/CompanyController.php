@@ -80,21 +80,29 @@ class CompanyController extends Controller
 
     public function index()
     {
-        if (Auth::check()) {
-            $data['companies'] = \App\Company::get();
-            $data['tags'] = \App\CompanyTag::get();
+        $data['companies'] = \App\Company::inRandomOrder()->get();
+        $data['tags'] = \App\CompanyTag::get();
+        $data['states'] = \App\State::get();
 
-            return view('companies/index', $data);
-        }
-
-        return redirect('companies/login');
+        return view('companies/index', $data);
     }
 
-    public function show(Request $request, $company)
+    public function show($company)
     {
         if (Auth::check()) {
-            $data['company'] = \App\Company::where('id', $company)->with('reviews')->first();
             $data['internships'] = \App\Internship::where('company_id', $company)->get();
+
+            $data['company'] = \App\Company::where('id', $company)
+                ->with('reviews')
+                ->with('tags')
+                ->first();
+
+            $data['tags'] = \App\AssignCompanyTags::where('id', $company)
+                ->with('tags')->first();
+
+            $data['reviews'] = \App\Review::where('id', $company)
+                ->with('users')
+                ->first();
 
             return view('companies/show', $data);
         }
@@ -108,7 +116,7 @@ class CompanyController extends Controller
         $query = $user->name;
         $client_id = env('FOURSQUARE_CLIENT_ID');
         $secret = env('FOURSQUARE_SECRET');
-        $version = env('VERSION');
+        $version = env('FOURSQUARE_VERSION');
 
         $client = new Client([
             'client_id' => $client_id,
@@ -122,13 +130,29 @@ class CompanyController extends Controller
         $res = json_decode($response->getBody(), true);
         $data['company'] = $res['response']['venues']['0'];
         $data['user'] = $user;
-        $data['tags'] = \App\CompanyTags::get();
+        $data['tags'] = \App\CompanyTag::get();
 
         return view('companies/detail', $data);
     }
 
     public function handlecreate(Request $request)
     {
+        $res = $request->validate([
+            'name' => ['required'],
+            'bio' => ['required'],
+            'phoneNumber' => ['required'],
+            'email' => ['required'],
+            'street' => ['required'],
+            'streetNumber' => ['required'],
+            'city' => ['required'],
+            'state' => ['required'],
+            'postalCode' => ['required'],
+            'employees' => ['required', 'integer', 'gt:0'],
+        ]);
+
+        dd($res);
+        exit();
+
         $user = session('user');
         $company = new \App\Company();
 
@@ -142,18 +166,21 @@ class CompanyController extends Controller
         $company->state = $request->input('state');
         $company->postalCode = $request->input('postalCode');
         $company->employees = $request->input('employees');
-        $company->userid = $user->id;
+        $company->user_id = $user->id;
         $saved = $company->save();
 
         $tags = $request->input('tag');
         foreach ($tags as $tag) {
             $newtag = new \App\AssignCompanytags();
-            $newtag->tag_id = json_decode($tag);
-            $newtag->user_id = $user->id;
+            $newtag->company_id = $company->id;
+            $newtag->company_tag_id = json_decode($tag);
             $savedTags = $newtag->save();
         }
 
-        if ($saved && $savedTags) {
+        $company = \App\User::where('id', '=', $user->id)
+            ->update(['company_id' => $company->id]);
+
+        if ($saved && $savedTags && $company) {
             $request->session()->flash('message', 'Welkom op je startpagina');
 
             return redirect('home');

@@ -7,6 +7,14 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    //use Uuids;
+    /*
+     * Set auto-increment to false.
+     *
+     * @var bool
+     */
+    //public $incrementing = false;
+
     use Notifiable;
     /**
      * The attributes that are mass assignable.
@@ -48,4 +56,17 @@ class User extends Authenticatable
     {
         return $this->hasMany('\App\Skill');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany('\App\Review', 'user_id');
+    }
+
+    /*
+     * Display a listing of the resource.
+
+     *
+
+     * @return \Illuminate\Http\Response
+     */
 }
