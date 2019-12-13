@@ -151,6 +151,10 @@ class StudentController extends Controller
         $user->profile_picture = $imageName;
         $user->save();
 
+        $user = session('user');
+        $user->profile_picture = $imageName;
+        $user->save();
+
         return back()
             ->with('success', 'You have successfully upload image.')
             ->with('image', $imageName);

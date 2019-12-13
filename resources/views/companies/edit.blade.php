@@ -12,7 +12,7 @@ Wijzig profiel
 
 <div class="editpart">
     <br>
-    <h2>Profiel foto</h2>
+    <h2>Wijzig uw logo</h2>
     <br>
 
     <div class="panel panel-primary">
@@ -28,8 +28,8 @@ Wijzig profiel
             <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif
         </div>
-        <br>
-        Wijzig je profielfoto
+    
+        Upload hier je logo
         @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -80,25 +80,25 @@ Wijzig profiel
             @endcomponent
             @endif
 
+            <br>
+            <h2>Bedrijfsgegevens</h2>
+            <br>
+            <br>
 
-            <br>
-            <h2>Profiel gegevens</h2>
-            <br>
-            <br>
+            <label for="firstname">Bedrijfsnaam</label>
+            <input type="text" class="form-control" name="companyname" id="firstname" value="{{$company->name}}">
+             <br>
             <label for="email">E-mailadres</label>
             <input type="text" class="form-control" name="email" id="email" value="{{$company->email}}">
             <br>
             <label for="password">Wachtwoord *</label>
             <input type="password" class="form-control" name="password" id="password" value="">
             <p class="required">* verplichte velden</p>
-            <div class="form-row">
-                <div class="col">
-                    <label for="firstname">Voornaam</label>
-                    <input type="text" class="form-control" name="firstname" id="firstname" value="{{$company->name}}">
-                </div>
-
             
-            </div>
+                
+              
+
+        
 
             <br>
             <button type="submit" class="btn btn-success">Opslaan</button>

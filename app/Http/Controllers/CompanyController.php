@@ -137,7 +137,27 @@ class CompanyController extends Controller
     {
         $data['company'] = \App\Company::where('id', $company)->first();
 
-        return view('companies/edit', $data);
+        return view('./companies/edit', $data);
+    }
+
+    public function saveChanges(Request $request)
+    {
+        $validation = $request->validate([
+            'companyname' => 'required|max:200',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = session('user');
+        $user->name = request('companyname');
+        $user->email = request('email');
+        $user->password = Hash::make(request('password'));
+        $user->updated_at = date('Y-m-d h:i:s');
+        $user->save();
+
+        $data['company'] = \App\Company::where('id', $company)->first();
+
+        return view('./companies/edit', $data);
     }
 
     public function create()
