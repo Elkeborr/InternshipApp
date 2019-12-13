@@ -18,10 +18,9 @@ class StudentLoginTest extends DuskTestCase
                     ->type('email', 'elke@student.com')
                     ->type('password', 'password')
                     ->press('Login')
-                    ->assertPathIs('/home');
-
-            // ->press('.dropdown-toggle')
-                    // ->press('.dropdown-logout');
+                    ->assertPathIs('/home')
+                    ->press('.dropdown-toggle')
+                    ->press('.dropdown-logout');
         });
     }
 }
