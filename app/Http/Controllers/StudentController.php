@@ -222,7 +222,7 @@ class StudentController extends Controller
         }
         $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
 
-        return view('studends/login');
+        return view('students/login');
     }
 
     public function register(Request $request)
