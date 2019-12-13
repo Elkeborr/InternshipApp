@@ -10,7 +10,7 @@ class StudentLoginTest extends DuskTestCase
     /**
      * A Dusk test example.
      */
-    public function testExample()
+    public function testStudentLogin()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/students/login')
@@ -18,9 +18,10 @@ class StudentLoginTest extends DuskTestCase
                     ->type('email', 'elke@student.com')
                     ->type('password', 'password')
                     ->press('Login')
-                    ->assertPathIs('/home')
-                    ->press('.dropdown-toggle')
-                    ->press('.dropdown-logout');
+                    ->assertPathIs('/home');
+
+            // ->press('.dropdown-toggle')
+                    // ->press('.dropdown-logout');
         });
     }
 }

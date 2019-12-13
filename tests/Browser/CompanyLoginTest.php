@@ -10,7 +10,7 @@ class CompanyLoginTest extends DuskTestCase
     /**
      * A Dusk test example.
      */
-    public function testExample()
+    public function testCompanyLogin()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/companies/login')
