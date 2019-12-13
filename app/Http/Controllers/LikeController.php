@@ -6,24 +6,26 @@ use Illuminate\Http\Request;
 
 class likeController extends Controller
 {
-    public function handlelike(\App\Internship $internship, Request $request)
+    public function handlelike(Request $request)
     {
-        $student = \Auth::user();
+        if ($request['save']) {
+            $student = \Auth::user();
+            $internship = $request->route('internship');
 
-        $check = \App\Like::
-            where('internship_id', $internship->id)
-            ->where('user_id', $student->id)
-            ->exists();
+            $check = \App\Like::
+                    where('internship_id', $internship)
+                    ->where('user_id', $student->id)
+                    ->exists();
 
-        if ($check == null) {
-            $like = new \App\Like();
-            $like->internship_id = $internship->id;
-            $like->user_id = $student->id;
-            $like->save();
+            if ($check == null) {
+                $like = new \App\Like();
+                $like->internship_id = $internship;
+                $like->user_id = $student->id;
+                $like->status = true;
+                $like->save();
+            }
+
+            return redirect()->back();
         }
-        //$data = \App\Like::where('internship_id', '=', $internship->id)->first();
-        // $companyName = $data->name;
-        //$request->session()->flash('message', "Je hebt succesvol gesoliciteerd voor  '$internship->internship_function' bij $companyName");
-        return redirect()->back();
     }
 }

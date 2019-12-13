@@ -91,5 +91,5 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::post('/search', 'SearchController@search');
 
         /* Like */
-        Route::post('/internships/{internship}', 'LikeController@like');
+        Route::post('/internships/{internship}', 'LikeController@handlelike');
     });

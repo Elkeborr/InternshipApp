@@ -15,6 +15,7 @@ class CreateLikesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->bigInteger('internship_id');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
