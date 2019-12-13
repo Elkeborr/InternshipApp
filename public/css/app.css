@@ -9760,6 +9760,7 @@ footer {
 
 .alert {
   margin: 10px;
+  width: 500px;
 }
 
 footer p {
@@ -9775,6 +9776,7 @@ h3 {
   background-color: #4640de;
   color: #fff;
   border: none;
+  font-family: "Open Sans", sans-serif;
 }
 
 .btn:hover {
@@ -9782,6 +9784,9 @@ h3 {
   color: #fff;
   font-weight: 600;
   border: none;
+  background-color: #fd4a29;
+  text-decoration: none;
+  color: #fff;
 }
 
 .form-control {
@@ -9961,10 +9966,10 @@ h3 {
 
 .companies_filters {
   background-color: #f6f7fb;
+  background-size: 100%;
   margin: 0;
   padding: 30px;
   grid-row-end: span 2;
-  height: 100vh;
 }
 
 .companies__line {
@@ -10230,14 +10235,27 @@ h3 {
   grid-template-columns: 0.5fr 1fr 1fr;
   grid-template-rows: 1fr;
   margin-top: 2%;
+  align-content: center;
+  align-items: center;
 }
 
 .company-show_reviews-one p {
   width: 70%;
+  margin-top: 17px;
 }
 
 .company-show_reviews h2 {
   margin-bottom: 30px;
+}
+
+.profilepic-review {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
 }
 
 .checked {
@@ -10452,4 +10470,46 @@ h3 {
 .search-result_list-link:active {
   color: #666666;
   text-decoration: none;
+}
+
+.badge {
+  padding: 5px 10px;
+}
+
+.internship-show {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 20px;
+}
+
+.internship-show_info {
+  grid-column-start: 1;
+}
+
+.internship-show_info h1 {
+  margin-top: 50px;
+}
+
+.internship-show_info h3 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.internship-show_info p {
+  width: 70%;
+}
+
+.internship-show_info a {
+  color: #4640de;
+}
+
+.internship-show_info a:hover {
+  color: #fd4a29;
+  text-decoration: none;
+}
+
+.internship-show_apply .alert {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
 }
