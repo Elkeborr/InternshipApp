@@ -21,6 +21,18 @@ h4 {
     font-family: $title-font-family;
 }
 
+h5 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.job-application {
+    h6 {
+        font-size: 1.3em;
+    }
+    padding: 10px;
+}
+
 .top {
     background-color: $light-blue;
 }
