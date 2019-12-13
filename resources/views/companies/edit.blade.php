@@ -5,7 +5,7 @@ Wijzig profiel
 @endsection
 
 @section('link')
-/students/{{$user->id }}
+/companies/profile/{{$company->id }}
 @endsection
 
 @section('content')
@@ -20,11 +20,11 @@ Wijzig profiel
 
         <div class="profielfoto">
 
-            @if($user->profile_picture!=null)
-            <img src="{{asset('../profileImages').'/'.$user->profile_picture}}" alt="profile picture" class="profilepic">
+            @if($company->profile_picture!=null)
+            <img src="{{asset('../profileImages').'/'.$company->logo}}" alt="profile picture" class="profilepic">
             @endif
 
-            @if($user->profile_picture==null)
+            @if($company->profile_picture==null)
             <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif
         </div>
@@ -53,7 +53,7 @@ Wijzig profiel
 
 
 
-        <form action="/students/imageUpload/{student}" method="POST" enctype="multipart/form-data">
+        <form action="/companies/imageUpload/{company}" method="POST" enctype="multipart/form-data">
             {{method_field('put')}}
             @csrf
             <input type="file" name="image" class="form-control">
@@ -64,7 +64,7 @@ Wijzig profiel
         <br><br><br><br><br>
 
         <!-- persoonlijke gegevens --->
-        <form action="/students/update/{{$user->id}}" method="post">
+        <form action="/companies/update/{{$company->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
@@ -86,7 +86,7 @@ Wijzig profiel
             <br>
             <br>
             <label for="email">E-mailadres</label>
-            <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}">
+            <input type="text" class="form-control" name="email" id="email" value="{{$company->email}}">
             <br>
             <label for="password">Wachtwoord *</label>
             <input type="password" class="form-control" name="password" id="password" value="">
@@ -94,13 +94,10 @@ Wijzig profiel
             <div class="form-row">
                 <div class="col">
                     <label for="firstname">Voornaam</label>
-                    <input type="text" class="form-control" name="firstname" id="firstname" value="{{$user->name}}">
+                    <input type="text" class="form-control" name="firstname" id="firstname" value="{{$company->name}}">
                 </div>
 
-                <div class="col">
-                    <label for="lastname">Achternaam</label>
-                    <input type="text" class="form-control" name="lastname" id="lastname" value="{{$user->lastname}}">
-                </div>
+            
             </div>
 
             <br>

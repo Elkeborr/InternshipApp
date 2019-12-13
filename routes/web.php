@@ -39,6 +39,11 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::get('/companies', 'CompanyController@index');
         Route::post('/companies', 'FilterController@filterCompany');
         Route::get('/companies/{company}', 'CompanyController@show');
+
+        /* edit company details */
+        Route::get('/companies/profile/{company}', 'CompanyController@showProfile');
+        Route::get('/companies/{company}/edit', 'CompanyController@edit');
+
         /*----------------REVIEWS------------------------- */
         Route::post('/companies/{company}', 'ReviewController@handleCreate');
 

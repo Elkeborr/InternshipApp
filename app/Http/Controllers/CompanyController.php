@@ -110,6 +110,36 @@ class CompanyController extends Controller
         return redirect('companies/login');
     }
 
+    public function showProfile($company)
+    {
+        if (Auth::check()) {
+            $data['internships'] = \App\Internship::where('company_id', $company)->get();
+
+            $data['company'] = \App\Company::where('id', $company)
+                ->with('reviews')
+                ->with('tags')
+                ->first();
+
+            $data['tags'] = \App\AssignCompanyTags::where('id', $company)
+                ->with('tags')->first();
+
+            $data['reviews'] = \App\Review::where('id', $company)
+                ->with('users')
+                ->first();
+
+            return view('companies/showProfile', $data);
+        }
+
+        return redirect('companies/login');
+    }
+
+    public function edit($company)
+    {
+        $data['company'] = \App\Company::where('id', $company)->first();
+
+        return view('companies/edit', $data);
+    }
+
     public function create()
     {
         $user = session('user');
