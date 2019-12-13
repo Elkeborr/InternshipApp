@@ -10028,6 +10028,10 @@ h3 {
   color: #4640de;
 }
 
+.card-title {
+  font-size: 1.5em;
+}
+
 .card-body.button {
   position: relative;
   float: right;
