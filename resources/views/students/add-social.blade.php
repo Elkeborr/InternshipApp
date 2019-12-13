@@ -47,6 +47,7 @@ Wijzig profiel
             <option value="Vimeo">Vimeo</option>
             <option value="Twitter">Twitter</option>
             <option value="Youtube">Youtube</option>
+            <option value="Portfolio">Portfolio website</option>
         </select>
         <br><br>
         <input type="text" class="form-control" name="sociallink" id="sociallink" placeholder="Plak hier de link van uw social media kanaal. Deze moet beginnen met 'http://'" value="">
