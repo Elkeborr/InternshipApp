@@ -20,6 +20,7 @@ class InternshipController extends Controller
     {
         $data['internship'] = \App\Internship::where('id', $internship)->with('company')->first();
         $data['jobApplications'] = \App\JobApplication::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
+        $data['like'] = \App\Like::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
 
         return view('internships/show', $data);
     }
@@ -58,6 +59,7 @@ class InternshipController extends Controller
 
         $internship->internship_function = $request->input('internshipFunction');
         $internship->internship_discription = $request->input('discription');
+        $internship->internship_profile = $request->input('profile');
         $internship->available_spots = $request->input('spots');
         $internship->company_id = $user->company_id;
 
