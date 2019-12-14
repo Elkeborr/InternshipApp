@@ -62,20 +62,26 @@ Overzicht
 
         @if (!$jobApplications->isEmpty())
             @foreach ($jobApplications as $jobApplication)
-
-                <div class="internship" style="margin-bottom: 30px; margin-right: 10px; background: #F3F3F3; padding: 10px; box-sizing: border-box; border-radius: 10px; display: inline;">
-                    <h3 style="margin-bottom: 10px; display: inline;"><a href="/internships/{{$jobApplication['internship_id']}}">{{\App\Internship::where('id', $jobApplication['internship_id'])->first()['internship_function']}}</a></h3>
+                <?php
+                    $internship = \App\Internship::where('id', $jobApplication->internship_id)->first();
+                    $company = \App\Company::where('id', $internship->company_id)->first();
+                ?>
+                <div class="internship" style="margin-bottom: 30px; margin-right: 10px; background: #F3F3F3; padding: 20px; box-sizing: border-box; border-radius: 10px; display: inline-block;">
+                    <h3 style="margin-bottom: 10px; display: inline;"><a href="/internships/{{$jobApplication['internship_id']}}">{{\App\Internship::where('id', $jobApplication['internship_id'])->first()['internship_function']}} bij {{$company->name}}</a></h3>
 
                     @if( $jobApplication->status == 'new' )
-                        <span class="badge badge-pill badge-primary" style="padding: 5px 10px;">Nieuw</span>
+                        <span class="badge badge-pill badge-primary" style="margin-left: 10px; padding: 5px 10px;">Nieuw</span>
                     @elseif($jobApplication->status == 'starred')
-                        <span class="badge badge-pill badge-warning" style="padding: 5px 10px;">In behandeling</span>
+                        <span class="badge badge-pill badge-warning" style="margin-left: 10px; padding: 5px 10px;">In behandeling</span>
                     @elseif($jobApplication->status == 'approved')
-                        <span class="badge badge-pill badge-success" style="padding: 5px 10px;">Aangenomen</span>
+                        <span class="badge badge-pill badge-success" style="margin-left: 10px; padding: 5px 10px;">Aangenomen</span>
                     @elseif($jobApplication->status == 'declined')
-                        <span class="badge badge-pill badge-danger" style="padding: 5px 10px;">Geweigerd</span>
-                    @endif
+                        <span class="badge badge-pill badge-danger" style="margin-left: 10px; padding: 5px 10px;">Geweigerd</span>
+                    @endif<br><br>
 
+                    <p style="max-width: 1000px;">{{$internship->internship_discription}}</p>
+                    <strong>Stad: {{$company->city}}</strong><br><br>
+                    <a href="/companies/{{$company->id}}" class="btn">Ga naar bedrijf</a>
                 </div>
 
             @endforeach
