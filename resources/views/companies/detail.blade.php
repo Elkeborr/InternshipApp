@@ -12,19 +12,27 @@ Bedrijfsgegevens
 <div class="container">
   <!-- content -->
   <h2>Bedrijfsgegevens</h2>
-  <p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegevens te vervolledigen.
+  <p>Voordat u opzoek gaat naar stagiair(e)s, dient u eerst uw gegevens te vervolledigen.<br>
     We hebben al enkele gegevens gevonden voor uw bedrijf en hebben deze al ingevuld. U bent vrij deze te veranderen.
   </p>
   <form method="post" action="">
     <div class="row no-gutters">
       <div class="col-6">
-        @csrf
-        @if ($flash = session('message'))
+        
+
+        {{csrf_field()}}
+        @if( $errors->any() )
         @component('components/alert')
-        @slot('type','success')
-        {{$flash}}
+        @slot('type','danger')
+        <ul>
+            @foreach($errors->all() as $e)
+              <li>{{ $e }}</li>
+            @endforeach
+        </ul>
         @endcomponent
         @endif
+
+
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputName">Bedrijfsnaam</label>
@@ -92,7 +100,8 @@ Bedrijfsgegevens
       <div class="col-6">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputEmployees">Hoeveel werknemers werken in u bedrijf</label>
+          
+            <label for="inputEmployees">Hoeveel werknemers werken in uw bedrijf</label>
             <input type="number" class="form-control" id="inputEmployees" placeholder="Werknemers" name="employees" required>
           </div>
         </div>

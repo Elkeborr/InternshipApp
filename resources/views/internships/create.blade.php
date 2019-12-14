@@ -33,6 +33,13 @@ Nieuwe stageplaats
 
             <div class="form-row">
                 <div class="form-group col-md-5">
+                    <label for="profile">Profile</label>
+                    <textarea class="form-control" id="profile" placeholder="Profiel van u stagair" name='profile' rows="5" required></textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-5">
                     <label for="spots">Beschikbare plaatsen</label>
                     <input class="form-control spots" id="spots" placeholder="Beschikbare plaatsen (bijvoorbeeld: 1, 2, 3,...)" name="spots" type="number" required>
                 </div>

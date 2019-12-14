@@ -90,4 +90,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         /* Search */
         // Route::get('/', 'SearchController@index');
         Route::post('/search', 'SearchController@search');
+
+        /* Like */
+        Route::post('/internships/{internship}', 'LikeController@handlelike');
     });
