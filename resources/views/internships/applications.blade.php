@@ -5,7 +5,16 @@ Stageplaats
 @endsection
 
 @section('content')
+
+@if ($new ?? '' == 'new')
+    @component('components/alert')
+        @slot('type','info')
+        Er zijn nieuwe sollicitaties. <a href="/seen">Markeer ze als gezien</a>
+    @endcomponent
+@endif
+
 @foreach($internship->jobApplications as $jobApplication)
+
 <?php $applicationUser = \App\User::where('id', $jobApplication->user_id)->first(); ?>
 <div class="card" style="width: 18rem; float: left; margin: 10px;">
     <div class="card-body">
