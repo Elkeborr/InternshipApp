@@ -1,0 +1,8 @@
+[
+    {
+        "level": "SEVERE",
+        "message": "http:\/\/homestead.test\/js\/review.js 104:16 Uncaught TypeError: Cannot set property 'onclick' of null",
+        "source": "javascript",
+        "timestamp": 1576247106289
+    }
+]

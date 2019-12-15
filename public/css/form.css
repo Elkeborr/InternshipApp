@@ -9718,6 +9718,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.validation {
+  overflow: hidden;
+}
+
 .logo {
   margin-left: 40px;
   margin-top: 40px;

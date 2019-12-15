@@ -18,7 +18,7 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="validation">
       
             @yield('content')
      
