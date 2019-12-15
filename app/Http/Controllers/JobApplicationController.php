@@ -38,6 +38,14 @@ class jobApplicationController extends Controller
     public function applications($internship)
     {
         $data['internship'] = \App\Internship::where('id', $internship)->first();
+        $internships = \App\Internship::where('id', $internship)->first();
+        $jobApplications = $internships->jobApplications;
+
+        foreach ($jobApplications as $jobApplication) {
+            if ($jobApplication->status == 'new') {
+                $data['new'] = true;
+            }
+        }
 
         return view('internships/applications', $data);
     }
@@ -51,6 +59,23 @@ class jobApplicationController extends Controller
         if ($request->status == 'approved') {
             $spots = \App\Internship::where('id', $id);
             $spots->decrement('available_spots');
+        }
+
+        return redirect()->back();
+    }
+
+    public function seen()
+    {
+        $user = \Auth::user();
+        $internships = \App\Internship::where('company_id', $user->company_id)->get();
+
+        foreach ($internships as $internship) {
+            foreach ($internship->jobApplications as $jobApplication) {
+                if ($jobApplication->status == 'new') {
+                    $jobApplication->status = 'starred';
+                    $jobApplication->save();
+                }
+            }
         }
 
         return redirect()->back();

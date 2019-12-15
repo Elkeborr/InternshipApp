@@ -82,6 +82,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         /* Company internships & applies */
         Route::get('/companies/myinternships/{internship}/applications', 'JobApplicationController@applications');
         Route::post('/{id}/save', 'JobApplicationController@save');
+        Route::get('/seen', 'JobApplicationController@seen');
         /* Facebook login */
         Route::get('/redirect', 'SocialAuthFacebookController@redirect');
         Route::get('/callback', 'SocialAuthFacebookController@callback');
