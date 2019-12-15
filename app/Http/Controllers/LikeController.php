@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Redirect;
 
 class likeController extends Controller
 {
-    public function handlelike(Request $request)
+    public function handleLike(Request $request)
     {
         if ($request['save']) {
             $student = \Auth::user();
@@ -24,6 +25,21 @@ class likeController extends Controller
                 $like->status = true;
                 $like->save();
             }
+
+            return redirect()->back();
+        }
+    }
+
+    public function deleteLike(Request $request)
+    {
+        if ($request['delete']) {
+            $student = \Auth::user();
+            $internship_id = $request->input('id');
+            $like = \App\Like::where('user_id', $student->id)
+                ->where('internship_id', $internship_id)->first();
+
+            $like->status = false;
+            $like->save();
 
             return redirect()->back();
         }
