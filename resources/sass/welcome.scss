@@ -124,9 +124,11 @@ footer {
     color: $white;
     background-color: $orange;
     text-decoration: none;
+    border: $orange 3px solid;
 }
 
 .links .company:hover {
+    border: $blue 3px solid;
     color: $white;
     background-color: $blue;
     text-decoration: none;
@@ -137,92 +139,25 @@ footer {
     font-size: 1.5em;
 }
 
-.Modal {
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    padding-top: 100px;
-    background-color: rgba(0, 0, 0, 0.4);
-    -webkit-transition: 0.5s;
-    overflow: auto;
-    transition: all 0.3s linear;
+/*Modal*/
+.modal-footer a {
+    color: $blue;
+    text-decoration: none;
 }
 
-.Modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 40px;
-    border-radius: 4px;
-    max-width: 480px;
-    height: 200px;
-}
-
-.link a {
-    border: 3px solid;
-    border-radius: 10px;
-    padding: 10px 55px;
-    font-weight: bold;
+.modal-footer a:hover {
     color: $orange;
-}
-
-.link a:hover {
-    color: $white;
-    background-color: $orange;
-    text-decoration: none;
-}
-
-.Modal-content p,
-.link {
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-}
-.Modal-content p {
-    width: 60%;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.Modal-content p span {
-    font-weight: 900;
-}
-
-.ModalOpen {
-    overflow: hidden;
-}
-
-.is-hidden {
-    display: none;
-}
-
-.is-visuallyHidden {
-    opacity: 0;
-}
-
-.Close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 16px;
-}
-
-.Close:hover,
-.Close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+    font-weight: 700;
 }
 
 /*Internships*/
 .internships form {
     margin-bottom: 5%;
 }
-.dropdowns button {
+.browser-default {
     text-align: left;
     background-color: $light-grey;
+    border: none;
 }
 
 .dropdowns .details-button {
@@ -237,9 +172,6 @@ footer {
     text-align: center;
 }
 
-.dropdowns .dropdown-item {
-    background-color: $white;
-}
 .more-button {
     margin: 0 auto;
     display: block;
@@ -258,7 +190,9 @@ footer {
 }
 .internships__detail {
     background-color: $light-grey;
+    border-radius: $border-radius;
 }
+
 .internships_detail-padding {
     padding: 10%;
 }
@@ -266,7 +200,7 @@ footer {
     text-decoration: none;
     color: $black;
     font-family: $title-font-family;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 .internships__detail a:hover {
     text-decoration: underline $orange;

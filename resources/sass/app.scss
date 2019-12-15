@@ -21,6 +21,18 @@ h4 {
     font-family: $title-font-family;
 }
 
+h5 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.job-application {
+    h6 {
+        font-size: 1.3em;
+    }
+    padding: 10px;
+}
+
 .top {
     background-color: $light-blue;
 }
@@ -35,6 +47,11 @@ footer {
     padding: 10px;
 }
 
+.alert {
+    margin: 10px;
+    width: 500px;
+}
+
 footer p {
     color: $light-grey;
 }
@@ -47,6 +64,17 @@ h3 {
     background-color: $blue;
     color: $white;
     border: none;
+    font-family: $text-font-family;
+}
+
+.btn:hover {
+    font-size: 1em;
+    color: $white;
+    font-weight: 600;
+    border: none;
+    background-color: $orange;
+    text-decoration: none;
+    color: $white;
 }
 
 .form-control {
@@ -56,6 +84,53 @@ h3 {
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.back {
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.back span {
+    color: $orange;
+}
+
+.back a {
+    color: $orange;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back a:hover {
+    color: $blue;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.username {
+    color: $orange;
+    font-weight: 600;
+}
+.dropdown {
+    cursor: pointer;
+}
+.dropdown-menu a {
+    color: $black;
+    font-size: 1.3em;
+}
+#navbarDropdown {
+    color: $orange;
+}
+.dropdown-item a:hover {
+    color: $blue;
+}
+
+.dropdown-item {
+    font-weight: 400;
+}
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
 .collapse {
     width: 100%;
 }
@@ -94,14 +169,6 @@ h3 {
     border: none;
     background: $white;
     border-radius: $border-radius;
-}
-
-.username p {
-    color: $orange;
-    font-weight: 600;
-}
-.username span {
-    padding-left: 2px;
 }
 
 /*-----COMPANIES-----*/
@@ -174,18 +241,22 @@ h3 {
 .container_companies {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100vw;
     height: 100vh;
-    overflow: hidden;
 }
 .companies_filters {
     background-color: $light-grey;
+    background-size: 100%;
     margin: 0;
     padding: 30px;
-    position: sticky;
+    grid-row-end: span 2;
 }
 
-.companies_form {
-    width: 80%;
+.companies__line {
+    border-top: 1.2px solid;
+    color: $blue;
+    margin: 0;
+    margin-bottom: 10px;
 }
 .companies_filters h5 {
     color: $blue;
@@ -243,6 +314,22 @@ h3 {
     color: $black;
     font-family: $title-font-family;
     margin-bottom: 10px;
+    font-weight: 700;
+    color: $blue;
+}
+
+.companies__detail h3 {
+    text-decoration: none;
+    color: $black;
+    font-family: $title-font-family;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $blue;
+}
+
+.companies__detail p {
+    margin-top: 5px;
 }
 .companies__detail a:hover {
     text-decoration: underline $orange;
@@ -259,10 +346,6 @@ h3 {
     background-color: $white;
     margin-bottom: 20px;
     border: none;
-}
-.companies__line {
-    border-top: 1.2px solid;
-    color: $blue;
 }
 
 /*-----COMPANIES-DETAIL-----*/
@@ -303,6 +386,10 @@ h3 {
     color: $blue;
 }
 
+.card-title {
+    font-size: 1.5em;
+}
+
 .card-body.button {
     position: relative;
     float: right;
@@ -340,7 +427,6 @@ h3 {
     width: 25px;
 }
 
-
 .profileCard {
     position: relative;
 }
@@ -359,17 +445,18 @@ h3 {
     right: 40px;
 }
 
-.skillsGrid, .socialGrid{
-    display:grid;
+.skillsGrid,
+.socialGrid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
-.socialGrid{
+.socialGrid {
     grid-template-columns: repeat(4, 1fr);
     row-gap: 40px;
 }
 
-.pSkills{
+.pSkills {
     max-width: 1fr;
     grid-column: 1fr;
     padding: 5px;
@@ -386,7 +473,7 @@ h3 {
 
 .company-show_info_photo {
     padding: 5%;
-    background-color: red;
+    background-color: $light-blue;
 }
 
 .company-show_info_text {
@@ -413,35 +500,336 @@ h3 {
     background-color: $light-grey;
     padding: 2%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 1fr 1fr;
     grid-template-rows: 1fr;
+    margin-top: 2%;
+    align-content: center;
+    align-items: center;
 }
-
+.company-show_reviews-one p {
+    width: 70%;
+    margin-top: 17px;
+}
 .company-show_reviews h2 {
     margin-bottom: 30px;
 }
 
-
-/* ------ login & register students ------- */
-
-.grid-buttons{
-    display:grid;
-    grid-template-columns: 1fr 2fr
+.profilepic-review {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+}
+.checked {
+    color: $orange;
 }
 
-.grid-button{
+.modal {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: 0.5s;
+    overflow: auto;
+    transition: all 0.3s linear;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 40px;
+    border-radius: 4px;
+    max-width: 480px;
+    height: 400px;
+}
+
+.modal-content p,
+.link {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+.modal-content p {
+    width: 60%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-content p span {
+    font-weight: 900;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: 0.5s;
+    overflow: auto;
+    transition: all 0.3s linear;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 40px;
+    border-radius: 4px;
+    max-width: 480px;
+    height: 400px;
+}
+
+.modal-content p,
+.link {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+.modal-content p {
+    width: 60%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-content p span {
+    font-weight: 900;
+}
+
+.ModalOpen {
+    overflow: hidden;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.is-visuallyHidden {
+    opacity: 0;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 16px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.fa-star {
+    color: $orange;
+}
+
+.fa-star-o {
+    color: $dark-grey;
+}
+
+#stars_review {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+#stars_review > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+#stars_review > span:hover:before,
+#stars_review > span:hover ~ span:before {
+    color: $orange;
+}
+/* ------ login & register students ------- */
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.grid-button {
     grid-column: 1fr;
 }
 
-.grid-button:nth-of-type(2){
+.grid-button:nth-of-type(2) {
     grid-column: 2fr;
     padding: 18px;
     padding-left: 0px;
 }
 
-
 /* ----- internships -----  */
 
-.companies__detail>.btn-secondary{
- color:white !important;
+.companies__detail > .btn-secondary {
+    color: white !important;
+}
+/*---Search Dropdown---*/
+.search {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.search-bar {
+    width: 95%;
+}
+.search-results {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    top: 95%;
+    left: 0;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid $border-dropdown;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    display: none;
+}
+.search-result_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.search-result_list-item {
+    height: 30px;
+    margin: 20px;
+    padding: 5px;
+}
+.search-result_list-link {
+    min-width: 100%;
+    height: 100%;
+    font-size: 16px;
+    color: $dark-grey;
+    display: block;
+}
+.search-result_list-link:hover {
+    color: $orange;
+    text-decoration: none;
+}
+.search-result_list-link:active {
+    color: $dark-grey;
+    text-decoration: none;
+}
+
+.badge {
+    padding: 5px 10px;
+}
+
+.internship-show_info {
+    grid-column-start: 1;
+}
+
+.internship-show_info h1 {
+    margin-top: 50px;
+}
+
+.internship-show_info h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.internship-show_info p {
+    width: 50%;
+}
+
+.internship-show_info a {
+    color: $blue;
+}
+
+.internship-show_apply .alert {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+}
+.internship-show_apply a {
+    float: left;
+    margin-right: 20px;
+    color: $white;
+}
+
+.orange {
+    background-color: $orange;
+    color: $white !important;
+}
+
+.internship-show_apply button:hover {
+    background-color: $blue;
+}
+
+.splash {
+    align-self: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.splash button {
+    margin-bottom: 20px;
+}
+
+.internship {
+    margin-bottom: 30px;
+    margin-right: 10px;
+    background: $light-grey;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.internship h3 a,
+.likes h3 a {
+    display: inline;
+    color: $blue !important;
+}
+
+.internship h3,
+.likes h3 {
+    margin-bottom: 20px;
+}
+
+.badge-primary,
+.badge-warning,
+.badge-success,
+.badge-danger {
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+
+.likes {
+    margin-bottom: 30px;
+    margin-right: 10px;
+    background: $light-grey;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: inline-block;
+    width: 40%;
+}
+.likes p {
+    width: 75%;
+}
+
+.btn-like {
+    float: left;
+    margin-right: 20px;
 }

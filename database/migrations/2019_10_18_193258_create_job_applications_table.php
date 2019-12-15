@@ -8,15 +8,14 @@ class CreateJobApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
         Schema::create('job_applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->integer('internship_id');
+            //$table->uuid('uuid');
+            $table->bigInteger('user_id');
+            $table->bigInteger('internship_id');
             $table->string('status');
             $table->timestamps();
         });
@@ -24,8 +23,6 @@ class CreateJobApplicationsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

@@ -6,6 +6,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Company extends Authenticatable
 {
+    //use Uuids;
+    /**
+     * Set auto-increment to false.
+     *
+     * //@var bool
+     */
+    //public $incrementing = false;
+
     public function reviews()
     {
         return $this->hasMany('\App\Review');
