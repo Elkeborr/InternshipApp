@@ -33,14 +33,15 @@
     font-family: $title-font-family;
 }
 
-h2 span {
-    color: $orange;
+.left h2 {
+    width: 90%;
+    padding-top: 35%;
+    margin-left: 10%;
+    font-size: 60px;
 }
 
-.left h2 {
-    padding-top: 35%;
-    padding-left: 10%;
-    font-size: 80px;
+h2 span {
+    color: $orange;
 }
 
 //form
