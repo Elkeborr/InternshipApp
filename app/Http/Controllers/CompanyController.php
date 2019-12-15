@@ -57,8 +57,6 @@ class CompanyController extends Controller
         $credentials = $request->only(['email', 'password']);
         $request->flash();
         if (Auth::attempt($credentials)) {
-            $request->session()->flash('message', 'Login successvol!');
-
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();

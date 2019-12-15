@@ -57,6 +57,7 @@ class FilterController extends Controller
 
     public function filterWelcome(Request $request)
     {
+        $request->flash();
         /*---Internships filters---*/
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
