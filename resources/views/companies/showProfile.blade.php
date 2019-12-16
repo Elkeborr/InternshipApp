@@ -32,9 +32,6 @@
         </div>
         <div class="company-show_info_text">
         
-
-
-        
             <h1>{{$company->name}}</h1>
             <p>{{$company->bio}}</p>
             <p>Werknemers: {{$company->employees}}</p>

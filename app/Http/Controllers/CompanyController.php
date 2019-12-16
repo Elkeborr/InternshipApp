@@ -145,16 +145,32 @@ class CompanyController extends Controller
         $validation = $request->validate([
             'companyname' => 'required|max:200',
             'email' => 'required',
+            'tel' => 'required',
+            'employees' => 'integer',
+            'biography' => 'required',
+            'street' => 'required',
+            'nr' => 'required',
+            'gemeente' => 'required',
+            'postcode' => 'required',
         ]);
 
-        $company = session('user');
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+
         $company->name = request('companyname');
         $company->email = request('email');
+        $company->tel = request('tel');
+        $company->employees = request('employees');
+        $company->biography = request('biography');
+        $company->street = request('street');
+        $company->streetNumber = request('nr');
+        $company->city = request('gemeente');
+        $company->postalCode = request('postcode');
         //$user->password = Hash::make(request('password'));
         $company->updated_at = date('Y-m-d h:i:s');
         $company->save();
 
-        $data['company'] = \App\Company::where('id', $company)->first();
+        $data['company'] = \App\Company::where('id', $user->company_id)->first();
 
         return view('companies/showProfile', $data);
     }
@@ -201,6 +217,24 @@ class CompanyController extends Controller
         $data['tags'] = \App\CompanyTag::get();
 
         return view('companies/detail', $data);
+    }
+
+    public function editTags(Request $request)
+    {
+        $validation = $request->validate([
+            'tag' => 'required',
+        ]);
+
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+
+        $data['company'] = \App\Company::where('id', $company)->first();
+
+        $tag = \App\CompanyTag::where('id', request('tagId'))->first();
+        $tag->name = request('tag');
+        $tag->save();
+
+        return view('companies/edit', $data);
     }
 
     public function handlecreate(Request $request)
