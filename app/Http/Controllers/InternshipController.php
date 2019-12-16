@@ -9,7 +9,7 @@ class InternshipController extends Controller
 {
     public function index()
     {
-        $data['internships'] = \App\Internship::with('jobApplications')->inRandomOrder()->get();
+        $data['internships'] = \App\Internship::with('jobApplications')->orderBy('created_at', 'DESC')->get();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 

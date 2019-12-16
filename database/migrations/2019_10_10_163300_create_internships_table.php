@@ -16,7 +16,12 @@ class CreateInternshipsTable extends Migration
             $table->string('internship_function')->nullable();
             $table->text('internship_discription')->nullable();
             $table->text('internship_profile');
+            $table->string('education_level');
+            $table->text('languages')->nullable();
+            $table->boolean('drivers_license');
             $table->integer('available_spots');
+            $table->text('remarks');
+            $table->boolean('paid');
             $table->bigInteger('company_id');
             $table->timestamps();
         });

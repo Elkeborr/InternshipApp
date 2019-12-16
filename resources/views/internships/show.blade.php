@@ -12,7 +12,6 @@
 <div class="internship-show container">
     <section class="internship-show_info">
         <h1>{{ $internship->internship_function }} bij <a href="/companies/{{$internship->company->id}}">{{$internship->company->name}}</a></h1>
-
         <section class="internship-show_apply">
             @if($internship->available_spots > 0)
             @if(!$jobApplications->isEmpty())
@@ -50,10 +49,19 @@
 
         <h3>Beschrijving</h3>
         <p>{{ $internship->internship_discription }}</p>
-        <p>Stad: {{ $internship->company->city }}</p>
-        <p>Beschikbaarheden: {{ $internship->available_spots }}</p>
+        <p>{{ $internship->company->city }}</p>
         <h3>Profiel</h3>
         <p>{{ $internship->internship_profile}}</p>
+        <h3>Specificaties</h3>
+      <ul>
+          <li>Onderwijs niveau: {{ $internship->education_level}} </li>
+          <li>Talen: {{ $internship->languages}} </li>
+          <li>Rijbewijs: @if($internship->drivers_license === 1) ja @else neen @endif</li>
+          <li>Betaald: @if($internship->paid === 1) ja @else neen @endif</li>
+          <li>Beschikbaarheden: {{ $internship->available_spots }}</li>
+      </ul>
+      <h3>Opmerkingen</h3>
+      <p>{{$internship->remarks}}</p>
     </section>
 
 
