@@ -9718,6 +9718,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.validation {
+  overflow: hidden;
+}
+
 .logo {
   margin-left: 40px;
   margin-top: 40px;
@@ -9735,14 +9739,15 @@ h3 {
   font-family: "Comfortaa", cursive;
 }
 
-h2 span {
-  color: #fd4a29;
+.left h2 {
+  width: 90%;
+  padding-top: 35%;
+  margin-left: 10%;
+  font-size: 60px;
 }
 
-.left h2 {
-  padding-top: 35%;
-  padding-left: 10%;
-  font-size: 80px;
+h2 span {
+  color: #fd4a29;
 }
 
 .form {

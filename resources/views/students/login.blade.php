@@ -10,7 +10,7 @@ Inloggen
         <div class="logo">
             <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo"></a>
         </div>
-        <h2>Opzoek naar een<br><span>stageplaats?</span></h2>
+        <h2>Op zoek naar <br><span>een stageplaats?</span></h2>
     </div>
 
     <div class="col wrap-form">
