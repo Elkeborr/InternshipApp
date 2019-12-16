@@ -71,10 +71,19 @@ Nieuwe stageplaats
                         </div>
                     </div>
                     <div class="form-row">
-                        <ul class="tagList">
-                            <li>Test</li>
-                            <li>Test</li>
-                            <li>Test</li>
+                        <ul class="tag-list">
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Tester in de breedte</li>
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Tester in de breedte</li>
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Tester in de breedte</li>
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Test</li>
+                            <li class="tag-item">Tester in de breedte</li>
                         </ul>
                     </div>
                     <div class="form-row">

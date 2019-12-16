@@ -14,7 +14,7 @@ $(function(){ // Start this function when DOM is ready
         let tagFieldValue = $('.tag').val();
 
         if(tagFieldValue != ''){
-            let tagList = $('.tagList');
+            let tagList = $('.tag-list');
             let listItem = $('<li />',{
                 text: tagFieldValue
             });
