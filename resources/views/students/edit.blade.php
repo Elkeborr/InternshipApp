@@ -20,11 +20,11 @@ Wijzig profiel
 
         <div class="profielfoto">
 
-            @if($user->profile_picture!=null)
+            @if($user->profile_picture != null)
             <img src="{{asset('../profileImages').'/'.$user->profile_picture}}" alt="profile picture" class="profilepic">
             @endif
 
-            @if($user->profile_picture==null)
+            @if($user->profile_picture == null)
             <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif
         </div>

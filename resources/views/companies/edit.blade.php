@@ -5,7 +5,7 @@ Wijzig profiel
 @endsection
 
 @section('link')
-/companies/profile/{{$company->id }}
+/companies/profile/{$company }
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@ Wijzig profiel
 
         <div class="profielfoto">
 
-            @if($company->logo !=null)
+            @if($company->logo)
                 <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
             @endif
 
@@ -151,7 +151,7 @@ Wijzig profiel
 
                 <div class="col">
 
-                    <button type="submit" class="btn btn-success" formaction="/companies/editTags/{$company->id}">Opslaan</button>
+                    <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
                     <button type="submit" class="btn btn-danger" formaction="/students/deleteSkills/{company}">Verwijder</button>
                 </div>
             </div>

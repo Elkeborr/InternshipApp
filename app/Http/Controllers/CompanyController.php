@@ -228,7 +228,7 @@ class CompanyController extends Controller
         $user = session('user');
         $company = \App\Company::where('id', $user->company_id)->first();
 
-        $data['company'] = \App\Company::where('id', $company)->first();
+        $data['company'] = \App\Company::where('id', $user->company_id)->first();
 
         $tag = \App\CompanyTag::where('id', request('tagId'))->first();
         $tag->name = request('tag');
