@@ -91,7 +91,10 @@ Bedrijven
 			<a href="/companies/{{$company->id}}">{{ $company-> name}}</a>
 			<p>{{Str::limit( $company-> bio, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
-			<p>{{ $company-> city}}</p>
+			<div class="small-info">
+				<p>{{$company-> city}}</p>
+			</div>
+			
 		</div>
 		@endforeach
 	</div>

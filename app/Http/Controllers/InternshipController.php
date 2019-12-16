@@ -61,6 +61,11 @@ class InternshipController extends Controller
         $internship->internship_discription = $request->input('discription');
         $internship->internship_profile = $request->input('profile');
         $internship->available_spots = $request->input('spots');
+        $internship->education_level = $request->input('education');
+        $internship->languages = $request->input('languages');
+        $internship->drivers_license = $request->input('driver_license');
+        $internship->remarks = $request->input('remarks');
+        $internship->paid = $request->input('paid');
         $internship->company_id = $user->company_id;
 
         $internship->save();

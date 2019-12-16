@@ -90,7 +90,10 @@ Stageplaatsen
 			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
 			<p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
+			<div class="small-info">
+			<p>{{ $internship->company->city }}</p>
 			<p>{{ $internship->available_spots }} beschikbaar</p>
+</div>
 			<a href="/internships/{{ $internship->id }}" class="btn btn-secondary">Bekijk vacature</a>
 
 		</div>
@@ -106,7 +109,10 @@ Stageplaatsen
 			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function}}</a>
 			<p>{{ $internship->internship_discription }}</p>
 			<hr class="companies__line">
+		
 			<p>{{ $internship->available_spots }} beschikbaar</p>
+		
+		
 		</div>
 		@endforeach
 	</div>

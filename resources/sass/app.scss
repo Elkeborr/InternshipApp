@@ -26,6 +26,9 @@ h5 {
     margin-bottom: 10px;
 }
 
+a {
+    color: $blue;
+}
 .job-application {
     h6 {
         font-size: 1.3em;
@@ -786,6 +789,16 @@ h3 {
     margin-bottom: 20px;
 }
 
+.splash-application {
+    align-self: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+.splash-application img {
+    width: 30%;
+}
 .internship {
     margin-bottom: 30px;
     margin-right: 10px;
@@ -844,9 +857,13 @@ h3 {
     display: inline-block;
 }
 
+.internship a {
+    color: $blue;
+}
 .intern a {
     display: inline-block;
     margin-right: 10px;
+    color: $blue;
 }
 .intern span {
     width: 20px;
@@ -874,4 +891,13 @@ h3 {
 .empty-state-container h4 {
     font-size: 1em;
     margin-bottom: 40px;
+}
+
+.small-info p {
+    font-weight: 700;
+    float: left;
+}
+
+.small-info p:last-child {
+    float: right;
 }

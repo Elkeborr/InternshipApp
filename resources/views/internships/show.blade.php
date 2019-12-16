@@ -4,14 +4,21 @@
 {{$internship->company->name}}
 @endsection
 
+@if (\Auth::user()->type == 'student')
 @section('link')
 {{ url('/internships') }}
 @endsection
+@elseif (\Auth::user()->type == 'company')
+@section('link')
+{{ url('/internships/myinternships') }}
+@endsection
+@endif
 
 @section('content')
 <div class="internship-show container">
     <section class="internship-show_info">
         <h1>{{ $internship->internship_function }} bij <a href="/companies/{{$internship->company->id}}">{{$internship->company->name}}</a></h1>
+        @if (\Auth::user()->type == 'student')
         <section class="internship-show_apply">
             @if($internship->available_spots > 0)
             @if(!$jobApplications->isEmpty())
@@ -46,7 +53,13 @@
             @endif
 
         </section>
-
+        @elseif (\Auth::user()->type == 'company')
+        <form action="" method="POST">
+                {{csrf_field()}}
+                <button class="btn btn-secondary" name="edit" value="edit" type="submit">
+                    Pas aan</button>
+            </form>
+        @endif
         <h3>Beschrijving</h3>
         <p>{{ $internship->internship_discription }}</p>
         <p>{{ $internship->company->city }}</p>
@@ -60,8 +73,13 @@
           <li>Betaald: @if($internship->paid === 1) ja @else neen @endif</li>
           <li>Beschikbaarheden: {{ $internship->available_spots }}</li>
       </ul>
+  
       <h3>Opmerkingen</h3>
+      @if(!$internship->remarks == '')
       <p>{{$internship->remarks}}</p>
+      @else
+      <p>Geen opmerkingen</p>
+      @endif
     </section>
 
 

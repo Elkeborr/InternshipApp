@@ -19,7 +19,7 @@ Overzicht
         @if (!$internship['jobApplications']->isEmpty())
         @foreach ($internship['jobApplications'] as $jobApplication)
         <div class="intern">
-            <a  class="job-applicant-name-link" href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}">
+            <a class="job-applicant-name-link" href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}">
                 @if(\Auth::user()::where('id', $jobApplication['user_id'])->first()->profile_picture!=null)
                 <img src="../profileImages/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->profile_picture}}" alt="profile picture" class="profilepic" style="width: 50px; height: auto; padding: 0;">
                 @else
