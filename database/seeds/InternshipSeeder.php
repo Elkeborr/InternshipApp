@@ -20,6 +20,7 @@ class InternshipSeeder extends Seeder
         $internship->available_spots = '2';
         $internship->remarks = "We lezen graag motivatie briefen en cv's goed door dus geef ons de tijd deze te verwerken";
         $internship->paid = false;
+        $internship->status = true;
         $internship->company_id = '2';
         $internship->save();
 
@@ -34,6 +35,7 @@ class InternshipSeeder extends Seeder
         $internship2->available_spots = '1';
         $internship2->remarks = 'Geen opmerkingen';
         $internship2->paid = false;
+        $internship2->status = true;
         $internship2->company_id = '1';
         $internship2->save();
 
@@ -48,6 +50,7 @@ class InternshipSeeder extends Seeder
         $internship3->available_spots = '2';
         $internship3->remarks = 'Portfolio is verplicht';
         $internship3->paid = false;
+        $internship3->status = true;
         $internship3->company_id = '5';
         $internship3->save();
 
@@ -62,6 +65,7 @@ class InternshipSeeder extends Seeder
         $internship4->available_spots = '1';
         $internship4->remarks = 'Wil je meer informatie, stel al je vragen via hello@duvalbranding.com';
         $internship4->paid = false;
+        $internship4->status = true;
         $internship4->company_id = '3';
 
         $internship4->save();
@@ -76,6 +80,7 @@ class InternshipSeeder extends Seeder
         $internship5->available_spots = '2';
         $internship5->remarks = 'Geen opmerkingen';
         $internship5->paid = true;
+        $internship5->status = true;
         $internship5->company_id = '1';
         $internship5->save();
 
@@ -89,6 +94,7 @@ class InternshipSeeder extends Seeder
         $internship6->available_spots = '1';
         $internship6->remarks = 'Geen opmerkingen';
         $internship6->paid = true;
+        $internship6->status = true;
         $internship6->company_id = '2';
         $internship6->save();
 
@@ -104,6 +110,7 @@ class InternshipSeeder extends Seeder
         $internship7->available_spots = '1';
         $internship7->remarks = 'Als onze fotografe zal je geregeld op verplaatsing werken, u kilometers worden vergoed.';
         $internship7->paid = true;
+        $internship7->status = true;
         $internship7->company_id = '4';
         $internship7->save();
 
@@ -117,6 +124,7 @@ class InternshipSeeder extends Seeder
         $internship8->available_spots = '1';
         $internship8->remarks = 'Onze koffie is de beste';
         $internship8->paid = false;
+        $internship8->status = true;
         $internship8->company_id = '6';
         $internship8->save();
 

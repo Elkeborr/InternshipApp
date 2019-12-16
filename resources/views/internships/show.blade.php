@@ -17,7 +17,7 @@
 @section('content')
 <div class="internship-show container">
     <section class="internship-show_info">
-        <h1>{{ $internship->internship_function }} bij <a href="/companies/{{$internship->company->id}}">{{$internship->company->name}}</a></h1>
+        <h1>{{ $internship->internship_function }} bij <a class="company-name"href="/companies/{{$internship->company->id}}">{{$internship->company->name}}</a></h1>
         @if (\Auth::user()->type == 'student')
         <section class="internship-show_apply">
             @if($internship->available_spots > 0)
@@ -52,13 +52,16 @@
             </form>
             @endif
 
-        </section>
+            </section>
         @elseif (\Auth::user()->type == 'company')
-        <form action="" method="POST">
-                {{csrf_field()}}
-                <button class="btn btn-secondary" name="edit" value="edit" type="submit">
-                    Pas aan</button>
+        <section class="internship-show_apply">
+        <a href="/internships/{{$internship->id }}/editMyInternship" class="btn btn-secondary">Pas aan</a>
+            <form action="" method="POST">
+            {{method_field('put')}}
+            {{csrf_field()}}
+                <button class="btn btn-secondary orange" name="delete" value="delete" type="submit">Verwijder</button>
             </form>
+            </section>
         @endif
         <h3>Beschrijving</h3>
         <p>{{ $internship->internship_discription }}</p>

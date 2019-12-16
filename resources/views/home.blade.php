@@ -112,12 +112,6 @@ Overzicht
     @endif
     @endif
 
-
-
 </div>
-
-
-
-
 
 @endsection

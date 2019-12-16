@@ -22,6 +22,7 @@ class CreateInternshipsTable extends Migration
             $table->integer('available_spots');
             $table->text('remarks');
             $table->boolean('paid');
+            $table->boolean('status');
             $table->bigInteger('company_id');
             $table->timestamps();
         });
