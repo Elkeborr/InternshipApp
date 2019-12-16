@@ -107,6 +107,19 @@ class InternshipSeeder extends Seeder
         $internship7->company_id = '4';
         $internship7->save();
 
+        $internship8 = new \App\Internship();
+        $internship8->internship_function = 'ASP.NET developer';
+        $internship8->internship_discription = 'Op zoek naar een gedreven asp.netter die de kneepjes van het vak wil leren bij ons in het bedrijf. ';
+        $internship8->internship_profile = 'We zoeken een enthousiaste persoon die oplossingsgericht werkt.';
+        $internship8->education_level = 'Hoger Onderwijs';
+        $internship8->languages = 'Nederlands en Engels';
+        $internship8->drivers_license = false;
+        $internship8->available_spots = '1';
+        $internship8->remarks = 'Onze koffie is de beste';
+        $internship8->paid = false;
+        $internship8->company_id = '6';
+        $internship8->save();
+
         // factory(\App\Internship::class, 50)->create();
     }
 }
