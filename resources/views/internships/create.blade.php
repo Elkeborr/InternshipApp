@@ -63,12 +63,19 @@ Nieuwe stageplaats
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label for="education">Zoektermen toevoegen</label>
-                            <input class="form-control tag" id="tag" placeholder="Vb.: PHP" name="education">
+                            <input class="form-control tag" id="tag" placeholder="Vb.: HTML, PHP, PhotoShop,..." name="education">
                         </div>
                         <div class="form-group col-md-5">
                             <br>
                             <button type="submit" class="btn btn-primary" id="add_search_tag" name="add" style="margin-top:6px;">Zoekterm toevoegen</button>
                         </div>
+                    </div>
+                    <div class="form-row">
+                        <ul class="tagList">
+                            <li>Test</li>
+                            <li>Test</li>
+                            <li>Test</li>
+                        </ul>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-10">
