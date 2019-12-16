@@ -8,6 +8,7 @@ class FilterController extends Controller
 {
     public function filterCompany(Request $request)
     {
+        $request->flash();
         //$data['companies'] = \App\Company::get();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
@@ -46,18 +47,17 @@ class FilterController extends Controller
         $filters_tags = $request->input('tag');
         $filters_states = $request->input('state');
         //$request->session()->flash('filters', $filters_tags, $filters_state);
-
         $data['companies'] = $query;
         //$data['filters_tags'] = $filters_tags;
         //$data['filters_states'] = $filters_states;
         // $request->session()->flash('filters_tags', array($filters_tags));
         // $request->session()->flash('filters_states', array($filters_states));
-
         return view('companies/index', $data);
     }
 
     public function filterWelcome(Request $request)
     {
+        $request->flash();
         /*---Internships filters---*/
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
@@ -108,14 +108,11 @@ class FilterController extends Controller
         $data['internships'] = $query;
 
         return view('welcome', $data);
-
-        // $filters_tags = $request->input('tag');
-        // $filters_state = $request->input('state');
-        // $request->session()->flash('message', $filters_tags, $filters_state);
     }
 
     public function filterInternships(Request $request)
     {
+        $request->flash();
         /*---Internships filters---*/
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
@@ -167,9 +164,5 @@ class FilterController extends Controller
         $data['internships'] = $query;
 
         return view('internships/index', $data);
-
-        // $filters_tags = $request->input('tag');
-        // $filters_state = $request->input('state');
-        // $request->session()->flash('message', $filters_tags, $filters_state);
     }
 }

@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
     <script src="{{ asset('js/review.js') }}" defer></script>
     <!-- Styles -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
@@ -21,6 +22,7 @@
 </head>
 
 <body>
+
     <div id="app">
         <div class="top">
             <nav class="navbar navbar-expand-md navbar-light">
@@ -67,10 +69,12 @@
             </nav>
 
         </div>
+
         <main>
+
             <div class="back">
-           
-                <a href="@yield('link')"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Ga terug</a>
+
+                <a href="@yield('link')"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Ga terug</a>
             </div>
 
 
@@ -81,6 +85,7 @@
         <!-- <footer>
             <p>&copy; 2019 Sprintern<p>
         </footer>-->
+
 
     </div>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

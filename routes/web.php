@@ -82,6 +82,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         /* Company internships & applies */
         Route::get('/companies/myinternships/{internship}/applications', 'JobApplicationController@applications');
         Route::post('/{id}/save', 'JobApplicationController@save');
+        Route::get('/seen', 'JobApplicationController@seen');
         /* Facebook login */
         Route::get('/redirect', 'SocialAuthFacebookController@redirect');
         Route::get('/callback', 'SocialAuthFacebookController@callback');
@@ -89,4 +90,8 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         /* Search */
         // Route::get('/', 'SearchController@index');
         Route::post('/search', 'SearchController@search');
+
+        /* Like */
+        Route::post('/internships/{internship}', 'LikeController@handleLike');
+        Route::put('/home', 'LikeController@deletelike');
     });

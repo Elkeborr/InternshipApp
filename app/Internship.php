@@ -25,4 +25,9 @@ class Internship extends Model
     {
         return $this->hasMany('\App\JobApplication');
     }
+
+    public function like()
+    {
+        return $this->hasMany('\App\Like');
+    }
 }

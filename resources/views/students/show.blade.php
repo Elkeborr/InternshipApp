@@ -87,6 +87,11 @@ Profiel
                         <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
                     </a>
 
+                        <div>
+                            <a href="{{$social->link}}" target="_blank">
+                                <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
+                            </a>
+                        </div>
                     @endforeach
                 </div>
             </div>

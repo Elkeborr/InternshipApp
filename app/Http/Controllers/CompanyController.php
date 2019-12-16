@@ -57,8 +57,6 @@ class CompanyController extends Controller
         $credentials = $request->only(['email', 'password']);
         $request->flash();
         if (Auth::attempt($credentials)) {
-            $request->session()->flash('message', 'Login successvol!');
-
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
@@ -137,18 +135,21 @@ class CompanyController extends Controller
 
     public function handlecreate(Request $request)
     {
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'bio' => 'required',
-        //     'phoneNumber' => 'required',
-        //     'email' => 'required',
-        //     'street' => 'required',
-        //     'streetNumber' => 'required',
-        //     'city' => 'required',
-        //     'state' => 'required',
-        //     'postalCode' => 'required',
-        //     'employees' => 'required|gt:0',
-        // ]);
+        $res = $request->validate([
+            'name' => ['required'],
+            'bio' => ['required'],
+            'phoneNumber' => ['required'],
+            'email' => ['required'],
+            'street' => ['required'],
+            'streetNumber' => ['required'],
+            'city' => ['required'],
+            'state' => ['required'],
+            'postalCode' => ['required'],
+            'employees' => ['required', 'integer', 'gt:0'],
+        ]);
+
+        dd($res);
+        exit();
 
         $user = session('user');
         $company = new \App\Company();

@@ -206,7 +206,6 @@ class StudentController extends Controller
         $credentials = $request->only(['email', 'password']);
         $request->flash();
         if (Auth::attempt($credentials)) {
-            $request->session()->flash('message', 'Login successvol!');
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
@@ -222,7 +221,7 @@ class StudentController extends Controller
         }
         $request->session()->flash('message', 'Login lukt niet, probeer opnieuw');
 
-        return view('studends/login');
+        return view('students/login');
     }
 
     public function register(Request $request)
