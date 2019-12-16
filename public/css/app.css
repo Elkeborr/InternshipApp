@@ -10060,9 +10060,13 @@ h3 {
 }
 
 .companies__detail a:hover {
-  -webkit-text-decoration: underline #fd4a29;
-          text-decoration: underline #fd4a29;
   color: #4640de;
+  text-decoration: none;
+}
+
+.name a:hover {
+  color: #fd4a29;
+  text-decoration: none;
 }
 
 .companies__detail p {

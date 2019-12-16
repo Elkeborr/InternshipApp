@@ -48,32 +48,30 @@ class InternshipController extends Controller
 
     public function handleCreate(Request $request)
     {
-        if ($request['save']) {
-            $this->validate($request, [
+        $this->validate($request, [
                 'internshipFunction' => 'required',
                 'discription' => 'required',
                 'spots' => 'required|gt:0',
             ]);
 
-            $user = \Auth::user();
-            $internship = new \App\Internship();
+        $user = \Auth::user();
+        $internship = new \App\Internship();
 
-            $internship->internship_function = $request->input('internshipFunction');
-            $internship->internship_discription = $request->input('discription');
-            $internship->internship_profile = $request->input('profile');
-            $internship->available_spots = $request->input('spots');
-            $internship->education_level = $request->input('education');
-            $internship->languages = $request->input('languages');
-            $internship->drivers_license = $request->input('driver_license');
-            $internship->remarks = $request->input('remarks');
-            $internship->paid = $request->input('paid');
-            $internship->status = true;
-            $internship->company_id = $user->company_id;
+        $internship->internship_function = $request->input('internshipFunction');
+        $internship->internship_discription = $request->input('discription');
+        $internship->internship_profile = $request->input('profile');
+        $internship->available_spots = $request->input('spots');
+        $internship->education_level = $request->input('education');
+        $internship->languages = $request->input('languages');
+        $internship->drivers_license = $request->input('driver_license');
+        $internship->remarks = $request->input('remarks');
+        $internship->paid = $request->input('paid');
+        $internship->status = true;
+        $internship->company_id = $user->company_id;
 
-            $internship->save();
+        $internship->save();
 
-            return redirect('internships/myinternships');
-        }
+        return redirect('internships/myinternships');
     }
 
     public function edit($internship)

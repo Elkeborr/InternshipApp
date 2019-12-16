@@ -29,6 +29,7 @@ h5 {
 a {
     color: $blue;
 }
+
 .job-application {
     h6 {
         font-size: 1.3em;
@@ -335,8 +336,12 @@ h3 {
     margin-top: 5px;
 }
 .companies__detail a:hover {
-    text-decoration: underline $orange;
     color: $blue;
+    text-decoration: none;
+}
+.name a:hover {
+    color: $orange;
+    text-decoration: none;
 }
 .companies__detail p {
     color: $dark-grey;

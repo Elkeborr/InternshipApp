@@ -87,7 +87,10 @@ Stageplaatsen
 		<div class="companies__detail">
 			<img>
 			<br>
+			<div class="name">
 			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+			</div>
+			
 			<p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
 			<div class="small-info">

@@ -13,9 +13,11 @@
 
 <div class="company-show container">
     <section class="company-show_info">
-        <div class="company-show_info_photo">
-            <img>
+    @if($company->profile_picture!=null)
+    <div class="company-show_info_photo">
+            <img href="../company-images/{{$company->profile_picture}}">
         </div>
+        @endif
         <div class="company-show_info_text">
             <h1>{{$company->name}}</h1>
             <p>{{$company->bio}}</p>
