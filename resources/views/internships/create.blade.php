@@ -46,9 +46,7 @@ Nieuwe stageplaats
                             <input class="form-control spots" id="spots" placeholder="Beschikbare plaatsen (bijvoorbeeld: 1, 2, 3,...)" name="spots" type="number" min="0" required>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                <div class="form-row">
+                    <div class="form-row">
                         <div class="form-group col-md-10">
                             <label for="languages">Talen</label>
                             <input class="form-control languages" id="languages" placeholder="Nederlands,Frans,Engels,.." name="languages" required>
@@ -60,6 +58,14 @@ Nieuwe stageplaats
                             <input class="form-control education" id="education" placeholder="Niveau" name="education" required>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-6">
+                <div class="form-row">
+
+<p>
+    LIST OF TAGS
+</p>
+                </div>
                     <div class="form-row">
                         <div class="form-group col-md-10">
                             <label for="driver_license">Rijbewijs nodig</label>
@@ -105,7 +111,7 @@ Nieuwe stageplaats
                     </div>
                     <div class="form-group row ">
                     <div class="col-md-6 ">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" name="save">
                             {{ __('Opslaan') }}
                         </button>
                     </div>
@@ -117,4 +123,5 @@ Nieuwe stageplaats
     </form>
 </div>
 </div>
+
 @endsection
