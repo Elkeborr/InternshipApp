@@ -145,19 +145,37 @@ class CompanyController extends Controller
         $validation = $request->validate([
             'companyname' => 'required|max:200',
             'email' => 'required',
-            'password' => 'required',
         ]);
 
-        $user = session('user');
-        $user->name = request('companyname');
-        $user->email = request('email');
-        $user->password = Hash::make(request('password'));
-        $user->updated_at = date('Y-m-d h:i:s');
-        $user->save();
+        $company = session('user');
+        $company->name = request('companyname');
+        $company->email = request('email');
+        //$user->password = Hash::make(request('password'));
+        $company->updated_at = date('Y-m-d h:i:s');
+        $company->save();
 
         $data['company'] = \App\Company::where('id', $company)->first();
 
-        return view('./companies/edit', $data);
+        return view('companies/showProfile', $data);
+    }
+
+    public function imageUpload()
+    {
+        request()->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('company-images'), $imageName);
+
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+        $company->logo = $imageName;
+        $company->save();
+
+        return back()
+            ->with('success', 'De afbeelding is opgeslagen.')
+            ->with('image', $imageName);
     }
 
     public function create()
