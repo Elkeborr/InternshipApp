@@ -161,6 +161,6 @@ Pas internship aan
 </div>
 </div>
 
-<script src="{{ asset('js/add_tag.js') }}" defer></script>
+<script src="{{ asset('js/edit_tag.js') }}" defer></script>
 <script src="{{ asset('js/ajax_setup.js') }}" defer></script>
 @endsection
