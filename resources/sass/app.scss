@@ -910,13 +910,14 @@ h3 {
 .small-info p:last-child {
     float: right;
 }
+
 /* new internships */
+
 .tag-list{
     list-style: none;
     text-decoration: none;
     margin: 0;
     padding: 5px 0;
-
 }
 
 .tag-item{
@@ -928,3 +929,19 @@ h3 {
     background-color: $light-blue;
     text-align: center;
 }
+
+.tag-remove{
+    text-decoration: none;
+    color: $black;
+}
+
+
+.tag-remove:hover{
+    text-decoration: none;
+    color: $black;
+}
+// .tag-remove:hover:before{
+//     content: "Verwijder";
+//     text-decoration: none;
+//     color: $black;
+// }

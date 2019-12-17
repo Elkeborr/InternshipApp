@@ -73,7 +73,7 @@ Pas internship aan
                         <ul class="tag-list">
                                 @foreach($tags as $tag)
                                     @if( $tag != '')
-                                        <li class="tag-item"><a href="javascript:void(0);" class="remove">{{$tag}}</a></li>
+                                        <li class="tag-item"><a href="javascript:void(0);" class="tag-remove">{{$tag}}</a></li>
                                     @endif
                                 @endforeach
                         </ul>

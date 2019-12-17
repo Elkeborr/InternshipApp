@@ -25,7 +25,7 @@ $(function(){ // Start this function when DOM is ready
             // Make link for removing a tag
             let removeListItem = $("<a />", {
                 href: 'javascript:void(0);',
-                class: 'remove'
+                class: 'tag-remove'
                 ,text: tagFieldValue
             });
             // Push value into array
@@ -41,9 +41,23 @@ $(function(){ // Start this function when DOM is ready
         e.preventDefault();
     })
 
-    $('.tag-list').on('click',"a.remove", function(e){
-        console.log("tester");
-        alert($(this).parent().text());
+    $('.tag-list').on('click',"a.tag-remove", function(e){
+        let tagRemoveLink = $(this);
+        let tagListItem = $(this).parent();
+        // console.log(tagListItem);
+        // Get text of item you want to remove
+        let removeVal = $(this).parent().text();
+
+        // Remove item from array
+        $tagArray = $.grep($tagArray, function(newTagArray){
+            return newTagArray != removeVal;
+        })
+
+        // Put new array in hidden field
+        $('#tags-hidden').val($tagArray);
+        tagRemoveLink.remove();
+        tagListItem.remove();
+        console.log("hidden input value: " + $('#tags-hidden').val());
 
         e.preventDefault();
     })

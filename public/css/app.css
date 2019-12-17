@@ -10682,3 +10682,13 @@ h3 {
   background-color: #dcf0fb;
   text-align: center;
 }
+
+.tag-remove {
+  text-decoration: none;
+  color: #000000;
+}
+
+.tag-remove:hover {
+  text-decoration: none;
+  color: #000000;
+}
