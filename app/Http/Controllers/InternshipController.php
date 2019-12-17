@@ -63,6 +63,7 @@ class InternshipController extends Controller
         $internship->available_spots = $request->input('spots');
         $internship->education_level = $request->input('education');
         $internship->languages = $request->input('languages');
+        $internship->tags = $request->input('tags');
         $internship->drivers_license = $request->input('driver_license');
         $internship->remarks = $request->input('remarks');
         $internship->paid = $request->input('paid');
@@ -77,6 +78,7 @@ class InternshipController extends Controller
     public function edit($internship)
     {
         $data['internship'] = \App\Internship::where('id', $internship)->first();
+        $data['tags'] = explode(',', $data['internship']->tags);
 
         return view('/Internships/editMyInternship', $data);
     }
@@ -93,6 +95,7 @@ class InternshipController extends Controller
         $internship->available_spots = $request->input('spots');
         $internship->education_level = $request->input('education');
         $internship->languages = $request->input('languages');
+        $internship->tags = $request->input('tags');
         $internship->drivers_license = $request->input('driver_license');
         $internship->remarks = $request->input('remarks');
         $internship->paid = $request->input('paid');

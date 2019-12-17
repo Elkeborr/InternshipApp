@@ -44,9 +44,7 @@ Pas internship aan
                             <input class="form-control spots" id="spots"  value='{{$internship->available_spots}}' name="spots" type="number" min="0" required>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                <div class="form-row">
+                    <div class="form-row">
                         <div class="form-group col-md-10">
                             <label for="languages">Talen</label>
                             <input class="form-control languages" id="languages"  value='{{$internship->languages}}' name="languages" required>
@@ -57,6 +55,28 @@ Pas internship aan
                             <label for="education">Onderwijs niveau</label>
                             <input class="form-control education" id="education"  value='{{$internship->education_level}}' name="education" required>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="education">Zoektermen toevoegen</label>
+                            <input class="form-control tag" id="tag" placeholder="Vb.: HTML, PHP, PhotoShop,...">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <br>
+                            <input class="form-control tag" id="tags-hidden" type='hidden' name="tags" value="{{$internship->tags}}">
+                            <button type="" class="btn btn-primary" id="add_search_tag" name="add" style="margin-top:6px;">Zoekterm toevoegen</button>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <ul class="tag-list">
+                                @foreach($tags as $tag)
+                                    @if( $tag != '')
+                                        <li class="tag-item">{{$tag}}</li>
+                                    @endif
+                                @endforeach
+                        </ul>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-10">
@@ -140,4 +160,7 @@ Pas internship aan
     </form>
 </div>
 </div>
+
+<script src="{{ asset('js/add_tag.js') }}" defer></script>
+<script src="{{ asset('js/ajax_setup.js') }}" defer></script>
 @endsection
