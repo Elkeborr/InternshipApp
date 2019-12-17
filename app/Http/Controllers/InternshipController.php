@@ -21,6 +21,7 @@ class InternshipController extends Controller
         $data['internship'] = \App\Internship::where('id', $internship)->with('company')->where('status', true)->first();
         $data['jobApplications'] = \App\JobApplication::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
         $data['like'] = \App\Like::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
+        $data['tags'] = explode(',', $data['internship']->tags);
 
         return view('internships/show', $data);
     }

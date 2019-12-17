@@ -17,8 +17,8 @@
 @section('content')
 <div class="internship-show container">
     <section class="internship-show_info">
-        <h1>{{ $internship->internship_function }} bij <a class="company-name"href="/companies/{{$internship->company->id}}">{{$internship->company->name}}</a></h1>
         @if (\Auth::user()->type == 'student')
+        <h1>{{ $internship->internship_function }} bij <a class="company-name" href="/companies/{{$internship->company->id}}">{{$internship->company->name}}</a></h1>
         <section class="internship-show_apply">
             @if($internship->available_spots > 0)
             @if(!$jobApplications->isEmpty())
@@ -54,6 +54,7 @@
 
             </section>
         @elseif (\Auth::user()->type == 'company')
+        <h1>{{ $internship->internship_function }}</h1>
         <section class="internship-show_apply">
         <a href="/internships/{{$internship->id }}/editMyInternship" class="btn btn-secondary">Pas aan</a>
             <form action="" method="POST">
@@ -83,6 +84,18 @@
       @else
       <p>Geen opmerkingen</p>
       @endif
+
+      <h3>Tags</h3>
+        <ul class="tag-list">
+          @foreach($tags as $tag)
+            @if( $tag != '')
+                <li class="tag-item">{{$tag}}</li>
+            @else
+                <li class="tag-item">Geen zoektermen gevonden voor deze stageplek.</li>
+            @endif
+          @endforeach  
+        </ul>
+      
     </section>
 
 

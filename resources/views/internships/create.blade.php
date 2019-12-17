@@ -73,7 +73,7 @@ Nieuwe stageplaats
                     </div>
                     <div class="form-row">
                         <ul class="tag-list">
-                            <!-- <li class="tag-item"><a href="javascript:void(0);" class="tag-remove">Test</a></li> -->
+                            
                         </ul>
                     </div>
                     <div class="form-row">
