@@ -159,9 +159,9 @@ class CompanyController extends Controller
 
         $company->name = request('companyname');
         $company->email = request('email');
-        $company->tel = request('tel');
+        $company->phoneNumber = request('tel');
         $company->employees = request('employees');
-        $company->biography = request('biography');
+        $company->bio = request('biography');
         $company->street = request('street');
         $company->streetNumber = request('nr');
         $company->city = request('gemeente');

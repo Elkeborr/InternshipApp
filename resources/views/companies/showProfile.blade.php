@@ -37,9 +37,11 @@
             <p>Werknemers: {{$company->employees}}</p>
             <h3>Vakgebied(en)</h3>
             <ul>
+                
                 @foreach($company->tags as $tag)
-                <li>{{$tag->tags->name}}</li>
+                    <li>{{$tag->name}}</li>
                 @endforeach
+                
             </ul>
 
 

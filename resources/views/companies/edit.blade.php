@@ -143,10 +143,10 @@ Wijzig profiel
         {{csrf_field()}}
 
 
-            <input type="hidden" class="form-control" name="tagId" id="tagId" value="{{$tag->tags->id}}">
+            <input type="hidden" class="form-control" name="tagId" id="tagId" value="{{$tag->id}}">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->tags->name}}">
+                    <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->name}}">
                 </div>
 
                 <div class="col">
