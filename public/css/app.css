@@ -10676,7 +10676,7 @@ h3 {
 .tag-item {
   min-width: 50px;
   display: inline-block;
-  margin: 5px 0;
+  margin: 5px;
   padding: 5px 20px;
   border-radius: 20px;
   background-color: #dcf0fb;

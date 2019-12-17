@@ -16,6 +16,7 @@ $(function(){ // Start this function when DOM is ready
         if(tagFieldValue != ''){
             let tagList = $('.tag-list');
             let listItem = $('<li />',{
+                class: "tag-item",
                 text: tagFieldValue
             });
 
