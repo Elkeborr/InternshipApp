@@ -85,7 +85,7 @@
       <p>Geen opmerkingen</p>
       @endif
 
-      <h3>Tags</h3>
+      <h3>Zoektermen</h3>
         <ul class="tag-list">
           @foreach($tags as $tag)
             @if( $tag != '')
