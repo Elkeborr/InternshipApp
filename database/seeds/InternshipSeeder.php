@@ -16,6 +16,7 @@ class InternshipSeeder extends Seeder
         $internship->internship_profile = 'Je hebt kennis van php en laravel. Je zit in je laatste bachelor jaar';
         $internship->education_level = 'Hoger Onderwijs';
         $internship->languages = 'Nederlands en Engels';
+        $internship->tags = 'PHP,SQL';
         $internship->drivers_license = false;
         $internship->available_spots = '2';
         $internship->remarks = "We lezen graag motivatie briefen en cv's goed door dus geef ons de tijd deze te verwerken";
@@ -31,6 +32,7 @@ class InternshipSeeder extends Seeder
         $internship2->internship_profile = 'Je kan zelfstandig aan de slag met een opdracht en aarzelt niet om informatie op te zoeken of wanneer nodig hulp te vragen aan collega’s. je hebt een goede basis van css en html. ';
         $internship2->education_level = 'Hoger Onderwijs';
         $internship2->languages = 'Nederlands, Frans en Engels';
+        $internship2->tags = 'HTML,CSS';
         $internship2->drivers_license = false;
         $internship2->available_spots = '1';
         $internship2->remarks = 'Geen opmerkingen';
@@ -46,6 +48,7 @@ class InternshipSeeder extends Seeder
         $internship3->internship_profile = 'Je volgt een Bachelor of Master opleiding in computerwetenschappen of IT en zoekt een onbezoldigde schoolstage van minstens 12 weken.Je denkt analytisch en oplossingsgericht';
         $internship3->education_level = 'Hoger Onderwijs';
         $internship3->languages = 'Nederlands';
+        $internship3->tags = 'HTML,CSS';
         $internship3->drivers_license = false;
         $internship3->available_spots = '2';
         $internship3->remarks = 'Portfolio is verplicht';
@@ -61,6 +64,7 @@ class InternshipSeeder extends Seeder
         $internship4->internship_profile = "je kent verpakkings programma's en kan werken met illustrator, indesign en photoshop.";
         $internship4->education_level = 'Hoger Onderwijs';
         $internship4->languages = 'Nederlands en Frans';
+        $internship4->tags = 'PhotoShop,Illustrator';
         $internship4->drivers_license = false;
         $internship4->available_spots = '1';
         $internship4->remarks = 'Wil je meer informatie, stel al je vragen via hello@duvalbranding.com';
@@ -76,6 +80,7 @@ class InternshipSeeder extends Seeder
         $internship5->internship_profile = 'Je ontwerpt visuals voor social media, print en digital. Goede kennis van photoshop, Indesign & Illustrator ';
         $internship5->education_level = 'Hoger Onderwijs';
         $internship5->languages = 'Nederlands, Frans en Engels';
+        $internship5->tags = 'PhotoShop,Illustrator';
         $internship5->drivers_license = false;
         $internship5->available_spots = '2';
         $internship5->remarks = 'Geen opmerkingen';
@@ -90,6 +95,7 @@ class InternshipSeeder extends Seeder
         $internship6->internship_profile = 'je zit in je laatste jaar van je bachelor opleiding en wilt de echt wereld verkennen. Een goede basis van java is verplicht, de kneepjes leren we je hier';
         $internship6->education_level = 'Hoger Onderwijs';
         $internship6->languages = 'Nederlands';
+        $internship6->tags = 'Java,Android';
         $internship6->drivers_license = false;
         $internship6->available_spots = '1';
         $internship6->remarks = 'Geen opmerkingen';
@@ -106,6 +112,7 @@ class InternshipSeeder extends Seeder
         Je moet kennis hebben van photoshop.';
         $internship7->education_level = 'Hoger Onderwijs';
         $internship7->languages = 'Nederlands, Frans en Engels';
+        $internship7->tags = 'Fotografie';
         $internship7->drivers_license = true;
         $internship7->available_spots = '1';
         $internship7->remarks = 'Als onze fotografe zal je geregeld op verplaatsing werken, u kilometers worden vergoed.';
@@ -120,6 +127,7 @@ class InternshipSeeder extends Seeder
         $internship8->internship_profile = 'We zoeken een enthousiaste persoon die oplossingsgericht werkt.';
         $internship8->education_level = 'Hoger Onderwijs';
         $internship8->languages = 'Nederlands en Engels';
+        $internship8->tags = 'C#';
         $internship8->drivers_license = false;
         $internship8->available_spots = '1';
         $internship8->remarks = 'Onze koffie is de beste';

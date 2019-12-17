@@ -5,6 +5,7 @@
 /vendor
 /.vagrant
 .env
+.env.dusk.local
 .env.backup
 .phpunit.result.cache
 Homestead.json

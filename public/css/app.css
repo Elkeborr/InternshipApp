@@ -10664,3 +10664,21 @@ h3 {
 .small-info p:last-child {
   float: right;
 }
+
+/* new internships */
+.tag-list {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.tag-item {
+  min-width: 50px;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  background-color: #dcf0fb;
+  text-align: center;
+}

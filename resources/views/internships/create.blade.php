@@ -60,12 +60,23 @@ Nieuwe stageplaats
                     </div>
                 </div>
                 <div class="col-lg-6">
-                <div class="form-row">
-
-<p>
-    LIST OF TAGS
-</p>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="education">Zoektermen toevoegen</label>
+                            <input class="form-control tag" id="tag" placeholder="Vb.: HTML, PHP, PhotoShop,...">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <br>
+                            <input class="form-control tag" id="tags-hidden" type='hidden' name="tags">
+                            <button type="submit" class="btn btn-primary" id="add_search_tag" name="add" style="margin-top:6px;">Zoekterm toevoegen</button>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <ul class="tag-list">
+                            <li class="tag-item">Test</li>
+                            
+                        </ul>
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-10">
                             <label for="driver_license">Rijbewijs nodig</label>
@@ -104,17 +115,17 @@ Nieuwe stageplaats
                         </div>
                     </div>
                     <div class="form-row">
-                    <div class="form-group col-md-10">
-                        <label for="spots">Opmerkingen</label>
-                        <textarea class="form-control remarks" id="remarks" placeholder="Hebt u enige opmerkingen zoals de periode of de andere" name="remarks" rows="5"></textarea>
-                    </div>
+                        <div class="form-group col-md-10">
+                            <label for="spots">Opmerkingen</label>
+                            <textarea class="form-control remarks" id="remarks" placeholder="Hebt u enige opmerkingen zoals de periode of de andere" name="remarks" rows="5"></textarea>
+                        </div>
                     </div>
                     <div class="form-group row ">
-                    <div class="col-md-6 ">
-                        <button type="submit" class="btn btn-primary" name="save">
-                            {{ __('Opslaan') }}
-                        </button>
-                    </div>
+                        <div class="col-md-6 ">
+                            <button type="submit" class="btn btn-primary" name="save">
+                                {{ __('Opslaan') }}
+                            </button>
+                        </div>
                 </div>
                 </div>
                
@@ -124,4 +135,6 @@ Nieuwe stageplaats
 </div>
 </div>
 
+<script src="{{ asset('js/add_tag.js') }}" defer></script>
+<script src="{{ asset('js/ajax_setup.js') }}" defer></script>
 @endsection

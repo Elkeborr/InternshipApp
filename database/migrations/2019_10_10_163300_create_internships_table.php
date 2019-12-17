@@ -18,6 +18,7 @@ class CreateInternshipsTable extends Migration
             $table->text('internship_profile');
             $table->string('education_level');
             $table->text('languages')->nullable();
+            $table->text('tags')->nullable();
             $table->boolean('drivers_license');
             $table->integer('available_spots');
             $table->text('remarks');
