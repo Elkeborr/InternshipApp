@@ -9,7 +9,7 @@ class InternshipController extends Controller
 {
     public function index()
     {
-        $data['internships'] = \App\Internship::where('status', true)->with('jobApplications')->orderBy('created_at', 'DESC')->get();
+        $data['internships'] = \App\Internship::where('status', true)->with('jobApplications')->latest()->get();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
@@ -36,7 +36,7 @@ class InternshipController extends Controller
 
     public function showMyInternships()
     {
-        $data['myinternships'] = \App\Internship::where('company_id', \Auth::user()->company_id)->where('status', true)->get();
+        $data['myinternships'] = \App\Internship::where('company_id', \Auth::user()->company_id)->where('status', true)->latest()->get();
 
         return view('internships/myInternships', $data);
     }
