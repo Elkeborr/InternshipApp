@@ -12,8 +12,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
-
     <script src="{{ asset('js/review.js') }}" defer></script>
     <!-- Styles -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">

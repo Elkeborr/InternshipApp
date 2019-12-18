@@ -28,4 +28,16 @@ class Company extends Authenticatable
     {
         return $this->hasMany('\App\AssignCompanyTags');
     }
+
+    public function scopeOfState($query, array $state)
+    {
+        return $query->whereIn('state', $state);
+    }
+
+    public function scopeShow($query, $company)
+    {
+        return $query->where('id', $company)
+        ->with('reviews')
+        ->with('tags');
+    }
 }

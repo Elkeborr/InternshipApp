@@ -23,7 +23,7 @@ Inloggen
                 @endif
 
                 <div class="form-group ">
-                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="E-mailadres" name="email">
+                    <input type="email"  class="form-control "  aria-describedby="emailHelp" placeholder="E-mailadres" name="email" >
                 </div>
 
                 <div class="form-group">

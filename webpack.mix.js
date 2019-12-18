@@ -16,4 +16,5 @@ mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/welcome.scss", "public/css")
     .sass("resources/sass/form.scss", "public/css")
     .js("resources/js/review.js", "public/js")
+    .js("resources/js/checkbox.js", "public/js")
     .options({ processCssUrls: false });

@@ -26,6 +26,19 @@ h5 {
     margin-bottom: 10px;
 }
 
+a {
+    color: $blue;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    font-size: 0;
+    visibility: hidden;
+    height: 0;
+}
+
 .job-application {
     h6 {
         font-size: 1.3em;
@@ -332,8 +345,12 @@ h3 {
     margin-top: 5px;
 }
 .companies__detail a:hover {
-    text-decoration: underline $orange;
     color: $blue;
+    text-decoration: none;
+}
+.name a:hover {
+    color: $orange;
+    text-decoration: none;
 }
 .companies__detail p {
     color: $dark-grey;
@@ -488,6 +505,17 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
+}
+
+.contact_website a {
+    color: $blue;
+    text-decoration: none;
+}
+
+.contact_website a:hover {
+    color: $orange;
+    font-weight: 600;
+    text-decoration: none;
 }
 .company-show span {
     font-weight: 700;
@@ -729,7 +757,7 @@ h3 {
 }
 
 .internship-show_info {
-    grid-column-start: 1;
+    margin-bottom: 50px;
 }
 
 .internship-show_info h1 {
@@ -746,6 +774,10 @@ h3 {
 }
 
 .internship-show_info a {
+    color: $white;
+}
+
+.company-name {
     color: $blue;
 }
 
@@ -786,6 +818,16 @@ h3 {
     margin-bottom: 20px;
 }
 
+.splash-application {
+    align-self: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+.splash-application img {
+    width: 30%;
+}
 .internship {
     margin-bottom: 30px;
     margin-right: 10px;
@@ -796,13 +838,13 @@ h3 {
     display: inline-block;
 }
 
-.internship h3 a,
+.internships h3 a,
 .likes h3 a {
     display: inline;
     color: $blue !important;
 }
 
-.internship h3,
+.internships h3,
 .likes h3 {
     margin-bottom: 20px;
 }
@@ -815,7 +857,8 @@ h3 {
     padding: 5px 10px;
 }
 
-.likes {
+.likes,
+.internships {
     margin-bottom: 30px;
     margin-right: 10px;
     background: $light-grey;
@@ -823,7 +866,7 @@ h3 {
     box-sizing: border-box;
     border-radius: 10px;
     display: inline-block;
-    width: 40%;
+    width: 30%;
 }
 .likes p {
     width: 75%;
@@ -833,3 +876,91 @@ h3 {
     float: left;
     margin-right: 20px;
 }
+
+.intern {
+    background: $light-grey;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.internship a {
+    color: $blue;
+}
+.intern a {
+    display: inline-block;
+    margin-right: 10px;
+    color: $blue;
+}
+.intern span {
+    width: 20px;
+}
+
+.intern .profilepic {
+    width: 50px;
+    height: auto;
+    padding: 0;
+}
+
+.empty-state-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-state-container img {
+    opacity: 0.5;
+    width: 50px;
+    height: auto;
+}
+
+.empty-state-container h4 {
+    font-size: 1em;
+    margin-bottom: 40px;
+}
+
+.small-info p {
+    font-weight: 700;
+    float: left;
+}
+
+.small-info p:last-child {
+    float: right;
+}
+
+/* new internships */
+
+.tag-list {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 5px 0;
+}
+
+.tag-item {
+    min-width: 50px;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: $light-blue;
+    text-align: center;
+}
+
+.tag-remove {
+    text-decoration: none;
+    color: $black;
+}
+
+.tag-remove:hover {
+    text-decoration: none;
+    color: $black;
+}
+// .tag-remove:hover:before{
+//     content: "Verwijder";
+//     text-decoration: none;
+//     color: $black;
+// }

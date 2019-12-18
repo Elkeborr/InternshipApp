@@ -50,7 +50,9 @@ $(function(){ // this will be called when the DOM is ready
                         
                         let companyResults = res.data.Companies;
                         let internshipResults = res.data.Internships;
-                        console.log(internshipResults);
+                        let tagsResults = res.data.Tags;
+
+                        // console.log(internshipResults);
                         //remove all previous made search results
                         $(".search-result_list-link").remove();
                         $(".search-result_list-item").remove();
@@ -99,7 +101,27 @@ $(function(){ // this will be called when the DOM is ready
                                 listItem.appendTo(".search-result_list");
                             }
                         }
+                        if(tagsResults.length>0){
+                            let listInfo = $("<p />", {
+                                class: "search-result_list-info",
+                                text: "Tags:"
+                            });
+                            listInfo.appendTo(".search-result_list");
+                            for (let i = 0; i< tagsResults.length;i++){
+                            
+                                let listLink = $("<a />", {
+                                    class: "search-result_list-link",
+                                    text: tagsResults[i].internship_function + " bij " + tagsResults[i].company.name,
+                                    href : "internships/" + tagsResults[i].id
+                                });
+                                let listItem = $("<li />", {
+                                    class: "search-result_list-item"
+                                });
 
+                                listLink.appendTo(listItem);
+                                listItem.appendTo(".search-result_list");
+                            }
+                        }
                     }else{
                         $(".search-result_list-link").remove();
                         $(".search-result_list-item").remove();

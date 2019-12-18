@@ -41,7 +41,7 @@ Stageplaatsen
 					@endif
 					@endforeach
 					@else
-					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" class="check">
 					@endif
 					<span class="form-check-label">
 						{{$state->state}}
@@ -65,7 +65,7 @@ Stageplaatsen
 					@endif
 					@endforeach
 					@else
-					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" class="check">
 					@endif
 					<span class="form-check-label">
 						{{$tag->name}}
@@ -73,7 +73,7 @@ Stageplaatsen
 					<span class="checkmark"></span>
 				</label>
 				@endforeach
-				<button type="submit" class="btn ">Bekijken</button>
+				<button type="submit" class="btn" id="btncheck">Bekijken</button>
 			</form>
 
 
@@ -85,12 +85,19 @@ Stageplaatsen
 	<div class="companies">
 		@foreach($internships as $internship)
 		<div class="companies__detail">
-			<img>
+		@if($internship->company->profile_picture!=null)
+            <a href="/companies/{{$internship->company->id}}"><img src="../company-images/{{$internship->company->profile_picture}}"></a>
+        @endif
 			<br>
-			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+			<div class="name">
+				<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+			</div>
 			<p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
-			<p>{{ $internship->available_spots }} beschikbaar</p>
+			<div class="small-info clearfix">
+				<p>{{ $internship->company->city }}</p>
+				<p>{{ $internship->available_spots }} beschikbaar</p>
+			</div>
 			<a href="/internships/{{ $internship->id }}" class="btn btn-secondary">Bekijk vacature</a>
 
 		</div>

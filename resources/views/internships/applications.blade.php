@@ -1,11 +1,23 @@
-@extends('layouts/app')
+@extends('layouts/detail')
 
 @section('title')
 Stageplaats
 @endsection
 
+@section('link')
+{{ url('/internships/myinternships') }}
+@endsection
 @section('content')
 
+@section('content')
+<div class="container">
+@if($internship->jobApplications->isEmpty())
+<h1>{{$internship->internship_function}}</h1>
+<div class="splash-application">
+<img src="https://image.flaticon.com/icons/png/512/21/21534.png" alt="empty state">
+        <h2 >Nog geen solicitanten</h2>
+    </div>
+@else
 @if ($new ?? '' == 'new')
     @component('components/alert')
         @slot('type','info')
@@ -14,7 +26,7 @@ Stageplaats
 @endif
 
 @foreach($internship->jobApplications as $jobApplication)
-
+<h1>{{$internship->internship_function}}</h1>
 <?php $applicationUser = \App\User::where('id', $jobApplication->user_id)->first(); ?>
 <div class="card" style="width: 18rem; float: left; margin: 10px;">
     <div class="card-body">
@@ -67,4 +79,6 @@ Stageplaats
     </div>
 </div>
 @endforeach
+@endif
+</div>
 @endsection
