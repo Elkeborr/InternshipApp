@@ -9,7 +9,9 @@ class InternshipController extends Controller
 {
     public function index()
     {
-        $data['internships'] = \App\Internship::where('status', true)->with('jobApplications')->latest()->get();
+        $data['internships'] = \App\Internship::where('status', true)
+        ->where('available_spots', '>', 0)
+        ->with('jobApplications')->latest()->get();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 

@@ -123,14 +123,12 @@
             <div>
                 <p> <span>Beoordeling:</span><br></p>
                 <div id="stars">
-                    <!--
-                 <span class="glyphicon glyphicon-star star star1 checked" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star star star2" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star3" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star4" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star5" aria-hidden="true"></span>-->
-                    <p>{{$reviews->score}}/5</p>
-
+                    @for ($i = 0; $i < $reviews->score; $i++)
+                    <span class="glyphicon glyphicon-star star star1 checked" aria-hidden="true"></span>
+                    @endfor
+                    @for($i = 5; $i - $reviews->score; $i--)
+                    <span class="glyphicon glyphicon-star star star1" aria-hidden="true"></span>
+                    @endfor
                     <input type="hidden" type="score" name="score" class="star-value" value="{{$reviews->score}}">
                 </div>
 

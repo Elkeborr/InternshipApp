@@ -73,7 +73,7 @@ Stageplaatsen
 					<span class="checkmark"></span>
 				</label>
 				@endforeach
-				<button type="submit" class="btn" id="btncheck" >Bekijken</button>
+				<button type="submit" class="btn" id="btncheck">Bekijken</button>
 			</form>
 
 
@@ -85,18 +85,19 @@ Stageplaatsen
 	<div class="companies">
 		@foreach($internships as $internship)
 		<div class="companies__detail">
-			<img>
+		@if($internship->company->profile_picture!=null)
+            <a href="/companies/{{$internship->company->id}}"><img src="../company-images/{{$internship->company->profile_picture}}"></a>
+        @endif
 			<br>
 			<div class="name">
-			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+				<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
 			</div>
-			
 			<p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
 			<div class="small-info clearfix">
-			<p>{{ $internship->company->city }}</p>
-			<p>{{ $internship->available_spots }} beschikbaar</p>
-</div>
+				<p>{{ $internship->company->city }}</p>
+				<p>{{ $internship->available_spots }} beschikbaar</p>
+			</div>
 			<a href="/internships/{{ $internship->id }}" class="btn btn-secondary">Bekijk vacature</a>
 
 		</div>
@@ -112,10 +113,7 @@ Stageplaatsen
 			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function}}</a>
 			<p>{{ $internship->internship_discription }}</p>
 			<hr class="companies__line">
-		
 			<p>{{ $internship->available_spots }} beschikbaar</p>
-		
-		
 		</div>
 		@endforeach
 	</div>
