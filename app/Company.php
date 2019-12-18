@@ -28,4 +28,9 @@ class Company extends Authenticatable
     {
         return $this->hasMany('\App\AssignCompanyTags');
     }
+
+    public function scopeOfState($query, array $state)
+    {
+        return $query->whereIn('state', $state);
+    }
 }
