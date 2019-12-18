@@ -12,39 +12,39 @@ Wijzig profiel
 
 <div class="editpart">
 
-@if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Oei!</strong> Er is iets misgelopen!
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <strong>Oei!</strong> Er is iets misgelopen!
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <br>
     <h2>Wijzig uw logo</h2>
-    
+
 
     <div class="panel panel-primary">
 
         <div class="profielfoto">
 
             @if($company->logo)
-                <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
+            <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
             @endif
 
             @if($company->logo ==null)
-                <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
+            <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif
         </div>
-    
-        
+
+
         @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-block">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{ $message }}</strong>
-            </div>
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
         @endif
 
 
@@ -63,16 +63,13 @@ Wijzig profiel
             {{method_field('put')}}
             {{csrf_field()}}
 
-           
-
-            
             <h2>Bedrijfsgegevens</h2>
             <br>
-            
+
 
             <label for="companyname">Bedrijfsnaam</label>
             <input type="text" class="form-control" name="companyname" id="companyname" value="{{$company->name}}">
-             <br>
+            <br>
             <label for="email">E-mailadres</label>
             <input type="text" class="form-control" name="email" id="email" value="{{$company->email}}">
             <br>
@@ -132,40 +129,63 @@ Wijzig profiel
         <form action="/companies/editTags/{{$company->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
-
             <br><br><br><br>
             <h2>Vakgebieden</h2>
             <br>
 
-            @foreach ($company->tags as $tag)
-    <form method="post">
-        {{method_field('put')}}
-        {{csrf_field()}}
+            @foreach($tags as $tag)
+            <label class="form-check">
+                @if($assignTags->isEmpty())
+                <input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
+                <span class="form-check-label">
+                    {{$tag->name}}
+                </span>
+                <span class="checkmark"></span>
+       
+                @else
+                @foreach($assignTags as $assigntag)
+                @if($assigntag->company_tag_id === $tag->id)
+                <input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
+                <span class="form-check-label">
+                    {{$tag->name}}
+                </span>
+                <span class="checkmark"></span>
+       
+                @else
+                <input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" >
+                <span class="form-check-label">
+                    {{$tag->name}}
+                </span>
+                <span class="checkmark"></span>
+                @endif
+                @endforeach
+                @endif
+                </label>
+            @endforeach
+         
 
+            <form method="post">
+                {{method_field('put')}}
+                {{csrf_field()}}
 
-            <input type="hidden" class="form-control" name="tagId" id="tagId" value="{{$tag->id}}">
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->name}}">
-                </div>
 
                 <div class="col">
 
                     <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
                     <button type="submit" class="btn btn-danger" formaction="/students/deleteSkills/{company}">Verwijder</button>
                 </div>
-            </div>
+    </div>
 
     </form>
     <br>
 
-    @endforeach
 
 
 
 
 
-    </div>
+
+</div>
 
 
-    @endsection
+@endsection
