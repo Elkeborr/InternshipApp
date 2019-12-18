@@ -97,7 +97,7 @@ class CompanyController extends Controller
                 ->with('tags')
                 ->first();
 
-            $data['tags'] = \App\AssignCompanyTags::where('id', $company)
+            $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
                 ->with('tags')->first();
 
             $data['reviews'] = \App\Review::where('id', $company)
@@ -135,7 +135,9 @@ class CompanyController extends Controller
 
     public function edit($company)
     {
-        $data['company'] = \App\Company::where('company_id', $company)->first();
+        $data['company'] = \App\Company::where('id', $company)->first();
+        $data['tags'] = \App\CompanyTag::get();
+        $data['assignTags'] = \App\AssignCompanyTags::where('company_id', $company)->get();
 
         return view('./companies/edit', $data);
     }
