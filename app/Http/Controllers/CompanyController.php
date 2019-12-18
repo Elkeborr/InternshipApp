@@ -137,11 +137,10 @@ class CompanyController extends Controller
             'state' => ['required'],
             'postalCode' => ['required'],
             'employees' => ['required', 'integer', 'gt:0'],
+            'website' => 'starts_with:http://',
         ]);
 
-        dd($res);
-        exit();
-
+        $request->flash();
         $user = session('user');
         $company = new \App\Company();
 
@@ -152,6 +151,7 @@ class CompanyController extends Controller
         $company->street = $request->input('street');
         $company->streetNumber = $request->input('streetNumber');
         $company->city = $request->input('city');
+        $company->website = $request->input('website');
         $company->state = $request->input('state');
         $company->postalCode = $request->input('postalCode');
         $company->employees = $request->input('employees');

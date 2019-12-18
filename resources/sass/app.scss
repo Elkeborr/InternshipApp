@@ -506,6 +506,17 @@ h3 {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 }
+
+.contact_website a {
+    color: $blue;
+    text-decoration: none;
+}
+
+.contact_website a:hover {
+    color: $orange;
+    font-weight: 600;
+    text-decoration: none;
+}
 .company-show span {
     font-weight: 700;
 }

@@ -17,6 +17,7 @@ class CompaniesSeeder extends Seeder
         This in order to create the ultimate brand experience digitally and in print.';
         $company->phoneNumber = '+32 (0)3 345 22 68';
         $company->email = 'info@antwerpfactory.com';
+        $company->website = 'https://antwerpfactory.com/';
         $company->street = 'Pourbusstraat';
         $company->streetNumber = '25';
         $company->city = 'Antwerpen';
@@ -32,6 +33,7 @@ class CompaniesSeeder extends Seeder
         $company2->bio = 'We bedenken, ontwikkelen en integreren high-end web platformen, applicaties en tools. We ontwerpen sites, bouwen API’s, analyseren performantie bottlenecks, configureren databases, stellen architecturen op, integreren tools, ontwikkelen algoritmes, bouwen en onderhouden applicaties, etc. Als het technisch uitdagend is, heb je direct onze aandacht.';
         $company2->phoneNumber = '+32 (0)15 64 14 30';
         $company2->email = 'info@foreach.be';
+        $company2->website = 'https://www.foreach.be/nl';
         $company2->street = 'Frederik de Merodestraat ';
         $company2->streetNumber = '86a';
         $company2->city = 'Mechelen';
@@ -47,6 +49,7 @@ class CompaniesSeeder extends Seeder
         $company3->bio = 'At Duval Branding, we dare companies to (re)discover who they really are. Why are they doing what they are doing? And, then, we help them to communicate their vision, beliefs and personality in a coherent, inspiring way. So they, somehow, become who they truly are.';
         $company3->phoneNumber = '+32 3 288 88 82';
         $company3->email = 'hello@duvalbranding.com';
+        $company3->website = 'https://www.duvalbranding.com/';
         $company3->street = 'Regine Beerplein';
         $company3->streetNumber = '1';
         $company3->city = 'Antwerpen';
@@ -62,6 +65,7 @@ class CompaniesSeeder extends Seeder
         $company4->bio = 'En wij zijn een Antwerps 360° communicatiebureau propvol goesting. Goesting om te evolueren. Om resultaten te boeken. Om projecten te creëren voor klanten die grote — en grootse — stappen willen ondernemen.';
         $company4->phoneNumber = '+32 3 620 26 79 ';
         $company4->email = 'hallo@marbles.be';
+        $company4->website = 'https://www.marbles.be/';
         $company4->street = 'Borsbeeksebrug';
         $company4->streetNumber = '1';
         $company4->city = 'Antwerpen';
@@ -78,6 +82,7 @@ class CompaniesSeeder extends Seeder
         $company5->bio = 'We offer full services from design to deployment, but we can also assist your team with certain parts of the process.';
         $company5->email = 'info@dive.be';
         $company5->street = 'Zuidstationstraat';
+        $company5->website = 'https://dive.be/en';
         $company5->streetNumber = '40';
         $company5->city = 'Gent';
         $company5->postalCode = '9000';
@@ -91,6 +96,7 @@ class CompaniesSeeder extends Seeder
         $company6->phoneNumber = '0456897867';
         $company6->bio = 'Even schitterend als de robijnen zelf';
         $company6->email = 'info@robijn.be';
+
         $company6->street = 'Robijnstraat';
         $company6->streetNumber = '1';
         $company6->city = 'Mechelen';

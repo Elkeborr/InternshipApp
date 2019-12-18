@@ -20,6 +20,12 @@
         @endif
         <div class="company-show_info_text">
             <h1>{{$company->name}}</h1>
+            @if($company->website!=null)
+            <div class="contact_website">
+            <a href='{{$company->website}}' alt='website' target="_blank"> {{$company->name}} website </a> 
+</div>
+@endif
+<br>
             <p>{{$company->bio}}</p>
             <p>Werknemers: {{$company->employees}}</p>
             <h3>Vakgebied(en)</h3>
@@ -32,7 +38,9 @@
     </section>
 
     <section class="company-show_contact">
+
         <h2>Contact</h2>
+
         <div>
             <p><span>Gegevens: </span><br>
                 {{$company->email}}<br>
