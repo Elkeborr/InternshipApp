@@ -78,7 +78,7 @@ Bedrijven
 				</label>
 				@endforeach
 
-				<button type="submit" class="btn ">Bekijken</button>
+				<button type="submit" class="btn" id="btncheck" >Bekijken</button>
 			</form>
 
 		</div>
@@ -88,10 +88,14 @@ Bedrijven
 		<div class="companies__detail">
 			<!--<img>-->
 			<br>
-			<a href="/companies/{{$company->id}}">{{ $company-> name}}</a>
+			<div class="name">
+			<a  href="/companies/{{$company->id}}">{{ $company-> name}}</a>
+			</div>
 			<p>{{Str::limit( $company-> bio, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
-			<p>{{ $company-> city}}</p>
+			<div class="small-info clearfix">
+				<p>{{$company-> city}}</p>
+			</div>
 		</div>
 		@endforeach
 	</div>

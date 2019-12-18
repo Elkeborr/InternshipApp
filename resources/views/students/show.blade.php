@@ -4,14 +4,11 @@
 Profiel
 @endsection
 
-
 @section('link')
 {{ url('/home') }}
 @endsection
 @section('content')
 <div class="row container-profile align-items-start">
-
-
     <div class="col-md profile text-center bg-light p-40">
         @if (\Auth::user()->id === $user->id)
         <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit'">

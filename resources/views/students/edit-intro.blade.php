@@ -5,7 +5,7 @@ Wijzig profiel
 @endsection
 
 @section('link')
-/students/{{$user->id }}
+/students/{{$user->id}}
 @endsection
 
 @section('content')

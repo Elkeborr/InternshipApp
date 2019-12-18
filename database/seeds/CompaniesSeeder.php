@@ -85,5 +85,19 @@ class CompaniesSeeder extends Seeder
         $company5->state = 'Oost-Vlaanderen';
         $company5->user_id = 9;
         $company5->save();
+
+        $company6 = new \App\Company();
+        $company6->name = 'Robijn';
+        $company6->phoneNumber = '0456897867';
+        $company6->bio = 'Even schitterend als de robijnen zelf';
+        $company6->email = 'info@robijn.be';
+        $company6->street = 'Robijnstraat';
+        $company6->streetNumber = '1';
+        $company6->city = 'Mechelen';
+        $company6->postalCode = '2800';
+        $company6->employees = '1';
+        $company6->state = 'Antwerpen';
+        $company6->user_id = 3;
+        $company6->save();
     }
 }

@@ -100,7 +100,6 @@ Bedrijfsgegevens
       <div class="col-6">
         <div class="form-row">
           <div class="form-group col-md-6">
-          
             <label for="inputEmployees">Hoeveel werknemers werken in uw bedrijf</label>
             <input type="number" class="form-control" id="inputEmployees" placeholder="Werknemers" name="employees" required>
           </div>

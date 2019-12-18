@@ -21,6 +21,7 @@ class SearchController extends Controller
 
                     $data['Companies'] = \App\Company::where('name', 'LIKE', '%'.$search.'%')->get();
                     $data['Internships'] = \App\Internship::where('internship_function', 'LIKE', '%'.$search.'%')->with('company')->get();
+                    $data['Tags'] = \App\Internship::where('tags', 'LIKE', '%'.$search.'%')->with('company')->get();
 
                     if (count($data['Companies']) != 0) {
                         $result =
@@ -30,6 +31,13 @@ class SearchController extends Controller
                             'data' => $data,
                         ];
                     } elseif (count($data['Internships']) != 0) {
+                        $result =
+                        [
+                            'status' => 'success',
+                            'message' => 'Zoekresultaten gevonden',
+                            'data' => $data,
+                        ];
+                    } elseif (count($data['Tags']) != 0) {
                         $result =
                         [
                             'status' => 'success',

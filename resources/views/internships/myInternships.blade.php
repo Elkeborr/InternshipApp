@@ -14,26 +14,32 @@ Mijn stageplaatsen
     <a href="/internships/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         Voeg nieuwe stageplaats toe</a>
-</div>
-@if($myinternships->isEmpty())
-@component('components/alert')
-@slot('type','info')
-Je hebt nog geen stageplaatsen toegevoegd.
-@endcomponent
-@else
 
-<div class="companies ">
-    @foreach($myinternships as $myinternship)
-    <div class="companies__detail">
-        <a href="/internships/{{$myinternship->id}}">{{ $myinternship->internship_function }}</a>
-        <p>{{ $myinternship->internship_discription }}</p>
-        <hr class="companies__line">
-        <p>Stad: {{$myinternship->company->city}}</p>
-        <p>{{ $myinternship->available_spots }} beschikbaar</p>
-        <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">Bekijk sollicitaties</a>
+    @if($myinternships->isEmpty())
+    @component('components/alert')
+    @slot('type','info')
+    Je hebt nog geen stageplaatsen toegevoegd.
+    @endcomponent
+    @else
+
+    <div class="companies">
+        @foreach($myinternships as $myinternship)
+        <div class="companies__detail">
+            <a href="/internships/{{$myinternship->id}}">{{ $myinternship->internship_function }}</a>
+
+            <p>{{ $myinternship->internship_discription }}</p>
+            <hr class="companies__line">
+            <div class="small-info clearfix">
+                <p>{{$myinternship->company->city}}</p>
+                <p>{{ $myinternship->available_spots }} beschikbaar</p>
+            </div>
+            <p>{{$myinternship->jobApplications->count()}} hebben er gesoliciteerd</p>
+
+            <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">Bekijk sollicitaties</a>
+        </div>
+        @endforeach
+
     </div>
-    @endforeach
-
+    @endif
 </div>
-@endif
 @endsection

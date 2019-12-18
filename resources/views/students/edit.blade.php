@@ -16,8 +16,6 @@ Wijzig profiel
     <br>
 
     <div class="panel panel-primary">
-
-
         <div class="profielfoto">
 
             @if($user->profile_picture!=null)
