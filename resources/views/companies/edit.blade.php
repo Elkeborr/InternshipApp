@@ -152,7 +152,7 @@ Wijzig profiel
                 <div class="col">
 
                     <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
-                    <button type="submit" class="btn btn-danger" formaction="/students/deleteSkills/{company}">Verwijder</button>
+                    <button type="submit" class="btn btn-danger" formaction="/companies/deleteTags/{$company->id}">Verwijder</button>
                 </div>
             </div>
 

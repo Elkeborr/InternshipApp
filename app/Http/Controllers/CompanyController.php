@@ -120,7 +120,7 @@ class CompanyController extends Controller
                 ->with('tags')
                 ->first();
 
-            $data['tags'] = \App\AssignCompanyTags::where('id', $company)
+            $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
                 ->with('tags')->first();
 
             $data['reviews'] = \App\Review::where('id', $company)
@@ -135,7 +135,7 @@ class CompanyController extends Controller
 
     public function edit($company)
     {
-        $data['company'] = \App\Company::where('id', $company)->first();
+        $data['company'] = \App\Company::where('company_id', $company)->first();
 
         return view('./companies/edit', $data);
     }
@@ -235,6 +235,18 @@ class CompanyController extends Controller
         $tag->save();
 
         return view('companies/edit', $data);
+    }
+
+    public function deleteTags(Request $request)
+    {
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+
+        $id = request('tagId');
+        $tag = \App\CompanyTag::where('id', $id);
+        $tag->delete();
+
+        return view('/companies/showProfile', $company);
     }
 
     public function handlecreate(Request $request)
