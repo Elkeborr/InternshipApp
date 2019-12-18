@@ -40,9 +40,8 @@ Stageplaatsen
 					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" checked>
 					@endif
 					@endforeach
-					@else
-					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" class="check">
 					@endif
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" class="check">
 					<span class="form-check-label">
 						{{$state->state}}
 					</span>
@@ -64,9 +63,8 @@ Stageplaatsen
 					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
 					@endif
 					@endforeach
-					@else
-					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" class="check">
 					@endif
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" class="check">
 					<span class="form-check-label">
 						{{$tag->name}}
 					</span>

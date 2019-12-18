@@ -42,11 +42,8 @@ Bedrijven
 					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" checked>
 					@endif
 					@endforeach
-					@else
-					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
 					@endif
-
-
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
 					<span class="form-check-label">
 						{{$state->state}}
 					</span>
@@ -68,9 +65,8 @@ Bedrijven
 					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
 					@endif
 					@endforeach
-					@else
-					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
 					@endif
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
 					<span class="form-check-label">
 						{{$tag->name}}
 					</span>
