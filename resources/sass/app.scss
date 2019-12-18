@@ -30,6 +30,15 @@ a {
     color: $blue;
 }
 
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    font-size: 0;
+    visibility: hidden;
+    height: 0;
+}
+
 .job-application {
     h6 {
         font-size: 1.3em;
@@ -913,14 +922,14 @@ h3 {
 
 /* new internships */
 
-.tag-list{
+.tag-list {
     list-style: none;
     text-decoration: none;
     margin: 0;
     padding: 5px 0;
 }
 
-.tag-item{
+.tag-item {
     min-width: 50px;
     display: inline-block;
     margin: 5px;
@@ -930,13 +939,12 @@ h3 {
     text-align: center;
 }
 
-.tag-remove{
+.tag-remove {
     text-decoration: none;
     color: $black;
 }
 
-
-.tag-remove:hover{
+.tag-remove:hover {
     text-decoration: none;
     color: $black;
 }

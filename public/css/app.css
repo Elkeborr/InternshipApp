@@ -9740,6 +9740,15 @@ a {
   color: #4640de;
 }
 
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  font-size: 0;
+  visibility: hidden;
+  height: 0;
+}
+
 .job-application {
   padding: 10px;
 }

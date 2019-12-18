@@ -41,7 +41,7 @@ Stageplaatsen
 					@endif
 					@endforeach
 					@else
-					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" class="check">
 					@endif
 					<span class="form-check-label">
 						{{$state->state}}
@@ -65,7 +65,7 @@ Stageplaatsen
 					@endif
 					@endforeach
 					@else
-					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" class="check">
 					@endif
 					<span class="form-check-label">
 						{{$tag->name}}
@@ -73,7 +73,7 @@ Stageplaatsen
 					<span class="checkmark"></span>
 				</label>
 				@endforeach
-				<button type="submit" class="btn ">Bekijken</button>
+				<button type="submit" class="btn" id="btncheck" >Bekijken</button>
 			</form>
 
 
@@ -93,7 +93,7 @@ Stageplaatsen
 			
 			<p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
-			<div class="small-info">
+			<div class="small-info clearfix">
 			<p>{{ $internship->company->city }}</p>
 			<p>{{ $internship->available_spots }} beschikbaar</p>
 </div>
