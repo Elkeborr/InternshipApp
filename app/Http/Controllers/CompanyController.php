@@ -170,7 +170,8 @@ class CompanyController extends Controller
 
         $data['company'] = \App\Company::where('id', $user->company_id)->first();
 
-        return view('companies/showProfile', $data);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function imageUpload()
@@ -228,23 +229,22 @@ class CompanyController extends Controller
 
         $data['company'] = \App\Company::where('id', $company)->first();
 
-        $tag = \App\CompanyTag::where('id', request('tagId'))->first();
+        $tag = \App\CompanyTag::where('id', request('TagId'))->first();
         $tag->name = request('tag');
         $tag->save();
 
-        return view('companies/edit', $data);
+        return back()
+            ->with('success', 'Wijziging opgeslagen');
     }
 
     public function deleteTags(Request $request)
     {
-        $user = session('user');
-        $company = \App\Company::where('id', $user->company_id)->first();
-
-        $id = request('tagId');
-        $tag = \App\CompanyTag::where('id', $id);
+        $id = request('TagId');
+        $tag = \App\AssignCompanyTags::where('company_tag_id', $id)->first();
         $tag->delete();
 
-        return view('/companies/showProfile', $company);
+        return back()
+            ->with('success', 'Het vakgebied is verwijderd');
     }
 
     public function handlecreate(Request $request)

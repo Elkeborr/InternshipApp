@@ -22,6 +22,12 @@ Wijzig profiel
         </ul>
     </div>
     @endif
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
     <br>
     <h2>Wijzig uw logo</h2>
 
@@ -40,12 +46,7 @@ Wijzig profiel
         </div>
 
 
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-        @endif
+       
 
 
         <form action="/companies/imageUpload/{{$company->id}}" method="POST" enctype="multipart/form-data">
@@ -143,12 +144,12 @@ Wijzig profiel
                     <input type="hidden" class="form-control" name="TagId" id="TagId" value="{{$tag->tags->id}}">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" name="skill" id="skill" value="{{$tag->tags->name}}">
+                            <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->tags->name}}">
                         </div>
 
                         <div class="col">
-                            <button type="submit" class="btn btn-success" formaction="/companies/updateTags/{{$company->id}}">Opslaan</button>
-                            <button type="submit" class="btn btn-danger" formaction="/companies/deleteTags/{company}">Verwijder</button>
+                            <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
+                            <button type="submit" class="btn btn-danger" formaction="/companies/deleteTags/{{$company->id}}">Verwijder</button>
                         </div>
                     </div>
 
@@ -158,19 +159,6 @@ Wijzig profiel
            
                 
 
-            <form method="post">
-                {{method_field('put')}}
-                {{csrf_field()}}
-
-
-                <div class="col">
-
-                    <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
-                    <button type="submit" class="btn btn-danger" formaction="/companies/deleteTags/{$company->id}">Verwijder</button>
-                </div>
-    </div>
-
-    </form>
     <br>
 
 
