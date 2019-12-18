@@ -33,4 +33,11 @@ class Company extends Authenticatable
     {
         return $query->whereIn('state', $state);
     }
+
+    public function scopeShow($query, $company)
+    {
+        return $query->where('id', $company)
+        ->with('reviews')
+        ->with('tags');
+    }
 }

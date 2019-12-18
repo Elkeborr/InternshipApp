@@ -35,4 +35,10 @@ class AssignCompanyTags extends Model
         return $query->whereIn('company_tag_id', $tag)
         ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')->whereIn('state', $state);
     }
+
+    public function scopeShowCompany($query, $company)
+    {
+        return $query->where('id', $company)
+        ->with('tags');
+    }
 }
