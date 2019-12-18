@@ -15,9 +15,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="validation">
       
             @yield('content')
      

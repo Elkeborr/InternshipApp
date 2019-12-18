@@ -5,222 +5,113 @@ Stageplaatsen
 @endsection
 
 @section('h2')
-    Stageplaatsen
+Stageplaatsen
 @endsection
 
 @section('content')
 
 @if ($flash = session('message'))
-    <div class="alert alert-success">{{ $flash }}</div>
+@component('components/alert')
+@slot('type','info')
+{{$flash}}
+@endcomponent
 @endif
 
 
 <div class="container_companies">
-    <div class="companies_filters">
+	<div class="companies_filters">
 		<div class="companies_form">
 			<h5>Filters</h5>
-		<hr class="companies__line">
-
-		<div class="panel-heading">
-			<h6 class="panel-title">
-			<a data-toggle="collapse" href="#collapse0">
-				Regio
-				<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-			</a>
-			</h6>
-		</div>
-
-		<div id="collapse0" class="panel-collapse collapse in" >
-            <form method="post">
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-                  Alle regios
-				  </span>
-				  <span class="checkmark"></span>
-                </label>
-                
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				   Antwerpen
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Oost-Vlaanderen
-				  </span>
-				  <span class="checkmark"></span>
-                </label>  
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  West-Vlaanderen
-				  </span>
-				  <span class="checkmark"></span>
-                </label>  
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Limburg
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Vlaams-Brabant
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-      
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Brussel
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Waals-Brabant
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Luik
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Henegouwen
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				 Namen
-				  </span>
-				  <span class="checkmark"></span>
-                </label>
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				Luxemburg
-				  </span>
-				  <span class="checkmark"></span>
-                </label>
-		</div>
-        
-			<div class="panel-heading">
+			<hr class="companies__line">
+			<div class="panel-heading ">
 				<h6 class="panel-title">
-					<a data-toggle="collapse" href="#collapse1">
-						Vakgebied
-						<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+					<a data-toggle="collapse">
+						Regio
 					</a>
 				</h6>
 			</div>
-			<div id="collapse1" class="panel-collapse collapse in" >
-  
+			<form action="" method="post">
+				{{csrf_field()}}
+				@foreach($states as $state)
 				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				    Alle vakgebieden
-				  </span>
-				  <span class="checkmark"></span>
-                </label>
-                
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				   Grafisch ontwerp
-				  </span>
-				  <span class="checkmark"></span>
-                </label> 
-                
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Front-end developer
-				  </span>
-				  <span class="checkmark"></span>
-                </label>  
-                
-                <label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  Back-end developer
-				  </span>
-				  <span class="checkmark"></span>
-				</label>  
-				
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				  UI/UX designer
-				  </span>
-				  <span class="checkmark"></span>
-                </label>  
+					@if(old('state'))
+					@foreach(old('state') as $check)
+					@if($check === $state->state)
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" checked>
+					@endif
+					@endforeach
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
+					@endif
+					<span class="form-check-label">
+						{{$state->state}}
+					</span>
+					<span class="checkmark"></span>
+				</label>
+				@endforeach
+				<div class="panel-heading">
+					<h6 class="panel-title">
+						<a data-toggle="collapse">
+							Vakgebied
+						</a>
+					</h6>
 				</div>
-               
-                <button type="submit" class="btn btn-primary">Bekijken</button> 
+				@foreach($tags as $tag)
+				<label class="form-check">
+					@if(old('tag'))
+					@foreach(old('tag') as $checktag)
+					@if($checktag == $tag->id)
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
+					@endif
+					@endforeach
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
+					@endif
+					<span class="form-check-label">
+						{{$tag->name}}
+					</span>
+					<span class="checkmark"></span>
+				</label>
+				@endforeach
+				<button type="submit" class="btn ">Bekijken</button>
 			</form>
+
 
 		</div>
 	</div>
-<div class="companies">
-    @if (\Auth::user()->type == 'student')
-        @foreach($internships as $internship)
-            <div class="companies__detail" >
-                <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
-                <p>{{ $internship->internship_discription }}</p>
-                <hr class="companies__line">
-                <p>{{ $internship->available_spots }} beschikbaar</p>
-                @if ($internship->jobApplications->count() == 0)
-				<button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
-                @else
-                    @foreach($internship->jobApplications as $jobApplication)
-                        @if ($internship->available_spots != 0 && $jobApplication->user_id != \Auth::user()->id)
-                            <button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
-                        @endif
-                        @if ($jobApplication->user_id == \Auth::user()->id)
-                            <div class="alert alert-primary" role="alert">
-                                U heeft reeds gesolliciteerd voor deze stageplaats.
-                            </div>
-                        @endif
-                    @endforeach
-                @endif
-            </div>
-        @endforeach
-    </div>
-@else
-    @foreach ($internships as $internship)
-        {{--@foreach($internship->jobApplications as $jobApplication)
-        @endforeach--}}
-        <div class="companies__detail" >
-            <a href ="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
-            <p>{{ $internship->internship_discription }}</p>
-            <hr class="companies__line">
-            <p>{{ $internship->available_spots }} beschikbaar</p>
-        </div>
-    @endforeach
-@endif
 
+
+	@if (\Auth::user()->type == 'student')
+	<div class="companies">
+		@foreach($internships as $internship)
+		<div class="companies__detail">
+			<img>
+			<br>
+			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+			<p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
+			<hr class="companies__line">
+			<p>{{ $internship->available_spots }} beschikbaar</p>
+			<a href="/internships/{{ $internship->id }}" class="btn btn-secondary">Bekijk vacature</a>
+
+		</div>
+		@endforeach
+	</div>
+
+	@else
+	<div class="companies">
+		@foreach ($internships as $internship)
+		{{--@foreach($internship->jobApplications as $jobApplication)
+        @endforeach--}}
+		<div class="companies__detail">
+			<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function}}</a>
+			<p>{{ $internship->internship_discription }}</p>
+			<hr class="companies__line">
+			<p>{{ $internship->available_spots }} beschikbaar</p>
+		</div>
+		@endforeach
+	</div>
+	@endif
+
+
+</div>
 @endsection

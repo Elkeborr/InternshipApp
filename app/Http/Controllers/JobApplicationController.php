@@ -23,14 +23,14 @@ class jobApplicationController extends Controller
                 $application->status = 'new';
                 $application->save();
 
-                $spots = new \App\Internship();
-                $spots->decrement('available_spots');
+                // $spots = new \App\Internship();
+                // $spots->decrement('available_spots');
             }
         }
 
         $data = \App\Company::with('internships')->where('id', '=', $internship->company_id)->first();
         $companyName = $data->name;
-        $request->session()->flash('message', "You successfully applied for the job '$internship->internship_function' at $companyName");
+        $request->session()->flash('message', "Je hebt succesvol gesoliciteerd voor  '$internship->internship_function' bij $companyName");
 
         return redirect('/internships');
     }
@@ -38,6 +38,14 @@ class jobApplicationController extends Controller
     public function applications($internship)
     {
         $data['internship'] = \App\Internship::where('id', $internship)->first();
+        $internships = \App\Internship::where('id', $internship)->first();
+        $jobApplications = $internships->jobApplications;
+
+        foreach ($jobApplications as $jobApplication) {
+            if ($jobApplication->status == 'new') {
+                $data['new'] = true;
+            }
+        }
 
         return view('internships/applications', $data);
     }
@@ -47,6 +55,28 @@ class jobApplicationController extends Controller
         $data = \App\JobApplication::where('id', $id)->first();
         $data->status = $request->status;
         $data->save();
+
+        if ($request->status == 'approved') {
+            $spots = \App\Internship::where('id', $id);
+            $spots->decrement('available_spots');
+        }
+
+        return redirect()->back();
+    }
+
+    public function seen()
+    {
+        $user = \Auth::user();
+        $internships = \App\Internship::where('company_id', $user->company_id)->get();
+
+        foreach ($internships as $internship) {
+            foreach ($internship->jobApplications as $jobApplication) {
+                if ($jobApplication->status == 'new') {
+                    $jobApplication->status = 'starred';
+                    $jobApplication->save();
+                }
+            }
+        }
 
         return redirect()->back();
     }
