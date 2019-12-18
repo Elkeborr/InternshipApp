@@ -31,29 +31,60 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
     Route::group(['middleware' => 'auth'], function () {
         /*----------------COMPANIES------------------------- */
 
-        /*create company*/
-        Route::get('/companies/detail', 'CompanyController@create');
-        Route::post('/companies/detail', 'CompanyController@handlecreate');
+        Route::group(['middleware' => ['auth', 'student']], function() {
+            /* Apply */
+            Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
+        });
 
-        /*companies index and detail page*/
+        Route::group(['middleware' => ['auth', 'company']], function() {
+            /* create company */
+            Route::get('/companies/detail', 'CompanyController@create');
+            Route::post('/companies/detail', 'CompanyController@handlecreate');
+
+            /* internships */
+            Route::put('/internships/{internship}', 'InternshipController@delete');
+            Route::get('/internships/myinternships', 'InternshipController@showMyInternships');
+            Route::get('/internships/myinternships/create', 'InternshipController@create');
+            Route::post('/internships/myinternships/create', 'InternshipController@handleCreate');
+            Route::get('/internships/{internship}/editMyInternship', 'InternshipController@edit');
+            Route::put('/internships/editMyInternship/{internship}', 'InternshipController@handleEdit');
+        });
+
+
+
+        /* companies index and detail page */
         Route::get('/companies', 'CompanyController@index');
         Route::post('/companies', 'FilterController@filterCompany');
         Route::get('/companies/{company}', 'CompanyController@show');
+
         /*----------------REVIEWS------------------------- */
         Route::post('/companies/{company}', 'ReviewController@handleCreate');
 
         /*----------------STUDENTS------------------------- */
+
         /* profielpagina */
         Route::get('/students', 'StudentController@index');
         Route::get('/students/{student}', 'StudentController@show');
+
+        Auth::routes();
+
+        /* Internships */
+        Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/internships/{internship}', 'InternshipController@show');
+        Route::get('/internships', 'InternshipController@index');
+        Route::post('/internships', 'FilterController@filterInternships');
+        // Route::get('/internships', 'InternshipController@index');
+
         /* studentprofile edit-information-form */
         Route::get('/students/{student}/edit', 'StudentController@edit');
         Route::get('/students/{student}/edit-intro', 'StudentController@editIntro');
         Route::get('/students/{student}/edit-skills', 'StudentController@editSkills');
         Route::get('/students/{student}/edit-social', 'StudentController@editSocial');
+
         /* studentprofile add-information-form */
         Route::get('/students/{student}/add-skills', 'StudentController@addSkills');
         Route::get('/students/{student}/add-social', 'StudentController@addSocial');
+
         /* studentprofile update info */
         Route::put('/students/update/{student}', 'StudentController@update');
         Route::put('/students/imageUpload/{student}', 'StudentController@imageUploadPost');
@@ -62,34 +93,23 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::put('/students/deleteSkills/{student}', 'StudentController@deleteSkills');
         Route::put('/students/updateSocial/{student}', 'StudentController@updateSocial');
         Route::put('/students/deleteSocial/{student}', 'StudentController@deleteSocial');
+
         /* studentprofile add info */
         Route::put('/students/addSkills/{student}', 'StudentController@saveSkills');
         Route::put('/students/addSocial/{student}', 'StudentController@saveSocial');
-        Auth::routes();
-        /* Internships */
-        Route::get('/home', 'HomeController@index')->name('home');
-        Route::get('/internships/myinternships', 'InternshipController@showMyInternships');
-        Route::get('/internships/myinternships/create', 'InternshipController@create');
-        Route::post('/internships/myinternships/create', 'InternshipController@handleCreate');
-        Route::get('/internships/{internship}', 'InternshipController@show');
-        Route::get('/internships', 'InternshipController@index');
-        Route::post('/internships', 'FilterController@filterInternships');
-        Route::get('/internships/{internship}/editMyInternship', 'InternshipController@edit');
-        Route::put('/internships/editMyInternship/{internship}', 'InternshipController@handleEdit');
-        Route::put('/internships/{internship}', 'InternshipController@delete');
-        // Route::get('/internships', 'InternshipController@index');
 
-        /* Apply */
-        Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
+
         /* Company internships & applies */
         Route::get('/companies/myinternships/{internship}/applications', 'JobApplicationController@applications');
         Route::post('/{id}/save', 'JobApplicationController@save');
         Route::get('/seen', 'JobApplicationController@seen');
+
         /* Facebook login */
         Route::get('/redirect', 'SocialAuthFacebookController@redirect');
         Route::get('/callback', 'SocialAuthFacebookController@callback');
 
         /* Search */
+
         // Route::get('/', 'SearchController@index');
         Route::post('/search', 'SearchController@search');
 
