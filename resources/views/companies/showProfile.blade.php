@@ -18,7 +18,7 @@
 
         <div class="company-show_info_photo">
             @if (\Auth::user()->company_id === $company->id)
-            <img src="{{asset('../img/edit-grey.png')}}" class="editProfile" width="15" alt="edit" onclick="window.location.href='/companies/{{$company ?? ''->id }}/edit'">
+            <img src="{{asset('../img/edit-grey.png')}}" class="editProfile" width="15" alt="edit" onclick="window.location.href='/companies/{{$company->id }}/edit'">
             @endif
         
             @if($company->logo !=null)
@@ -36,11 +36,9 @@
             <p>Werknemers: {{$company->employees}}</p>
             <h3>Vakgebied(en)</h3>
             <ul>
-                
                 @foreach($company->tags as $tag)
-                    <li>{{$tag->name}}</li>
+                <li>{{$tag->tags->name}}</li>
                 @endforeach
-                
             </ul>
 
 

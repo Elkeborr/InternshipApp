@@ -30,12 +30,12 @@ Wijzig profiel
 
         <div class="profielfoto">
 
-            @if($company->logo)
-            <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
-            @endif
+            @if($company->logo !=null)
+                <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
+             @endif
 
             @if($company->logo ==null)
-            <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
+                <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif
         </div>
 
@@ -59,7 +59,7 @@ Wijzig profiel
         <br><br><br><br><br>
 
         <!-- persoonlijke gegevens --->
-        <form action="/companies/{$company->id}/save" method="post">
+        <form action="/companies/{{$company->id}}/save" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
 
@@ -126,43 +126,37 @@ Wijzig profiel
         </form>
 
 
-        <form action="/companies/editTags/{{$company->id}}" method="post">
+        
             {{method_field('put')}}
             {{csrf_field()}}
             <br><br><br><br>
             <h2>Vakgebieden</h2>
             <br>
 
-            @foreach($tags as $tag)
-            <label class="form-check">
-                @if($assignTags->isEmpty())
-                <input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
-                <span class="form-check-label">
-                    {{$tag->name}}
-                </span>
-                <span class="checkmark"></span>
-       
-                @else
-                @foreach($assignTags as $assigntag)
-                @if($assigntag->company_tag_id === $tag->id)
-                <input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
-                <span class="form-check-label">
-                    {{$tag->name}}
-                </span>
-                <span class="checkmark"></span>
-       
-                @else
-                <input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" >
-                <span class="form-check-label">
-                    {{$tag->name}}
-                </span>
-                <span class="checkmark"></span>
-                @endif
-                @endforeach
-                @endif
-                </label>
+          
+
+            @foreach ($company->tags as $tag)
+                <form action="/companies/editTags/{{$company->id}}" method="post">
+                    {{method_field('put')}}
+                    {{csrf_field()}}
+                    
+                    <input type="hidden" class="form-control" name="TagId" id="TagId" value="{{$tag->tags->id}}">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="skill" id="skill" value="{{$tag->tags->name}}">
+                        </div>
+
+                        <div class="col">
+                            <button type="submit" class="btn btn-success" formaction="/companies/updateTags/{{$company->id}}">Opslaan</button>
+                            <button type="submit" class="btn btn-danger" formaction="/companies/deleteTags/{company}">Verwijder</button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
             @endforeach
-         
+           
+                
 
             <form method="post">
                 {{method_field('put')}}

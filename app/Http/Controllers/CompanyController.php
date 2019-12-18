@@ -113,33 +113,29 @@ class CompanyController extends Controller
     public function showProfile($company)
     {
         if (Auth::check()) {
-            $data['internships'] = \App\Internship::where('company_id', $company)->get();
-
             $data['company'] = \App\Company::where('id', $company)
-                ->with('reviews')
                 ->with('tags')
                 ->first();
 
             $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
                 ->with('tags')->first();
 
-            $data['reviews'] = \App\Review::where('id', $company)
-                ->with('users')
-                ->first();
-
             return view('companies/showProfile', $data);
         }
-
-        return redirect('companies/login');
     }
 
     public function edit($company)
     {
-        $data['company'] = \App\Company::where('id', $company)->first();
-        $data['tags'] = \App\CompanyTag::get();
-        $data['assignTags'] = \App\AssignCompanyTags::where('company_id', $company)->get();
+        if (Auth::check()) {
+            $data['company'] = \App\Company::where('id', $company)
+                ->with('tags')
+                ->first();
 
-        return view('./companies/edit', $data);
+            $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
+                ->with('tags')->first();
+
+            return view('companies/edit', $data);
+        }
     }
 
     public function saveChanges(Request $request)
