@@ -28,7 +28,8 @@ class HomeController extends Controller
         ->with('internship')
         ->get();
 
-        $data['messagesStudent'] = \App\Message::where('user_id', \Auth::user()->id)->first();
+        $data['messagesStudent'] = \App\Message::where('user_id', \Auth::user()->id)->get();
+
         $data['messagesCompany'] = \App\Message::where('company_id', \Auth::user()->company_id)->first();
 
         return view('home', $data);

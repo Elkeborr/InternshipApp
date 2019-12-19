@@ -128,9 +128,9 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::get('/chats/{chat_id}', 'MessageController@show');
         Route::post('/chats/{chat_id}', 'MessageController@sendMessage');
 
-        Route::get('/chats/{company}/newMessage', 'MessageController@newMessageToCompany');
-        Route::post('/chats/{company}/newMessage', 'MessageController@handleNewMessageToCompany');
+        Route::get('/chats/{id}/newMessage', 'MessageController@newMessageToCompany');
+        Route::post('/chats/{id}/newMessage', 'MessageController@handleNewMessageToCompany');
 
-        //Route::get('/chats/{user}/newMessage', 'MessageController@newMessageToCompany');
-        //Route::post('/chats/{user}/newMessage', 'MessageController@handleMessageToCompany');
+        //Route::get('/chats/{id}/newMessageUser', 'MessageController@newMessageToUser');
+        //Route::post('/chats/{id}/newMessageUser', 'MessageController@handleNewMessageToUser');
     });

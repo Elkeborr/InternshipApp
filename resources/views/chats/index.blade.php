@@ -51,7 +51,7 @@ Berichten
 
     @foreach($messagesCompany as $message)
     <div class="message">
-        <p>{{$message->user->profile_picture }}</p>
+    
         @if(!$message->user->profile_picture == null)
         <div class="chat-photo clearfix">
             <img src="../profileImages/{{$message->user->profile_picture}}" class="profilepic_small-chat" alt='logo'>
