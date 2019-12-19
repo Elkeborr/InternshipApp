@@ -11,18 +11,18 @@ Profiel
 <div class="row container-profile align-items-start">
     <div class="col-md profile text-center bg-light p-40">
         @if (\Auth::user()->id === $user->id)
-        <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit'">
+            <img src="../img/edit-grey.png" class="editicon" width="15" alt="edit" onclick="window.location.href='/students/{{$user->id }}/edit'">
         @endif
 
         @if($user->profile_picture!=null)
-        <img src="../profileImages/{{$user->profile_picture}}" alt="profile picture" class="profilepic">
+            <img src="../profileImages/{{$user->profile_picture}}" alt="profile picture" class="profilepic">
         @endif
 
         @if($user->profile_picture==null)
-        <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic">
+            <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic">
         @endif
-        <h4>{{$user->name}} {{$user->lastname}}</h4>
 
+        <h4>{{$user->name}} {{$user->lastname}}</h4>
         <br>
         <h5>Contact:</h5>
         <p>{{$user->email}}</p>
@@ -34,12 +34,10 @@ Profiel
         <div class="card-body bg-light profileCard">
 
             <h5 class="card-title">Intro</h5>
-
             <div class="card-text">
-              
                 <p>{{$user->biography}}</p>
-
             </div>
+
         </div>
 
         <br>
@@ -47,38 +45,31 @@ Profiel
          
             <h5 class="card-title">Kwaliteiten</h5>
          
-
-          
             <div class="card-text">
               
                 <div class="skillsGrid">
                     @foreach ($user->skills as $skill)
-                    <div class="pSkills">{{$skill->skill}}</div>
+                        <div class="pSkills">{{$skill->skill}}</div>
                     @endforeach
                 </div>
 
             </div>
+
         </div>
         <br>
-
 
         <div class="card-body bg-light profileCard">
             <h5 class="card-title">Sociale media</h5>
             <div class="card-text">
                
-
                 <div class="socialGrid">
                     @foreach ($user->socials as $social)
-
-                    <a href="{{$social->link}}" class="pSkills">
-                        <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
-                    </a>
-
-                        <div>
-                            <a href="{{$social->link}}" target="_blank">
-                                <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
-                            </a>
-                        </div>
+            
+                    <div>
+                        <a href="{{$social->link}}" class="pSkills" target="_blank">
+                            <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
+                        </a>
+                    </div>
                     @endforeach
                 </div>
             </div>
