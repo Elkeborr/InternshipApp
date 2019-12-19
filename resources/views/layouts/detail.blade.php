@@ -60,7 +60,7 @@
                         @endif
 
                         @if($user->type == 'company')
-                            <a class="dropdown-item" href="/companies/profile/{{$user->company_id }}">Profiel bekijken</a>
+                            <a class="dropdown-item" href="/companies/profile/{{\Auth::user()->company_id}}">Profiel bekijken</a>
                         @endif
                         
                         <div class="dropdown-divider"></div>

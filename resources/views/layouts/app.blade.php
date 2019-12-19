@@ -55,19 +55,22 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class=" username"> {{$user->name}} </span>
                     </a>
+            
                     <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
                         @if($user->type == 'student')
                             <a class="dropdown-item" href="/students/{{$user->id }}">Profiel bekijken</a>
                         @endif
 
                         @if($user->type == 'company')
-                            <a class="dropdown-item" href="/companies/profile/{{$user->company_id }}">Profiel bekijken</a>
+                            <a class="dropdown-item" href="/companies/showProfile/{{\Auth::user()->company_id}}">Profiel bekijken</a>
+                       
                         @endif
                         <div class="dropdown-divider"></div>
 
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Afmelden') }}</a>
                     </div>
+                
                 </span>
                 @endif
             </nav>

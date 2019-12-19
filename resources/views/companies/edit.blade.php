@@ -5,7 +5,7 @@ Wijzig profiel
 @endsection
 
 @section('link')
-/companies/profile/{$company }
+/companies/showProfile/{{$company->id}}
 @endsection
 
 @section('content')
@@ -165,9 +165,11 @@ Wijzig profiel
                 {{method_field('put')}}
                 {{csrf_field()}}
                     <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="tag" id="tag" placeholder="Nieuw vakgebied">
-                        </div>
+                    <select class="browser-default custom-select" name="tag">
+                                    @foreach($tags as $tag)
+                                    <option class="dropdown-item" type="button"  value="{{$tag->id}}">{{$tag->name }}</option>
+                                    @endforeach
+                                </select>
 
                         <div class="col">
                             <button type="submit" class="btn btn-success" formaction="/companies/addTags/{{$company->id}}">Nieuwe toevoegen</button>

@@ -106,7 +106,6 @@ class CompanyController extends Controller
             $data['company'] = \App\Company::where('id', $company)
                 ->with('tags')
                 ->first();
-
             $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
                 ->with('tags')->first();
 
@@ -121,8 +120,9 @@ class CompanyController extends Controller
                 ->with('tags')
                 ->first();
 
-            $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
+            $data['assigndTags'] = \App\AssignCompanyTags::where('company_id', $company)
                 ->with('tags')->first();
+            $data['tags'] = \App\CompanyTag::get();
 
             return view('companies/edit', $data);
         }
@@ -244,24 +244,13 @@ class CompanyController extends Controller
             'tag' => 'required',
         ]);
 
-        //company id opvragen
-        $user = session('user');
-        $company = \App\Company::where('id', $user->company_id)->first();
-
-        //voeg nieuwe tag toe als deze niet bestaat
-        $tag = \App\CompanyTag::where('name', request('tag'))->first();
-        if (!$tag) {
-            $tag = new \App\CompanyTag();
-            $tag->name = request('tag');
-            $tag->save();
-        }
-
+        $company = \Auth::user()->company_id;
         //vraag id op van tag die je wilt linken
-        $tag_id = \App\CompanyTag::where('name', request('tag'))->first();
+        $tag_id = \App\CompanyTag::where('id', request('tag'))->first();
 
         //assign companytag toevoegen -> relatie
         $tagAssign = new \App\AssignCompanyTags();
-        $tagAssign->company_id = $company->id;
+        $tagAssign->company_id = $company;
         $tagAssign->company_tag_id = $tag_id->id;
         $tagAssign->save();
 

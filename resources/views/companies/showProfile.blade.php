@@ -6,7 +6,7 @@
 
 
 @section('link')
-{{ url('/companies') }}
+{{ url('/home') }}
 @endsection
 
 @section('content')
