@@ -105,6 +105,7 @@ class CompanyController extends Controller
         if (Auth::check()) {
             $data['company'] = \App\Company::where('id', $company)
                 ->with('tags')
+                ->with('users')
                 ->first();
             $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
                 ->with('tags')->first();
@@ -118,6 +119,7 @@ class CompanyController extends Controller
         if (Auth::check()) {
             $data['company'] = \App\Company::where('id', $company)
                 ->with('tags')
+                ->with('users')
                 ->first();
 
             $data['assigndTags'] = \App\AssignCompanyTags::where('company_id', $company)
