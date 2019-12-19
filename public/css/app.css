@@ -10133,10 +10133,39 @@ h3 {
   font-size: 1.5em;
 }
 
+.card {
+  width: 18rem;
+  float: left;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.card-body {
+  background-color: #f6f7fb;
+  border: none;
+  border-radius: 5px;
+}
+
+.card-body form {
+  margin-top: 30px;
+}
+
 .card-body.button {
   position: relative;
   float: right;
   padding: 0px;
+}
+
+.card-body a {
+  color: #4640de;
+  font-size: 1.3em;
+}
+
+.card-body a:hover {
+  color: #fd4a29;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .profilepic {
@@ -10501,7 +10530,8 @@ h3 {
 }
 
 .badge {
-  padding: 5px 10px;
+  padding: 10px 15px;
+  font-size: 0.9em;
 }
 
 .internship-show_info {
@@ -10606,6 +10636,7 @@ h3 {
 .badge-danger {
   margin-left: 10px;
   padding: 5px 10px;
+  margin-top: 10px;
 }
 
 .likes,
