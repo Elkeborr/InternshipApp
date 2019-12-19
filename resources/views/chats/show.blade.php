@@ -10,10 +10,13 @@ Chat
 
 @section('content')
 <div class="container">
+
+
 @if (\Auth::user()->type == 'company')
 <div class="chat row">
         <div class="messenger col-6">
             @foreach($messagesUser as $message)
+
             @if($message->sender == 'user')
             <div class="left_chat clearfix">
             <p>{{$message->user->name}}</p>
@@ -22,7 +25,6 @@ Chat
             </div>
             @elseif($message->sender == 'company')
             <div class="right_chat clearfix">
-  
             <p>{{\Auth::user()->name}}</p>
                 <p>{{$message->message}}</p>
                 <p class="date">{{$message->created_at->diffForHumans()}}</p>
@@ -41,6 +43,7 @@ Chat
 @endif
 
 @if (\Auth::user()->type == 'student')
+
 <div class="chat row">
         <div class="messenger col-6">
             @foreach($messagesCompany as $message)

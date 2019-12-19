@@ -29,6 +29,21 @@ class MessageController extends Controller
 
     public function show($chat_id)
     {
+        $chat = \App\Message::where('messages.chat_id', $chat_id)->first();
+
+        if ($chat == null) {
+            return redirect('/chats');
+        }
+        if (\Auth::user()->type == 'company') {
+            if (\Auth::user()->company_id !== $chat->company_id) {
+                return redirect('/chats');
+            }
+        } elseif (\Auth::user()->type == 'student') {
+            if (\Auth::user()->id !== $chat->user_id) {
+                return redirect('/chats');
+            }
+        }
+
         /*USER*/
         $user = \Auth::user()->id;
 
@@ -90,6 +105,16 @@ class MessageController extends Controller
 
     public function newMessageToCompany($company)
     {
+        if (\Auth::user()->type == 'company') {
+            return redirect('/chats');
+        } elseif (\Auth::user()->type == 'student') {
+            $data['apply'] = \App\jobApplication::where('user_id', \Auth::user()->id)->first();
+
+            if ($data['apply']->userId !== \Auth::user()->id) {
+                return redirect('/chats');
+            }
+        }
+
         $data['company'] = \App\Company::where('id', $company)->first();
 
         return view('chats/newMessage', $data);
