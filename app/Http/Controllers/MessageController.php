@@ -12,17 +12,17 @@ class MessageController extends Controller
         $user = \Auth::user()->id;
         $query = \App\Message::join('companies', 'companies.id', '=', 'messages.company_id')
         ->where('messages.user_id', $user)
-        ->get();
+        ->orderBy('messages.created_at', 'desc')->get();
 
-        $data['messagesCompany'] = $query->unique('company_id');
+        $data['messagesCompany'] = $query->unique('user_id');
 
         /*COMPANY*/
         $user = \Auth::user()->company_id;
         $query2 = \App\Message::join('users', 'users.id', '=', 'messages.user_id')
           ->where('messages.company_id', $user)
-          ->get();
-        dd($query2);
-        $data['messagesUser'] = $query2->unique('user_id');
+             ->orderBy('messages.created_at', 'asc')->get();
+
+        $data['messagesUser'] = $query2;
 
         return view('chats/index', $data);
     }
@@ -100,7 +100,7 @@ class MessageController extends Controller
             $user = \Auth::user()->id;
             $chat_id = \App\Message::orderBy('created_at', 'DESC')->first();
 
-            if ($chat_id->chat_id) {
+            if ($chat_id) {
                 $newChatId = $chat_id->chat_id + 1;
                 $message = new \App\Message();
                 $message->user_id = $user;

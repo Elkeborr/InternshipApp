@@ -42,7 +42,7 @@ Berichten
 <div class="message">
     <a href="/chats/{{$message->chat_id}}">{{$message->company->name}}</a>
     <hr>
-    <p></p>
+    <p>{{$message}}</p>
     <p>{{$message->created_at->diffForHumans()}}</p>
 
 </div>
