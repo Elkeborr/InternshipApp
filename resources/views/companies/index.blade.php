@@ -86,7 +86,10 @@ Bedrijven
 	<div class="companies row">
 		@foreach($companies as $company)
 		<div class="companies__detail">
-			<!--<img>-->
+		
+		@if(!$company->users->profile_picture == null)
+            <img src="../profileImages/{{$company->users->profile_picture}}" alt='logo'>
+        @endif
 			<br>
 			<div class="name">
 			<a  href="/companies/{{$company->id}}">{{ $company-> name}}</a>

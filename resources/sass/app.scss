@@ -528,7 +528,12 @@ h3 {
 
 .company-show_info_photo {
     padding: 5%;
-    background-color: $light-blue;
+    justify-self: center;
+}
+.company-show_info_photo img {
+    object-fit: cover;
+    max-height: 100%;
+    align-content: center;
 }
 
 .company-show_info_text {

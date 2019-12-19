@@ -69,7 +69,7 @@ class User extends Authenticatable
 
     public function company()
     {
-        return $this->belongsTo('\App\Company');
+        return $this->belongsTo('\App\Company', 'user_id');
     }
 
     /*

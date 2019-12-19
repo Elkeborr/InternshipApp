@@ -78,7 +78,8 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $data['companies'] = \App\Company::latest()->get();
+        $data['companies'] = \App\Company::with('users')->latest('companies.created_at')->get();
+
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
@@ -90,7 +91,6 @@ class CompanyController extends Controller
         if (Auth::check()) {
             $data['internships'] = \App\Internship::where('company_id', $company)->where('status', true)->get();
             $data['company'] = \App\Company::Show($company)->first();
-
             $data['tags'] = \App\AssignCompanyTags::ShowCompany($company)->first();
             $data['reviews'] = \App\Review::ShowCompany($company)->first();
 

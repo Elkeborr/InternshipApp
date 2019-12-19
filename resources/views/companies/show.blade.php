@@ -13,10 +13,10 @@
 
 <div class="company-show container">
     <section class="company-show_info">
-      <p> {{dd($company->users)}} </p>
-    @if($company->users->profile_picture!=null)
+   
+    @if(!$company->users->profile_picture == null)
     <div class="company-show_info_photo">
-            <img href="../profileImages/{{$company->profile_picture}}">
+            <img src="../profileImages/{{$company->users->profile_picture}}" alt='logo'>
         </div>
         @endif
         <div class="company-show_info_text">
