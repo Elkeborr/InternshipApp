@@ -16,13 +16,16 @@ Chat
             @foreach($messagesUser as $message)
             @if($message->sender == 'user')
             <div class="left_chat clearfix">
+            <p>{{$message->user->name}}</p>
                 <p>{{$message->message}}</p>
-                <p>{{$message->created_at}}</p>
+                <p class="date">{{$message->created_at->diffForHumans()}}</p>
             </div>
             @elseif($message->sender == 'company')
             <div class="right_chat clearfix">
+  
+            <p>{{\Auth::user()->name}}</p>
                 <p>{{$message->message}}</p>
-                <p>{{$message->created_at}}</p>
+                <p class="date">{{$message->created_at->diffForHumans()}}</p>
             </div>
             @endif
             @endforeach
@@ -43,13 +46,16 @@ Chat
             @foreach($messagesCompany as $message)
             @if($message->sender == 'user')
             <div class="right_chat clearfix">
+            <p>{{\Auth::user()->name}}</p>
                 <p>{{$message->message}}</p>
-                <p>{{$message->created_at}}</p>
+                <p class="date">{{$message->created_at->diffForHumans()}}</p>
             </div>
             @elseif($message->sender == 'company')
             <div class="left_chat clearfix">
+      
+            <p>{{$message->user->name}}</p>
                 <p>{{$message->message}}</p>
-                <p>{{$message->created_at}}</p>
+                <p class="date">{{$message->created_at->diffForHumans()}}</p>
             </div>
             @endif
             @endforeach

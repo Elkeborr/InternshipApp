@@ -31,11 +31,6 @@ Stageplaats
 <div class="card" >
     <div class="card-body">
      
-
-       
-
-
-
         <a class="clearfix"href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}">{{$applicationUser->name}}</a>
         @if($jobApplication->status == 'new')
         <span class="badge badge-pill badge-primary">Nieuw</span>
@@ -82,7 +77,7 @@ Stageplaats
             <button class="btn btn-secondary" type="submit">Opslaan</button>
             @endif
         </form>
-        <hr>m
+        <hr>
         <div class='message_chat'>
             @if($messagesCompany->user_id ==! \App\User::where('id', $jobApplication->user_id)->first()->id)
             <a href="/chats/{{\App\User::where('id', $jobApplication->user_id)->first()->id}}/newMessage" class="btn">Stuur bericht</a>
