@@ -78,13 +78,7 @@ Stageplaats
             @endif
         </form>
         <hr>
-        <div class='message_chat'>
-            @if($messagesCompany->user_id ==! \App\User::where('id', $jobApplication->user_id)->first()->id)
-            <a href="/chats/{{\App\User::where('id', $jobApplication->user_id)->first()->id}}/newMessage" class="btn">Stuur bericht</a>
-            @else
-            <a href="/chats/{{$messagesCompany->chat_id}}" class="btn ">Berichten</a>
-            @endif
-            </div>
+
     </div>
 </div>
 @endforeach

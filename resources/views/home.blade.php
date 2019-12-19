@@ -28,13 +28,7 @@ Overzicht
                 {{\Auth::user()::where('id', $jobApplication['user_id'])->first()->name}}
             </a>
             <a href="MAILTO:{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->email}}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email</a>
-            <div class='message_chat'>
-            @if($messagesCompany->user_id ==! \Auth::user()::where('id', $jobApplication['user_id'])->first()->id)
-            <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn">Stuur bericht</a>
-            @else
-            <a href="/chats/{{$messagesCompany->chat_id}}" class="btn ">Berichten</a>
-            @endif
-            </div>
+
         </div>
         @endforeach
         @else
