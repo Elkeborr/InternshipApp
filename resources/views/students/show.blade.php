@@ -42,11 +42,11 @@ Profiel
 
         <br>
         <div class="card-body bg-light profileCard">
-         
+
             <h5 class="card-title">Kwaliteiten</h5>
-         
+
             <div class="card-text">
-              
+
                 <div class="skillsGrid">
                     @foreach ($user->skills as $skill)
                         <div class="pSkills">{{$skill->skill}}</div>
@@ -61,10 +61,10 @@ Profiel
         <div class="card-body bg-light profileCard">
             <h5 class="card-title">Sociale media</h5>
             <div class="card-text">
-               
+
                 <div class="socialGrid">
                     @foreach ($user->socials as $social)
-            
+
                     <div>
                         <a href="{{$social->link}}" class="pSkills" target="_blank">
                             <img src="../img/{{$social->name}}.png" alt="{{$social->name}}" class="socialicon">
@@ -84,13 +84,13 @@ Profiel
                 @foreach ($jobApplications as $jobApplication)
                 <div class="job-application">
                     @if ( $jobApplication->status == 'new' )
-                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-primary" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-primary" style="padding: 5px 10px;">Nieuw</span></h6>
                     @elseif ( $jobApplication->status == 'starred' )
-                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-warning" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-warning" style="padding: 5px 10px;">In behandeling</span></h6>
                     @elseif ( $jobApplication->status == 'approved' )
-                    <h6 style="font-weight: bold;"><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-success" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                    <h6 style="font-weight: bold;"><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-success" style="padding: 5px 10px;">Aangenomen</span></h6>
                     @elseif ( $jobApplication->status == 'declined' )
-                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-danger" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span></h6>
+                    <h6><a href="/internships/{{$jobApplication->internship_id}}">{{ \App\Internship::where('id', $jobApplication->internship_id)->first()->internship_function }}</a> | <span class="badge badge-pill badge-danger" style="padding: 5px 10px;">Geweigerd</span></h6>
                     @endif
                 </div>
                 @endforeach
