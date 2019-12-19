@@ -29,7 +29,7 @@ Wijzig profiel
         </div>
         @endif
     <br>
-    <h2>Wijzig uw logo</h2>
+    <h2>Bedrijfslogo</h2>
 
 
     <div class="panel panel-primary">
@@ -87,6 +87,10 @@ Wijzig profiel
                 </div>
 
             </div>
+            <br>
+            <label for="website">Website</label>
+            <input type="text" class="form-control" name="website" id="website" value="{{$company->website}}">
+            
             <br>
             <label for="biography">Bio</label>
             <textarea class="form-control" name="biography" id="biography">{{$company->bio}}</textarea>

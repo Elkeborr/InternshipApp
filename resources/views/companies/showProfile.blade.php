@@ -14,6 +14,7 @@
 <div class="company-show container">
     @if (\Auth::user()->company_id === $company->id)
         <img src="{{asset('../img/edit-grey.png')}}" class="editProfileCompany" width="15" alt="edit" onclick="window.location.href='/companies/{{$company->id }}/edit'">
+        <p>Wijzigen</p>
     @endif
     
     <section class="company-show_info">
@@ -31,6 +32,7 @@
         
             <h1>{{$company->name}}</h1>
             <p>{{$company->bio}}</p>
+            <p>Website: {{$company->website}}</p>
             <p>Werknemers: {{$company->employees}}</p>
             <h3>Vakgebied(en)</h3>
             <ul>
