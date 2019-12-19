@@ -25,4 +25,30 @@ class Internship extends Model
     {
         return $this->hasMany('\App\JobApplication');
     }
+
+    public function like()
+    {
+        return $this->hasMany('\App\Like');
+    }
+
+    public function scopeOfState($query, array $state)
+    {
+        return $query->join('companies', 'internships.company_id', '=', 'companies.id')
+        ->whereIn('companies.state', $state);
+    }
+
+    public function scopeOfTag($query, array $tag)
+    {
+        return $query->join('companies', 'internships.company_id', '=', 'companies.id')
+        ->join('assign_company_tags', 'assign_company_tags.company_id', '=', 'companies.id')
+        ->whereIn('company_tag_id', $tag);
+    }
+
+    public function scopeOfTagAndState($query, array $tag, array $state)
+    {
+        return $query->join('companies', 'internships.company_id', '=', 'companies.id')
+        ->join('assign_company_tags', 'assign_company_tags.company_id', '=', 'companies.id')
+        ->whereIn('company_tag_id', $tag)
+        ->whereIn('state', $state);
+    }
 }

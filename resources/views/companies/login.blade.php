@@ -10,7 +10,7 @@ Inloggen
         <div class="logo">
             <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo"></a>
         </div>
-        <h2>Opzoek naar een<br><span>stagiair(e)?</span></h2>
+        <h2>Op zoek naar <br><span>een stagiair(e)?</span></h2>
     </div>
 
     <div class="col wrap-form">
@@ -23,7 +23,7 @@ Inloggen
                 @endif
 
                 <div class="form-group ">
-                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="E-mailadres" name="email">
+                    <input type="email"  class="form-control "  aria-describedby="emailHelp" placeholder="E-mailadres" name="email" >
                 </div>
 
                 <div class="form-group">

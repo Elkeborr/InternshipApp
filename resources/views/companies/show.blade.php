@@ -13,11 +13,19 @@
 
 <div class="company-show container">
     <section class="company-show_info">
-        <div class="company-show_info_photo">
-            <img>
+    @if($company->profile_picture!=null)
+    <div class="company-show_info_photo">
+            <img href="../company-images/{{$company->profile_picture}}">
         </div>
+        @endif
         <div class="company-show_info_text">
             <h1>{{$company->name}}</h1>
+            @if($company->website!=null)
+            <div class="contact_website">
+            <a href='{{$company->website}}' alt='website' target="_blank"> {{$company->name}} website </a> 
+</div>
+@endif
+<br>
             <p>{{$company->bio}}</p>
             <p>Werknemers: {{$company->employees}}</p>
             <h3>Vakgebied(en)</h3>
@@ -30,7 +38,9 @@
     </section>
 
     <section class="company-show_contact">
+
         <h2>Contact</h2>
+
         <div>
             <p><span>Gegevens: </span><br>
                 {{$company->email}}<br>
@@ -61,22 +71,18 @@
                     <a>{{ $internship->internship_function }}</a>
                     <p>{{ $internship->internship_discription }}</p>
                     <hr class="companies__line">
-                    <p>{{ $internship->available_spots }} available</p>
+                    <p>{{ $internship->available_spots }}beschikbaar</p>
                 </div>
-                <button href="/internships/{{ $internship->id }}/apply" class="btn">Solliciteer</button>
+                <a href="/internships/{{ $internship->id }}" class="btn btn-secondary">Bekijk vacature</a>
             </div>
-
             @endforeach
         </div>
         @endif
-
     </section>
-
     <section class="company-show_reviews">
         <h2>Beoordelingen</h2>
         <button class="btn myBtn"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             Schrijf een beoordeling</button>
-
 
         <div id="myModal" class="modal is-hidden is-visuallyHidden">
             <div class="modal-content">
@@ -99,6 +105,7 @@
                 </form>
             </div>
         </div>
+
         @if($company->reviews->isEmpty())
 
         @component('components/alert')
@@ -109,7 +116,12 @@
         @foreach($company->reviews as $reviews )
         <div class="company-show_reviews-one">
             <div>
-                <img>
+                @if($reviews->users->profile_picture==null)
+                <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic-review" width="20px">
+                @endif
+                @if($reviews->users->profile_picture!=null)
+                <img src="../profileImages/{{$reviews->users->profile_picture}}" alt="profile picture" class="profilepic">
+                @endif
                 <p>{{$reviews->users->name}}</p>
 
             </div>
@@ -119,11 +131,12 @@
             <div>
                 <p> <span>Beoordeling:</span><br></p>
                 <div id="stars">
+                    @for ($i = 0; $i < $reviews->score; $i++)
+                    <span class="glyphicon glyphicon-star star star1 checked" aria-hidden="true"></span>
+                    @endfor
+                    @for($i = 5; $i - $reviews->score; $i--)
                     <span class="glyphicon glyphicon-star star star1" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star2" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star3" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star4" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star star star5" aria-hidden="true"></span>
+                    @endfor
                     <input type="hidden" type="score" name="score" class="star-value" value="{{$reviews->score}}">
                 </div>
 
@@ -132,6 +145,7 @@
         @endforeach
         @endif
     </section>
+
 </div>
 @endsection
 

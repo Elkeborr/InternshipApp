@@ -1,92 +1,117 @@
 @extends('layouts/app')
 @section('title')
-    Overzicht
+Overzicht
 @endsection
 
 @section('h2')
 Overzicht
 @endsection
 
-
-
 @section('content')
 <div class="container">
 
-
-    @if ($flash = session('message'))
-    @component('components/alert')
-    @slot('type','success')
-        {{$flash}}
-    @endcomponent
-    @endif
-
     @if (\Auth::user()->type == 'company')
-
-        <h2 style="margin-bottom: 50px;">Sollicitanten voor uw stageplaatsen</h2>
-
-        @if (!$internships->isEmpty())
-            @foreach ($internships as $internship)
-                <div class="internship" style="margin-bottom: 30px;">
-                    <h3 style="margin-bottom: 10px;"><a href="/internships/{{$internship['id']}}">{{$internship['internship_function']}} bij {{$company->name}} - {{$internship['available_spots']}} available spots</a></h3>
-
-                    @if (!$internship['jobApplications']->isEmpty())
-                        @foreach ($internship['jobApplications'] as $jobApplication)
-                            <div class="intern" style="background: #EFEFEF; padding: 10px; box-sizing: border-box; border-radius: 10px; margin-bottom: 10px; display: inline-block;">
-                                <a style="display: inline-block;" class="job-applicant-name-link" href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}"><img src="https://icons-for-free.com/iconfiles/png/512/profile+user+icon-1320166082804563970.png" alt="profile icon" style="width: 20px; margin-right: 10px;">{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->name}}</a>
-                            </div>
-                        @endforeach
-                    @else
-
-                        @component('components/alert')
-                            @slot('type','info')
-                            Er zijn nog geen sollicitanten
-                        @endcomponent
-
-                    @endif
-
-                </div>
-
-            @endforeach
+    @if (!$internships->isEmpty())
+    <h2 style="margin-bottom: 50px;">Sollicitanten voor uw stageplaatsen</h2>
+    @foreach ($internships as $internship)
+    <div class="internship">
+        <h3 ><a href="/internships/{{$internship['id']}}">{{$internship['internship_function']}}</a></h3>
+        @if (!$internship['jobApplications']->isEmpty())
+        @foreach ($internship['jobApplications'] as $jobApplication)
+        <div class="intern">
+            <a class="job-applicant-name-link" href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}">
+                @if(\Auth::user()::where('id', $jobApplication['user_id'])->first()->profile_picture!=null)
+                <img src="../profileImages/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->profile_picture}}" alt="profile picture" class="profilepic" style="width: 50px; height: auto; padding: 0;">
+                @else
+                <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic">
+                @endif
+                {{\Auth::user()::where('id', $jobApplication['user_id'])->first()->name}}
+            </a>
+            <a href="MAILTO:{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->email}}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>   Email</a>
+        </div>
+        @endforeach
         @else
-            <p>Er zijn nog geen sollicitanten</p>
+
+        <div class="empty-state-container">
+            <img src="https://image.flaticon.com/icons/png/512/21/21534.png" alt="empty state">
+            <h4>Nog geen sollicitanten</h4>
+        </div>
+
         @endif
+    </div>
+
+    @endforeach
+    @else
+    <div class=" splash">
+        <img src="https://www.yara.com/siteassets/careers/internship/internship-norway/internship-icons-knowledge-and-experience.png" alt="empty state">
+        <h2 >Nog geen vacatures</h2>
+        <a href="/internships/myinternships/create" class="btn">Maak er nu een</a>
+    </div>
+    @endif
 
     @endif
 
     @if (\Auth::user()->type == 'student')
 
-        <h2 style="margin-bottom: 50px;">Jouw sollicitaties</h2>
+    <h2>Jouw sollicitaties</h2>
+    @if (!$jobApplications->isEmpty() || !$likes->isEmpty() )
 
-        @if (!$jobApplications->isEmpty())
-            @foreach ($jobApplications as $jobApplication)
+    @foreach ($jobApplications as $jobApplication)
+    <?php
+    $internship = \App\Internship::where('id', $jobApplication->internship_id)->first();
+    $company = \App\Company::where('id', $internship->company_id)->first();
+    ?>
+    <div class="internships">
+        <img>
+        <h3><a href="/internships/{{$jobApplication['internship_id']}}">{{\App\Internship::where('id', $jobApplication['internship_id'])->first()['internship_function']}} bij {{$company->name}}</a></h3>
+        @if( $jobApplication->status == 'new' )
+        <span class="badge badge-pill badge-primary">Nieuw</span>
+        @elseif($jobApplication->status == 'starred')
+        <span class="badge badge-pill badge-warning">In behandeling</span>
+        @elseif($jobApplication->status == 'approved')
+        <span class="badge badge-pill badge-success">Aangenomen</span>
+        @elseif($jobApplication->status == 'declined')
+        <span class="badge badge-pill badge-danger ">Geweigerd</span>
+        @endif<br><br>
+        <p>{{Str::limit( $internship->internship_discription, $limit = 100, $end = ' ...')}}</p>
+        <strong>{{$company->city}}</strong><br><br>
+        <a href="/companies/{{$company->id}}" class="btn">Ga naar bedrijf</a>
+    </div>
+    @endforeach
 
-                <div class="internship" style="margin-bottom: 30px; margin-right: 10px; background: #F3F3F3; padding: 10px; box-sizing: border-box; border-radius: 10px; display: inline;">
-                    <h3 style="margin-bottom: 10px; display: inline;"><a href="/internships/{{$jobApplication['internship_id']}}">{{\App\Internship::where('id', $jobApplication['internship_id'])->first()['internship_function']}}</a></h3>
 
-                    @if ( $jobApplication->status == 'new' )
-                        <span class="badge badge-pill badge-primary" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span>
-                    @elseif ( $jobApplication->status == 'starred' )
-                        <span class="badge badge-pill badge-warning" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span>
-                    @elseif ( $jobApplication->status == 'approved' )
-                        <span class="badge badge-pill badge-success" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span>
-                    @elseif ( $jobApplication->status == 'declined' )
-                        <span class="badge badge-pill badge-danger" style="padding: 5px 10px;">{{ $jobApplication->status  }}</span>
-                    @endif
+    <h2><span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Opgeslagen</h2> 
+    @foreach ($likes as $like)
+    <div class="likes">
+    <img>
+        <h3><a href="/internships/{{$like['internship_id']}}">{{\App\Internship::where('id', $like['internship_id'])->first()['internship_function']}} bij {{$like->internship->company->name}}</a></h3>
+        <p>
+        {{Str::limit( $like->internship->internship_discription, $limit = 100, $end = ' ...')}}
+        </p>
+        <strong>{{$like->internship->company->city}}</strong><br><br>
+        <a href="/companies/{{$like->internship->company->id}}" class="btn btn-like">Ga naar bedrijf</a>
 
-                </div>
+        <form action="" method="POST">
+        {{method_field('put')}}
+            {{csrf_field()}}
+            <button class="btn btn-secondary orange" name="delete" value="delete" type="submit">
+                Verwijder</button>
+                <input type="hidden" type="id" name="id" value="{{$like->internship->id}}">
+        </form>
 
-            @endforeach
-        @else
-            <p>Er zijn nog geen Sollicitaties</p>
-        @endif
+    </div>
+    @endforeach
 
+
+    @else
+    <div class="splash">
+        <img src="https://www.yara.com/siteassets/careers/internship/internship-norway/internship-icons-knowledge-and-experience.png" alt="empty state" style="opacity: .5;">
+        <h2>Nog geen sollicitaties</h2>
+        <a href="/internships" class="btn">Zoek er nu een</a>
+    </div>
+    @endif
     @endif
 
-
 </div>
-
-
-
-   
 
 @endsection

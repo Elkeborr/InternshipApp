@@ -57,8 +57,6 @@ class CompanyController extends Controller
         $credentials = $request->only(['email', 'password']);
         $request->flash();
         if (Auth::attempt($credentials)) {
-            $request->session()->flash('message', 'Login successvol!');
-
             //Retrieve data and put it in session
             $user_id = Auth::id();
             $user = \App\User::where('id', $user_id)->select('id', 'name', 'email', 'type', 'company_id')->first();
@@ -80,7 +78,7 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $data['companies'] = \App\Company::inRandomOrder()->get();
+        $data['companies'] = \App\Company::latest()->get();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
@@ -90,19 +88,10 @@ class CompanyController extends Controller
     public function show($company)
     {
         if (Auth::check()) {
-            $data['internships'] = \App\Internship::where('company_id', $company)->get();
-
-            $data['company'] = \App\Company::where('id', $company)
-                ->with('reviews')
-                ->with('tags')
-                ->first();
-
-            $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
-                ->with('tags')->first();
-
-            $data['reviews'] = \App\Review::where('id', $company)
-                ->with('users')
-                ->first();
+            $data['internships'] = \App\Internship::where('company_id', $company)->where('status', true)->get();
+            $data['company'] = \App\Company::Show($company)->first();
+            $data['tags'] = \App\AssignCompanyTags::ShowCompany($company)->first();
+            $data['reviews'] = \App\Review::ShowCompany($company)->first();
 
             return view('companies/show', $data);
         }
@@ -280,19 +269,21 @@ class CompanyController extends Controller
 
     public function handlecreate(Request $request)
     {
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'bio' => 'required',
-        //     'phoneNumber' => 'required',
-        //     'email' => 'required',
-        //     'street' => 'required',
-        //     'streetNumber' => 'required',
-        //     'city' => 'required',
-        //     'state' => 'required',
-        //     'postalCode' => 'required',
-        //     'employees' => 'required|gt:0',
-        // ]);
+        $res = $request->validate([
+            'name' => ['required'],
+            'bio' => ['required'],
+            'phoneNumber' => ['required'],
+            'email' => ['required'],
+            'street' => ['required'],
+            'streetNumber' => ['required'],
+            'city' => ['required'],
+            'state' => ['required'],
+            'postalCode' => ['required'],
+            'employees' => ['required', 'integer', 'gt:0'],
+            'website' => 'starts_with:http://',
+        ]);
 
+        $request->flash();
         $user = session('user');
         $company = new \App\Company();
 
@@ -303,6 +294,7 @@ class CompanyController extends Controller
         $company->street = $request->input('street');
         $company->streetNumber = $request->input('streetNumber');
         $company->city = $request->input('city');
+        $company->website = $request->input('website');
         $company->state = $request->input('state');
         $company->postalCode = $request->input('postalCode');
         $company->employees = $request->input('employees');

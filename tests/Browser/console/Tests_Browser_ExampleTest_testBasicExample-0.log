@@ -1,0 +1,14 @@
+[
+    {
+        "level": "SEVERE",
+        "message": "http:\/\/homestead.test\/js\/app.js 49416:10 \"CSRF token not found: https:\/\/laravel.com\/docs\/csrf#csrf-x-csrf-token\"",
+        "source": "console-api",
+        "timestamp": 1576109907130
+    },
+    {
+        "level": "SEVERE",
+        "message": "http:\/\/homestead.test\/js\/app.js 37946:14 \"[Vue warn]: Cannot find element: #app\"",
+        "source": "console-api",
+        "timestamp": 1576109907143
+    }
+]

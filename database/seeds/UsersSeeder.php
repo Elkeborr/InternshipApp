@@ -25,12 +25,12 @@ class UsersSeeder extends Seeder
         $user2->type = 'student';
         $user2->save();
         $user3 = new \App\User();
-        $user3->name = 'Robin';
+        $user3->name = 'Robijn';
         $user3->lastname = 'Van Buggenhout';
         $user3->email = 'robin@company.com';
         $user3->password = bcrypt('password');
         $user3->type = 'company';
-        $user3->company_id = '2';
+        $user3->company_id = '6';
         $user3->save();
         $user4 = new \App\User();
         $user4->name = 'Angelique';

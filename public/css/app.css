@@ -9731,6 +9731,31 @@ h4 {
   font-family: "Comfortaa", cursive;
 }
 
+h5 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #4640de;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  font-size: 0;
+  visibility: hidden;
+  height: 0;
+}
+
+.job-application {
+  padding: 10px;
+}
+.job-application h6 {
+  font-size: 1.3em;
+}
+
 .top {
   background-color: #dcf0fb;
 }
@@ -9748,6 +9773,7 @@ footer {
 
 .alert {
   margin: 10px;
+  width: 500px;
 }
 
 footer p {
@@ -9763,6 +9789,7 @@ h3 {
   background-color: #4640de;
   color: #fff;
   border: none;
+  font-family: "Open Sans", sans-serif;
 }
 
 .btn:hover {
@@ -9770,6 +9797,9 @@ h3 {
   color: #fff;
   font-weight: 600;
   border: none;
+  background-color: #fd4a29;
+  text-decoration: none;
+  color: #fff;
 }
 
 .form-control {
@@ -9949,10 +9979,10 @@ h3 {
 
 .companies_filters {
   background-color: #f6f7fb;
+  background-size: 100%;
   margin: 0;
   padding: 30px;
   grid-row-end: span 2;
-  height: 100vh;
 }
 
 .companies__line {
@@ -10039,9 +10069,13 @@ h3 {
 }
 
 .companies__detail a:hover {
-  -webkit-text-decoration: underline #fd4a29;
-          text-decoration: underline #fd4a29;
   color: #4640de;
+  text-decoration: none;
+}
+
+.name a:hover {
+  color: #fd4a29;
+  text-decoration: none;
 }
 
 .companies__detail p {
@@ -10093,6 +10127,10 @@ h3 {
 
 .container-profile h5 {
   color: #4640de;
+}
+
+.card-title {
+  font-size: 1.5em;
 }
 
 .card-body.button {
@@ -10198,6 +10236,17 @@ h3 {
   grid-template-rows: 1fr;
 }
 
+.contact_website a {
+  color: #4640de;
+  text-decoration: none;
+}
+
+.contact_website a:hover {
+  color: #fd4a29;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 .company-show span {
   font-weight: 700;
 }
@@ -10214,18 +10263,72 @@ h3 {
   grid-template-columns: 0.5fr 1fr 1fr;
   grid-template-rows: 1fr;
   margin-top: 2%;
+  align-content: center;
+  align-items: center;
 }
 
 .company-show_reviews-one p {
   width: 70%;
+  margin-top: 17px;
 }
 
 .company-show_reviews h2 {
   margin-bottom: 30px;
 }
 
+.profilepic-review {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
+}
+
 .checked {
   color: #fd4a29;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: 0.5s;
+  overflow: auto;
+  transition: all 0.3s linear;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 40px;
+  border-radius: 4px;
+  max-width: 480px;
+  height: 400px;
+}
+
+.modal-content p,
+.link {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.modal-content p {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-content p span {
+  font-weight: 900;
 }
 
 .modal {
@@ -10395,4 +10498,217 @@ h3 {
 .search-result_list-link:active {
   color: #666666;
   text-decoration: none;
+}
+
+.badge {
+  padding: 5px 10px;
+}
+
+.internship-show_info {
+  margin-bottom: 50px;
+}
+
+.internship-show_info h1 {
+  margin-top: 50px;
+}
+
+.internship-show_info h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.internship-show_info p {
+  width: 50%;
+}
+
+.internship-show_info a {
+  color: #fff;
+}
+
+.company-name {
+  color: #4640de;
+}
+
+.internship-show_apply .alert {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.internship-show_apply a {
+  float: left;
+  margin-right: 20px;
+  color: #fff;
+}
+
+.orange {
+  background-color: #fd4a29;
+  color: #fff !important;
+}
+
+.internship-show_apply button:hover {
+  background-color: #4640de;
+}
+
+.splash {
+  align-self: center;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.splash button {
+  margin-bottom: 20px;
+}
+
+.splash-application {
+  align-self: center;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-application img {
+  width: 30%;
+}
+
+.internship {
+  margin-bottom: 30px;
+  margin-right: 10px;
+  background: #f6f7fb;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.internships h3 a,
+.likes h3 a {
+  display: inline;
+  color: #4640de !important;
+}
+
+.internships h3,
+.likes h3 {
+  margin-bottom: 20px;
+}
+
+.badge-primary,
+.badge-warning,
+.badge-success,
+.badge-danger {
+  margin-left: 10px;
+  padding: 5px 10px;
+}
+
+.likes,
+.internships {
+  margin-bottom: 30px;
+  margin-right: 10px;
+  background: #f6f7fb;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: inline-block;
+  width: 30%;
+}
+
+.likes p {
+  width: 75%;
+}
+
+.btn-like {
+  float: left;
+  margin-right: 20px;
+}
+
+.intern {
+  background: #f6f7fb;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.internship a {
+  color: #4640de;
+}
+
+.intern a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #4640de;
+}
+
+.intern span {
+  width: 20px;
+}
+
+.intern .profilepic {
+  width: 50px;
+  height: auto;
+  padding: 0;
+}
+
+.empty-state-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state-container img {
+  opacity: 0.5;
+  width: 50px;
+  height: auto;
+}
+
+.empty-state-container h4 {
+  font-size: 1em;
+  margin-bottom: 40px;
+}
+
+.small-info p {
+  font-weight: 700;
+  float: left;
+}
+
+.small-info p:last-child {
+  float: right;
+}
+
+/* new internships */
+.tag-list {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.tag-item {
+  min-width: 50px;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  background-color: #dcf0fb;
+  text-align: center;
+}
+
+.tag-remove {
+  text-decoration: none;
+  color: #000000;
+}
+
+.tag-remove:hover {
+  text-decoration: none;
+  color: #000000;
 }

@@ -62,6 +62,11 @@ class User extends Authenticatable
         return $this->hasMany('\App\Review', 'user_id');
     }
 
+    public function likes()
+    {
+        return $this->hasMany('\App\Like', 'user_id');
+    }
+
     /*
      * Display a listing of the resource.
 

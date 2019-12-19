@@ -25,4 +25,10 @@ class Review extends Model
     {
         return $this->belongsTo('\App\User', 'user_id');
     }
+
+    public function scopeShowCompany($query, $company)
+    {
+        return $query->where('id', $company)
+        ->with('users');
+    }
 }

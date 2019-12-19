@@ -25,47 +25,55 @@ Stageplaatsen
 			<hr class="companies__line">
 			<div class="panel-heading ">
 				<h6 class="panel-title">
-					<a data-toggle="collapse" href="#collapse0">
+					<a data-toggle="collapse">
 						Regio
-						<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 					</a>
-
 				</h6>
 			</div>
 			<form action="" method="post">
 				{{csrf_field()}}
-				<div id="collapse0" class="panel-collapse collapse in">
-					@foreach($states as $state)
-					<label class="form-check">
-						<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
-						<span class="form-check-label">
-							{{$state->state}}
-						</span>
-						<span class="checkmark"></span>
-					</label>
+				@foreach($states as $state)
+				<label class="form-check">
+					@if(old('state'))
+					@foreach(old('state') as $check)
+					@if($check === $state->state)
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" checked>
+					@endif
 					@endforeach
-				</div>
-
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" class="check">
+					@endif
+					<span class="form-check-label">
+						{{$state->state}}
+					</span>
+					<span class="checkmark"></span>
+				</label>
+				@endforeach
 				<div class="panel-heading">
 					<h6 class="panel-title">
-						<a data-toggle="collapse" href="#collapse1">
+						<a data-toggle="collapse">
 							Vakgebied
-							<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 						</a>
 					</h6>
 				</div>
-				<div id="collapse1" class="panel-collapse collapse in">
-					@foreach($tags as $tag)
-					<label class="form-check">
-						<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
-						<span class="form-check-label">
-							{{$tag->name}}
-						</span>
-						<span class="checkmark"></span>
-					</label>
+				@foreach($tags as $tag)
+				<label class="form-check">
+					@if(old('tag'))
+					@foreach(old('tag') as $checktag)
+					@if($checktag == $tag->id)
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
+					@endif
 					@endforeach
-				</div>
-				<button type="submit" class="btn ">Bekijken</button>
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" class="check">
+					@endif
+					<span class="form-check-label">
+						{{$tag->name}}
+					</span>
+					<span class="checkmark"></span>
+				</label>
+				@endforeach
+				<button type="submit" class="btn" id="btncheck">Bekijken</button>
 			</form>
 
 
@@ -77,10 +85,19 @@ Stageplaatsen
 	<div class="companies">
 		@foreach($internships as $internship)
 		<div class="companies__detail">
-			<h3>{{ $internship->internship_function }}</h3>
+		@if($internship->company->profile_picture!=null)
+            <a href="/companies/{{$internship->company->id}}"><img src="../company-images/{{$internship->company->profile_picture}}"></a>
+        @endif
+			<br>
+			<div class="name">
+				<a href="/internships/{{ $internship->id }}">{{ $internship->internship_function }}</a>
+			</div>
 			<p>{{Str::limit( $internship->internship_discription, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
-			<p>{{ $internship->available_spots }} beschikbaar</p>
+			<div class="small-info clearfix">
+				<p>{{ $internship->company->city }}</p>
+				<p>{{ $internship->available_spots }} beschikbaar</p>
+			</div>
 			<a href="/internships/{{ $internship->id }}" class="btn btn-secondary">Bekijk vacature</a>
 
 		</div>
