@@ -19,6 +19,11 @@ class Company extends Authenticatable
         return $this->hasMany('\App\Review');
     }
 
+    public function users()
+    {
+        return $this->belongsTo('\App\User', 'user_id');
+    }
+
     public function internships()
     {
         return $this->hasMany('\App\Internship');
@@ -36,7 +41,8 @@ class Company extends Authenticatable
 
     public function scopeShow($query, $company)
     {
-        return $query->where('id', $company)
+        return $query->where('companies.id', $company)
+        ->with('users')
         ->with('reviews')
         ->with('tags');
     }

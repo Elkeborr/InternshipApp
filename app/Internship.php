@@ -31,6 +31,20 @@ class Internship extends Model
         return $this->hasMany('\App\Like');
     }
 
+    public function scopeOfLimit($query)
+    {
+        return $query->with('jobApplications')
+        ->where('status', true)
+        ->where('available_spots', '>', 0)->take(6)->latest()->get();
+    }
+
+    public function scopeOfAll($query)
+    {
+        return $query->where('status', true)
+        ->where('available_spots', '>', 0)
+        ->with('jobApplications')->latest()->get();
+    }
+
     public function scopeOfState($query, array $state)
     {
         return $query->join('companies', 'internships.company_id', '=', 'companies.id')

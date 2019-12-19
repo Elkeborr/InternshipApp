@@ -278,7 +278,7 @@ class StudentController extends Controller
             //Put user data in session User
             $request->session()->put('user', $user);
             // dd($sessionData['name']);
-            return view('/home', $data);
+            return redirect('/home');
         }
 
         return view('students/login');

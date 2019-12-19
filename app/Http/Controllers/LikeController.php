@@ -24,6 +24,12 @@ class likeController extends Controller
                 $like->user_id = $student->id;
                 $like->status = true;
                 $like->save();
+            } else {
+                $like = \App\Like::
+                where('internship_id', $internship)
+                ->where('user_id', $student->id)->first();
+                $like->status = true;
+                $like->save();
             }
 
             return redirect()->back();

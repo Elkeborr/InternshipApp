@@ -79,7 +79,7 @@ Profiel
 
         @if (\Auth::user()->id === $user->id)
         <div class="card-body bg-light job-applications">
-            <h5>Stage aanvragen</h5>
+            <h5 class="card-title">Stage aanvragen</h5>
             <div class="job-applications-list">
                 @foreach ($jobApplications as $jobApplication)
                 <div class="job-application">

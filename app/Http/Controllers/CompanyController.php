@@ -78,7 +78,8 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $data['companies'] = \App\Company::latest()->get();
+        $data['companies'] = \App\Company::with('users')->latest('companies.created_at')->get();
+
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
@@ -281,7 +282,7 @@ class CompanyController extends Controller
             'state' => ['required'],
             'postalCode' => ['required'],
             'employees' => ['required', 'integer', 'gt:0'],
-            'website' => 'starts_with:http://',
+            'website' => 'starts_with:http://,https://',
         ]);
 
         $request->flash();

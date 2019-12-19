@@ -56,6 +56,7 @@ class UsersSeeder extends Seeder
         $user7 = new \App\User();
         $user7->name = 'Duval Branding';
         $user7->email = 'hello@duvalbranding.com';
+        $user7->profile_picture = 'duvalbranding.png';
         $user7->password = bcrypt('duvalbranding');
         $user7->type = 'company';
         $user7->company_id = 3;
@@ -65,12 +66,14 @@ class UsersSeeder extends Seeder
         $user8->email = 'hello@marbles.com';
         $user8->password = bcrypt('marbles1');
         $user8->type = 'company';
+        $user8->profile_picture = 'marbles.jpg';
         $user8->company_id = 4;
         $user8->save();
         $user9 = new \App\User();
         $user9->name = 'Dive';
         $user9->email = 'info@dive.be';
         $user9->password = bcrypt('dive1234');
+        $user9->profile_picture = 'dive.png';
         $user9->type = 'company';
         $user9->company_id = 5;
         $user9->save();
