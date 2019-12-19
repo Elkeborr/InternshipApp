@@ -1,8 +1,12 @@
 {
+    "/js/add_tag.js": "/js/add_tag.js",
+    "/js/ajax_setup.js": "/js/ajax_setup.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/welcome.css": "/css/welcome.css",
     "/css/form.css": "/css/form.css",
     "/js/checkbox.js": "/js/checkbox.js",
-    "/js/review.js": "/js/review.js"
+    "/js/edit_tag.js": "/js/edit_tag.js",
+    "/js/review.js": "/js/review.js",
+    "/js/search.js": "/js/search.js"
 }
