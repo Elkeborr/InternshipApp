@@ -27,6 +27,11 @@ Route::post('/students/register', 'StudentController@handleRegister');
 /* Register */
 Route::get('/companies/register', 'CompanyController@register');
 Route::post('/companies/register', 'CompanyController@handleRegister');
+
+/* Facebook login */
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
+
 // --------   enkel als je ingelogd bent kunnen deze routes ingeladen worden --------//
     Route::group(['middleware' => 'auth'], function () {
         /*----------------COMPANIES------------------------- */
@@ -109,10 +114,6 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::get('/companies/myinternships/{internship}/applications', 'JobApplicationController@applications');
         Route::post('/{id}/save', 'JobApplicationController@save');
         Route::get('/seen', 'JobApplicationController@seen');
-
-        /* Facebook login */
-        Route::get('/redirect', 'SocialAuthFacebookController@redirect');
-        Route::get('/callback', 'SocialAuthFacebookController@callback');
 
         /* Search */
 
