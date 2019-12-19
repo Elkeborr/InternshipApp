@@ -835,10 +835,10 @@ h3 {
     margin: 0;
     margin-bottom: 20px;
 }
-.internship-show_apply button {
+.internship-show_apply a {
     float: left;
     margin-right: 20px;
-    color: $white;
+    color: $white !important;
 }
 
 .orange {

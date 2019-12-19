@@ -10593,10 +10593,10 @@ h3 {
   margin-bottom: 20px;
 }
 
-.internship-show_apply button {
+.internship-show_apply a {
   float: left;
   margin-right: 20px;
-  color: #fff;
+  color: #fff !important;
 }
 
 .orange {

@@ -25,12 +25,12 @@
             <div class="alert alert-primary" role="alert">
                 U heeft al gesolliciteerd voor deze stageplaats.
             </div>
-            <button href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Solliciteer nu</button>
+            <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Solliciteer nu</a>
             @else
-            <button href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Solliciteer nu</button>
+            <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Solliciteer nu</a>
             @endif
             @else
-            <button href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Solliciteer nu</button>
+            <a href="/internships/{{ $internship->id }}/apply" class="btn btn-secondary disabled"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Solliciteer nu</a>
             <div class="alert alert-primary" role="alert">
                 Er zijn geen vrije plekken meer.
             </div>
