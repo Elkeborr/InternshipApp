@@ -138,11 +138,30 @@ Wijzig profiel
             {{method_field('put')}}
             {{csrf_field()}}
 
-            <input type="hidden" class="form-control" name="TagId" id="TagId" value="{{$tag->tags->id}}">
+           <!--
+                <input type="hidden" class="form-control" name="TagId" id="TagId" value="{{$tag->tags->id}}">
+            -->
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->tags->name}}">
-                </div>
+
+                <select name="tag">
+                    <option selected="selected" value="{{$tag->tags->name}}">{{$tag->tags->name}}</option>
+                    <option value="1">3D</option>
+                    <option value="2">Copywriting / Content Production</option>
+                    <option value="3">Digital Design</option>
+                    <option value="4">Front-end Development</option>
+                    <option value="5">Graphic Design</option>
+                    <option value="6">PHP Development</option>
+                    <option value="7">UX Design</option>
+                    <option value="8">UI Design</option>
+                    <option value="9">Web Development</option>
+                    <option value="10">Full Stack Development</option>
+                    <option value="11">Motion Design</option>
+                    <option value="12">Mobile Development</option>
+                    <option value="13">Virtual Reality / Gaming</option>
+                </select>
+                <input type="hidden" class="form-control" name="tagId" id="tagId" value="{{$tag->tags->id}}">
+                 </div>
 
                 <div class="col">
                     <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
@@ -158,11 +177,24 @@ Wijzig profiel
             {{method_field('put')}}
             {{csrf_field()}}
             <div class="row">
-                <select class="browser-default custom-select" name="tag">
-                    @foreach($tags as $tag)
-                    <option class="dropdown-item" type="button" value="{{$tag->id}}">{{$tag->name }}</option>
-                    @endforeach
+            <div class="col">
+            <select name="tag">
+                    <option selected="selected" disabled="disabled">Kies een vakgebied</option>
+                    <option value="3D">3D</option>
+                    <option value="Copywriting / Content Production">Copywriting / Content Production</option>
+                    <option value="Digital Design">Digital Design</option>
+                    <option value="Front-end Development">Front-end Development</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="PHP Development">PHP Development</option>
+                    <option value="UX Design">UX Design</option>
+                    <option value="UI Design">UI Design</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Full Stack Development">Full Stack Development</option>
+                    <option value="Motion Design">Motion Design</option>
+                    <option value="Mobile Development">Mobile Development</option>
+                    <option value="Virtual Reality / Gaming">Virtual Reality / Gaming</option>
                 </select>
+            </div>
 
                 <div class="col">
                     <button type="submit" class="btn btn-success" formaction="/companies/addTags/{{$company->id}}">Nieuwe toevoegen</button>

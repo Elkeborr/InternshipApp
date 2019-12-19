@@ -217,13 +217,16 @@ class CompanyController extends Controller
             'tag' => 'required',
         ]);
 
-        $user = session('user');
-        $company = \App\Company::where('id', $user->company_id)->first();
+        //vraag id van tag en company die je wilt wijzigen
+        $company = \Auth::user()->company_id;
+        $tag_id = request('tagId');
+        $tag_name = request('tag');
 
-        $data['company'] = \App\Company::where('id', $company)->first();
+        //selecteer tag die overeenkomt met de tag die je wilt aanpassen
+        $tag = \App\AssignCompanyTags::where('company_tag_id', $tag_id)->where('company_id', $company)->first();
+        $tag->company_tag_id = $tag_name;
 
-        $tag = \App\CompanyTag::where('id', request('TagId'))->first();
-        $tag->name = request('tag');
+        //opslaan
         $tag->save();
 
         return back()
@@ -232,8 +235,15 @@ class CompanyController extends Controller
 
     public function deleteTags(Request $request)
     {
-        $id = request('TagId');
-        $tag = \App\AssignCompanyTags::where('company_tag_id', $id)->first();
+        //vraag id van tag en company die je wilt verwijderen
+        $company = \Auth::user()->company_id;
+        $tag_id = request('tagId');
+        $tag_name = request('tag');
+
+        //selecteer tag die overeenkomt met de tag die je wilt verwijderen
+        $tag = \App\AssignCompanyTags::where('company_tag_id', $tag_id)->where('company_id', $company)->first();
+
+        //verwijderen
         $tag->delete();
 
         return back()
@@ -248,7 +258,7 @@ class CompanyController extends Controller
 
         $company = \Auth::user()->company_id;
         //vraag id op van tag die je wilt linken
-        $tag_id = \App\CompanyTag::where('id', request('tag'))->first();
+        $tag_id = \App\CompanyTag::where('name', request('tag'))->first();
 
         //assign companytag toevoegen -> relatie
         $tagAssign = new \App\AssignCompanyTags();
