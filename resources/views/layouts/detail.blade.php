@@ -55,6 +55,7 @@
                         <span class=" username"> {{$user->name}} </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/chats">Berichten bekijken</a>
                         @if($user->type == 'student')
                             <a class="dropdown-item" href="/students/{{$user->id }}">Profiel bekijken</a>
                         @endif
@@ -64,7 +65,6 @@
                         @endif
                         
                         <div class="dropdown-divider"></div>
-
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Afmelden') }}</a>
                     </div>
