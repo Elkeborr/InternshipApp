@@ -24,7 +24,8 @@ Berichten
 <div class="message">
     <a href="/chats/{{$message->chat_id}}">{{$message->user->name}}</a>
     <hr>
-    <p>{{$message->created_at}}</p>
+    <p>{{$message->created_at->diffForHumans()}}</p>
+
 </div>
 @endforeach
     @endif
@@ -41,7 +42,9 @@ Berichten
 <div class="message">
     <a href="/chats/{{$message->chat_id}}">{{$message->company->name}}</a>
     <hr>
-    <p>{{$message->created_at}}</p>
+    <p></p>
+    <p>{{$message->created_at->diffForHumans()}}</p>
+
 </div>
 @endforeach
 @endif

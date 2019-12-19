@@ -21,6 +21,7 @@ class MessageController extends Controller
         $query2 = \App\Message::join('users', 'users.id', '=', 'messages.user_id')
           ->where('messages.company_id', $user)
           ->get();
+        dd($query2);
         $data['messagesUser'] = $query2->unique('user_id');
 
         return view('chats/index', $data);
