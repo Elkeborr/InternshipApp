@@ -29,7 +29,7 @@ class FilterController extends Controller
 
         if ($query->isEmpty()) {
             $request->session()->flash('message', 'Geen specifieke bedrijven gevonden. Misschien vind je deze interresant.');
-            $data['companies'] = \App\Company::inRandomOrder()->get();
+            $data['companies'] = \App\Company::with('users')->inRandomOrder()->get();
 
             return view('companies/index', $data);
         }
