@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Redirect;
@@ -28,37 +29,49 @@ class StudentController extends Controller
     //op basis van id, opzoek gaan naar record
     public function edit($user)
     {
-        $data['user'] = \App\User::where('id', $user)->first();
+        if (\Auth::user()->id == $user) {
+            $data['user'] = \App\User::where('id', $user)->first();
 
-        return view('/students/edit', $data);
+            return view('/students/edit', $data);
+        } else {
+            return new Response(view('forbidden'));
+        }
     }
 
     public function editIntro($user)
     {
-        $data['user'] = \App\User::where('id', $user)->first();
-
-        return view('/students/edit-intro', $data);
+        if (\Auth::user()->id == $user) {
+            $data['user'] = \App\User::where('id', $user)->first();
+        } else {
+            return new Response(view('forbidden'));
+        }
     }
 
     public function editSkills($user)
     {
-        $data['user'] = \App\User::where('id', $user)->first();
-
-        return view('/students/edit-skills', $data);
+        if (\Auth::user()->id == $user) {
+            $data['user'] = \App\User::where('id', $user)->first();
+        } else {
+            return new Response(view('forbidden'));
+        }
     }
 
     public function editSocial($user)
     {
-        $data['user'] = \App\User::where('id', $user)->first();
-
-        return view('/students/edit-social', $data);
+        if (\Auth::user()->id == $user) {
+            $data['user'] = \App\User::where('id', $user)->first();
+        } else {
+            return new Response(view('forbidden'));
+        }
     }
 
     public function addSkills($user)
     {
-        $data['user'] = \App\User::where('id', $user)->first();
-
-        return view('/students/add-skills', $data);
+        if (\Auth::user()->id == $user) {
+            $data['user'] = \App\User::where('id', $user)->first();
+        } else {
+            return new Response(view('forbidden'));
+        }
     }
 
     public function saveSkills(Request $request)
@@ -73,7 +86,8 @@ class StudentController extends Controller
         $skill->user_id = $user->id;
         $skill->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function deleteSkills(Request $request)
@@ -83,7 +97,8 @@ class StudentController extends Controller
         $skill = \App\Skill::where('id', $id);
         $skill->delete();
 
-        return redirect()->action('StudentController@editSkills', $user);
+        return back()
+            ->with('success', 'Kwaliteit verwijderd');
     }
 
     public function deleteSocial(Request $request)
@@ -93,14 +108,17 @@ class StudentController extends Controller
         $social = \App\Social::where('id', $id);
         $social->delete();
 
-        return redirect()->action('StudentController@editSocial', $user);
+        return back()
+            ->with('success', 'Link verwijderd');
     }
 
     public function addSocial($user)
     {
-        $data['user'] = \App\User::where('id', $user)->first();
-
-        return view('/students/add-social', $data);
+        if (\Auth::user()->id == $user) {
+            $data['user'] = \App\User::where('id', $user)->first();
+        } else {
+            return new Response(view('forbidden'));
+        }
     }
 
     public function saveSocial(Request $request)
@@ -116,7 +134,8 @@ class StudentController extends Controller
         $social->user_id = $user->id;
         $social->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function update(Request $request)
@@ -135,7 +154,8 @@ class StudentController extends Controller
         $user->updated_at = date('Y-m-d h:i:s');
         $user->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function imageUploadPost()
@@ -152,7 +172,7 @@ class StudentController extends Controller
         $user->save();
 
         return back()
-            ->with('success', 'You have successfully upload image.')
+            ->with('success', 'De afbeelding is opgeslagen.')
             ->with('image', $imageName);
     }
 
@@ -162,7 +182,8 @@ class StudentController extends Controller
         $user->biography = request('biography');
         $user->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function updateSkills(Request $request)
@@ -176,7 +197,8 @@ class StudentController extends Controller
         $skill->user_id = $user->id;
         $skill->save();
 
-        return redirect()->action('StudentController@editSkills', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function updateSocial(Request $request)
@@ -192,7 +214,8 @@ class StudentController extends Controller
         $social->user_id = $user->id;
         $social->save();
 
-        return redirect()->action('StudentController@editSocial', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     /* -------------------- LOGIN ----------------------- */
@@ -255,7 +278,7 @@ class StudentController extends Controller
             //Put user data in session User
             $request->session()->put('user', $user);
             // dd($sessionData['name']);
-            return view('/home', $data);
+            return redirect('/home');
         }
 
         return view('students/login');

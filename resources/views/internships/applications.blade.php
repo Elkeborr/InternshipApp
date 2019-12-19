@@ -28,25 +28,26 @@ Stageplaats
 @foreach($internship->jobApplications as $jobApplication)
 <h1>{{$internship->internship_function}}</h1>
 <?php $applicationUser = \App\User::where('id', $jobApplication->user_id)->first(); ?>
-<div class="card" style="width: 18rem; float: left; margin: 10px;">
+<div class="card" >
     <div class="card-body">
-        <h5 class="card-title">{{$applicationUser->name}}</h5>
+     
 
        
 
 
 
+        <a class="clearfix"href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}">{{$applicationUser->name}}</a>
         @if($jobApplication->status == 'new')
-        <span class="badge badge-pill badge-primary" style="padding: 5px 10px;">Nieuw</span>
+        <span class="badge badge-pill badge-primary">Nieuw</span>
         @elseif($jobApplication->status == 'starred')
-        <span class="badge badge-pill badge-warning" style="padding: 5px 10px;">In behandeling</span>
+        <span class="badge badge-pill badge-warning">In behandeling</span>
         @elseif($jobApplication->status == 'approved')
-        <span class="badge badge-pill badge-success" style="padding: 5px 10px;">Aangenomen</span>
+        <span class="badge badge-pill badge-success">Aangenomen</span>
         @elseif($jobApplication->status == 'declined')
-        <span class="badge badge-pill badge-danger" style="padding: 5px 10px;">Geweigerd</span>
+        <span class="badge badge-pill badge-danger">Geweigerd</span>
         @endif
         <br>
-        <form action="/{{$jobApplication->id}}/save" method="post" style="margin-top: 30px;">
+        <form action="/{{$jobApplication->id}}/save" method="post">
             @csrf
             <div class="form-group">
                 <select class="form-control" name="status" id="status">

@@ -16,7 +16,7 @@ class AssignCompanyTags extends Model
 
     public function company()
     {
-        return $this->belongsTo('\App\Company');
+        return $this->belongsTo('\App\Company', 'company_id');
     }
 
     public function tags()
@@ -27,13 +27,16 @@ class AssignCompanyTags extends Model
     public function scopeOfTag($query, array $tag)
     {
         return $query->whereIn('company_tag_id', $tag)
-        ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id');
+        ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
+        ->join('users', 'users.id', '=', 'companies.user_id');
     }
 
     public function scopeOfTagAndState($query, array $tag, array $state)
     {
         return $query->whereIn('company_tag_id', $tag)
-        ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')->whereIn('state', $state);
+        ->join('companies', 'assign_company_tags.company_id', '=', 'companies.id')
+        ->join('users', 'users.id', '=', 'companies.user_id')
+        ->whereIn('state', $state);
     }
 
     public function scopeShowCompany($query, $company)

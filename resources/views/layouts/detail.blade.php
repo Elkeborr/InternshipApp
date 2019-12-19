@@ -55,8 +55,14 @@
                         <span class=" username"> {{$user->name}} </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/students/{{$user->id }}">Profiel bekijken</a>
-                        <a class="dropdown-item" href="/chats">Berichten bekijken</a>
+                        @if($user->type == 'student')
+                            <a class="dropdown-item" href="/students/{{$user->id }}">Profiel bekijken</a>
+                        @endif
+
+                        @if($user->type == 'company')
+                            <a class="dropdown-item" href="/companies/profile/{{\Auth::user()->company_id}}">Profiel bekijken</a>
+                        @endif
+                        
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Afmelden') }}</a>

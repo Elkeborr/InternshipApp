@@ -21,7 +21,7 @@ class CreateInternshipsTable extends Migration
             $table->text('tags')->nullable();
             $table->boolean('drivers_license');
             $table->integer('available_spots');
-            $table->text('remarks');
+            $table->text('remarks')->nullable();
             $table->boolean('paid');
             $table->boolean('status');
             $table->bigInteger('company_id');

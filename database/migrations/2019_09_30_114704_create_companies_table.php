@@ -26,6 +26,7 @@ class CreateCompaniesTable extends Migration
             $table->string('postalCode');
             $table->bigInteger('employees');
             $table->bigInteger('user_id');
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

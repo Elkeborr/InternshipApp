@@ -21,7 +21,7 @@ Overzicht
         <div class="intern">
             <a class="job-applicant-name-link" href="/students/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}">
                 @if(\Auth::user()::where('id', $jobApplication['user_id'])->first()->profile_picture!=null)
-                <img src="../profileImages/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->profile_picture}}" alt="profile picture" class="profilepic" style="width: 50px; height: auto; padding: 0;">
+                <img src="../profileImages/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->profile_picture}}" alt="profile picture" class="profilepic_small">
                 @else
                 <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic">
                 @endif
@@ -61,7 +61,7 @@ Overzicht
     @if (\Auth::user()->type == 'student')
 
     <h2>Jouw sollicitaties</h2>
-    @if (!$jobApplications->isEmpty() || !$likes->isEmpty() )
+ @if (!$jobApplications->isEmpty() || !$likes->isEmpty() )
 
     @foreach ($jobApplications as $jobApplication)
     <?php

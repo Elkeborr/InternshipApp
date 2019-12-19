@@ -23,13 +23,13 @@ class FilterController extends Controller
             $query = $collection->unique('id');
         }
         if ($request->has('tag') && $request->has('state')) {
-            $collection = \App\AssignCompanyTags::OfTag($tag, $state)->inRandomOrder()->get();
+            $collection = \App\AssignCompanyTags::OfTagAndState($tag, $state)->inRandomOrder()->get();
             $query = $collection->unique('id');
         }
 
         if ($query->isEmpty()) {
             $request->session()->flash('message', 'Geen specifieke bedrijven gevonden. Misschien vind je deze interresant.');
-            $data['companies'] = \App\Company::inRandomOrder()->get();
+            $data['companies'] = \App\Company::with('users')->inRandomOrder()->get();
 
             return view('companies/index', $data);
         }

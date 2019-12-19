@@ -13,11 +13,13 @@
 
 <div class="company-show container">
     <section class="company-show_info">
-    @if($company->profile_picture!=null)
-    <div class="company-show_info_photo">
-            <img href="../company-images/{{$company->profile_picture}}">
+
+    @if(!$company->users->profile_picture == null)
+        <div class="company-show_info_photo">
+            <img src="../profileImages/{{$company->users->profile_picture}}" class="profilepic" alt='logo'>
         </div>
-        @endif
+    @endif
+
         <div class="company-show_info_text">
             <h1>{{$company->name}}</h1>
             @if($company->website!=null)
@@ -117,10 +119,10 @@
         <div class="company-show_reviews-one">
             <div>
                 @if($reviews->users->profile_picture==null)
-                <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic-review" width="20px">
+                <img src="../img/defaultProfile.png" alt="profile picture" class="profilepic_small-review" width="20px">
                 @endif
                 @if($reviews->users->profile_picture!=null)
-                <img src="../profileImages/{{$reviews->users->profile_picture}}" alt="profile picture" class="profilepic">
+                <img src="../profileImages/{{$reviews->users->profile_picture}}" alt="profile picture" class="profilepic_small-review">
                 @endif
                 <p>{{$reviews->users->name}}</p>
 

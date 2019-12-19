@@ -9,9 +9,7 @@ class InternshipController extends Controller
 {
     public function index()
     {
-        $data['internships'] = \App\Internship::where('status', true)
-        ->where('available_spots', '>', 0)
-        ->with('jobApplications')->latest()->get();
+        $data['internships'] = \App\Internship::OfAll();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
@@ -22,7 +20,7 @@ class InternshipController extends Controller
     {
         $data['internship'] = \App\Internship::where('id', $internship)->with('company')->where('status', true)->first();
         $data['jobApplications'] = \App\JobApplication::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
-        $data['like'] = \App\Like::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
+        $data['like'] = \App\Like::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->first();
         $data['tags'] = explode(',', $data['internship']->tags);
 
         return view('internships/show', $data);
@@ -30,7 +28,7 @@ class InternshipController extends Controller
 
     public function welcomeIndex()
     {
-        $data['internships'] = \App\Internship::with('jobApplications')->where('status', true)->take(6)->latest()->get();
+        $data['internships'] = \App\Internship::OfLimit();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
@@ -119,8 +117,9 @@ class InternshipController extends Controller
 
             $internship->status = false;
             $internship->save();
+            $request->session()->flash('message', 'Succesvol verwijderd');
 
-            return redirect()->back();
+            return redirect('internships/myinternships');
         }
     }
 }

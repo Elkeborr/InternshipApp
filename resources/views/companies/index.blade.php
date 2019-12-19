@@ -30,27 +30,30 @@ Bedrijven
 					</a>
 				</h6>
 			</div>
-
 			<form action="" method="post">
 				{{csrf_field()}}
-
 				@foreach($states as $state)
 				<label class="form-check">
 					@if(old('state'))
 					@foreach(old('state') as $check)
 					@if($check === $state->state)
 					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" checked>
+					<span class="checkmark"></span>
 					@endif
 					@endforeach
-					@else
 					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
-					@endif
-
-
 					<span class="form-check-label">
 						{{$state->state}}
 					</span>
 					<span class="checkmark"></span>
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
+					<span class="form-check-label">
+						{{$state->state}}
+					</span>
+					<span class="checkmark"></span>
+					@endif
+					
 				</label>
 				@endforeach
 				<div class="panel-heading">
@@ -66,19 +69,26 @@ Bedrijven
 					@foreach(old('tag') as $checktag)
 					@if($checktag == $tag->id)
 					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
+					<span class="checkmark"></span>
 					@endif
 					@endforeach
-					@else
 					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
-					@endif
 					<span class="form-check-label">
 						{{$tag->name}}
 					</span>
 					<span class="checkmark"></span>
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]">
+					<span class="form-check-label">
+						{{$tag->name}}
+					</span>
+					<span class="checkmark"></span>
+					@endif
 				</label>
+
 				@endforeach
 
-				<button type="submit" class="btn" id="btncheck" >Bekijken</button>
+				<button type="submit" class="btn" id="btncheck">Bekijken</button>
 			</form>
 
 		</div>
@@ -86,10 +96,13 @@ Bedrijven
 	<div class="companies row">
 		@foreach($companies as $company)
 		<div class="companies__detail">
-			<!--<img>-->
+
+			@if(!$company->users->profile_picture == null)
+			<img src="../profileImages/{{$company->users->profile_picture}}" alt='logo'>
+			@endif
 			<br>
 			<div class="name">
-			<a  href="/companies/{{$company->id}}">{{ $company-> name}}</a>
+				<a href="/companies/{{$company->id}}">{{ $company-> name}}</a>
 			</div>
 			<p>{{Str::limit( $company-> bio, $limit = 120, $end = ' ...')}}</p>
 			<hr class="companies__line">
