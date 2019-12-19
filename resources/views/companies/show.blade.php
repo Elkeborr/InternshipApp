@@ -19,6 +19,7 @@
             <img src="../profileImages/{{$company->users->profile_picture}}" alt='logo'>
         </div>
         @endif
+
         <div class="company-show_info_text">
             <h1>{{$company->name}}</h1>
             @if($company->website!=null)

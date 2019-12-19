@@ -31,12 +31,12 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
     Route::group(['middleware' => 'auth'], function () {
         /*----------------COMPANIES------------------------- */
 
-        Route::group(['middleware' => ['auth', 'student']], function() {
+        Route::group(['middleware' => ['auth', 'student']], function () {
             /* Apply */
             Route::get('/internships/{internship}/apply', 'JobApplicationController@apply');
         });
 
-        Route::group(['middleware' => ['auth', 'company']], function() {
+        Route::group(['middleware' => ['auth', 'company']], function () {
             /* create company */
             Route::get('/companies/detail', 'CompanyController@create');
             Route::post('/companies/detail', 'CompanyController@handlecreate');
@@ -50,12 +50,19 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
             Route::put('/internships/editMyInternship/{internship}', 'InternshipController@handleEdit');
         });
 
-
-
         /* companies index and detail page */
         Route::get('/companies', 'CompanyController@index');
         Route::post('/companies', 'FilterController@filterCompany');
         Route::get('/companies/{company}', 'CompanyController@show');
+
+        /* edit company details */
+        Route::get('/companies/profile/{company}', 'CompanyController@showProfile');
+        Route::get('/companies/{company}/edit', 'CompanyController@edit');
+        Route::put('/companies/{company}/save', 'CompanyController@saveChanges');
+        Route::put('/companies/imageUpload/{company}', 'CompanyController@imageUpload');
+        Route::put('/companies/editTags/{company}', 'CompanyController@editTags');
+        Route::put('/companies/deleteTags/{company}', 'CompanyController@deleteTags');
+        Route::put('/companies/addTags/{company}', 'CompanyController@addTags');
 
         /*----------------REVIEWS------------------------- */
         Route::post('/companies/{company}', 'ReviewController@handleCreate');
@@ -97,7 +104,6 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         /* studentprofile add info */
         Route::put('/students/addSkills/{student}', 'StudentController@saveSkills');
         Route::put('/students/addSocial/{student}', 'StudentController@saveSocial');
-
 
         /* Company internships & applies */
         Route::get('/companies/myinternships/{internship}/applications', 'JobApplicationController@applications');

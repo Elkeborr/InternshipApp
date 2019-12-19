@@ -100,6 +100,90 @@ class CompanyController extends Controller
         return redirect('companies/login');
     }
 
+    public function showProfile($company)
+    {
+        if (Auth::check()) {
+            $data['company'] = \App\Company::where('id', $company)
+                ->with('tags')
+                ->first();
+
+            $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
+                ->with('tags')->first();
+
+            return view('companies/showProfile', $data);
+        }
+    }
+
+    public function edit($company)
+    {
+        if (Auth::check()) {
+            $data['company'] = \App\Company::where('id', $company)
+                ->with('tags')
+                ->first();
+
+            $data['tags'] = \App\AssignCompanyTags::where('company_id', $company)
+                ->with('tags')->first();
+
+            return view('companies/edit', $data);
+        }
+    }
+
+    public function saveChanges(Request $request)
+    {
+        $validation = $request->validate([
+            'companyname' => 'required|max:200',
+            'email' => 'required',
+            'tel' => 'required',
+            'employees' => 'integer',
+            'biography' => 'required',
+            'street' => 'required',
+            'nr' => 'required',
+            'gemeente' => 'required',
+            'postcode' => 'required',
+        ]);
+
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+
+        $company->name = request('companyname');
+        $company->email = request('email');
+        $company->phoneNumber = request('tel');
+        $company->employees = request('employees');
+        $company->website = request('website');
+        $company->bio = request('biography');
+        $company->street = request('street');
+        $company->streetNumber = request('nr');
+        $company->city = request('gemeente');
+        $company->postalCode = request('postcode');
+        //$user->password = Hash::make(request('password'));
+        $company->updated_at = date('Y-m-d h:i:s');
+        $company->save();
+
+        $data['company'] = \App\Company::where('id', $user->company_id)->first();
+
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
+    }
+
+    public function imageUpload()
+    {
+        request()->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('company-images'), $imageName);
+
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+        $company->logo = $imageName;
+        $company->save();
+
+        return back()
+            ->with('success', 'De afbeelding is opgeslagen.')
+            ->with('image', $imageName);
+    }
+
     public function create()
     {
         $user = session('user');
@@ -123,6 +207,66 @@ class CompanyController extends Controller
         $data['tags'] = \App\CompanyTag::get();
 
         return view('companies/detail', $data);
+    }
+
+    public function editTags(Request $request)
+    {
+        $validation = $request->validate([
+            'tag' => 'required',
+        ]);
+
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+
+        $data['company'] = \App\Company::where('id', $company)->first();
+
+        $tag = \App\CompanyTag::where('id', request('TagId'))->first();
+        $tag->name = request('tag');
+        $tag->save();
+
+        return back()
+            ->with('success', 'Wijziging opgeslagen');
+    }
+
+    public function deleteTags(Request $request)
+    {
+        $id = request('TagId');
+        $tag = \App\AssignCompanyTags::where('company_tag_id', $id)->first();
+        $tag->delete();
+
+        return back()
+            ->with('success', 'Het vakgebied is verwijderd');
+    }
+
+    public function addTags(Request $request)
+    {
+        $validation = $request->validate([
+            'tag' => 'required',
+        ]);
+
+        //company id opvragen
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+
+        //voeg nieuwe tag toe als deze niet bestaat
+        $tag = \App\CompanyTag::where('name', request('tag'))->first();
+        if (!$tag) {
+            $tag = new \App\CompanyTag();
+            $tag->name = request('tag');
+            $tag->save();
+        }
+
+        //vraag id op van tag die je wilt linken
+        $tag_id = \App\CompanyTag::where('name', request('tag'))->first();
+
+        //assign companytag toevoegen -> relatie
+        $tagAssign = new \App\AssignCompanyTags();
+        $tagAssign->company_id = $company->id;
+        $tagAssign->company_tag_id = $tag_id->id;
+        $tagAssign->save();
+
+        return back()
+            ->with('success', 'Het nieuwe vakgebied is toegevoegd');
     }
 
     public function handlecreate(Request $request)
