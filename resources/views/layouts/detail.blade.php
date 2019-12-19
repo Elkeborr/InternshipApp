@@ -55,6 +55,7 @@
                         <span class=" username"> {{$user->name}} </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/chats">Berichten bekijken</a>
                         @if($user->type == 'student')
                             <a class="dropdown-item" href="/students/{{$user->id }}">Profiel bekijken</a>
                         @endif

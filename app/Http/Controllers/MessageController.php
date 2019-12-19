@@ -98,20 +98,30 @@ class MessageController extends Controller
         if ($request['userSave']) {
             $user = \Auth::user()->id;
             $chat_id = \App\Message::orderBy('created_at', 'DESC')->first();
-            if ($chat_id) {
-                $newChatId = $chat_id + 1;
+
+            if ($chat_id->chat_id) {
+                $newChatId = $chat_id->chat_id + 1;
+                $message = new \App\Message();
+                $message->user_id = $user;
+                $message->company_id = $request->route('company');
+                $message->message = $request->input('message');
+                $message->chat_id = $newChatId;
+
+                $message->sender = 'user';
+                $message->save();
+            } else {
+                $newChatId = 1;
+                $message = new \App\Message();
+                $message->user_id = $user;
+                $message->company_id = $request->route('company');
+                $message->message = $request->input('message');
+                $message->chat_id = $newChatId;
+
+                $message->sender = 'user';
+                $message->save();
             }
-            $newChatId = 1;
-            $message = new \App\Message();
-            $message->user_id = $user;
-            $message->company_id = $request->route('company');
-            $message->message = $request->input('message');
-            $message->chat_id = $newChatId;
 
-            $message->sender = 'user';
-            $message->save();
-
-            return view('home');
+            return redirect('/chats');
         }
         if ($request['companySave']) {
             $company = \Auth::user()->company_id;
@@ -127,7 +137,7 @@ class MessageController extends Controller
             $message->sender = 'company';
             $message->save();
 
-            return view('home');
+            return redirect('/chats');
         }
 
         return view('chats/newMessage');

@@ -83,10 +83,14 @@ Overzicht
         <p>{{Str::limit( $internship->internship_discription, $limit = 100, $end = ' ...')}}</p>
         <strong>{{$company->city}}</strong><br><br>
         <a href="/companies/{{$company->id}}" class="btn">Ga naar bedrijf</a>
-        @if($messagesStudent->company_id ==! $company->id)
+        @if(!$messagesStudent == null)
+        @if($messagesStudent->company_id !== $company->id)
         <a href="/chats/{{$company->id}}/newMessage" class="btn">Stuur bericht</a>
         @else
         <a href="/chats/{{$messagesStudent->chat_id}}" class="btn">Berichten</a>
+        @endif
+        @else
+        <a href="/chats/{{$company->id}}/newMessage" class="btn">Stuur bericht</a>
         @endif
 
 
