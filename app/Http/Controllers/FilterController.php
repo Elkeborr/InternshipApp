@@ -23,13 +23,13 @@ class FilterController extends Controller
             $query = $collection->unique('id');
         }
         if ($request->has('tag') && $request->has('state')) {
-            $collection = \App\AssignCompanyTags::OfTag($tag, $state)->inRandomOrder()->get();
+            $collection = \App\AssignCompanyTags::OfTagAndState($tag, $state)->inRandomOrder()->get();
             $query = $collection->unique('id');
         }
 
         if ($query->isEmpty()) {
             $request->session()->flash('message', 'Geen specifieke bedrijven gevonden. Misschien vind je deze interresant.');
-            $data['companies'] = \App\Company::inRandomOrder()->get();
+            $data['companies'] = \App\Company::with('users')->inRandomOrder()->get();
 
             return view('companies/index', $data);
         }
@@ -48,28 +48,28 @@ class FilterController extends Controller
         $state = $request->input('state');
         $tag = $request->input('tag');
         if ($request->has('state')) {
-            $query = \App\Internship::OfState($state)->take(6)->get();
+            $query = \App\Internship::OfState($state)->take(6)->latest('internships.created_at')->get();
         }
 
         if ($request->has('tag')) {
-            $collection = \App\Internship::ofTag($tag)->take(6)->get();
+            $collection = \App\Internship::ofTag($tag)->take(6)->latest('internships.created_at')->get();
             $query = $collection->unique('id');
         }
 
         if ($request->has('tag') && $request->has('state')) {
             if ($state === 'regio') {
-                $collection = \App\Internship::ofTag($tag)->take(6)->inRandomOrder()->get();
+                $collection = \App\Internship::ofTag($tag)->take(6)->latest('internships.created_at')->get();
             }
             if ($tag === 'Vakgebied') {
                 $state = $request->input('state');
-                $query = \App\Internship::OfState($state)->take(6)->inRandomOrder()->get();
+                $query = \App\Internship::OfState($state)->take(6)->latest('internships.created_at')->get();
             }
-            $collection = \App\Internship::OfTagAndState($tag, $state)->take(6)->inRandomOrder()->get();
+            $collection = \App\Internship::OfTagAndState($tag, $state)->take(6)->latest('internships.created_at')->get();
         }
 
         if ($query->isEmpty()) {
             $request->session()->flash('message', 'Geen specifieke stages gevonden, hopelijk vind je deze ook interresant.');
-            $data['internships'] = \App\Internship::get()->take(6);
+            $data['internships'] = \App\Internship::get()->take(6)->latest('internships.created_at')->get();
 
             return view('welcome', $data);
         }

@@ -67,6 +67,11 @@ class User extends Authenticatable
         return $this->hasMany('\App\Like', 'user_id');
     }
 
+    public function company()
+    {
+        return $this->belongsTo('\App\Company', 'user_id');
+    }
+
     /*
      * Display a listing of the resource.
 

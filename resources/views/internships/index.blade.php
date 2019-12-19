@@ -38,15 +38,22 @@ Stageplaatsen
 					@foreach(old('state') as $check)
 					@if($check === $state->state)
 					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" checked>
+					<span class="checkmark"></span>
 					@endif
 					@endforeach
-					@else
 					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]" class="check">
-					@endif
 					<span class="form-check-label">
 						{{$state->state}}
 					</span>
 					<span class="checkmark"></span>
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$state->state}}" name="state[]">
+					<span class="form-check-label">
+						{{$state->state}}
+					</span>
+					<span class="checkmark"></span>
+					@endif
+					
 				</label>
 				@endforeach
 				<div class="panel-heading">
@@ -62,15 +69,21 @@ Stageplaatsen
 					@foreach(old('tag') as $checktag)
 					@if($checktag == $tag->id)
 					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" checked>
+					<span class="checkmark"></span>
 					@endif
 					@endforeach
-					@else
 					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" class="check">
-					@endif
 					<span class="form-check-label">
 						{{$tag->name}}
 					</span>
 					<span class="checkmark"></span>
+					@else
+					<input class="form-check-input" type="checkbox" value="{{$tag->id}}" name="tag[]" class="check">
+					<span class="form-check-label">
+						{{$tag->name}}
+					</span>
+					<span class="checkmark"></span>
+					@endif
 				</label>
 				@endforeach
 				<button type="submit" class="btn" id="btncheck">Bekijken</button>
