@@ -31,6 +31,7 @@ class StudentController extends Controller
     {
         if (\Auth::user()->id == $user) {
             $data['user'] = \App\User::where('id', $user)->first();
+
             return view('/students/edit', $data);
         } else {
             return new Response(view('forbidden'));
@@ -85,7 +86,8 @@ class StudentController extends Controller
         $skill->user_id = $user->id;
         $skill->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function deleteSkills(Request $request)
@@ -95,7 +97,8 @@ class StudentController extends Controller
         $skill = \App\Skill::where('id', $id);
         $skill->delete();
 
-        return redirect()->action('StudentController@editSkills', $user);
+        return back()
+            ->with('success', 'Kwaliteit verwijderd');
     }
 
     public function deleteSocial(Request $request)
@@ -105,7 +108,8 @@ class StudentController extends Controller
         $social = \App\Social::where('id', $id);
         $social->delete();
 
-        return redirect()->action('StudentController@editSocial', $user);
+        return back()
+            ->with('success', 'Link verwijderd');
     }
 
     public function addSocial($user)
@@ -130,7 +134,8 @@ class StudentController extends Controller
         $social->user_id = $user->id;
         $social->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function update(Request $request)
@@ -149,7 +154,8 @@ class StudentController extends Controller
         $user->updated_at = date('Y-m-d h:i:s');
         $user->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function imageUploadPost()
@@ -177,8 +183,7 @@ class StudentController extends Controller
         $user->save();
 
         return back()
-            ->with('success', 'Vakgebied is gewijzigd.')
-            ->with('image', $imageName);
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function updateSkills(Request $request)
@@ -192,7 +197,8 @@ class StudentController extends Controller
         $skill->user_id = $user->id;
         $skill->save();
 
-        return redirect()->action('StudentController@editSkills', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     public function updateSocial(Request $request)
@@ -208,7 +214,8 @@ class StudentController extends Controller
         $social->user_id = $user->id;
         $social->save();
 
-        return redirect()->action('StudentController@editSocial', $user);
+        return back()
+            ->with('success', 'Wijzigingen opgeslagen');
     }
 
     /* -------------------- LOGIN ----------------------- */
