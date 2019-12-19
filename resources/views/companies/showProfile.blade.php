@@ -21,8 +21,8 @@
     
     <section class="company-show_info">
         <div class="company-show_info_photo">
-        @if(!$company->users->profile_picture == null)
-            <img src="{{asset('../profileImages').'/'.$company->users->profile_picture}}" class="profilepic" alt='logo'>
+        @if(!$company->logo == null)
+            <img src="{{asset('../company-images').'/'.$company->logo}}" class="profilepic" alt='logo'>
          @else
                 <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif

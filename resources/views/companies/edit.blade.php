@@ -34,8 +34,8 @@ Wijzig profiel
 
     <div class="panel panel-primary">
         <div class="profielfoto">
-        @if(!$company->users->profile_picture == null)
-            <img src="{{asset('../profileImages').'/'.$company->users->profile_picture}}" alt="profile picture" class="profilepic">
+        @if(!$company->logo == null)
+            <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
       
             @else
             <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
@@ -56,7 +56,7 @@ Wijzig profiel
         <form action="/companies/{{$company->id}}/save" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
-
+<br><br><br>
             <h2>Bedrijfsgegevens</h2>
             <br>
 
