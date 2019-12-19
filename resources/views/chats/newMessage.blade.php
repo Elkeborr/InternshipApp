@@ -10,8 +10,8 @@ Nieuw bericht
 
 @section('content')
 <div class="container">
-@if (\Auth::user()->type == 'company')
-<div class="chat row">
+    @if (\Auth::user()->type == 'company')
+    <div class="chat row">
         <div class="col-6 chat_form">
             <p>Stuur je eerste bericht naar {{$user->name}}</p>
             <form method='post'>
@@ -21,12 +21,12 @@ Nieuw bericht
             </form>
         </div>
     </div>
-@endif
+    @endif
 
-@if (\Auth::user()->type == 'student')
-<div class="chat row">
+    @if (\Auth::user()->type == 'student')
+    <div class="chat row">
         <div class="col-6 chat_form">
-        <p>Stuur je eerste bericht naar {{$company->name}}</p>
+            <p>Stuur je eerste bericht naar {{$company->name}}</p>
             <form method='post'>
                 {{csrf_field()}}
                 <textarea rows="4" cols="10" type="text" placeholder="Bericht" name="message" class="form-control message_textarea"></textarea>
@@ -34,5 +34,5 @@ Nieuw bericht
             </form>
         </div>
     </div>
-@endif
-@endsection
+    @endif
+    @endsection
