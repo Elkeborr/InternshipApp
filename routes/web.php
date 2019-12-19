@@ -47,6 +47,7 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         Route::put('/companies/imageUpload/{company}', 'CompanyController@imageUpload');
         Route::put('/companies/editTags/{company}', 'CompanyController@editTags');
         Route::put('/companies/deleteTags/{company}', 'CompanyController@deleteTags');
+        Route::put('/companies/addTags/{company}', 'CompanyController@addTags');
 
         /*----------------REVIEWS------------------------- */
         Route::post('/companies/{company}', 'ReviewController@handleCreate');

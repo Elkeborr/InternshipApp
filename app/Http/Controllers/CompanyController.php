@@ -247,6 +247,37 @@ class CompanyController extends Controller
             ->with('success', 'Het vakgebied is verwijderd');
     }
 
+    public function addTags(Request $request)
+    {
+        $validation = $request->validate([
+            'tag' => 'required',
+        ]);
+
+        //company id opvragen
+        $user = session('user');
+        $company = \App\Company::where('id', $user->company_id)->first();
+
+        //voeg nieuwe tag toe als deze niet bestaat
+        $tag = \App\CompanyTag::where('name', request('tag'))->first();
+        if (!$tag) {
+            $tag = new \App\CompanyTag();
+            $tag->name = request('tag');
+            $tag->save();
+        }
+
+        //vraag id op van tag die je wilt linken
+        $tag_id = \App\CompanyTag::where('name', request('tag'))->first();
+
+        //assign companytag toevoegen -> relatie
+        $tagAssign = new \App\AssignCompanyTags();
+        $tagAssign->company_id = $company->id;
+        $tagAssign->company_tag_id = $tag_id->id;
+        $tagAssign->save();
+
+        return back()
+            ->with('success', 'Het nieuwe vakgebied is toegevoegd');
+    }
+
     public function handlecreate(Request $request)
     {
         // $this->validate($request, [

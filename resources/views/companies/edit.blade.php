@@ -156,6 +156,20 @@ Wijzig profiel
                 </form>
                 <br>
             @endforeach
+            <hr>
+            <form action="/companies/saveTags/{{$company->id}}" method="post">
+                {{method_field('put')}}
+                {{csrf_field()}}
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="tag" id="tag" placeholder="Nieuw vakgebied">
+                        </div>
+
+                        <div class="col">
+                            <button type="submit" class="btn btn-success" formaction="/companies/addTags/{{$company->id}}">Nieuwe toevoegen</button>
+                        </div>
+                    </div>
+            </form>
            
                 
 

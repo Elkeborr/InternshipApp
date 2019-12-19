@@ -12,16 +12,12 @@
 @section('content')
 
 <div class="company-show container">
-@if (\Auth::user()->company_id === $company->id)
-            <img src="{{asset('../img/edit-grey.png')}}" class="editProfileCompany" width="15" alt="edit" onclick="window.location.href='/companies/{{$company->id }}/edit'">
-            @endif
- <section class="company-show_info">
-    <div class="company-show_info_photo">
+    @if (\Auth::user()->company_id === $company->id)
+        <img src="{{asset('../img/edit-grey.png')}}" class="editProfileCompany" width="15" alt="edit" onclick="window.location.href='/companies/{{$company->id }}/edit'">
+    @endif
     
-
+    <section class="company-show_info">
         <div class="company-show_info_photo">
-            
-        
             @if($company->logo !=null)
                 <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
             @endif
@@ -30,7 +26,7 @@
                 <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif
         </div>
-        </div>
+    
         <div class="company-show_info_text">
         
             <h1>{{$company->name}}</h1>
@@ -42,7 +38,7 @@
                 <li>{{$tag->tags->name}}</li>
                 @endforeach
             </ul>
-
+        </div>
 
          
     </section>
@@ -62,7 +58,6 @@
     </section>
 
 
-</div>
 </div>
 @endsection
 
