@@ -31,6 +31,11 @@ Stageplaats
 <div class="card" style="width: 18rem; float: left; margin: 10px;">
     <div class="card-body">
         <h5 class="card-title">{{$applicationUser->name}}</h5>
+
+       
+
+
+
         @if($jobApplication->status == 'new')
         <span class="badge badge-pill badge-primary" style="padding: 5px 10px;">Nieuw</span>
         @elseif($jobApplication->status == 'starred')
@@ -76,6 +81,14 @@ Stageplaats
             <button class="btn btn-secondary" type="submit">Opslaan</button>
             @endif
         </form>
+        <hr>
+        <div class='message_chat'>
+            @if($messagesCompany->user_id ==! \App\User::where('id', $jobApplication->user_id)->first()->id)
+            <a href="/chats/{{\App\User::where('id', $jobApplication->user_id)->first()->id}}/newMessage" class="btn">Stuur bericht</a>
+            @else
+            <a href="/chats/{{$messagesCompany->chat_id}}" class="btn ">Berichten</a>
+            @endif
+            </div>
     </div>
 </div>
 @endforeach

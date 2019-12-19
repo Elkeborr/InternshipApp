@@ -15,7 +15,7 @@ Overzicht
     <h2 style="margin-bottom: 50px;">Sollicitanten voor uw stageplaatsen</h2>
     @foreach ($internships as $internship)
     <div class="internship">
-        <h3 ><a href="/internships/{{$internship['id']}}">{{$internship['internship_function']}}</a></h3>
+        <h3><a href="/internships/{{$internship['id']}}">{{$internship['internship_function']}}</a></h3>
         @if (!$internship['jobApplications']->isEmpty())
         @foreach ($internship['jobApplications'] as $jobApplication)
         <div class="intern">
@@ -27,7 +27,14 @@ Overzicht
                 @endif
                 {{\Auth::user()::where('id', $jobApplication['user_id'])->first()->name}}
             </a>
-            <a href="MAILTO:{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->email}}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>   Email</a>
+            <a href="MAILTO:{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->email}}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email</a>
+            <div class='message_chat'>
+            @if($messagesCompany->user_id ==! \Auth::user()::where('id', $jobApplication['user_id'])->first()->id)
+            <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn">Stuur bericht</a>
+            @else
+            <a href="/chats/{{$messagesCompany->chat_id}}" class="btn ">Berichten</a>
+            @endif
+            </div>
         </div>
         @endforeach
         @else
@@ -44,7 +51,7 @@ Overzicht
     @else
     <div class=" splash">
         <img src="https://www.yara.com/siteassets/careers/internship/internship-norway/internship-icons-knowledge-and-experience.png" alt="empty state">
-        <h2 >Nog geen vacatures</h2>
+        <h2>Nog geen vacatures</h2>
         <a href="/internships/myinternships/create" class="btn">Maak er nu een</a>
     </div>
     @endif
@@ -76,27 +83,34 @@ Overzicht
         <p>{{Str::limit( $internship->internship_discription, $limit = 100, $end = ' ...')}}</p>
         <strong>{{$company->city}}</strong><br><br>
         <a href="/companies/{{$company->id}}" class="btn">Ga naar bedrijf</a>
+        @if($messagesStudent->company_id ==! $company->id)
+        <a href="/chats/{{$company->id}}/newMessage" class="btn">Stuur bericht</a>
+        @else
+        <a href="/chats/{{$messagesStudent->chat_id}}" class="btn">Berichten</a>
+        @endif
+
+
     </div>
     @endforeach
 
 
-    <h2><span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Opgeslagen</h2> 
+    <h2><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Opgeslagen</h2>
     @foreach ($likes as $like)
     <div class="likes">
-    <img>
+        <img>
         <h3><a href="/internships/{{$like['internship_id']}}">{{\App\Internship::where('id', $like['internship_id'])->first()['internship_function']}} bij {{$like->internship->company->name}}</a></h3>
         <p>
-        {{Str::limit( $like->internship->internship_discription, $limit = 100, $end = ' ...')}}
+            {{Str::limit( $like->internship->internship_discription, $limit = 100, $end = ' ...')}}
         </p>
         <strong>{{$like->internship->company->city}}</strong><br><br>
         <a href="/companies/{{$like->internship->company->id}}" class="btn btn-like">Ga naar bedrijf</a>
 
         <form action="" method="POST">
-        {{method_field('put')}}
+            {{method_field('put')}}
             {{csrf_field()}}
             <button class="btn btn-secondary orange" name="delete" value="delete" type="submit">
                 Verwijder</button>
-                <input type="hidden" type="id" name="id" value="{{$like->internship->id}}">
+            <input type="hidden" type="id" name="id" value="{{$like->internship->id}}">
         </form>
 
     </div>

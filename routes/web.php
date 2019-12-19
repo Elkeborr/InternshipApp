@@ -96,4 +96,15 @@ Route::post('/companies/register', 'CompanyController@handleRegister');
         /* Like */
         Route::post('/internships/{internship}', 'LikeController@handleLike');
         Route::put('/home', 'LikeController@deletelike');
+
+        /*----------------CHAT------------------------- */
+        Route::get('/chats', 'MessageController@index');
+        Route::get('/chats/{chat_id}', 'MessageController@show');
+        Route::post('/chats/{chat_id}', 'MessageController@sendMessage');
+
+        Route::get('/chats/{company}/newMessage', 'MessageController@newMessageToCompany');
+        Route::post('/chats/{company}/newMessage', 'MessageController@handleNewMessageToCompany');
+
+        //Route::get('/chats/{user}/newMessage', 'MessageController@newMessageToCompany');
+        //Route::post('/chats/{user}/newMessage', 'MessageController@handleMessageToCompany');
     });

@@ -10712,3 +10712,55 @@ h3 {
   text-decoration: none;
   color: #000000;
 }
+
+/*chat*/
+.message {
+  background-color: #f6f7fb;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.right_chat,
+.left_chat {
+  padding: 10px 5px 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 70%;
+}
+
+.left_chat {
+  background-color: #f6f7fb;
+  float: left;
+}
+
+.right_chat {
+  background-color: #4640de;
+  float: right;
+}
+
+.right_chat p {
+  color: #fff;
+}
+
+.messenger {
+  overflow: scroll;
+}
+
+.chat_form .message_textarea {
+  width: 100%;
+  margin-left: 0;
+}
+
+.chat_form input[type=submit] {
+  width: 20%;
+  float: right;
+  margin-top: 10px;
+}
+
+.message_chat a {
+  color: #fff;
+}
+
+.message_chat {
+  margin-top: 15px;
+}

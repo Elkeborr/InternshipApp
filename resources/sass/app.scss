@@ -964,3 +964,55 @@ h3 {
 //     text-decoration: none;
 //     color: $black;
 // }
+
+/*chat*/
+
+.message {
+    background-color: $light-grey;
+    border-radius: $border-radius;
+    padding: 20px;
+}
+
+.right_chat,
+.left_chat {
+    padding: 10px 5px 5px 10px;
+    border-radius: $border-radius;
+    margin-bottom: 15px;
+    width: 70%;
+}
+
+.left_chat {
+    background-color: $light-grey;
+    float: left;
+}
+
+.right_chat {
+    background-color: $blue;
+    float: right;
+}
+
+.right_chat p {
+    color: $white;
+}
+
+.messenger {
+    overflow: scroll;
+}
+
+.chat_form .message_textarea {
+    width: 100%;
+    margin-left: 0;
+}
+
+.chat_form input[type="submit"] {
+    width: 20%;
+    float: right;
+    margin-top: 10px;
+}
+
+.message_chat a {
+    color: $white;
+}
+.message_chat {
+    margin-top: 15px;
+}

@@ -38,6 +38,7 @@ class jobApplicationController extends Controller
     public function applications($internship)
     {
         $data['internship'] = \App\Internship::where('id', $internship)->first();
+        $data['messagesCompany'] = \App\Message::where('company_id', \Auth::user()->company_id)->first();
         $internships = \App\Internship::where('id', $internship)->first();
         $jobApplications = $internships->jobApplications;
 
