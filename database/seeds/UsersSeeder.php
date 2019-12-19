@@ -56,6 +56,7 @@ class UsersSeeder extends Seeder
         $user7 = new \App\User();
         $user7->name = 'Duval Branding';
         $user7->email = 'hello@duvalbranding.com';
+        $user7->profile_picture = 'duvalbranding.png';
         $user7->password = bcrypt('duvalbranding');
         $user7->type = 'company';
         $user7->company_id = 3;

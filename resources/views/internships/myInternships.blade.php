@@ -9,6 +9,12 @@ Mijn stageplaatsen
 @endsection
 
 @section('content')
+@if ($flash = session('message'))
+@component('components/alert')
+@slot('type','success')
+{{$flash}}
+@endcomponent
+@endif
 <div class="container">
 
     <a href="/internships/myinternships/create" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">

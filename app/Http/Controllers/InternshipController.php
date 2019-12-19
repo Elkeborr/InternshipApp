@@ -20,7 +20,7 @@ class InternshipController extends Controller
     {
         $data['internship'] = \App\Internship::where('id', $internship)->with('company')->where('status', true)->first();
         $data['jobApplications'] = \App\JobApplication::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
-        $data['like'] = \App\Like::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->get();
+        $data['like'] = \App\Like::where('internship_id', $internship)->where('user_id', \Auth::user()->id)->first();
         $data['tags'] = explode(',', $data['internship']->tags);
 
         return view('internships/show', $data);
@@ -117,8 +117,9 @@ class InternshipController extends Controller
 
             $internship->status = false;
             $internship->save();
+            $request->session()->flash('message', 'Succesvol verwijderd');
 
-            return redirect()->back();
+            return redirect('internships/myinternships');
         }
     }
 }
