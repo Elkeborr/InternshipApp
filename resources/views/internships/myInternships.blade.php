@@ -33,7 +33,7 @@ Mijn stageplaatsen
                 <p>{{$myinternship->company->city}}</p>
                 <p>{{ $myinternship->available_spots }} beschikbaar</p>
             </div>
-            <p>{{$myinternship->jobApplications->count()}} hebben er gesoliciteerd</p>
+            <p>{{$myinternship->jobApplications->count()}} @if($myinternship->jobApplications->count() == 1) heeft @else hebben @endif er gesoliciteerd</p>
 
             <a href="/companies/myinternships/{{$myinternship->id}}/applications" class="btn btn-secondary">Bekijk sollicitaties</a>
         </div>

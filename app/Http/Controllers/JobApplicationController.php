@@ -57,8 +57,11 @@ class jobApplicationController extends Controller
         $data->save();
 
         if ($request->status == 'approved') {
-            $spots = \App\Internship::where('id', $id);
-            $spots->decrement('available_spots');
+            $spots = \App\Internship::where('id', $id)->get('available_spots');
+            $newSpots = $spots - 1;
+            dd($newSpots);
+            $spots->available_spots = $newSpots;
+            $spots->save();
         }
 
         return redirect()->back();
