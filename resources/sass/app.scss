@@ -459,6 +459,16 @@ h3 {
     border-radius: 50%;
 }
 
+.profilepic_small-review {
+    width: 45px;
+    height: auto;
+    padding: 0px;
+    margin-right: 10px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+}
+
 .container-profile h4 {
     color: $orange;
 }
