@@ -17,4 +17,9 @@ mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/form.scss", "public/css")
     .js("resources/js/review.js", "public/js")
     .js("resources/js/checkbox.js", "public/js")
+    .js("resources/js/add_tag.js", "public/js")
+    .js("resources/js/edit_tag.js", "public/js")
+    .js("resources/js/search.js", "public/js")
+    .js("resources/js/ajax_setup.js", "public/js")
+
     .options({ processCssUrls: false });

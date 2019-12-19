@@ -93,7 +93,14 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Dem_R\\Desktop\\InternshipApp\\resources\\js\\ajax_setup.js'");
+$(function () {
+  // this will be called when the DOM is ready
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+});
 
 /***/ }),
 

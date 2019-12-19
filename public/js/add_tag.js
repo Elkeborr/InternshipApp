@@ -93,7 +93,64 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Dem_R\\Desktop\\InternshipApp\\resources\\js\\add_tag.js'");
+$(function () {
+  // Start this function when DOM is ready
+  // Prevent post on enter
+  $(window).keydown(function (event) {
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+  $tagArray = []; // Start click Listener
+
+  $('#add_search_tag').click(function (e) {
+    // Take tag value and append in list
+    var tagFieldValue = $('.tag').val(); // Start when value isn't empty
+
+    if (tagFieldValue != '') {
+      // Find ul-list and make li
+      var tagList = $('.tag-list');
+      var listItem = $('<li />', {
+        "class": "tag-item" // ,text: tagFieldValue
+
+      }); // Make link for removing a tag
+
+      var removeListItem = $("<a />", {
+        href: 'javascript:void(0);',
+        "class": 'tag-remove',
+        text: tagFieldValue
+      }); // Push value into array
+
+      $tagArray.push(tagFieldValue); // Append li into ul and clear value
+
+      removeListItem.appendTo(listItem);
+      listItem.appendTo(tagList);
+      $('.tag').val('');
+      $('#tags-hidden').val($tagArray);
+      console.log("hidden input value: " + $('#tags-hidden').val());
+    }
+
+    e.preventDefault();
+  });
+  $('.tag-list').on('click', "a.tag-remove", function (e) {
+    var tagRemoveLink = $(this);
+    var tagListItem = $(this).parent(); // console.log(tagListItem);
+    // Get text of item you want to remove
+
+    var removeVal = $(this).parent().text(); // Remove item from array
+
+    $tagArray = $.grep($tagArray, function (newTagArray) {
+      return newTagArray != removeVal;
+    }); // Put new array in hidden field
+
+    $('#tags-hidden').val($tagArray);
+    tagRemoveLink.remove();
+    tagListItem.remove();
+    console.log("hidden input value: " + $('#tags-hidden').val());
+    e.preventDefault();
+  });
+});
 
 /***/ }),
 
