@@ -535,7 +535,7 @@ h3 {
 }
 
 .company-show_info_text {
-    width: 70%;
+    width: 55%;
     margin-left: 0px;
     grid-column: 2/3;
     grid-row: 1/2;
@@ -549,8 +549,7 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    background-color: $light-grey;
-    padding: 10%;
+    padding: 5%;
 }
 
 .contact_website a {
