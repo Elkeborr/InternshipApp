@@ -54,7 +54,7 @@ Overzicht
     @if (\Auth::user()->type == 'student')
 
     <h2>Jouw sollicitaties</h2>
-    @if (!$jobApplications->isEmpty() || !$likes->isEmpty() )
+ @if (!$jobApplications->isEmpty() || !$likes->isEmpty() )
 
     @foreach ($jobApplications as $jobApplication)
     <?php
@@ -81,7 +81,7 @@ Overzicht
 
 
     <h2><span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Opgeslagen</h2> 
-    @foreach ($likes as $like)
+    @foreach ($likes ?? '' as $like)
     <div class="likes">
     <img>
         <h3><a href="/internships/{{$like['internship_id']}}">{{\App\Internship::where('id', $like['internship_id'])->first()['internship_function']}} bij {{$like->internship->company->name}}</a></h3>

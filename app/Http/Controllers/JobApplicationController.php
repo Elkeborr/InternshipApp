@@ -57,8 +57,10 @@ class jobApplicationController extends Controller
 
         if ($request->status == 'approved') {
             $internshipId = $data->internship_id;
-
             $spots = \App\Internship::where('id', $internshipId)->first();
+            if ($spots->available_spots == 0) {
+                $request->session()->flash('message', 'Er zijn geen plaatsen meer vrij');
+            }
             $newSpots = $spots->available_spots - 1;
             $spots->available_spots = $newSpots;
             $spots->save();

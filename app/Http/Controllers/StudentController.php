@@ -31,6 +31,7 @@ class StudentController extends Controller
     {
         if (\Auth::user()->id == $user) {
             $data['user'] = \App\User::where('id', $user)->first();
+
             return view('/students/edit', $data);
         } else {
             return new Response(view('forbidden'));
@@ -269,7 +270,7 @@ class StudentController extends Controller
             //Put user data in session User
             $request->session()->put('user', $user);
             // dd($sessionData['name']);
-            return view('/home', $data);
+            return redirect('/home');
         }
 
         return view('students/login');

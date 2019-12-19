@@ -137,7 +137,7 @@ class CompanyController extends Controller
             'state' => ['required'],
             'postalCode' => ['required'],
             'employees' => ['required', 'integer', 'gt:0'],
-            'website' => 'starts_with:http://',
+            'website' => 'starts_with:http://,https://',
         ]);
 
         $request->flash();

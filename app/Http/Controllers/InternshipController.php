@@ -9,9 +9,7 @@ class InternshipController extends Controller
 {
     public function index()
     {
-        $data['internships'] = \App\Internship::where('status', true)
-        ->where('available_spots', '>', 0)
-        ->with('jobApplications')->latest()->get();
+        $data['internships'] = \App\Internship::OfAll();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
@@ -30,7 +28,7 @@ class InternshipController extends Controller
 
     public function welcomeIndex()
     {
-        $data['internships'] = \App\Internship::with('jobApplications')->where('status', true)->take(6)->latest()->get();
+        $data['internships'] = \App\Internship::OfLimit();
         $data['tags'] = \App\CompanyTag::get();
         $data['states'] = \App\State::get();
 
