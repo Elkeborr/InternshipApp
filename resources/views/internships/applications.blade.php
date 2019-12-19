@@ -81,7 +81,7 @@ Stageplaats
             <button class="btn btn-secondary" type="submit">Opslaan</button>
             @endif
         </form>
-        <hr>
+        <hr>m
         <div class='message_chat'>
             @if($messagesCompany->user_id ==! \App\User::where('id', $jobApplication->user_id)->first()->id)
             <a href="/chats/{{\App\User::where('id', $jobApplication->user_id)->first()->id}}/newMessage" class="btn">Stuur bericht</a>
