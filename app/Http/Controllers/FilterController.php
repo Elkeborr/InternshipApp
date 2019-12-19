@@ -23,7 +23,7 @@ class FilterController extends Controller
             $query = $collection->unique('id');
         }
         if ($request->has('tag') && $request->has('state')) {
-            $collection = \App\AssignCompanyTags::OfTag($tag, $state)->inRandomOrder()->get();
+            $collection = \App\AssignCompanyTags::OfTagAndState($tag, $state)->inRandomOrder()->get();
             $query = $collection->unique('id');
         }
 
