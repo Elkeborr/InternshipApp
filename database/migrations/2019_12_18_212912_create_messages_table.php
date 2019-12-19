@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->text('message');
             $table->string('sender');
             $table->bigInteger('chat_id');
-            $table->timestamps();
+            $table->timestampsTz();
         });
     }
 
