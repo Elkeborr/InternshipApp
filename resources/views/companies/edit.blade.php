@@ -50,7 +50,7 @@ Wijzig profiel
             <button type="submit" class="btn btn-success">Opslaan</button>
         </form>
 </div>
-
+<br><br><br><br>
 
         <!-- persoonlijke gegevens --->
         <form action="/companies/{{$company->id}}/save" method="post">
@@ -141,7 +141,11 @@ Wijzig profiel
             <input type="hidden" class="form-control" name="TagId" id="TagId" value="{{$tag->tags->id}}">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->tags->name}}">
+                    <select class="browser-default custom-select" name="tag">
+                            @foreach($tags as $tag)
+                                <option class="dropdown-item" type="button" value="{{$tag->id}}">{{$tag->name }}</option>
+                            @endforeach
+                    </select>
                 </div>
 
                 <div class="col">
@@ -158,11 +162,13 @@ Wijzig profiel
             {{method_field('put')}}
             {{csrf_field()}}
             <div class="row">
+                <div class="col">
                 <select class="browser-default custom-select" name="tag">
                     @foreach($tags as $tag)
                     <option class="dropdown-item" type="button" value="{{$tag->id}}">{{$tag->name }}</option>
                     @endforeach
                 </select>
+                </div>
 
                 <div class="col">
                     <button type="submit" class="btn btn-success" formaction="/companies/addTags/{{$company->id}}">Nieuwe toevoegen</button>

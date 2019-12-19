@@ -108,7 +108,7 @@ checkboxes.change(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ElkeBorreij/Documents/GitHub/InternshipApp/resources/js/checkbox.js */"./resources/js/checkbox.js");
+module.exports = __webpack_require__(/*! /Users/angeliquebuijzen/Documents/GitHub/InternshipApp/resources/js/checkbox.js */"./resources/js/checkbox.js");
 
 
 /***/ })
