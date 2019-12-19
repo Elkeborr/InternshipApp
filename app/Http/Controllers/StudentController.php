@@ -166,7 +166,7 @@ class StudentController extends Controller
         $user->save();
 
         return back()
-            ->with('success', 'You have successfully upload image.')
+            ->with('success', 'De afbeelding is opgeslagen.')
             ->with('image', $imageName);
     }
 
@@ -176,7 +176,9 @@ class StudentController extends Controller
         $user->biography = request('biography');
         $user->save();
 
-        return redirect()->action('StudentController@show', $user);
+        return back()
+            ->with('success', 'Vakgebied is gewijzigd.')
+            ->with('image', $imageName);
     }
 
     public function updateSkills(Request $request)
