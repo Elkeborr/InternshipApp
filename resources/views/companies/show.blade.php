@@ -14,9 +14,9 @@
 <div class="company-show container">
     <section class="company-show_info">
 
-    @if(!$company->users->profile_picture == null)
+    @if(!$company->logo == null)
         <div class="company-show_info_photo">
-            <img src="../profileImages/{{$company->users->profile_picture}}" class="profilepic" alt='logo'>
+            <img src="../company-images/{{$company->logo}}" class="profilepic" alt='logo'>
         </div>
     @endif
 

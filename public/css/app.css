@@ -10273,14 +10273,13 @@ h3 {
 }
 
 .company-show_info_photo {
-  padding: 5%;
+  padding: 0% 5%;
   justify-self: center;
 }
 
 .company-show_info_photo img {
   -o-object-fit: cover;
      object-fit: cover;
-  max-height: 100%;
   align-content: center;
 }
 
