@@ -36,7 +36,8 @@ class Company extends Authenticatable
 
     public function scopeOfState($query, array $state)
     {
-        return $query->whereIn('state', $state);
+        return $query->whereIn('state', $state)
+        ->with('users');
     }
 
     public function scopeShow($query, $company)

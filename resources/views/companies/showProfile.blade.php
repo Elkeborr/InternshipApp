@@ -12,10 +12,12 @@
 @section('content')
 
 <div class="company-show container">
+    
     @if (\Auth::user()->company_id === $company->id)
-        <img src="{{asset('../img/edit-grey.png')}}" class="editProfileCompany" width="15" alt="edit" onclick="window.location.href='/companies/{{$company->id }}/edit'">
-        <p>Wijzigen</p>
-    @endif
+    <div class="edit_btn">
+        <a class="btn" onclick="window.location.href='/companies/{{$company->id }}/edit'" >   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Wijzigen</a>
+        </div>
+        @endif
     
     <section class="company-show_info">
         <div class="company-show_info_photo">

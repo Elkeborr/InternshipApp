@@ -23,32 +23,25 @@ Wijzig profiel
     </div>
     @endif
     @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-        @endif
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+    @endif
     <br>
     <h2>Bedrijfslogo</h2>
 
 
     <div class="panel panel-primary">
-
         <div class="profielfoto">
-
             @if($company->logo !=null)
-                <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
-             @endif
-
+            <img src="{{asset('../company-images').'/'.$company->logo}}" alt="profile picture" class="profilepic">
+            @endif
             @if($company->logo ==null)
-                <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
+            <img src="{{asset('../img/defaultProfile.png')}}" alt="profile picture" class="profilepic">
             @endif
         </div>
-
-
-       
-
-
+        <div class="col-6">
         <form action="/companies/imageUpload/{{$company->id}}" method="POST" enctype="multipart/form-data">
             {{method_field('put')}}
             @csrf
@@ -56,8 +49,8 @@ Wijzig profiel
             <br>
             <button type="submit" class="btn btn-success">Opslaan</button>
         </form>
+</div>
 
-        <br><br><br><br><br>
 
         <!-- persoonlijke gegevens --->
         <form action="/companies/{{$company->id}}/save" method="post">
@@ -90,7 +83,7 @@ Wijzig profiel
             <br>
             <label for="website">Website</label>
             <input type="text" class="form-control" name="website" id="website" value="{{$company->website}}">
-            
+
             <br>
             <label for="biography">Bio</label>
             <textarea class="form-control" name="biography" id="biography">{{$company->bio}}</textarea>
@@ -131,55 +124,55 @@ Wijzig profiel
         </form>
 
 
-        
+
+        {{method_field('put')}}
+        {{csrf_field()}}
+        <br><br><br><br>
+        <h2>Vakgebieden</h2>
+        <br>
+
+
+
+        @foreach ($company->tags as $tag)
+        <form action="/companies/editTags/{{$company->id}}" method="post">
             {{method_field('put')}}
             {{csrf_field()}}
-            <br><br><br><br>
-            <h2>Vakgebieden</h2>
-            <br>
 
-          
+            <input type="hidden" class="form-control" name="TagId" id="TagId" value="{{$tag->tags->id}}">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->tags->name}}">
+                </div>
 
-            @foreach ($company->tags as $tag)
-                <form action="/companies/editTags/{{$company->id}}" method="post">
-                    {{method_field('put')}}
-                    {{csrf_field()}}
-                    
-                    <input type="hidden" class="form-control" name="TagId" id="TagId" value="{{$tag->tags->id}}">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="tag" id="tag" value="{{$tag->tags->name}}">
-                        </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
+                    <button type="submit" class="btn btn-danger" formaction="/companies/deleteTags/{{$company->id}}">Verwijder</button>
+                </div>
+            </div>
 
-                        <div class="col">
-                            <button type="submit" class="btn btn-success" formaction="/companies/editTags/{{$company->id}}">Opslaan</button>
-                            <button type="submit" class="btn btn-danger" formaction="/companies/deleteTags/{{$company->id}}">Verwijder</button>
-                        </div>
-                    </div>
+        </form>
+        <br>
+        @endforeach
+        <hr>
+        <form action="/companies/saveTags/{{$company->id}}" method="post">
+            {{method_field('put')}}
+            {{csrf_field()}}
+            <div class="row">
+                <select class="browser-default custom-select" name="tag">
+                    @foreach($tags as $tag)
+                    <option class="dropdown-item" type="button" value="{{$tag->id}}">{{$tag->name }}</option>
+                    @endforeach
+                </select>
 
-                </form>
-                <br>
-            @endforeach
-            <hr>
-            <form action="/companies/saveTags/{{$company->id}}" method="post">
-                {{method_field('put')}}
-                {{csrf_field()}}
-                    <div class="row">
-                    <select class="browser-default custom-select" name="tag">
-                                    @foreach($tags as $tag)
-                                    <option class="dropdown-item" type="button"  value="{{$tag->id}}">{{$tag->name }}</option>
-                                    @endforeach
-                                </select>
+                <div class="col">
+                    <button type="submit" class="btn btn-success" formaction="/companies/addTags/{{$company->id}}">Nieuwe toevoegen</button>
+                </div>
+            </div>
+        </form>
 
-                        <div class="col">
-                            <button type="submit" class="btn btn-success" formaction="/companies/addTags/{{$company->id}}">Nieuwe toevoegen</button>
-                        </div>
-                    </div>
-            </form>
-           
-                
 
-    <br>
+
+        <br>
 
 
 
@@ -187,7 +180,7 @@ Wijzig profiel
 
 
 
-</div>
+    </div>
 
 
-@endsection
+    @endsection

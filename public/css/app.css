@@ -10196,6 +10196,10 @@ h3 {
   color: #fd4a29;
 }
 
+.edit_btn a {
+  color: #fff !important;
+}
+
 .editpart {
   background-color: #f6f7fb;
   margin-bottom: 30px;
