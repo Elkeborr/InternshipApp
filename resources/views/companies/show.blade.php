@@ -13,12 +13,12 @@
 
 <div class="company-show container">
     <section class="company-show_info">
-   
+
     @if(!$company->users->profile_picture == null)
-    <div class="company-show_info_photo">
-            <img src="../profileImages/{{$company->users->profile_picture}}" alt='logo'>
+        <div class="company-show_info_photo">
+            <img src="../profileImages/{{$company->users->profile_picture}}" class="profilepic" alt='logo'>
         </div>
-        @endif
+    @endif
 
         <div class="company-show_info_text">
             <h1>{{$company->name}}</h1>
