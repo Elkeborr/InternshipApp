@@ -1101,7 +1101,6 @@ h3 {
     color: $white;
     font-size: 1em;
 }
-
 .message_chat a:hover {
     color: $white;
 }
@@ -1115,4 +1114,10 @@ h3 {
 
 .chat-photo {
     padding: 5px;
+}
+
+.messages_btns a {
+    color: $white !important;
+
+    margin-top: 10px;
 }

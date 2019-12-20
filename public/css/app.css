@@ -10874,3 +10874,8 @@ h3 {
 .chat-photo {
   padding: 5px;
 }
+
+.messages_btns a {
+  color: #fff !important;
+  margin-top: 10px;
+}
