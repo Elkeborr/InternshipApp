@@ -135,7 +135,7 @@ class MessageController extends Controller
                 $newChatId = 1;
                 $message = new \App\Message();
                 $message->user_id = $user;
-                $message->company_id = $request->route('company');
+                $message->company_id = $request->route('id');
                 $message->message = $request->input('message');
                 $message->chat_id = $newChatId;
 
