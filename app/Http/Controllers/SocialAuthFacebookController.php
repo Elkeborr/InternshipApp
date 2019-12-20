@@ -17,9 +17,11 @@ class SocialAuthFacebookController extends Controller
     {
         return Socialite::driver('facebook')->redirect();
     }
+
     /**
      * Return a callback method from facebook api.
      *
+     * @param SocialFacebookAccountService $service
      * @return callback URL from facebook
      */
     public function callback(SocialFacebookAccountService $service)

@@ -10855,6 +10855,11 @@ h3 {
 
 .message_chat a {
   color: #fff;
+  font-size: 1em;
+}
+
+.message_chat a:hover {
+  color: #fff;
 }
 
 .message_chat {
@@ -10867,4 +10872,9 @@ h3 {
 
 .chat-photo {
   padding: 5px;
+}
+
+.messages_btns a {
+  color: #fff !important;
+  margin-top: 10px;
 }

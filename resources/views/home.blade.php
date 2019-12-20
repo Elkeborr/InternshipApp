@@ -28,7 +28,18 @@ Overzicht
                 {{\Auth::user()::where('id', $jobApplication['user_id'])->first()->name}}
             </a>
             <a href="MAILTO:{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->email}}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email</a>
-
+           
+            <div class="messages_btns">
+                @if(!$messagesCompany == null)
+                    @if($messagesCompany->company_id !== $company->id)
+                <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn" >Stuur bericht</a>
+                @else
+                <a href="/chats/{{$messagesCompany->chat_id}}" class="btn">Berichten</a>
+                @endif
+                @else
+                <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn">Stuur bericht</a>
+                @endif
+            </div>
         </div>
         @endforeach
         @else
@@ -61,6 +72,7 @@ Overzicht
     <?php
     $internship = \App\Internship::where('id', $jobApplication->internship_id)->first();
     $company = \App\Company::where('id', $internship->company_id)->first();
+   $message = \App\Message::where('user_id', \Auth::user()->id)->where('company_id', $company->id)->first();
     ?>
     <div class="internships">
         <img>
@@ -77,14 +89,13 @@ Overzicht
         <p>{{Str::limit( $internship->internship_discription, $limit = 100, $end = ' ...')}}</p>
         <strong>{{$company->city}}</strong><br><br>
         <a href="/companies/{{$company->id}}" class="btn">Ga naar bedrijf</a>
+        
         @if(!$messagesStudent == null)
-        @if($messagesStudent->company_id !== $company->id)
-        <a href="/chats/{{$company->id}}/newMessage" class="btn">Stuur bericht</a>
-        @else
-        <a href="/chats/{{$messagesStudent->chat_id}}" class="btn">Berichten</a>
-        @endif
-        @else
-        <a href="/chats/{{$company->id}}/newMessage" class="btn">Stuur bericht</a>
+                @if( $message)        
+                <a href="/chats/{{$message->chat_id}}" class="btn message_btn" >Berichten</a> 
+                @else
+                <a href="/chats/{{$company->id}}/newMessage" class="btn message_btn" >Stuur bericht</a>
+                @endif
         @endif
 
 

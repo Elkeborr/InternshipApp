@@ -103,19 +103,14 @@ class MessageController extends Controller
         }
     }
 
-    public function newMessageToCompany($company)
+    public function newMessageToCompany($id)
     {
         if (\Auth::user()->type == 'company') {
-            return redirect('/chats');
+            $data['apply'] = \App\jobApplication::where('user_id', $id)->first();
+            $data['user'] = \App\User::where('id', $data['apply']->user_id)->first();
         } elseif (\Auth::user()->type == 'student') {
-            $data['apply'] = \App\jobApplication::where('user_id', \Auth::user()->id)->first();
-
-            if ($data['apply']->userId !== \Auth::user()->id) {
-                return redirect('/chats');
-            }
+            $data['company'] = \App\Company::where('id', $id)->first();
         }
-
-        $data['company'] = \App\Company::where('id', $company)->first();
 
         return view('chats/newMessage', $data);
     }
@@ -130,7 +125,7 @@ class MessageController extends Controller
                 $newChatId = $chat_id->chat_id + 1;
                 $message = new \App\Message();
                 $message->user_id = $user;
-                $message->company_id = $request->route('company');
+                $message->company_id = $request->route('id');
                 $message->message = $request->input('message');
                 $message->chat_id = $newChatId;
 
@@ -152,17 +147,32 @@ class MessageController extends Controller
         }
         if ($request['companySave']) {
             $company = \Auth::user()->company_id;
-            $chat_id = $request->route('chat_id');
+            $chat_id = \App\Message::orderBy('created_at', 'DESC')->first();
             $user = \App\Message::where('messages.chat_id', $chat_id)->first();
 
-            $message = new \App\Message();
-            $message->user_id = $user->user_id;
-            $message->company_id = $company;
-            $message->message = $request->input('message');
-            $message->chat_id = $chat_id;
+            if ($chat_id) {
+                $newChatId = $chat_id->chat_id + 1;
+                $message = new \App\Message();
 
-            $message->sender = 'company';
-            $message->save();
+                $message = new \App\Message();
+                $message->user_id = $request->route('id');
+                $message->company_id = $company;
+                $message->message = $request->input('message');
+                $message->chat_id = $newChatId;
+
+                $message->sender = 'company';
+                $message->save();
+            } else {
+                $newChatId = 1;
+                $message = new \App\Message();
+                $message->user_id = $request->route('id');
+                $message->company_id = $company;
+                $message->message = $request->input('message');
+                $message->chat_id = $newChatId;
+
+                $message->sender = 'company';
+                $message->save();
+            }
 
             return redirect('/chats');
         }
