@@ -94,7 +94,7 @@ Overzicht
                 @if( $message)        
                 <a href="/chats/{{$message->chat_id}}" class="btn message_btn" >Berichten</a> 
                 @else
-                <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn message_btn" >Stuur bericht</a>
+                <a href="/chats/{{$company->id}}/newMessage" class="btn message_btn" >Stuur bericht</a>
                 @endif
         @endif
 
