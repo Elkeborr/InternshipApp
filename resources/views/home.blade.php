@@ -29,15 +29,17 @@ Overzicht
             </a>
             <a href="MAILTO:{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->email}}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email</a>
            
+            <div class="messages_btns">
             @if(!$messagesCompany == null)
                 @if($messagesCompany->company_id !== $company->id)
-        <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn">Stuur bericht</a>
+        <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn" >Stuur bericht</a>
         @else
         <a href="/chats/{{$messagesCompany->chat_id}}" class="btn">Berichten</a>
         @endif
         @else
         <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn">Stuur bericht</a>
         @endif
+        </div>
         </div>
         @endforeach
         @else
@@ -90,11 +92,10 @@ Overzicht
         
         @if(!$messagesStudent == null)
                 @if( $message)        
-                <a href="/chats/{{$message->chat_id}}" class="btn">Berichten</a> 
+                <a href="/chats/{{$message->chat_id}}" class="btn message_btn" >Berichten</a> 
                 @else
-                <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn">Stuur bericht</a>
+                <a href="/chats/{{\Auth::user()::where('id', $jobApplication['user_id'])->first()->id}}/newMessage" class="btn message_btn" >Stuur bericht</a>
                 @endif
-     
         @endif
 
 
